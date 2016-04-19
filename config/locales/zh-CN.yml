@@ -9,7 +9,7 @@ zh-CN:
         password_confirmation: 确认密码
         created_at: 创建
         updated_at: 更新
-  title: Title
+  title: 蚂蚁共和
   new_admin: 新建管理员
   admin_list: 管理员列表
   are_you_sure: 请确认操作
