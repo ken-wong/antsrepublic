@@ -10,7 +10,7 @@ class Admin::SessionsController < Admin::BaseController
       admin_log_in admin
       redirect_to admin_root_url
     else
-      flash.now[:danger] = t(:invalid_email_or_password)
+      flash.now[:danger] = t(:invalid_name_or_password)
       render 'new'
     end
   end

@@ -2,6 +2,7 @@ zh-CN:
   activerecord:
     models:
       admin: 管理员
+      user: 用户
     attributes:
       admin:
         name: 姓名
@@ -9,6 +10,12 @@ zh-CN:
         password_confirmation: 确认密码
         created_at: 创建
         updated_at: 更新
+      user:
+        email: 电子邮箱
+        name: 姓名
+        cell: 手机
+        password: 密码
+        password_confirmation: 确认密码
   title: 蚂蚁共和
   new_admin: 新建管理员
   admin_list: 管理员列表
@@ -19,6 +26,8 @@ zh-CN:
   back: 返回
   login: 登录
   logout: 登出
+  signup: 注册
   please_log_in: 请登录
   reset_password: 重设密码
-  invalid_email_or_password: 无效的用户名或密码
+  invalid_email_or_password: 无效的电子邮箱或密码
+  invalid_name_or_password: 无效的用户名或密码

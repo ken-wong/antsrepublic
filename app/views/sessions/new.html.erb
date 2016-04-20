@@ -1,0 +1,6 @@
+<%= simple_form_for(:session, url: login_path) do |f| %>
+  <%= f.input :email, label: User.human_attribute_name("email") %>
+  <%= f.input :password, label: User.human_attribute_name("password") %>
+  <%= f.button :submit, t(:login) %>
+<% end %>
+<%= link_to t(:back), :back %>
