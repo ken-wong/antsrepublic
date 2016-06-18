@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @product.avatar %>
+</p>
+
+<p>
+  <strong>Client name:</strong>
+  <%= @product.client_name %>
+</p>
+
+<p>
+  <strong>Ref price:</strong>
+  <%= @product.ref_price %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @product.category %>
+</p>
+
+<p>
+  <strong>Main img:</strong>
+  <%= @product.main_img %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', products_path %>

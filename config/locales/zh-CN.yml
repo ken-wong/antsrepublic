@@ -3,7 +3,14 @@ zh-CN:
     models:
       admin: 管理员
       user: 用户
+      product: 案例
     attributes:
+      product:
+        title: 项目名称
+        avatar: 缩略图
+        client_name: 委托客户
+        category: 项目分类
+        description: 项目说明
       admin:
         name: 姓名
         password: 密码
