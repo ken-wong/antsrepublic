@@ -110,6 +110,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.1.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     eventmachine (1.2.0.1)
@@ -300,6 +301,7 @@ DEPENDENCIES
   carrierwave-qiniu
   coffee-rails (~> 4.1.0)
   devise
+  devise-i18n
   factory_girl_rails
   faker
   high_voltage

@@ -1,9 +1,10 @@
 zh-CN:
   activerecord:
     models:
-      admin: 管理员
+      admin_user: 管理员
       user: 用户
       product: 案例
+      comment: 评论
     attributes:
       product:
         title: 项目名称
