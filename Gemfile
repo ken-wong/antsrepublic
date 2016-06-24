@@ -66,3 +66,5 @@ gem 'thin'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'devise-i18n'
+
+gem 'acts-as-taggable-on', '~> 3.4'
