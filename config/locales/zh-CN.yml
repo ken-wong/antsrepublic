@@ -12,6 +12,7 @@ zh-CN:
         client_name: 委托客户
         category: 项目分类
         description: 项目说明
+        main_media: 主图&视频
       admin:
         name: 姓名
         password: 密码
