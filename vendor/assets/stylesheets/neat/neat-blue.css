@@ -12,7 +12,7 @@
 .responsive-slider-parallax .slides-container {
   position: relative;
   overflow: hidden;
-  background-image: url(../img/background-paralax.jpg);
+  background-image: url(/assets/neat/background-paralax.jpg);
   background-size: cover;
   background-position: 0 0;
   cursor: move;

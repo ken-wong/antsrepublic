@@ -1,0 +1,23 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @product.title
+%p
+  %strong Main img:
+  = @product.main_media
+%p
+  %strong Client name:
+  = @product.client_name
+%p
+  %strong Ref price:
+  = @product.ref_price
+%p
+  %strong Category:
+  = @product.category
+%p
+  %strong Description:
+  = @product.description
+= link_to 'Edit', edit_product_path(@product)
+|
+\#{link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }} |
+\#{link_to 'Back', products_path}
