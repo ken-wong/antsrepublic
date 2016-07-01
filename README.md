@@ -1,4 +1,13 @@
-Ants Republic
-add user amos
+#Ants Republic
+		
+			power by amos
+
+## change log
+
+* add gallery silde
+		
+		https://github.com/blueimp/Gallery
+
+
 
 
