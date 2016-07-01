@@ -1,0 +1,19 @@
+#products
+  %h3 案例展示
+  %ul.nav.nav-pills
+    %li.nav-item
+      %a.nav-link.active{:href => "#"} 效果图
+    %li.nav-item
+      %a.nav-link{:href => "#"} 影片
+    %li.nav-item
+      %a.nav-link{:href => "#"} 多媒体
+  %div{:name => "products"}
+    - @products.each do |product|
+      %div
+        %td= link_to image_tag(product.avatar.small_url), product
+        %td= link_to product.title, product
+        %td= product.client_name
+        %td= product.ref_price
+        %td= product.category
+
+       

@@ -124,11 +124,15 @@ GEM
       railties (>= 3.0.0)
     faker (1.6.3)
       i18n (~> 0.5)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     formtastic (3.1.4)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -307,9 +311,12 @@ DEPENDENCIES
   devise-i18n
   factory_girl_rails
   faker
+  font-awesome-rails
+  haml
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   mini_magick
   mysql2 (>= 0.3.13, < 0.5)
   qiniu-rs

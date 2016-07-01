@@ -42,6 +42,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
      %w(jpg jpeg gif png)
   end
 
+  def small_url 
+    self.url  + '?imageView2/1/w/200/h/200'
+  end
+
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename

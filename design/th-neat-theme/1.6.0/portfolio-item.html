@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Neat template by w3widgets</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/neat-blue.css" media="screen" id="neat-stylesheet">
+
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="libs/Bootstrap-Image-Gallery-3.1.1/css/bootstrap-image-gallery.min.css">
+
+    <!-- Use google font -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,300italic,400italic,700italic|Lustria" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="background-clouds">
+    <div id="nav-wrapper" class="background-white color-black">
+      <nav id="mainMenu" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar background-lead"></span>
+              <span class="icon-bar background-lead"></span>
+              <span class="icon-bar background-lead"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo">Neat</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="index-other.html">Home - other elements</a></li>
+                </ul>
+              </li>
+              <li><a href="aboutus.html">About us</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="pricing.html">Pricing</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="faq.html">FAQ</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <li class="divider"></li>
+                  <li><a href="registration.html">Registration</a></li>
+                  <li><a href="login.html">Login</a></li>
+                  <li><a href="register-login.html">Register/Login</a></li>
+                  <li class="divider"></li>
+                  <li><a href="404.html">Error 404</a></li>
+                  <li class="divider"></li>
+                  <li><a href="article.html">Article</a></li>
+                  <li><a href="typography.html">Typography</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="entry-list.html">List of entries</a></li>
+                  <li><a href="entry.html">Entry</a></li>
+                </ul>
+              </li>
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="portfolio.html">Portfolio</a></li>
+                  <li class="active"><a href="portfolio-item.html">Portfolio Item</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-search"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form class="form-inline" role="form">
+                      <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="submit">Search</button>
+                        </span>
+                      </div>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-lock"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form role="form">
+                      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Remember me
+                        </label>
+                      </div>
+                      <button type="submit" class="btn btn-default">Login</button>
+                      <span class="color-white"><button type="button" class="btn btn-link pull-right">Register</button></span>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </nav>
+    </div>
+    
+    <!-- Breadcrumbs - START -->
+    <div class="breadcrumbs-container">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li class="active">Portfolio</li>
+          <li class="active">Portfolio Item</li>
+        </ol>
+      </div>
+    </div>
+    <!-- Breadcrumbs - END -->
+
+    <!-- Component: portfolio/portfolio-item.html - START -->
+    <section class="">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="blog-entry">
+              <div class="blog-entry-content">
+                <h1>Project title</h1>
+                <div class="date">2013.11.30 16:34, <a href="">4 <sup><span class="fa fa-comment-alt"></span></sup></a></div>
+                <div class="content">
+                  <p>Sed porta ac ipsum ut mollis. Integer id vestibulum dui, at dapibus orci. Nunc adipiscing, orci sit amet ultricies sagittis, arcu orci feugiat lorem, nec feugiat magna erat id lectus. Cras tristique eu sapien ut aliquam. Cras pharetra nisl sapien, ut tincidunt nunc feugiat at. Donec massa nisl, tincidunt eu nulla quis, tristique facilisis nibh. Praesent viverra tempor lectus et consectetur.</p>
+
+                  <img class="pull-left" src="img/placeholder-heli.jpg" alt="..." style="width: 400px">
+
+                  <p>Pellentesque imperdiet diam ut augue vulputate eleifend vitae id lorem. Aliquam a congue lectus, nec sollicitudin risus. Vivamus id nisi tincidunt, tempus orci sed, vestibulum eros. Nulla facilisi. Nam eu ornare libero. Suspendisse adipiscing neque et egestas bibendum. Morbi vulputate non tellus eu dapibus. Maecenas tempor scelerisque pulvinar. Donec dictum pulvinar rhoncus. Sed ornare quis orci eget viverra. Sed tincidunt id turpis interdum congue. Nam quis scelerisque lacus. Suspendisse id metus nibh.</p>
+
+                  <p>Suspendisse vel lectus gravida, sollicitudin massa vitae, varius nisi. Ut magna lacus, feugiat eu accumsan at, fringilla eu nisl. Aliquam quis erat egestas, faucibus tellus id, fermentum purus. Donec consectetur vehicula eleifend. Duis auctor nisl nisl, vitae consequat enim semper sed. Sed eu mauris sit amet mi sagittis auctor. Praesent sit amet interdum augue. Proin metus purus, sodales vitae consequat ut, rutrum in odio. Curabitur posuere iaculis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                  <p>Aenean volutpat rhoncus placerat. Suspendisse commodo, felis et eleifend molestie, nisl arcu mattis sem, laoreet euismod odio nisl sit amet metus. Proin laoreet non diam sit amet tempor. Etiam et tincidunt lorem. Nullam at sollicitudin diam. Duis cursus tristique bibendum. Vestibulum in nunc ullamcorper, fringilla tellus sed, pretium arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam suscipit, risus a imperdiet dictum, nunc nisl condimentum purus, nec volutpat velit nisl eu lacus. Vivamus lobortis placerat diam a congue.</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g1.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g1.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g2.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g2.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g3.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g3.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g4.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g4.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g5.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g5.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g6.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g6.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g7.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g7.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g8.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g8.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g9.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g9.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g10.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g10.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g11.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g11.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <a class="info-thumbnail-link" href="img/gallery/g12.jpg" data-gallery>
+            <div class="thumbnail info-thumbnail background-clouds color-text">
+              <div class="service">
+                <div class="service-name"><span class="fa fa-search-plus"></span></div>
+              </div>
+              <img class="round" src="img/gallery/g12.jpg" alt="...">
+            </div>
+            </a>
+          </div>
+        </div>
+          </div>
+          <div class="col-md-3">
+            <h3>Our projects</h3>
+            <ul class="media-list">
+              <li class="media blog-entry">
+                <div class="pull-left">
+                  <img class="media-object" src="img/placeholder-heli-sq-sm.jpg" alt="...">
+                </div>
+                <div class="media-body">
+                  <div class="blog-entry-content no-border">
+                    <h4><a href="#">Project title</a></h4>
+                    <div class="content">
+                      <p><small>Sed porta ac ipsum ut mollis. Integer id vestibulum dui, at dapibus orci. Nunc adipiscing, orci sit amet ultricies sagittis, arcu orci feugiat lorem, nec feugiat magna erat id lectus.</small></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="media blog-entry">
+                <div class="pull-left">
+                  <img class="media-object" src="img/placeholder-annency-sq-sm.jpg" alt="...">
+                </div>
+                <div class="media-body">
+                  <div class="blog-entry-content no-border">
+                    <h4><a href="#">Project title</a></h4>
+                    <div class="content">
+                      <p><small>Sed porta ac ipsum ut mollis. Integer id vestibulum dui, at dapibus orci. Nunc adipiscing, orci sit amet ultricies sagittis, arcu orci feugiat lorem, nec feugiat magna erat id lectus.</small></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="media blog-entry">
+                <div class="pull-left">
+                  <img class="media-object" src="img/placeholder-office-couple-sq-sm.jpg" alt="...">
+                </div>
+                <div class="media-body">
+                  <div class="blog-entry-content no-border">
+                    <h4><a href="#">Project title</a></h4>
+                    <div class="content">
+                      <p><small>Sed porta ac ipsum ut mollis. Integer id vestibulum dui, at dapibus orci. Nunc adipiscing, orci sit amet ultricies sagittis, arcu orci feugiat lorem, nec feugiat magna erat id lectus.</small></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="media blog-entry">
+                <div class="pull-left">
+                  <img class="media-object" src="img/placeholder-annency-sq-sm.jpg" alt="...">
+                </div>
+                <div class="media-body">
+                  <div class="blog-entry-content no-border">
+                    <h4><a href="#">Project title</a></h4>
+                    <div class="content">
+                      <p><small>Sed porta ac ipsum ut mollis. Integer id vestibulum dui, at dapibus orci. Nunc adipiscing, orci sit amet ultricies sagittis, arcu orci feugiat lorem, nec feugiat magna erat id lectus.</small></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>      </div>
+    </section>
+    <!-- Component: portfolio/portfolio-item.html - END -->
+
+
+    <footer class="background-midnight-blue color-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h3>Menu</h3>
+            <ul class="nav-footer">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Pages</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h3>Testmonials</h3>
+            <p class="testimonial">Proin venenatis velit nibh, sit amet commodo sapien tristique at. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras bibendum erat at ultricies rhoncus.</p>
+            <p class="author">lkokosz</p>
+            <p class="testimonial">Proin venenatis velit nibh, sit amet commodo sapien tristique at. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras bibendum erat at ultricies rhoncus.</p>
+            <p class="author">lkokosz</p>
+          </div>
+          <div class="col-md-5">
+            <h3>Contact us</h3>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="inputName1" class="col-lg-3 control-label">Name</label>
+                <div class="col-lg-9">
+                  <input type="text" class="form-control input-lg" id="inputName1" placeholder="Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail1" class="col-lg-3 control-label">Email</label>
+                <div class="col-lg-9">
+                  <input type="email" class="form-control input-lg" id="inputEmail1" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputContent1" class="col-lg-3 control-label">Content</label>
+                <div class="col-lg-9">
+                  <textarea id="inputContent1" class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-9">
+                  <button type="submit" class="btn btn-lead btn-lg">Send us an email</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr>
+            <div class="row">
+              <div class="col-md-6">
+                All rights reserved &copy; 2013 <a href="http://w3widgets.com">w3widgets.com</a>
+              </div>
+              <div class="col-md-6">
+                <p class="social">
+                  <a href="/"><span class="fa fa-facebook"></span></a>
+                  <a href="/"><span class="fa fa-twitter"></span></a>
+                  <a href="/"><span class="fa fa-youtube"></span></a>
+                  <a href="/"><span class="fa fa-linkedin"></span></a>
+                  <a href="/"><span class="fa fa-pinterest"></span></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+    <div id="blueimp-gallery" class="blueimp-gallery">
+      <!-- The container for the modal slides -->
+      <div class="slides"></div>
+      <!-- Controls for the borderless lightbox -->
+      <h3 class="title">title</h3>
+      <a class="prev">‹</a>
+      <a class="next">›</a>
+      <a class="close">×</a>
+      <a class="play-pause"></a>
+      <ol class="indicator"></ol>
+      <!-- The modal dialog, which will be used to wrap the lightbox content -->
+      <div class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">title</h4>
+            </div>
+            <div class="modal-body next"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left prev">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Previous
+              </button>
+              <button type="button" class="btn btn-primary next">
+                Next
+                <i class="glyphicon glyphicon-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Include slider -->
+    <script src="js/jquery.event.move.js"></script>
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/responsive-slider.js"></script>
+    <script src="js/responsive-calendar.js"></script>
+    <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="libs/Bootstrap-Image-Gallery-3.1.1/js/bootstrap-image-gallery.min.js"></script>
+    <script src="js/reduce-menu.js"></script>
+    <script src="js/match-height.js"></script>
+
+    <script type="text/javascript">
+    $(window).load(function(){
+      matchHeight($('.info-thumbnail .caption .description'), 3);
+    });
+    </script>
+  </body>
+</html>

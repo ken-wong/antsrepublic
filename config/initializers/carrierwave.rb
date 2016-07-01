@@ -4,7 +4,7 @@
   config.qiniu_secret_key    = "7UGe9arh_jrxTQGa1WLba3D8xDZ-FbXOJSVYAJt7"
   config.qiniu_bucket        = "ants"
   config.qiniu_bucket_domain = "o9ctas8fi.bkt.clouddn.com"
-  config.qiniu_bucket_private= true #default is false
+  config.qiniu_bucket_private= false #default is false
   config.qiniu_block_size    = 4*1024*1024
   config.qiniu_protocal      = "http"
 

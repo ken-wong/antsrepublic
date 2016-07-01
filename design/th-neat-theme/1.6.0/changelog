@@ -1,0 +1,40 @@
+Changelog
+===========================
+
+1.4
+---------------------------
+- Libraries versions update
+- New lightbox library
+- Each example component also avaliable in standalone file
+- Boxed layout added
+- Some bugfixes
+
+1.3
+---------------------------
+- Some color changes
+- Slider gets next and prev buttons
+
+1.2
+---------------------------
+- Added full width news that you can use inside a section
+- Added news that you can put inside the thumbnail
+- Added sorting and filtering plugin mixItUp for easy thumbnails rearrangements. Useful for eg. services presentation.
+- Added a possibility to recolor the top menu
+- Changed main project font to "Lato"
+- Added x-large h1 element for stylish sections
+- Added color versions
+- Some changes and fixes was applied to the info-thumbnail elements, eg. now you can put image between different elements not on the top of the box only.
+- Updated cdn-ed version of bootstrap to 3.1.1
+- Updated other scripts to a newest versions
+
+1.1
+---------------------------
+- Made animations and effects more consistent
+- Added the possibility to align the slider captions to the left, right or center
+- Added dropdown menu css3 animation
+- Buttons background color change is now animated
+- Few bugfixes
+
+1.0
+---------------------------
+- Initial release

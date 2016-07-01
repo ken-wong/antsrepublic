@@ -42,6 +42,11 @@ class MainMediaUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png mp4)
   end
 
+  %w(large medium thumb).each do |version|
+    define_method version do
+      "#{qiniu_protocol||"http"}://#{qiniu_bucket_domain}/#{model.class.to_s.underscore}/#{model.attributes["image"]}/#{version}" unless model.image.blank?
+    end
+  end
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
