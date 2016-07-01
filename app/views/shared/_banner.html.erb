@@ -1,14 +1,9 @@
 
 <div id="links" style="display:none">
-    <a href="assets/neat/background-paralax.jpg" title="万科1">
-        <img src="assets/neat/background-paralax.jpg" alt="万科">
-    </a>
-    <a href="assets/neat/gallery/g2.jpg" title="万科2">
-        <img src="assets/neat/gallery/g2.jpg" alt="万科">
-    </a>
-    <a href="assets/neat/gallery/g3.jpg" title="万科3">
-        <img src="assets/neat/gallery/g3.jpg" alt="万科">
-    </a>
+    <%= link_to image_tag('neat/background-paralax.jpg'), image_path('neat/background-paralax.jpg', alt: '万科1'), title: '万科1' %>
+    <%= link_to image_tag('neat/gallery/g2.jpg'), image_path('neat/gallery/g2.jpg'), title: "万科2" %>
+    <%= link_to image_tag('neat/gallery/g3.jpg'), image_path('neat/gallery/g3.jpg'), title: "万科3" %>
+    <%= link_to image_tag('neat/gallery/g4.jpg'), image_path('neat/gallery/g4.jpg'), title: "万科4" %>
 </div>
 <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
 <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">

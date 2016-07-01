@@ -18,6 +18,8 @@
 //= require gallery/jquery.blueimp-gallery.min.js
 //= require gallery/blueimp-gallery.min.js
 //
+//
+
 blueimp.Gallery(
     document.getElementById('links').getElementsByTagName('a'),
     {
