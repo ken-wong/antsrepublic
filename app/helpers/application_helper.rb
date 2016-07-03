@@ -31,22 +31,22 @@ module ApplicationHelper
     end
   end
 
-  def admin_log_in(admin)
-    session[:admin_id] = admin.id
-    @current_admin = admin
+  def queen_log_in(queen)
+    session[:queen_id] = queen.id
+    @current_queen = queen
   end
 
-  def current_admin
-    @current_admin || Admin.find_by(id: session[:admin_id])
+  def current_queen
+    @current_queen || Queen.find_by(id: session[:queen_id])
   end
 
-  def admin_logged_in?
-    !current_admin.nil?
+  def queen_logged_in?
+    !current_queen.nil?
   end
 
-  def admin_logout
-    session.delete(:admin_id)
-    @current_admin = nil
+  def queen_logout
+    session.delete(:queen_id)
+    @current_queen = nil
   end
 
   def log_in(user)

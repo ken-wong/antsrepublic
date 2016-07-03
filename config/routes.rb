@@ -2,14 +2,21 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :products
-  resources :products
   root 'welcome#index'
   get     'login'   => 'sessions#new'
   post    'login'   => 'sessions#create'
   delete  'logout'  => 'sessions#destroy'
   get     'signup'  => 'users#new'
-  resources :users
-  
+  get     'queen_login'   => 'queen_sessions#new'
+  post    'queen_login'   => 'queen_sessions#create'
+  delete  'queen_logout'  => 'queen_sessions#destroy'
+  get     'queen_signup'  => 'queens#new'
+  get     'choose'  => 'welcome#choose'
+  get     'choose_login' => 'welcome#choose_login'
+  resources :users do
+  end
+  resources :queens
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

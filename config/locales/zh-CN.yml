@@ -5,6 +5,7 @@ zh-CN:
       user: 用户
       product: 案例
       comment: 评论
+      queen: 蚁后
     attributes:
       product:
         title: 项目名称
@@ -25,6 +26,16 @@ zh-CN:
         cell: 手机
         password: 密码
         password_confirmation: 确认密码
+        company: 公司名称
+        avatar: 头像
+      queen:
+        email: 电子邮箱
+        name: 姓名
+        cell: 手机
+        password: 密码
+        password_confirmation: 确认密码
+        company: 公司名称
+        avatar: 头像
   title: 蚂蚁共和
   new_admin: 新建管理员
   admin_list: 管理员列表

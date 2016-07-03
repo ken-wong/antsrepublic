@@ -1,0 +1,22 @@
+<p>
+  <strong><%= Queen.human_attribute_name(:email) %></strong>
+  <%= @queen.send(:email) %>
+</p>
+<p>
+  <strong><%= Queen.human_attribute_name(:name) %></strong>
+  <%= @queen.send(:name) %>
+</p>
+<p>
+  <strong><%= Queen.human_attribute_name(:cell) %></strong>
+  <%= @queen.send(:cell) %>
+</p>
+<p>
+  <strong><%= Queen.human_attribute_name(:company) %></strong>
+  <%= @queen.send(:company) %>
+</p>
+<p>
+  <strong><%= Queen.human_attribute_name(:avatar) %></strong>
+  <%= image_tag(@queen.avatar_url) %>
+</p>
+<%= link_to t(:edit), edit_queen_path(@queen) %>
+<%= link_to t(:back), :back %>
