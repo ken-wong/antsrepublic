@@ -1,22 +1,36 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Home', root_url %></li>
+  <li><%= link_to '蚁后', queens_url %></li>
+  <li class="active"><%= @queen.name %></li>
+</ol>
+
 <p>
-  <strong><%= Queen.human_attribute_name(:email) %></strong>
-  <%= @queen.send(:email) %>
+  <%= image_tag(@queen.avatar_url) %>
 </p>
 <p>
-  <strong><%= Queen.human_attribute_name(:name) %></strong>
+  收藏（<%= @queen.followers_count %>）
+</p>
+<p>
   <%= @queen.send(:name) %>
 </p>
 <p>
-  <strong><%= Queen.human_attribute_name(:cell) %></strong>
-  <%= @queen.send(:cell) %>
+  <%= "已认证" %>
 </p>
 <p>
-  <strong><%= Queen.human_attribute_name(:company) %></strong>
-  <%= @queen.send(:company) %>
+  <%= "参与了绿地中心，万科花园，擅长动画后期" %>
+</p>
+
+<p>
+  甲方评价
 </p>
 <p>
-  <strong><%= Queen.human_attribute_name(:avatar) %></strong>
-  <%= image_tag(@queen.avatar_url) %>
+  交货速度
+  作品质量
+  服务态度
 </p>
-<%= link_to t(:edit), edit_queen_path(@queen) %>
-<%= link_to t(:back), :back %>
+
+<p>
+  网友点赞：<%= "10" %>
+</p>
+
+<p>相关案例</p>

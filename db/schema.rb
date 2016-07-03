@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703032052) do
+ActiveRecord::Schema.define(version: 20160703141026) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,6 +46,19 @@ ActiveRecord::Schema.define(version: 20160703032052) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followable_id",   limit: 4,                   null: false
+    t.string   "followable_type", limit: 255,                 null: false
+    t.integer  "follower_id",     limit: 4,                   null: false
+    t.string   "follower_type",   limit: 255,                 null: false
+    t.boolean  "blocked",                     default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.string   "avatar",      limit: 255
@@ -56,7 +69,10 @@ ActiveRecord::Schema.define(version: 20160703032052) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "queen_id",    limit: 4
   end
+
+  add_index "products", ["queen_id"], name: "index_products_on_queen_id", using: :btree
 
   create_table "queens", force: :cascade do |t|
     t.string   "email",           limit: 255
@@ -100,4 +116,5 @@ ActiveRecord::Schema.define(version: 20160703032052) do
     t.string   "avatar",          limit: 255
   end
 
+  add_foreign_key "products", "queens"
 end

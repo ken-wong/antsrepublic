@@ -6,7 +6,7 @@ class QueensController < ApplicationController
   def create
     @queen = Queen.new(queen_params)
     if @queen.save
-      log_in(@queen)
+      queen_log_in(@queen)
       redirect_to root_url
     else
       render 'new'
