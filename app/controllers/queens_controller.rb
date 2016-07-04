@@ -37,6 +37,6 @@ class QueensController < ApplicationController
     def queen_params
       params.require(:queen).permit(
       :email, :name, :cell, :password,
-      :password_confirmation, :company, :avatar)
+      :password_confirmation, :company, :avatar, :desc)
     end
 end

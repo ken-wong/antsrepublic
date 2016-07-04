@@ -7,4 +7,10 @@ class Queen < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   acts_as_followable
+
+  state_machine :state, :initial => nil do
+    event :confirm do
+      transition nil => :'已认证'
+    end
+  end
 end

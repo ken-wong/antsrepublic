@@ -14,10 +14,10 @@
   <%= @queen.send(:name) %>
 </p>
 <p>
-  <%= "已认证" %>
+  <%= @queen.state %>
 </p>
 <p>
-  <%= "参与了绿地中心，万科花园，擅长动画后期" %>
+  <%= @queen.desc %>
 </p>
 
 <p>
@@ -34,3 +34,6 @@
 </p>
 
 <p>相关案例</p>
+
+<%= link_to t(:edit), edit_queen_path(@queen) %>
+<%= link_to t(:back), :back %>

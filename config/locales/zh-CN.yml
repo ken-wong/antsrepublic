@@ -36,6 +36,8 @@ zh-CN:
         password_confirmation: 确认密码
         company: 公司名称
         avatar: 头像
+        state: 状态
+        desc: 描述
   title: 蚂蚁共和
   new_admin: 新建管理员
   admin_list: 管理员列表
