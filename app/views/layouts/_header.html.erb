@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if logged_in? %>
         <ul class="nav navbar-nav">
-          <li class="active"><a href=<%= products_path%>>Product <span class="sr-only">(current)</span></a></li>
+          <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to Product.model_name.human, products_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -34,7 +34,7 @@
         </ul>
       <% elsif queen_logged_in? %>
         <ul class="nav navbar-nav">
-          <li class="active"><a href=<%= products_path%>>Product <span class="sr-only">(current)</span></a></li>
+          <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to Product.model_name.human, products_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
