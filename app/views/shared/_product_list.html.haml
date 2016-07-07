@@ -1,19 +1,36 @@
-#products
-  %h3 案例展示
-  %ul.nav.nav-pills
-    %li.nav-item
-      %a.nav-link.active{:href => "#"} 效果图
-    %li.nav-item
-      %a.nav-link{:href => "#"} 影片
-    %li.nav-item
-      %a.nav-link{:href => "#"} 多媒体
-  %div{:name => "products"}
-    - @products.each do |product|
-      %div
-        %td= link_to image_tag(product.avatar.small_url), product
-        %td= link_to product.title, product
-        %td= product.client_name
-        %td= product.ref_price
-        %td= product.category
 
-       
+%section.background-white.color-black
+  .container
+    %h1.text-center.x-large 案例展示
+    %ul.nav.nav-pills.pull-right
+      %li.nav-item
+        %a.nav-link.active{:href => "#"} 效果图
+      %li.nav-item
+        %a.nav-link{:href => "#"} 影片
+      %li.nav-item
+        %a.nav-link{:href => "#"} 多媒体
+    .row
+      - @products.each do |product|
+        .col-sm-4.col-md-4
+          .info-thumbnail-link
+            .thumbnail.info-thumbnail.with-icon.background-clouds.color-text
+              - unless product.avatar.nil?
+                = link_to image_tag(product.avatar.small_url), product
+              - else
+                %img{:alt => "...", :src => image_path("neat/img#{product.id}.jpg")}/
+              .caption.bordered.background-white
+                %h3= link_to product.title, product
+                %p.description{:style => "height: 10px;"}
+                  %div
+                    %b 案例类型:
+                    = product.category
+                  %div
+                    %b 委托客户:
+                    = product.client_name
+                  %div
+                    %b 参考价格:
+                    = product.ref_price
+                  
+                %p.buttons
+                  = link_to 'Read more', product, class: 'btn btn-lead'
+        
