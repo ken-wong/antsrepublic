@@ -1,0 +1,27 @@
+#nav-wrapper.background-white.color-black
+  %nav#mainMenu.navbar.navbar-fixed-top{:role => "navigation"}
+    .container
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header
+        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar.background-lead
+          %span.icon-bar.background-lead
+          %span.icon-bar.background-lead
+        %a.navbar-brand{:href => "index.html"}
+          %img{:alt => "logo", :src => image_path("Ant-52.png")}>/
+          ANTS REPUBLIC
+      / Collect the nav links, forms, and other content for toggling
+      .collapse.navbar-collapse.navbar-ex1-collapse
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = link_to t('login'), choose_login_path
+          %li
+            = link_to t('signup'), choose_path
+          %li  
+            = link_to t('联系客服'), '#'
+          %li  
+            = link_to t('网站导航'), '#'
+      / /.navbar-collapse
+
+

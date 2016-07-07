@@ -11,22 +11,17 @@
   <%= csrf_meta_tags %>
 
 </head>
-<body>
-  <div class="container background-clouds">
-    <%= render 'layouts/header' %>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
+<body class='background-clouds'>
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/breadcrumb' %>
 
-    <%= yield %>
-    <%= render 'layouts/footer' %>
-  </div>
-
+  <%= yield %>
+  <%= render 'layouts/footer' %>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'gallery/jquery.blueimp-gallery.min.js' %>
 <%= javascript_include_tag 'gallery/blueimp-gallery.min.js' %>
-<%= javascript_include_tag 'welcome.js' %>
+<%= javascript_include_tag 'welcome.js' if controller_name == 'welcome' %>
 </body>
 
 

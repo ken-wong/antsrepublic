@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   get     'choose_login' => 'welcome#choose_login'
   resources :users do
   end
-  resources :queens
+  resources :queens do
+    member do
+      get 'dashboard'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

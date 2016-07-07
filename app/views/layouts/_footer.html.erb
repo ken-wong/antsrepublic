@@ -1,14 +1,52 @@
-<footer>
-  <p>合作伙伴</p>
-  <p>关于我们</p>
-  <ul>
-    <li><%= link_to '平台简介', page_path("introduction") %></li>
-    <li><%= link_to '核心功能', page_path("core_function") %></li>
-    <li><%= link_to '数据展示', page_path("data_show") %></li>
-    <li><%= link_to '合作伙伴', page_path("partner") %></li>
-    <li><%= link_to '联系方式', page_path("contact") %></li>
-  </ul>
-  <p>帮助说明</p>
-  <p>&copy; 2016 Ants Republic</p>
-  <p>备案信息</p>
+<footer class='background-midnight-blue color-white'>
+  <div class="container">
+    <div class='row'>
+      <div class='col-md-2'>
+      </div>
+      <div class='col-md-2'>
+        <h3>新手入门</h3>
+        <ul class='nav-footer'>
+          <li>什么是蚁后</li>
+          <li>如何成为蚁后</li>
+          <li>会员帮助</li>
+          <li>如何发布需求</li>
+        </ul>
+      </div>
+      <div class='col-md-2'>
+        <h3>关于我们</h3>
+        <ul class='nav-footer'>
+          <li><%= link_to '平台简介', page_path("introduction") %></li>
+          <li><%= link_to '核心功能', page_path("core_function") %></li>
+          <li><%= link_to '数据展示', page_path("data_show") %></li>
+          <li><%= link_to '合作伙伴', page_path("partner") %></li>
+          <li><%= link_to '联系方式', page_path("contact") %></li>
+        </ul>
+      </div>
+      <div class='col-md-2'>
+      <h3>平台合作</h3>
+      </div>
+      <div class='col-md-2'>
+      </div>
+    </div>
+
+      <div class="row">
+          <div class="col-md-12">
+            <hr>
+            <div class="row">
+              <div class="col-md-6">
+                All rights reserved &copy; 2016 <%= link_to 'Ants Republic', root_path%>
+              </div>
+              <div class="col-md-6">
+                <p class="social">
+                  <a href="/"><span class="fa fa-facebook"></span></a>
+                  <a href="/"><span class="fa fa-twitter"></span></a>
+                  <a href="/"><span class="fa fa-youtube"></span></a>
+                  <a href="/"><span class="fa fa-linkedin"></span></a>
+                  <a href="/"><span class="fa fa-pinterest"></span></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
 </footer>

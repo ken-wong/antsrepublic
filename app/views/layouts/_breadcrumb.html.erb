@@ -1,0 +1,24 @@
+
+<div class="breadcrumbs-container">
+  <div class="container">
+    <ol class="breadcrumb">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <% if logged_in? %>
+        <li><%= link_to '个人资料', current_user %></li>
+        <li><a href="#">认证</a></li>
+        <li><a href="#">消息中心</a></li>
+        <li><%= link_to t('logout'), logout_path, method: :delete %></li>
+      <% elsif queen_logged_in? %>    
+        <li><%= link_to '项目面板', products_path(queen_id: current_queen) %></li>
+        <li><%= link_to '个人资料', current_queen %></li>
+        <li><a href="#">认证</a></li>
+        <li><a href="#">消息中心</a></li>
+        <li><%= link_to t('logout'), queen_logout_path, method: :delete %></li>
+      <% else %>
+        
+      <% end %>  
+    </ol>
+  </div>
+</div>

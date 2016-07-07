@@ -1,8 +1,7 @@
-
-%section
+%section.background-belize-hole.color-white
   .container
     .reduce-top-margin
-      %h1 注册
+      %h1 登录
       .row
         .col-xs-5.col-sm-4.col-md-3.col-md-offset-2.col-sm-offset-1.col-xs-offset-1
           %a.thumbnail.gallery-thumbnail{:href => signup_path}
@@ -10,12 +9,11 @@
           %br/
           %p.text-center
             %small 
-              =link_to '我是甲方', signup_path
+              =link_to '我是甲方', login_path
         .col-xs-5.col-sm-4.col-md-3.col-md-offset-2.col-sm-offset-1
           %a.thumbnail.gallery-thumbnail{:href => queen_signup_path}
             %img.img-circle{:alt => "...", :src => image_path( "neat/placeholder-office-couple-sq.jpg")}/
           %br/
           %p.text-center
             %small 
-              =link_to '我是蚁后', queen_signup_path
- 
+              =link_to '我是蚁后', queen_login_path

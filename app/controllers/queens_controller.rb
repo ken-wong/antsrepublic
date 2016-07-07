@@ -1,4 +1,9 @@
 class QueensController < ApplicationController
+  
+  def dashboard
+
+  end
+
   def new
     @queen = Queen.new
   end
