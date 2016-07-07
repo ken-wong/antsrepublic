@@ -1,0 +1,24 @@
+
+%section
+  .container
+    .reduce-top-margin
+      %h1
+        %span 选择身份
+      .row
+
+        .col-xs-6.col-sm-4.col-md-2
+          %a.thumbnail.gallery-thumbnail{:href => signup_path}
+            %img.img-circle{:alt => "...", :src => image_path( "neat/placeholder-man-sq.jpg")}/
+          %br/
+          %p.text-center
+            %small 
+              =link_to '我是甲方', signup_path
+   
+        .col-xs-6.col-sm-4.col-md-2
+          %a.thumbnail.gallery-thumbnail{:href => queen_signup_path}
+            %img.img-circle{:alt => "...", :src => image_path( "neat/placeholder-office-couple-sq.jpg")}/
+          %br/
+          %p.text-center
+            %small 
+              =link_to '我是蚁后', queen_signup_path
+ 

@@ -4,7 +4,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    current_user = params[:queen_id]
+    if (current_user.blank? or current_user.nil?) then
+      @products = Product.all 
+    else
+      @products = Product.where("queen_id = #{current_user}")  
+    end
   end
 
   # GET /products/1
