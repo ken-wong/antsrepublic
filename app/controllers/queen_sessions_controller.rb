@@ -7,6 +7,7 @@ class QueenSessionsController < ApplicationController
     @queen = Queen.find_by(email: params[:queen_session][:email])
     if @queen && @queen.authenticate(params[:queen_session][:password])
       queen_log_in(@queen)
+      session[:queen_id] = @queen.id
       redirect_to root_url
     else
       flash.now[:danger] = t(:invalid_email_or_password)

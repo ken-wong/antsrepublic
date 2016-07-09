@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get     'choose'  => 'welcome#choose'
   get     'choose_login' => 'welcome#choose_login'
   resources :users do
+    member do
+      get 'dashboard'
+    end
   end
   resources :queens do
     member do

@@ -7,10 +7,10 @@
       <% end %>
       <% if logged_in? %>
         
-        <li><a href="#">我是甲方</a></li>
+        <li><%= link_to '我是甲方', dashboard_user_path(session[:user_id])%></li>
         
       <% elsif queen_logged_in? %>    
-          <li><a href="#">我是蚁后</a></li>
+          <li><%= link_to '我是蚁后', dashboard_queen_path(session[:queen_id])%></li>
         
       <% else %>
         
