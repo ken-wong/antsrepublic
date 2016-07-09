@@ -43,7 +43,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def small_url 
-    self.url  + '?imageView2/1/w/200/h/200'
+    self.url  + '?imageView2/1/w/200/h/200' unless self.url.nil?
   end
 
   # Override the filename of the uploaded files:
