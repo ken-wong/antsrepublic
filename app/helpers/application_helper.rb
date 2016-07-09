@@ -1,5 +1,9 @@
 module ApplicationHelper
   # https://gist.github.com/ifightcrime/9291167a0a4367bb55a2
+   def active_class(link_path)
+    current_page?(link_path) ? "active" : ""
+   end
+
   def parse_image_data(base64_image)
     filename = DateTime.now.to_s(:number)
     in_content_type, encoding, string = base64_image.split(/[:;,]/)[1..3]

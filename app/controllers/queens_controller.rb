@@ -1,7 +1,7 @@
 class QueensController < ApplicationController
   
   def dashboard
-
+    @queen = Queen.find(params[:id])
   end
 
   def new
@@ -12,7 +12,7 @@ class QueensController < ApplicationController
     @queen = Queen.new(queen_params)
     if @queen.save
       queen_log_in(@queen)
-      redirect_to root_url
+      redirect_to dashboard_queen_path(@queen)
     else
       render 'new'
     end

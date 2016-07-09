@@ -14,14 +14,23 @@
       / Collect the nav links, forms, and other content for toggling
       .collapse.navbar-collapse.navbar-ex1-collapse
         %ul.nav.navbar-nav.navbar-right
-          %li
-            = link_to t('login'), choose_login_path
-          %li
-            = link_to t('signup'), choose_path
           %li  
             = link_to t('联系客服'), '#'
           %li  
-            = link_to t('网站导航'), '#'
+            = link_to t('网站导航'), '#'        
+          - if logged_in?
+            %li
+              = link_to t('logout'), logout_path, method: :delete 
+          - elsif queen_logged_in?
+            %li
+              = link_to t('logout'), queen_logout_path, method: :delete 
+          - else
+            %li
+              = link_to t('signup'), choose_path
+            %li
+              = link_to t('login'), choose_login_path
+            
+
       / /.navbar-collapse
 
 
