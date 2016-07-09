@@ -1,9 +1,9 @@
 .list-group.bright.background-clouds.color-text
 	%a.list-group-item{ href: dashboard_queen_path(@queen), class: active_class(dashboard_queen_path(@queen)) }
 		首页面板
-	%a.list-group-item{ href: products_path(@queen), class: active_class(products_path(@queen)) }
+	%a.list-group-item{ href: products_path(queen_id: @queen), class: active_class(products_path(@queen)) }
 		项目管理
-	%a.list-group-item{ href: products_path(@queen), class: active_class(products_path(@queen)) }
+	%a.list-group-item{ href: products_path(queen_id: @queen), class: active_class(products_path(@queen)) }
 		我的案例
 	%a.list-group-item{ href: edit_queen_path(@queen), class: active_class(edit_queen_path(@queen)) }
 		个人资料

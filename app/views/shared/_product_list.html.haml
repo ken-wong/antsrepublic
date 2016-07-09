@@ -15,11 +15,11 @@
           .info-thumbnail-link
             .thumbnail.info-thumbnail.with-icon.background-clouds.color-text
               - unless product.avatar.nil?
-                = link_to image_tag(product.avatar.small_url), product
+                = link_to(image_tag(product.avatar.small_url), product) unless product.avatar.nil?
               - else
                 %img{:alt => "...", :src => image_path("neat/img#{product.id}.jpg")}/
               .caption.bordered.background-white
-                %h3= link_to product.title, product
+                %h3= link_to(product.title, product) unless product.title.nil?
                 %p.description{:style => "height: 10px;"}
                   %div
                     %b 案例类型:

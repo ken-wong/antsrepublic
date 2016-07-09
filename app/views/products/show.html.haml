@@ -1,23 +1,41 @@
-%p#notice= notice
-%p
-  %strong Title:
-  = @product.title
-%p
-  %strong Main img:
-  = @product.main_media
-%p
-  %strong Client name:
-  = @product.client_name
-%p
-  %strong Ref price:
-  = @product.ref_price
-%p
-  %strong Category:
-  = @product.category
-%p
-  %strong Description:
-  = @product.description
-= link_to 'Edit', edit_product_path(@product)
-|
-\#{link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }} |
-\#{link_to 'Back', products_path}
+%section
+  .container
+    .row
+      #links{style: "display:none"}
+        = link_to image_tag(@product.main_media.url), image_path(@product.main_media.url, alt: '万科1'), title: @product.title
+
+      #blueimp-gallery-carousel.blueimp-gallery.blueimp-gallery-carousel
+        .slides
+        %h3.title
+        %a.prev
+        %a.next
+        %a.play-pause
+        %ol.indicator
+      %p
+        %strong 案例名称
+        = @product.title
+      %p
+        %strong 委托客户
+        = @product.client_name
+      %p
+        %strong 项目制作
+        = @product.queen.name unless @product.queen.nil?
+      %p
+        %strong 参考价格
+        = @product.ref_price
+      %p
+        %strong 案例分类
+        = @product.category
+      %p
+        %strong 项目说明
+        = @product.description
+      - if logged_in? or queen_logged_in?
+        = link_to 'add more media', new_upload_path(product_id: @product.id), class: 'btn btn-primary'
+        |  
+        = link_to 'Edit', edit_product_path(@product)
+        |
+        \#{link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }} |
+        |
+        \#{link_to 'Back', products_path}
+
+
