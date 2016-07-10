@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709054212) do
+ActiveRecord::Schema.define(version: 20160710081756) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 20160709054212) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",   limit: 4,                   null: false
     t.string   "followable_type", limit: 255,                 null: false
@@ -70,8 +76,10 @@ ActiveRecord::Schema.define(version: 20160709054212) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "queen_id",    limit: 4
+    t.integer  "category_id", limit: 4
   end
 
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["queen_id"], name: "index_products_on_queen_id", using: :btree
 
   create_table "queens", force: :cascade do |t|
@@ -125,5 +133,6 @@ ActiveRecord::Schema.define(version: 20160709054212) do
     t.string   "avatar",          limit: 255
   end
 
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "queens"
 end
