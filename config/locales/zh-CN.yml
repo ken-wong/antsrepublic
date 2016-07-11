@@ -43,6 +43,8 @@ zh-CN:
         title: 标题
         image: 图片
         state: 状态
+        created_at: 创建
+        updated_at: 更新
   title: 蚂蚁共和
   new_admin: 新建管理员
   admin_list: 管理员列表
