@@ -2,7 +2,7 @@
 <div id="links" style="display:none">
     <% banners =  Banner.where(state: "active").order(created_at: :desc).first(4) %>
     <% banners.each do |banner| %>
-        <%= link_to image_tag(banner.image_url(:thumb)), banner.image_url, alt: banner.title), title: banner.title %>
+        <%= link_to image_tag(banner.image_url(:thumb), alt: banner.title), banner.image_url, title: banner.title %>
     <% end %>
 </div>
 <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
