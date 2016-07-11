@@ -6,6 +6,7 @@ zh-CN:
       product: 案例
       comment: 评论
       queen: 蚁后
+      banner: 轮播图
     attributes:
       product:
         title: 项目名称
@@ -38,6 +39,10 @@ zh-CN:
         avatar: 头像
         state: 状态
         desc: 描述
+      banner:
+        title: 标题
+        image: 图片
+        state: 状态
   title: 蚂蚁共和
   new_admin: 新建管理员
   admin_list: 管理员列表

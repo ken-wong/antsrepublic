@@ -8,7 +8,7 @@ ActiveAdmin.register Product do
 		f.semantic_errors
 		f.input :title
 		f.inputs I18n.t('activerecord.attributes.product.avatar'), :multipart => true do
-			f.input :avatar, as: :file, hint: image_tag(f.object.avatar.url + qiniu_deal)
+			f.input :avatar, as: :file, hint: (image_tag(f.object.avatar.url + qiniu_deal) if !f.object.new_record?)
 			f.input :avatar_cache, as: :hidden 
 		end
 		f.inputs I18n.t('activerecord.attributes.product.main_media'), :multipart => true do
