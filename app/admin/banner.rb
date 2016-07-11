@@ -1,7 +1,7 @@
 ActiveAdmin.register Banner do
   permit_params :title, :image, :state
 
-  qiniu_deal = (Rails.env.test? || Rails.env.development?) ? "" : '&imageView2/2/w/200/h/200'
+  qiniu_deal = (Rails.env.test? || Rails.env.development?) ? "" : '?imageView2/2/w/200/h/200'
 
   form do |f|
     f.input :title
