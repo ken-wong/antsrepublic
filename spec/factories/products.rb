@@ -4,7 +4,7 @@ FactoryGirl.define do
     avatar "MyString"
     client_name "MyString"
     ref_price "MyString"
-    category_id "MyString"
+    category "MyString"
     main_img "MyString"
     description "MyText"
   end
