@@ -7,6 +7,7 @@ zh-CN:
       comment: 评论
       queen: 蚁后
       banner: 轮播图
+      tag: 标签
     attributes:
       product:
         title: 项目名称
@@ -15,6 +16,12 @@ zh-CN:
         category: 项目分类
         description: 项目说明
         main_media: 主图&视频
+        ref_price: 参考价格
+        created_at: 创建
+        updated_at: 更新
+        queen_id: 蚁后
+        queen: 蚁后
+        tag_list: 标签列表
       admin:
         name: 姓名
         password: 密码
