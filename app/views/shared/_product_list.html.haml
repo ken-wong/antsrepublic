@@ -4,11 +4,11 @@
     %h1.text-center.x-large 案例展示
     %ul.nav.nav-pills.pull-right
       %li.nav-item
-        %a.nav-link.active{:href => "#"} 效果图
+        =link_to "效果图", root_url(category: "效果图"), class: "nav-link"
       %li.nav-item
-        %a.nav-link{:href => "#"} 影片
+        =link_to "影片", root_url(category: "影片"), class: "nav-link"
       %li.nav-item
-        %a.nav-link{:href => "#"} 多媒体
+        =link_to "多媒体", root_url(category: "多媒体"), class: "nav-link"
     .row
       - @products.each do |product|
         .col-sm-4.col-md-4
