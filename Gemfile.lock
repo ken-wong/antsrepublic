@@ -66,6 +66,8 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    blueimp-gallery (2.11.0.1)
+      railties (>= 3.1.0)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -308,6 +310,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   acts_as_follower
   bcrypt
+  blueimp-gallery
   bootstrap-sass
   byebug
   capistrano-passenger (= 0.0.2)
