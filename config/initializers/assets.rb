@@ -12,4 +12,4 @@ Rails.application.config.assets.version = '1.2'
 # 
 Rails.application.config.assets.precompile += %w( neat/neat-blue.css gallery/blueimp-gallery.min.css )
 
-Rails.application.config.assets.precompile += %w( gallery/jquery.blueimp-gallery.min.js gallery/blueimp-gallery.min.js welcome.js)
+Rails.application.config.assets.precompile += %w( welcome.js)
