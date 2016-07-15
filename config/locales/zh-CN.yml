@@ -22,6 +22,10 @@ zh-CN:
         queen_id: 蚁后
         queen: 蚁后
         tag_list: 标签列表
+        start_date: 投标开始日
+        ending_date:  投标截止日
+        final_date:  项目截止日
+        price_range:  价格范围
       admin:
         name: 姓名
         password: 密码

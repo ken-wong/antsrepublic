@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def dashboard
+    @messages = ['欢迎登陆','万达审核中']
+    @test = '1'
   end
   
   def new
@@ -10,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      redirect_to root_url
+      redirect_to dashboard_user_path(@user)
     else
       render 'new'
     end
