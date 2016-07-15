@@ -1,0 +1,2 @@
+class Need < Product
+end

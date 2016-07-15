@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :queen
+  belongs_to :user
 	mount_uploader :avatar, AvatarUploader
 	mount_uploader :main_media, MainMediaUploader
 

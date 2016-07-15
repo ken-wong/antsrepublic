@@ -14,6 +14,7 @@
     <%#= f.select :category, options_for_select([ "效果图", "影片", "多媒体" ], "效果图") %>
     <%= f.input :main_media %>
     <%= f.input :description %>
+    <%= f.input :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] %>
   </div>
 
   <div class="form-actions">

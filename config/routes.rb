@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
+  get 'needs/index'
+
+  get 'needs/show'
+
+  get 'needs/update'
+
+  get 'needs/create'
+
+  get 'needs/desttroy'
+
+  get 'needs/need_params'
+
   resources :uploads
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :products
+  
   root 'welcome#index'
   get     'login'   => 'sessions#new'
   post    'login'   => 'sessions#create'
@@ -24,6 +36,9 @@ Rails.application.routes.draw do
       get 'dashboard'
     end
   end
+  
+  resources :products
+  resources :needs 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
