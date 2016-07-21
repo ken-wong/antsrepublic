@@ -4,11 +4,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-
-    if (params[:queen_id].blank? and params[:user_id].blank?) then
       @products = Product.all
     else
-      @products = Product.where("queen_id = #{params[:queen_id]}")  unless params[:queen_id].nil?
       @products = Product.where("user_id = #{params[:user_id]}")  unless params[:user_id].nil?
     end
   end
@@ -31,7 +28,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    @product.queen_id = session[:queen_id]
+    @product.user_id = session[:user_id]
 
     respond_to do |format|
       if @product.save
@@ -78,6 +75,7 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:title, :avatar, 
         :client_name, :ref_price, :category, :main_media, 
-        :description, :queen_id, :user_id, :start_date, :ending_date, :final_date, :price_range)
+        :description, :user_id, :start_date, 
+        :ending_date, :final_date, :price_range)
     end
 end

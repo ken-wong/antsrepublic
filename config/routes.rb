@@ -20,12 +20,12 @@ Rails.application.routes.draw do
   post    'login'   => 'sessions#create'
   delete  'logout'  => 'sessions#destroy'
   get     'signup'  => 'users#new'
-  get     'queen_login'   => 'queen_sessions#new'
-  post    'queen_login'   => 'queen_sessions#create'
-  delete  'queen_logout'  => 'queen_sessions#destroy'
-  get     'queen_signup'  => 'queens#new'
-  get     'choose'  => 'welcome#choose'
-  get     'choose_login' => 'welcome#choose_login'
+  # get     'queen_login'   => 'queen_sessions#new'
+  # post    'queen_login'   => 'queen_sessions#create'
+  # delete  'queen_logout'  => 'queen_sessions#destroy'
+  # get     'queen_signup'  => 'queens#new'
+  # get     'choose'  => 'welcome#choose'
+  # get     'choose_login' => 'welcome#choose_login'
   resources :users do
     member do
       get 'dashboard'

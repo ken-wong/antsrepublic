@@ -2,19 +2,11 @@
 <div class="breadcrumbs-container">
   <div class="container">
     <ol class="breadcrumb">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-      <% if logged_in? %>
-        
-        <li><%= link_to '我是甲方', dashboard_user_path(session[:user_id])%></li>
-        
-      <% elsif queen_logged_in? %>    
-          <li><%= link_to '我是蚁后', dashboard_queen_path(session[:queen_id])%></li>
-        
-      <% else %>
-        
-      <% end %>  
+ 
+      <%- [:error, :warning, :notice, :message].each do |key| -%>
+        <%= content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}"if flash[key] %>  
+      <%- end -%>  
+
     </ol>
   </div>
 </div>

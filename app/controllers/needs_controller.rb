@@ -39,6 +39,6 @@ class NeedsController < ApplicationController
   def need_params
     params.require(:need).permit(:title, :avatar, 
         :client_name, :ref_price, :category, :main_media, 
-        :description, :queen_id, :user_id, :start_date, :ending_date, :final_date, :price_range)
+        :description, :user_id, :start_date, :ending_date, :final_date, :price_range)
   end
 end

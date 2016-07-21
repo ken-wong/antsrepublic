@@ -76,6 +76,7 @@ GEM
       thor (~> 0.19)
     builder (3.2.2)
     byebug (8.2.4)
+    cancan (1.6.10)
     capistrano (3.4.1)
       i18n
       rake (>= 10.0.0)
@@ -232,6 +233,7 @@ GEM
     rest-client (1.7.3)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rolify (5.1.0)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -313,6 +315,7 @@ DEPENDENCIES
   blueimp-gallery
   bootstrap-sass
   byebug
+  cancan
   capistrano-passenger (= 0.0.2)
   capistrano-rails
   capistrano-rvm
@@ -335,6 +338,7 @@ DEPENDENCIES
   rack-cors
   rails (= 4.2.6)
   rails-i18n
+  rolify
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

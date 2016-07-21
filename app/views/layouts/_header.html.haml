@@ -23,11 +23,6 @@
               = link_to '个人中心', dashboard_user_path(session[:user_id])
             %li
               = link_to t('logout'), logout_path, method: :delete 
-          - elsif queen_logged_in?
-            %li 
-              = link_to '个人中心', dashboard_queen_path(session[:queen_id])
-            %li
-              = link_to t('logout'), queen_logout_path, method: :delete 
           - else
             %li
               = link_to t('signup'), choose_path

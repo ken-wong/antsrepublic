@@ -35,24 +35,6 @@ module ApplicationHelper
     end
   end
 
-  def queen_log_in(queen)
-    session[:queen_id] = queen.id
-    @current_queen = queen
-  end
-
-  def current_queen
-    @current_queen || Queen.find_by(id: session[:queen_id])
-  end
-
-  def queen_logged_in?
-    !current_queen.nil?
-  end
-
-  def queen_logout
-    session.delete(:queen_id)
-    @current_queen = nil
-  end
-
   def log_in(user)
     session[:user_id] = user.id
     @current_user = user
