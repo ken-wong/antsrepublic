@@ -1,0 +1,19 @@
+%section
+  .container
+    .row
+      .col-md-3
+        = render "menu"
+      .col-md-9
+        .content
+          .caption
+            %h3 个人资料
+          = simple_form_for(@user) do |f|
+            = f.input :email,  disabled: true
+            = f.input :name
+            = f.input :cell
+            = f.input :company
+            = f.input :avatar
+            = f.input :password
+            = f.input :password_confirmation
+            = f.button :submit
+				

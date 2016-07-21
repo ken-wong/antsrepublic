@@ -4,9 +4,10 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    if params[:user_id].nil?
       @products = Product.all
     else
-      @products = Product.where("user_id = #{params[:user_id]}")  unless params[:user_id].nil?
+      @products = Product.where("user_id = #{params[:user_id]}")  
     end
   end
 

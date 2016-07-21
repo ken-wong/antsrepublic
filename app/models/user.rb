@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   rolify
+  # admin, visitor, queen, owner
+  # 
   validates :email, presence: true
   validates :email, uniqueness: true
   has_secure_password
@@ -8,7 +10,7 @@ class User < ActiveRecord::Base
 
   acts_as_follower
 
-   state_machine :state, :initial => nil do
+  state_machine :state, :initial => nil do
     event :confirm do
       transition nil => :'已认证'
     end

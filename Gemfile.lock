@@ -76,7 +76,7 @@ GEM
       thor (~> 0.19)
     builder (3.2.2)
     byebug (8.2.4)
-    cancan (1.6.10)
+    cancancan (1.15.0)
     capistrano (3.4.1)
       i18n
       rake (>= 10.0.0)
@@ -315,7 +315,7 @@ DEPENDENCIES
   blueimp-gallery
   bootstrap-sass
   byebug
-  cancan
+  cancancan (~> 1.10)
   capistrano-passenger (= 0.0.2)
   capistrano-rails
   capistrano-rvm
