@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  
+  resources :users do
+    member do
+      get 'dashboard'
+      get 'following_list'
+      get 'voteable_list'
+      get 'verify'
+      get 'choose'
+    end
+    resource :profile
+  end
+
+
+
+  resources :queens do
+    member do
+      get 'dashboard'
+    end
+  end
+  
+  resources :products
+  resources :needs 
+  resources :uploads  
+
   get 'needs/index'
 
   get 'needs/show'
@@ -11,8 +35,9 @@ Rails.application.routes.draw do
 
   get 'needs/need_params'
 
-  resources :uploads
+
   devise_for :admin_users, ActiveAdmin::Devise.config
+  
   ActiveAdmin.routes(self)
   
   root 'welcome#index'
@@ -26,24 +51,7 @@ Rails.application.routes.draw do
   # get     'queen_signup'  => 'queens#new'
   # get     'choose'  => 'welcome#choose'
   # get     'choose_login' => 'welcome#choose_login'
-  resources :users do
-    member do
-      get 'dashboard'
-      get 'following_list'
-      get 'voteable_list'
-      get 'verify'
-      get 'choose'
-    end
-  end
 
-  resources :queens do
-    member do
-      get 'dashboard'
-    end
-  end
-  
-  resources :products
-  resources :needs 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,6 +8,7 @@ zh-CN:
       queen: 蚁后
       banner: 轮播图
       tag: 标签
+      profile: 认证资料
     attributes:
       product:
         title: 项目名称
@@ -41,6 +42,17 @@ zh-CN:
         company: 公司
         avatar: 头像
         state: 审核
+      profile:
+        phone: 联系电话
+        qq: QQ
+        wechat: 微信
+        company: 企业名称
+        address: 企业地址
+        verify_img1: 公司证照
+        verify_img2: 身份证
+        verify_img3: 其他证件
+        other: 补充说明
+
       queen:
         email: 电子邮箱
         name: 姓名

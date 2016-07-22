@@ -6,12 +6,12 @@
         
       .row
         .col-xs-5.col-sm-4.col-md-3.col-md-offset-2.col-sm-offset-1.col-xs-offset-1
-          %a.thumbnail.gallery-thumbnail{:href => verify_user_path(current_user, role: :ower)}
+          %a.thumbnail.gallery-thumbnail{:href => verify_user_path(current_user, role: :owner)}
             %img.img-circle{:alt => "...", :src => image_path( "neat/placeholder-man-sq.jpg")}/
           %br/
           %p.text-center
             %small 
-              =link_to '我是甲方', verify_user_path(current_user, role: :ower)
+              =link_to '我是甲方', verify_user_path(current_user, role: :owner)
         .col-xs-5.col-sm-4.col-md-3.col-md-offset-2.col-sm-offset-1
           %a.thumbnail.gallery-thumbnail{:href => verify_user_path(current_user, role: :queen)}
             %img.img-circle{:alt => "...", :src => image_path( "neat/placeholder-office-couple-sq.jpg")}/

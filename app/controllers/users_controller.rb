@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-    @messages = ['欢迎登陆','万达审核中']
-    @test = '1'
+
   end
   
   def new
@@ -56,6 +55,16 @@ class UsersController < ApplicationController
 
   def choose
     @user = User.find(params[:id])
+  end
+
+  def verify
+    @user = User.find(params[:id])
+    session[:role] = params[:role]
+    if @user.profile.nil? then
+      redirect_to new_user_profile_path(user_id: params[:id])
+    else
+      redirect_to edit_user_profile_path(user_id: params[:id])
+    end
   end
 
   private

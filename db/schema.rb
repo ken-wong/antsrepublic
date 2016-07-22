@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722022957) do
+ActiveRecord::Schema.define(version: 20160722075225) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -154,6 +154,21 @@ ActiveRecord::Schema.define(version: 20160722022957) do
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["queen_id"], name: "index_products_on_queen_id", using: :btree
 
+  create_table "profiles", force: :cascade do |t|
+    t.string   "phone",       limit: 255
+    t.string   "company",     limit: 255
+    t.string   "qq",          limit: 255
+    t.string   "wechat",      limit: 255
+    t.string   "verify_img1", limit: 255
+    t.string   "verify_img2", limit: 255
+    t.string   "verify_img3", limit: 255
+    t.string   "address",     limit: 255
+    t.string   "other",       limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "user_id",     limit: 4
+  end
+
   create_table "queens", force: :cascade do |t|
     t.string   "email",           limit: 255
     t.string   "name",            limit: 255
@@ -212,7 +227,6 @@ ActiveRecord::Schema.define(version: 20160722022957) do
     t.string   "password_digest", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.string   "company",         limit: 255
     t.string   "avatar",          limit: 255
     t.string   "state",           limit: 255
   end
