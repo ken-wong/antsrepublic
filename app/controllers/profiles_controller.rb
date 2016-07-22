@@ -13,9 +13,11 @@ class ProfilesController < InheritedResources::Base
 	def create
 		@profile = Profile.new(profile_params)
     @profile.user_id = session[:user_id]
-
+    @user = User.find(session[:user_id])
     respond_to do |format|
       if @profile.save
+      	@user.add_role session[:role]
+      	@user.remove_role :visitor
         format.html { redirect_to user_profile_path(user_id: session[:user_id]), notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
@@ -27,8 +29,11 @@ class ProfilesController < InheritedResources::Base
 
   def update
   	@profile = Profile.find(params[:profile_id])
+  	@user = User.find(@profile.user_id)
     respond_to do |format|
       if @profile.update(profile_params)
+      	@user.add_role session[:role]
+      	@user.remove_role :visitor
         format.html { redirect_to @profile, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
