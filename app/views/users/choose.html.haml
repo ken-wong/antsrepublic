@@ -1,0 +1,21 @@
+%section
+  .container
+    .reduce-top-margin
+      %h1 
+        我要认证
+        
+      .row
+        .col-xs-5.col-sm-4.col-md-3.col-md-offset-2.col-sm-offset-1.col-xs-offset-1
+          %a.thumbnail.gallery-thumbnail{:href => verify_user_path(current_user, role: :ower)}
+            %img.img-circle{:alt => "...", :src => image_path( "neat/placeholder-man-sq.jpg")}/
+          %br/
+          %p.text-center
+            %small 
+              =link_to '我是甲方', verify_user_path(current_user, role: :ower)
+        .col-xs-5.col-sm-4.col-md-3.col-md-offset-2.col-sm-offset-1
+          %a.thumbnail.gallery-thumbnail{:href => verify_user_path(current_user, role: :queen)}
+            %img.img-circle{:alt => "...", :src => image_path( "neat/placeholder-office-couple-sq.jpg")}/
+          %br/
+          %p.text-center
+            %small 
+              =link_to '我是蚁后', verify_user_path(current_user, role: :queen)

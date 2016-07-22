@@ -7,4 +7,6 @@ class Product < ActiveRecord::Base
 	has_many :uploads
 
   acts_as_taggable
+  acts_as_follower
+  acts_as_votable
 end

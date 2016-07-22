@@ -75,5 +75,6 @@ gem 'devise-i18n'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem "acts_as_follower"
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'state_machines-activerecord'
 gem 'blueimp-gallery'

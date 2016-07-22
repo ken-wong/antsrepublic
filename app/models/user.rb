@@ -9,10 +9,11 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   acts_as_follower
+  acts_as_voter
 
-  state_machine :state, :initial => nil do
+  state_machine :state, :initial => :'未认证' do
     event :confirm do
-      transition nil => :'已认证'
+      transition :'未认证' => :'已认证'
     end
   end
 end

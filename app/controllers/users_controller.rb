@@ -11,7 +11,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.add_role 'visitor'
+       if User.count > 0 then
+         @user.add_role 'visitor' 
+        else 
+          @user.add_role 'admin'
+        end
       log_in(@user)
       redirect_to edit_user_path(@user)
     else
@@ -36,10 +40,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def choose
+  def following_list
+    @user = User.find(params[:id])
+    @products = @user.all_following
+  end
+
+  def voteable_list
+    @user = User.find(params[:id])
+    @products = @user.find_liked_items
   end
 
   def dashboard
+    @user = User.find(params[:id])
+  end
+
+  def choose
     @user = User.find(params[:id])
   end
 

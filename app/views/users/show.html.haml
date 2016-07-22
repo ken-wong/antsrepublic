@@ -1,0 +1,36 @@
+%section
+  .container
+    .row
+      .col-md-3
+        = render "menu"
+      .col-md-9
+        .content
+          .caption
+            %h3 
+              个人资料
+              = link_to t(:edit), edit_user_path(@user), class: 'btn btn-primary'
+              = link_to t(:verify), choose_user_path(@user), class: 'btn btn-info' if @user.has_role? :visitor
+
+          %p
+            %strong= User.human_attribute_name(:avatar)
+            = image_tag(@user.avatar_url)
+          %p
+            %strong= User.human_attribute_name(:email)
+            = @user.send(:email)
+          %p
+            %strong= User.human_attribute_name(:name)
+            = @user.send(:name)
+          %p
+            %strong= User.human_attribute_name(:cell)
+            = @user.send(:cell)
+          %p
+            %strong= User.human_attribute_name(:company)
+            = @user.send(:company)
+          %p
+            %strong= User.human_attribute_name(:state)
+            = @user.send(:state)
+          %p
+            .label.label-info= t('admin') if @user.has_role? :admin
+            .label.label-info= t('visitor') if @user.has_role? :visitor
+            .label.label-info= t('queen') if @user.has_role? :queen
+            .label.label-info= t('owner') if @user.has_role? :owner

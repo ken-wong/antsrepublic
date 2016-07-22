@@ -29,8 +29,13 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'dashboard'
+      get 'following_list'
+      get 'voteable_list'
+      get 'verify'
+      get 'choose'
     end
   end
+
   resources :queens do
     member do
       get 'dashboard'
