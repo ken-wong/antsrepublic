@@ -1,4 +1,4 @@
-<%= simple_form_for([@user, @user.profile]) do |f| %>
+<%= simple_form_for([@user, @profile], url: user_profile_url) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
