@@ -3,22 +3,24 @@
     - [:error, :warning, :notice, :message].each do |key|
       = content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}"if flash[key]
     %ol.breadcrumb
-      - if current_page?(dashboard_user_path(current_user))
-        %li= link_to I18n.t('root_path'), root_path
-        %li= '个人中心'
-      
-      - if current_page?(following_list_user_path(current_user))
-        %li= link_to I18n.t('root_path'), root_path
-        %li= link_to '个人中心', dashboard_user_path(current_user)
-        %li= I18n.t('user_following')
+      - unless current_user.blank?
+        - if current_page?(dashboard_user_path(current_user))
+          %li= link_to I18n.t('root_path'), root_path
+          %li= '个人中心'
+        
+        - if current_page?(following_list_user_path(current_user))
+          %li= link_to I18n.t('root_path'), root_path
+          %li= link_to '个人中心', dashboard_user_path(current_user)
+          %li= I18n.t('user_following')
 
-      - if current_page?(voteable_list_user_path(current_user))
-        %li= link_to I18n.t('root_path'), root_path
-        %li= link_to '个人中心', dashboard_user_path(current_user)
-        %li= I18n.t('user_voteable')        
+        - if current_page?(voteable_list_user_path(current_user))
+          %li= link_to I18n.t('root_path'), root_path
+          %li= link_to '个人中心', dashboard_user_path(current_user)
+          %li= I18n.t('user_voteable')        
 
-      - if current_page?(choose_user_path(current_user))
-        %li= link_to I18n.t('root_path'), root_path
-        %li= link_to '个人中心', dashboard_user_path(current_user)
-        %li= link_to '用户资料', user_path(current_user)
-        %li= '认证审核'             
+        - if current_page?(choose_user_path(current_user))
+          %li= link_to I18n.t('root_path'), root_path
+          %li= link_to '个人中心', dashboard_user_path(current_user)
+          %li= link_to '用户资料', user_path(current_user)
+          %li= '认证审核'             
+
