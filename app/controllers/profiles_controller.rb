@@ -2,7 +2,7 @@ class ProfilesController < InheritedResources::Base
 
 	def new
 		@user = User.find(params[:user_id])
-		@profile = @user.profile
+		@profile = @user.build_profile
 	end
 
 	def edit
@@ -36,6 +36,11 @@ class ProfilesController < InheritedResources::Base
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def show
+    user = User.find(params[:user_id])
+    @profile = user.profile
   end
   private
 
