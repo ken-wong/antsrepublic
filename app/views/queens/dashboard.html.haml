@@ -4,3 +4,9 @@
 			.col-md-3
 				= render "queen_menu"
 			.col-md-9
+				.content
+					%h1 项目动态
+					%ul
+						- @messages=['url1', 'url2']
+						- @messages.each_with_index do |m,i|
+							%li= m

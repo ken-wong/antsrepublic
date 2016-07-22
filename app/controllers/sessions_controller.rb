@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       log_in(@user)
-      redirect_to root_url
+      redirect_to dashboard_user_path(@user)
     else
       flash.now[:danger] = t(:invalid_email_or_password)
       render 'new'

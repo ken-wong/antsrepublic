@@ -1,9 +1,14 @@
 .list-group.bright.background-clouds.color-text
-  %a.list-group-item{ href: dashboard_user_path(@user), class: active_class(dashboard_user_path(@user)) }
+  %a.list-group-item{ href: dashboard_user_path(current_user), class: active_class(dashboard_user_path(current_user)) }
     首页面板
-  %a.list-group-item{ href: products_path(@user), class: active_class(products_path(@user)) }
-    项目管理
-  %a.list-group-item{ href: products_path(@user), class: active_class(products_path(@user)) }
-    我的案例
-  %a.list-group-item{ href: edit_user_path(@user), class: active_class(edit_user_path(@user)) }
+  - unless @user.has_role? :visitor 
+    %a.list-group-item{ href: products_path(uer_id: @user), class: active_class(products_path(user_id: @user)) }
+      项目管理 
+  %a.list-group-item{ href: following_list_user_path(@user), class: active_class(following_list_user_path(@user)) }
+    我的收藏
+  %a.list-group-item{ href: voteable_list_user_path(current_user), class: active_class(voteable_list_user_path(current_user)) }
+    我的点赞    
+  / %a.list-group-item{ href: products_path(user_id: @user), class: active_class(products_path(user_id: @user)) }
+  /   我的评论
+  %a.list-group-item{ href: user_path(current_user), class: active_class(user_path(current_user)) }
     个人资料

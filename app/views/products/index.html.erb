@@ -1,27 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<h1>项目局部模板</h1>
-
+<h1>项目管理</h1>
 <table>
   <thead>
     <tr>
-      <th>Avatar</th>
       <th>项目名称</th> 
       <th>委托客户</th>
       <th>参考价格</th>
-      <th>分类</th>
+      <th>项目类型</th>
+      <th>项目状态</th>
     </tr>
   </thead>
 
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to image_tag(product.avatar, size: '128x128'), product %></td>
-        <td><%= link_to product.title, product %></td>
+        <!--td><%= link_to image_tag(product.avatar, size: '128x128'), product %></td-->
+        <td><%= product.state =='等待审核' ? link_to( product.title, need_path(product) ): link_to( product.title, product) %></td>
         
         <td><%= product.client_name %></td>
         <td><%= product.ref_price %></td>
         <td><%= product.category %></td>
+        <td><%= product.state %></td>
 
 <!--         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
@@ -33,4 +32,5 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path(queen_id: params[:queen_id]) %>
+<%= link_to I18n.t('new_product'), new_product_path(queen_id: session[:queen_id]) unless session[:queen_id].blank? %>
+<%= link_to I18n.t('new_need'), new_need_path(user_id: session[:user_id]) unless session[:user_id].blank? %>

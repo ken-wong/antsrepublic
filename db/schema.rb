@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711021056) do
+ActiveRecord::Schema.define(version: 20160722075225) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -73,6 +73,64 @@ ActiveRecord::Schema.define(version: 20160711021056) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
+  create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
+    t.integer "unsubscriber_id",   limit: 4
+    t.string  "unsubscriber_type", limit: 255
+    t.integer "conversation_id",   limit: 4
+  end
+
+  add_index "mailboxer_conversation_opt_outs", ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id", using: :btree
+  add_index "mailboxer_conversation_opt_outs", ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
+
+  create_table "mailboxer_conversations", force: :cascade do |t|
+    t.string   "subject",    limit: 255, default: ""
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "mailboxer_notifications", force: :cascade do |t|
+    t.string   "type",                 limit: 255
+    t.text     "body",                 limit: 65535
+    t.string   "subject",              limit: 255,   default: ""
+    t.integer  "sender_id",            limit: 4
+    t.string   "sender_type",          limit: 255
+    t.integer  "conversation_id",      limit: 4
+    t.boolean  "draft",                              default: false
+    t.string   "notification_code",    limit: 255
+    t.integer  "notified_object_id",   limit: 4
+    t.string   "notified_object_type", limit: 255
+    t.string   "attachment",           limit: 255
+    t.datetime "updated_at",                                         null: false
+    t.datetime "created_at",                                         null: false
+    t.boolean  "global",                             default: false
+    t.datetime "expires"
+  end
+
+  add_index "mailboxer_notifications", ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id", using: :btree
+  add_index "mailboxer_notifications", ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type", using: :btree
+  add_index "mailboxer_notifications", ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type", using: :btree
+  add_index "mailboxer_notifications", ["type"], name: "index_mailboxer_notifications_on_type", using: :btree
+
+  create_table "mailboxer_receipts", force: :cascade do |t|
+    t.integer  "receiver_id",     limit: 4
+    t.string   "receiver_type",   limit: 255
+    t.integer  "notification_id", limit: 4,                   null: false
+    t.boolean  "is_read",                     default: false
+    t.boolean  "trashed",                     default: false
+    t.boolean  "deleted",                     default: false
+    t.string   "mailbox_type",    limit: 25
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
+  add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
+
+  create_table "needs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.string   "avatar",      limit: 255
@@ -85,10 +143,31 @@ ActiveRecord::Schema.define(version: 20160711021056) do
     t.datetime "updated_at",                null: false
     t.integer  "queen_id",    limit: 4
     t.integer  "category_id", limit: 4
+    t.integer  "user_id",     limit: 4
+    t.date     "start_date"
+    t.date     "ending_date"
+    t.date     "final_date"
+    t.string   "state",       limit: 255
+    t.string   "price_range", limit: 255
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["queen_id"], name: "index_products_on_queen_id", using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "phone",       limit: 255
+    t.string   "company",     limit: 255
+    t.string   "qq",          limit: 255
+    t.string   "wechat",      limit: 255
+    t.string   "verify_img1", limit: 255
+    t.string   "verify_img2", limit: 255
+    t.string   "verify_img3", limit: 255
+    t.string   "address",     limit: 255
+    t.string   "other",       limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "user_id",     limit: 4
+  end
 
   create_table "queens", force: :cascade do |t|
     t.string   "email",           limit: 255
@@ -102,6 +181,17 @@ ActiveRecord::Schema.define(version: 20160711021056) do
     t.string   "state",           limit: 255
     t.text     "desc",            limit: 65535
   end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.integer  "resource_id",   limit: 4
+    t.string   "resource_type", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
@@ -137,10 +227,35 @@ ActiveRecord::Schema.define(version: 20160711021056) do
     t.string   "password_digest", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.string   "company",         limit: 255
     t.string   "avatar",          limit: 255
+    t.string   "state",           limit: 255
   end
 
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id", limit: 4
+    t.integer "role_id", limit: 4
+  end
+
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "votable_id",   limit: 4
+    t.string   "votable_type", limit: 255
+    t.integer  "voter_id",     limit: 4
+    t.string   "voter_type",   limit: 255
+    t.boolean  "vote_flag"
+    t.string   "vote_scope",   limit: 255
+    t.integer  "vote_weight",  limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
+
+  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
+  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
+  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "queens"
 end

@@ -4,3 +4,9 @@
 			.col-md-3
 				= render "menu"
 			.col-md-9
+				.content
+					%h1 项目动态
+					%ul
+						- @messages=['欢迎访问蚂蚁共和']
+						- @messages.each_with_index do |m,i|
+							%li= m

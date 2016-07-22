@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-  	@products = Product.all
+    @q = Product.ransack(category_eq: params[:category])
+    @products = @q.result
   end
 end

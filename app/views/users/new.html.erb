@@ -7,23 +7,20 @@
 					<div class='caption'>
 						<h3>
 							<span class="fa fa-user"></span>
-							Login
+							<%= t('signup') %>
 							<span class='color-white'>
 								<small><%= link_to t(:back), :back, class: 'pull-right' %></small>
 							</span>
 						</h3>
 					
 					<%= simple_form_for(@user) do |f| %>
-  <%= f.input :email %>
-  <%= f.input :name %>
-  <%= f.input :cell %>
-  <%= f.input :company %>
-  <%= f.input :avatar %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <hr/>
-  <%= f.button :submit, value: '创建甲方' %>
-<% end %>
+						<%= f.input :name %>
+					  <%= f.input :email %>
+					  <%= f.input :password %>
+					  <%= f.input :password_confirmation %>
+					  <hr/>
+					  <%= f.button :submit, value: '注册访客' %>
+					<% end %>
 					
 				</div>
 				</div>
@@ -31,3 +28,4 @@
 		</div>
 	</div>
 </section>
+

@@ -13,5 +13,42 @@ ActiveAdmin.register User do
    permitted
  end
 
+ sidebar "profile Details", only: [:show] do
+    ul do
+      li link_to "认证资料",    admin_profile_path(user.profile) unless user.profile.nil?
+    end
+  end
+
+	index do
+	  column :email
+	  column :name
+	  column :cell
+	  column :avatar
+	  column :state
+	  column "认证资料" do |user|
+	  	link_to "认证资料", admin_profile_path(user.profile) unless user.profile.nil?
+	  end
+	  actions defaults: false do |user|
+	    
+	    link_to "拒绝认证", deny_verify_admin_user_path(user), method: :put
+	  end
+	  actions defaults: false do |user|
+	    
+	    link_to "通过认证", allow_verify_admin_user_path(user), method: :put
+	    
+	  end
+
+	  actions
+	end
+
+  member_action :allow_verify, method: :put do
+    resource.confirm!
+    redirect_to admin_users_path, notice: "passed!"
+  end
+
+  member_action :deny_verify, method: :put do
+    resource.unconfirm!
+    redirect_to admin_users_path, notice: "denied!"
+  end
 
 end

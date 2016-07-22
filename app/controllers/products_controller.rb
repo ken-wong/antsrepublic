@@ -4,11 +4,10 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    current_user = params[:queen_id]
-    if (current_user.blank? or current_user.nil?) then
-      @products = Product.all 
+    if params[:user_id].nil?
+      @products = Product.all
     else
-      @products = Product.where("queen_id = #{current_user}")  
+      @products = Product.where("user_id = #{params[:user_id]}")  
     end
   end
 
@@ -24,13 +23,14 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @product = Product.find(params[:id])
   end
 
   # POST /products
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    @product.queen_id = session[:queen_id]
+    @product.user_id = session[:user_id]
 
     respond_to do |format|
       if @product.save
@@ -46,6 +46,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+      @product = Product.find(params[:id])
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -75,6 +76,9 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :avatar, :client_name, :ref_price, :category, :main_media, :description, :queen_id)
+      params.require(:product).permit(:title, :avatar, 
+        :client_name, :ref_price, :category, :main_media, 
+        :description, :user_id, :start_date, 
+        :ending_date, :final_date, :price_range)
     end
 end

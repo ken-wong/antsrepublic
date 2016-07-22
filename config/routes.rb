@@ -1,29 +1,57 @@
 Rails.application.routes.draw do
-  resources :uploads
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  resources :products
-  root 'welcome#index'
-  get     'login'   => 'sessions#new'
-  post    'login'   => 'sessions#create'
-  delete  'logout'  => 'sessions#destroy'
-  get     'signup'  => 'users#new'
-  get     'queen_login'   => 'queen_sessions#new'
-  post    'queen_login'   => 'queen_sessions#create'
-  delete  'queen_logout'  => 'queen_sessions#destroy'
-  get     'queen_signup'  => 'queens#new'
-  get     'choose'  => 'welcome#choose'
-  get     'choose_login' => 'welcome#choose_login'
+  
   resources :users do
     member do
       get 'dashboard'
+      get 'following_list'
+      get 'voteable_list'
+      get 'verify'
+      get 'choose'
     end
+    resource :profile
   end
+
+
+
   resources :queens do
     member do
       get 'dashboard'
     end
   end
+  
+  resources :products
+  resources :needs 
+  resources :uploads  
+
+  get 'needs/index'
+
+  get 'needs/show'
+
+  get 'needs/update'
+
+  get 'needs/create'
+
+  get 'needs/desttroy'
+
+  get 'needs/need_params'
+
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  
+  ActiveAdmin.routes(self)
+  
+  root 'welcome#index'
+  get     'login'   => 'sessions#new'
+  post    'login'   => 'sessions#create'
+  delete  'logout'  => 'sessions#destroy'
+  get     'signup'  => 'users#new'
+  # get     'queen_login'   => 'queen_sessions#new'
+  # post    'queen_login'   => 'queen_sessions#create'
+  # delete  'queen_logout'  => 'queen_sessions#destroy'
+  # get     'queen_signup'  => 'queens#new'
+  # get     'choose'  => 'welcome#choose'
+  # get     'choose_login' => 'welcome#choose_login'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
