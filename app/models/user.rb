@@ -14,8 +14,12 @@ class User < ActiveRecord::Base
   acts_as_voter
 
   state_machine :state, :initial => :'未认证' do
-    event :confirm do
-      transition :'未认证' => :'已认证'
+    event :confirm! do
+      transition [nil, :'未认证', :'拒绝'] => :'已认证'
+    end
+
+    event :unconfirm! do
+      transition [nil, :'已认证',:'未认证'] => :'拒绝'
     end
   end
 end
