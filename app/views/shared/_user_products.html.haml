@@ -4,6 +4,6 @@
       = image_tag(product.avatar.small_url)
       %p= product.title
 - if action_name == 'product_list'
-	.col-md-4
-	  %a{href: new_product_path, class: 'btn btn-primary'}
-	    %p= '添加案例'
+  .col-md-4
+    %a{href: new_product_path, class: 'btn btn-primary'}
+      %p= '添加案例'
