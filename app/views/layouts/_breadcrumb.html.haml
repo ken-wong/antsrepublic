@@ -24,3 +24,8 @@
           %li= link_to '用户资料', user_path(current_user)
           %li= '认证审核'             
 
+      - if !@product.nil? and current_page?(product_path(@product))
+        %li= link_to I18n.t('root_path'), root_path
+        %li= link_to '案例', product_path(@product)
+
+        

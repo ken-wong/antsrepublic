@@ -7,8 +7,4 @@
         .content
           .caption
             %h3= t('user_voteable')
-          - @products.each do |product|
-            .col-md-4
-              %a{href: product_path(product), class: :thumbnail}
-                = image_tag(product.avatar)
-                %p= product.title
+          = render '/shared/user_products'
