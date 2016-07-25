@@ -13,7 +13,7 @@
             = f.input :email,  disabled: true
             = f.input :name
             = f.input :cell
-            = f.input :avatar
+            = f.input :avatar, as: :file, hint: f.object.avatar.nil? ? '' :image_tag(f.object.avatar.small_url)
             = f.input :password
             = f.input :password_confirmation
             = f.button :submit

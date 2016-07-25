@@ -3,7 +3,10 @@
     首页面板
   - unless @user.has_role? :visitor 
     %a.list-group-item{ href: products_path(uer_id: @user), class: active_class(products_path(user_id: @user)) }
-      项目管理 
+      项目管理
+  - if @user.has_role? :queen 
+    %a.list-group-item{ href: product_list_user_path(@user), class: active_class(product_list_user_path(@user)) }
+      = t(:user_product)  
   %a.list-group-item{ href: following_list_user_path(@user), class: active_class(following_list_user_path(@user)) }
     我的收藏
   %a.list-group-item{ href: voteable_list_user_path(current_user), class: active_class(voteable_list_user_path(current_user)) }
