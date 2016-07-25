@@ -15,11 +15,11 @@ class User < ActiveRecord::Base
 
   state_machine :state, :initial => :'未认证' do
     event :confirm! do
-      transition [nil, :'未认证', :'拒绝'] => :'已认证'
+      transition [nil, :'未认证', :'拒绝', :'等待审核'] => :'认证通过'
     end
 
     event :unconfirm! do
-      transition [nil, :'已认证',:'未认证'] => :'拒绝'
+      transition [nil, :'认证通过',:'未认证', :'等待审核'] => :'拒绝'
     end
   end
 end

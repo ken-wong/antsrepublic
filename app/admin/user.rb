@@ -24,6 +24,9 @@ ActiveAdmin.register User do
 	  column :name
 	  column :cell
 	  column :avatar
+	  column '申请角色' do |user|
+	  	I18n.t(user.roles.last.name) unless (user.roles.blank? or user.roles.last.nil?)
+	  end
 	  column :state
 	  column "认证资料" do |user|
 	  	link_to "认证资料", admin_profile_path(user.profile) unless user.profile.nil?

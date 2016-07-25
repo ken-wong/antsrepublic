@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'voteable_list'
       get 'verify'
       get 'choose'
+      get 'product_list'
     end
     resource :profile
   end

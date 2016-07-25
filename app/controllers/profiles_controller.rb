@@ -16,9 +16,13 @@ class ProfilesController < InheritedResources::Base
     @user = User.find(session[:user_id])
     respond_to do |format|
       if @profile.save
+      	@user.remove_role @user.roles.last.name
       	@user.add_role session[:role]
-      	@user.remove_role :visitor
-        format.html { redirect_to user_profile_path(user_id: session[:user_id]), notice: 'Profile was successfully created.' }
+      	
+
+      	@user.state = '等待审核'
+      	@user.save
+        format.html { redirect_to choose_user_path(@user), notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
@@ -28,13 +32,16 @@ class ProfilesController < InheritedResources::Base
 	end
 
   def update
-  	@profile = Profile.find(params[:profile_id])
-  	@user = User.find(@profile.user_id)
+  	
+  	@user = User.find(params[:user_id])
+  	@profile = @user.profile
     respond_to do |format|
       if @profile.update(profile_params)
+      	@user.remove_role @user.roles.last.name
       	@user.add_role session[:role]
-      	@user.remove_role :visitor
-        format.html { redirect_to @profile, notice: 'Product was successfully updated.' }
+      	@user.state = '等待审核'
+      	@user.save
+        format.html { redirect_to choose_user_path(@user), notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }
@@ -51,6 +58,7 @@ class ProfilesController < InheritedResources::Base
 
     def profile_params
       params.require(:profile).permit(:phone, :company, :qq, :wechat, :verify_img1, :verify_img2, :verify_img3, :address, :other)
+      params.require(:profile).permit(:state)
     end
 end
 

@@ -3,18 +3,17 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= image_tag @product.avatar.url , size: "128x128" if @product.avatar  %>
-    <%= f.input :avatar %>
+    <%= f.input :avatar, as: :file, hint: f.object.avatar.nil? ? '' :image_tag(f.object.avatar.small_url, size: '128x128') %>
     <%= f.input :client_name %>
     <%= f.input :ref_price %>
-    <%= f.input :queen_id, as: :hidden, value: session[:queen_id]%>
+    <%= f.input :user_id, as: :hidden, value: session[:user_id]%>
     <%= radio_button(:product, :category, "效果图") %>效果图
     <%= radio_button(:product, :category, "影片") %>影片
     <%= radio_button(:product, :category, "多媒体") %>多媒体
     <%#= f.select :category, options_for_select([ "效果图", "影片", "多媒体" ], "效果图") %>
-    <%= f.input :main_media %>
+    <%#= f.input :main_media %>
     <%= f.input :description %>
-    <%= f.input :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] %>
+    
   </div>
 
   <div class="form-actions">

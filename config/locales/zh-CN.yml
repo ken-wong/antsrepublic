@@ -69,7 +69,7 @@ zh-CN:
         state: 状态
         created_at: 创建
         updated_at: 更新
-  title: 蚂蚁共和
+
   new_admin: 新建管理员
   new_product: 新建案例
   new_need: 发布需求
@@ -80,6 +80,7 @@ zh-CN:
   destroy: 删除
   user_following: 我的收藏
   user_voteable: 我的点赞
+  user_product: 我的案例
   back: 返回
   login: 登录
   logout: 登出

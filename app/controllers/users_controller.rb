@@ -49,6 +49,11 @@ class UsersController < ApplicationController
     @products = @user.find_liked_items
   end
 
+  def product_list
+    @user = User.find(params[:id])
+    @products = @user.products
+  end
+
   def dashboard
     @user = User.find(params[:id])
   end
@@ -56,6 +61,8 @@ class UsersController < ApplicationController
   def choose
     @user = User.find(params[:id])
   end
+
+
 
   def verify
     @user = User.find(params[:id])
