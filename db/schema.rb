@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722075225) do
+ActiveRecord::Schema.define(version: 20160727032722) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -72,6 +72,26 @@ ActiveRecord::Schema.define(version: 20160722075225) do
 
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "topic",                      limit: 255
+    t.text     "body",                       limit: 65535
+    t.integer  "received_messageable_id",    limit: 4
+    t.string   "received_messageable_type",  limit: 255
+    t.integer  "sent_messageable_id",        limit: 4
+    t.string   "sent_messageable_type",      limit: 255
+    t.boolean  "opened",                                   default: false
+    t.boolean  "recipient_delete",                         default: false
+    t.boolean  "sender_delete",                            default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry",                   limit: 255
+    t.boolean  "recipient_permanent_delete",               default: false
+    t.boolean  "sender_permanent_delete",                  default: false
+  end
+
+  add_index "messages", ["ancestry"], name: "index_messages_on_ancestry", using: :btree
+  add_index "messages", ["sent_messageable_id", "received_messageable_id"], name: "acts_as_messageable_ids", using: :btree
 
   create_table "needs", force: :cascade do |t|
     t.datetime "created_at", null: false
