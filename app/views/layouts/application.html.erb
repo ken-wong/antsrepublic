@@ -13,8 +13,10 @@
 </head>
 <body class='background-clouds'>
   <%= render 'layouts/header' %>
-  <%= render 'layouts/breadcrumb' %>
-
+  <%= if !current_page?(root_path) 
+        render 'layouts/breadcrumb' 
+      end
+  %>
 
   <%= yield %>
   

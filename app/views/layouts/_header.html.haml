@@ -2,7 +2,7 @@
   %div.topNav
     .container
       .row
-        %ul.nav.navbar-nav
+        %ul.nav.navbar-nav.center-block
                
           - if logged_in?
             %li 
@@ -17,26 +17,31 @@
           %li  
             = link_to t('联系客服'), '#'
           %li  
-            = link_to t('网站导航'), '#'   
+            = link_to t('网站导航'), '#' 
+          %li
+            %img{:src => image_path("icon_telephone.png")}  
+            4000 - 5566 - 36
 
   %nav#mainMenu.navbar{:role => "navigation"}
     .container
       .row
-        .collapse.navbar-collapse.navbar-ex1-collapse
         
-      / Brand and toggle get grouped for better mobile display
-      .navbar-header
-        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar.background-lead
-          %span.icon-bar.background-lead
-          %span.icon-bar.background-lead
-        %a.navbar-brand{:href => root_path}
-          %img{:alt => "logo", :src => image_path("Ant-52.png")}>/
-      / Collect the nav links, forms, and other content for toggling
-      
-            
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar.background-lead
+            %span.icon-bar.background-lead
+            %span.icon-bar.background-lead
+          %a.navbar-brand{:href => root_path}
+            %img{:alt => "logo", :src => image_path("Ant-52.png")}>/
 
-      / /.navbar-collapse
+      
+        //.navbar-collapse
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          %form.navbar-form.navbar-right
+            %button.btn.btn-default.btn-lg{:type => 'btn'}
+              %span.glyphicon.glyphicon-search            
+
 
 
