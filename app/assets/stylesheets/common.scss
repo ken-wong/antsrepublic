@@ -1,5 +1,6 @@
+$mainBgColor:#ecf4f7;
 .topNav{
-	background-color:#ecf4f7;
+	background-color:$mainBgColor;
 	.nav{
 		a{color:#7a849b}
 		float:none;
@@ -29,7 +30,7 @@ nav.navbar{
 
 section#quick_navi_section{
 	height:400px;
-	background:#ecf4f7;
+	background:$mainBgColor;
 	a.quick_btn{
 		width:100%;
 		height:100%;
@@ -52,4 +53,25 @@ section#quick_navi_section{
 			}
 		}
 	}
+}
+
+section.product_list_section{
+	min-height:400px;
+	background:$mainBgColor;
+}
+
+section.quick_startup_section{
+	height:400px;
+}
+section.ants_list{
+	min-height:400px;
+	background-color:$mainBgColor;
+}
+section.ants_feature_section{
+	min-height:300px;
+	background-color:white;
+}
+section.contact_section{
+	min-height:120px;
+	background-color:$mainBgColor;
 }

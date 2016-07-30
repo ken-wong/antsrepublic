@@ -1,14 +1,18 @@
 
-%section.background-white.color-black
+%section.product_list_section.color-black
   .container
-    %h1.text-center.x-large 案例展示
-    %ul.nav.nav-pills.pull-right
-      %li.nav-item
-        =link_to "效果图", root_url(category: "效果图"), class: "nav-link"
-      %li.nav-item
-        =link_to "影片", root_url(category: "影片"), class: "nav-link"
-      %li.nav-item
-        =link_to "多媒体", root_url(category: "多媒体"), class: "nav-link"
+    .row
+      .col-lg-6.col-sm-12
+        %h2.text-center.x-large 案例展示
+      
+      .col-lg-6.col-sm-12
+        %ul.nav.nav-pills.pull-right
+          %li.nav-item
+            =link_to "效果图", root_url(category: "效果图"), class: "nav-link"
+          %li.nav-item
+            =link_to "影片", root_url(category: "影片"), class: "nav-link"
+          %li.nav-item
+            =link_to "多媒体", root_url(category: "多媒体"), class: "nav-link"
     .row
       - @products.each do |product|
         .col-sm-4.col-md-4
