@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><%= t(:title) %></title>
+  <!-- <title><%= t(:title) %></title> -->
+  <title>蚂蚁共和</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'neat/neat-blue'%>
   <%= csrf_meta_tags %>
@@ -12,8 +13,10 @@
 </head>
 <body class='background-clouds'>
   <%= render 'layouts/header' %>
-  <%= render 'layouts/breadcrumb' %>
-
+  <%= if !current_page?(root_path) 
+        render 'layouts/breadcrumb' 
+      end
+  %>
 
   <%= yield %>
   

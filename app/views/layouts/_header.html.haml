@@ -1,23 +1,9 @@
 #nav-wrapper.background-white.color-black
-  %nav#mainMenu.navbar.navbar-fixed-top{:role => "navigation"}
+  %div.topNav
     .container
-      / Brand and toggle get grouped for better mobile display
-      .navbar-header
-        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar.background-lead
-          %span.icon-bar.background-lead
-          %span.icon-bar.background-lead
-        %a.navbar-brand{:href => root_path}
-          %img{:alt => "logo", :src => image_path("Ant-52.png")}>/
-          ANTS REPUBLIC
-      / Collect the nav links, forms, and other content for toggling
-      .collapse.navbar-collapse.navbar-ex1-collapse
-        %ul.nav.navbar-nav.navbar-right
-          %li  
-            = link_to t('联系客服'), '#'
-          %li  
-            = link_to t('网站导航'), '#'        
+      .row
+        %ul.nav.navbar-nav.center-block
+               
           - if logged_in?
             %li 
               = link_to '个人中心', dashboard_user_path(session[:user_id])
@@ -25,11 +11,37 @@
               = link_to t('logout'), logout_path, method: :delete 
           - else
             %li
-              = link_to t('signup'), signup_path
+              = link_to( t('signup'), signup_path ) 
             %li
               = link_to t('login'), login_path
-            
+          %li  
+            = link_to t('联系客服'), '#'
+          %li  
+            = link_to t('网站导航'), '#' 
+          %li
+            %img{:src => image_path("icon_telephone.png")}  
+            4000 - 5566 - 36
 
-      / /.navbar-collapse
+  %nav#mainMenu.navbar{:role => "navigation"}
+    .container
+      .row
+        
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar.background-lead
+            %span.icon-bar.background-lead
+            %span.icon-bar.background-lead
+          %a.navbar-brand{:href => root_path}
+            %img{:alt => "logo", :src => image_path("Ant-52.png")}>/
+
+      
+        //.navbar-collapse
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          %form.navbar-form.navbar-right
+            %button.btn.btn-default.btn-lg{:type => 'btn'}
+              %span.glyphicon.glyphicon-search            
+
 
 
