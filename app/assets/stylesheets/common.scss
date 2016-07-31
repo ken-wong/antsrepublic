@@ -1,4 +1,5 @@
 $mainBgColor:#ecf4f7;
+$primaryColor:#5eb4e7;
 .topNav{
 	background-color:$mainBgColor;
 	.nav{
@@ -29,7 +30,7 @@ nav.navbar{
 }
 
 section#quick_navi_section{
-	height:400px;
+	min-height:400px;
 	background:$mainBgColor;
 	a.quick_btn{
 		width:100%;
@@ -38,18 +39,57 @@ section#quick_navi_section{
 		border-radius:5px;
 		box-shadow:1px 2px 20px #bcdae5;
 		background-color:white;
-		&:hover{text-decoration:none}
 		.quick_btn_picture{
 			text-align:center;
 			margin:50px 0px 20px 0px;
 		}
 		h2{
 			border:0;
-			color:black;
+			color:#47525f;
 			text-align:center;
 			margin-bottom:50px;
-			&:hover{
+			font-weight:900;
+		}
+		&:hover{
+			text-decoration:none;
+			h2{
 				color:black;
+			}
+		}
+	}
+}
+
+section.ants_index_section{
+	min-height:400px;
+	padding-top:80px;
+	padding-bottom:50px;
+	h2{
+		font-weight:900;
+		&>span{
+			margin-right:20px;
+			border:none;
+			&>img{
+				vertical-align:top;
+			}
+		}
+	}
+	p i{
+		font-size:11px;
+		color:#97a0af;
+	}
+	ul{
+		list-style:none;
+		margin:30px 0 0 0;
+		padding:0;
+		li{
+			line-height:40px;
+			color:#333;
+			span.ants_index_list_icon{
+				display:inline-block;
+				margin-right:20px;
+				width:12px;
+				height:12px;
+				background:url(image_path('homepage/ants_index_list_icon.png')) scroll no-repeat;
 			}
 		}
 	}
@@ -58,20 +98,124 @@ section#quick_navi_section{
 section.product_list_section{
 	min-height:400px;
 	background:$mainBgColor;
+	.product_list_header{
+		ul{
+			margin-top:20px;
+			li{
+				a{
+					font-size:20px;
+					color:#000;
+				}
+			}
+		}
+	}
 }
 
 section.quick_startup_section{
-	height:400px;
+	min-height:450px;
+	span.flow_header_icon{
+		vertical-align: top;
+		display:inline-block;
+		border-bottom:0px;
+		width:30px;
+		height:30px;
+		background:url(image_path('homepage/flow_header_icon.png')) scroll no-repeat;
+	}
+	h2{
+		font-weight:bold;
+		margin-bottom:40px;
+	}
+	.quick_startup_steps{
+		width:95%;
+		height:200px;
+		.quick_startup_icon{
+			width:100%;
+			height:70px;
+
+		}
+		h4{
+			font-size:22px;
+			font-weight:900;
+		}
+		h6{
+			color:#888;
+			width:80%;
+			font-size:18px;
+			line-height:30px;
+			word-space:3px;
+			height:70px;
+		}
+		.steps_index_icon{
+			width:40px;
+			height:40px;
+			border-radius:20px;
+			background-color:$mainBgColor;
+			line-height:40px;
+			color:$primaryColor;
+			font-family:'Times New Roman', Times, serif;
+			transition:background-color 1s,color 1s;
+		}
+		&:hover{
+			.steps_index_icon{
+				background-color:$primaryColor;
+				color:white;
+			}
+		}
+	}
 }
 section.ants_list{
 	min-height:400px;
 	background-color:$mainBgColor;
 }
 section.ants_feature_section{
-	min-height:300px;
+	min-height:200px;
 	background-color:white;
+	h2{
+		font-weight:bold;
+
+		i{
+			color:$primaryColor;
+		    font-style: normal;
+		}
+	}
+	h4{
+		height:40px;
+		line-height:40px;
+		font-size:20px;
+		font-weight:600;
+		color:#888;
+		&>span{
+		    vertical-align: bottom;
+			display:inline-block;
+			width:40px;
+			height:40px;
+			// verical-align:
+			background:scroll no-repeat;
+			&.featured_icon_1{
+				background-image:url(image_path('homepage/features_icon_1.png'));
+			}
+			&.featured_icon_2{
+				background-image:url(image_path('homepage/features_icon_2.png'));
+			}
+			&.featured_icon_3{
+				background-image:url(image_path('homepage/features_icon_3.png'));
+			}
+		}
+	}
+
 }
 section.contact_section{
-	min-height:120px;
+	min-height:200px;
 	background-color:$mainBgColor;
+	padding-top:80px;
+	h5{
+		font-size:24px;
+		font-weight:900;
+	}
+	.btn-primary{
+		box-shadow:2px 0px 5px $primaryColor;
+		width:200px;
+		background-color:$primaryColor;
+		border-color:$primaryColor;
+	}
 }

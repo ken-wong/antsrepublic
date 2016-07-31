@@ -484,7 +484,7 @@ section h1,
 footer h1,
 section h2,
 footer h2 {
-  border-bottom: 1px rgba(52, 152, 219, 0.3) solid;
+  /*border-bottom: 1px rgba(52, 152, 219, 0.3) solid;*/
 }
 section h1.no-border,
 footer h1.no-border,
