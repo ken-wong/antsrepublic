@@ -1,4 +1,5 @@
 class NeedsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @need = Need.new
     @need.user_id = params[:user_id]
