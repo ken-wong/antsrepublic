@@ -19,7 +19,19 @@ class NeedsController < ApplicationController
 
   def update
     @need = Need.find(params[:id])
+     tags = params[:tags]
+     tags = [] if tags.nil?
+      
     respond_to do |format|
+      @need.tag_list.each do |tag|
+        @need.tag_list.remove(tag)
+      end
+      
+      tags.each do |tag|
+        @need.tag_list.add(tag)
+      end
+      @need.save
+
       if @need.update(need_params)
         format.html { redirect_to project_list_user_path(current_user), notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @need }
@@ -33,10 +45,15 @@ class NeedsController < ApplicationController
   def create
     @need = Need.new(need_params)
     @need.user_id = current_user.id
-    @need.state = '等待审核'
+    tags = params[:tags]
+    tags = [] if tags.nil?
 
     respond_to do |format|
       if @need.save
+        tags.each do |tag|
+          @need.tag_list.add(tag)
+        end
+        @need.save
         format.html { redirect_to project_list_user_path(current_user), notice: 'Product was successfully updated.'  }
         format.json { render :show, status: :created, location: @need }
       else

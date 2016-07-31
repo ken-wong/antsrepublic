@@ -30,7 +30,17 @@
           <div class="panel-collapse collapse in" id="collapseOne" aria-expanded="false" style="">
             <div class="panel-body background-clouds">
               <% tag_list[1].each do |tag| %>
-                <%= check_box_tag 'tags[]', tag %> <%= tag %>
+                <%- 
+                  @flag = false
+                  @need.tag_list.each do |t|
+                    @flag = true if t == tag and !t.blank?
+                  end
+                   -%>
+                 <%- if @flag -%>  
+                  <%= check_box_tag 'tags[]', tag, :checked  %> <%= tag %>
+                <% else %>
+                <%= check_box_tag 'tags[]', tag  %> <%= tag %>
+                <% end %>
               <% end %>
             </div>
           </div>
