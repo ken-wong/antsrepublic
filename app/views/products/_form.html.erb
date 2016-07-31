@@ -6,7 +6,7 @@
     <%= f.input :avatar, as: :file, hint: f.object.avatar.nil? ? '' :image_tag(f.object.avatar.small_url, size: '128x128') %>
     <%= f.input :client_name %>
     <%= f.input :ref_price %>
-    <%= f.input :user_id, as: :hidden, value: session[:user_id]%>
+
     <%= radio_button(:product, :category, "效果图") %>效果图
     <%= radio_button(:product, :category, "影片") %>影片
     <%= radio_button(:product, :category, "多媒体") %>多媒体

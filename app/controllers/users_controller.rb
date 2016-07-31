@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     @products = @user.find_liked_items
   end
 
-  def product_list
+  def project_list
     @user = User.find(params[:id])
     @products = @user.products
   end

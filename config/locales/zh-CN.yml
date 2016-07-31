@@ -73,14 +73,17 @@ zh-CN:
   new_admin: 新建管理员
   new_product: 新建案例
   new_need: 发布需求
+  edit_need: 更新需求
   admin_list: 管理员列表
   are_you_sure: 请确认操作
   operations: 操作
   edit: 编辑
   destroy: 删除
+  show: 详情
+  new: 新建
   user_following: 我的收藏
   user_voteable: 我的点赞
-  user_product: 我的案例
+  user_product: 项目管理
   back: 返回
   login: 登录
   logout: 登出

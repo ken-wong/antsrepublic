@@ -1,23 +1,44 @@
 <%= simple_form_for(@need) do |f| %>
   <%= f.error_notification %>
-
   <div class="form-inputs">
     <%= f.input :title, required: true %>
-    <%= f.input :description %>
-    <%= f.input :user_id, as: :hidden, value: session[:user_id]%>
-    <%= f.input :ending_date, required: true %>
-    <%= f.input :final_date, required: true %>    
-    <%= f.input :price_range, priority: [ "高端" ], collection: [ "预算充足", "标准预算", "预算有限"], required: true %>
     <%= radio_button(:need, :category, "效果图") %>效果图
     <%= radio_button(:need, :category, "影片") %>影片
     <%= radio_button(:need, :category, "多媒体") %>多媒体
-    <%= f.input :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] %>
+    <%= f.input :description %>
+    <%= f.input :ending_date, required: true %>
+    <%= f.input :final_date, required: true %> 
+    <!--todo, 根据 radio_button 显示不同提示
+        效果图人视：高端大于5k／中端2～5k／低端1～2k
+        效果图鸟瞰：高端大于9k／中端3～9k／低端1～3k以下
+        影      片：高端大于30w／中端15～30w／低端8～15w以下
+    -->   
+    <%= f.input :price_range, priority: [ "高端" ], collection: [ "高端", "中端", "低端"], required: true %>
+    <%#= f.input :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] %>
     <hr/>
     <h3>项目关键字</h3>
-    <p>
-     add tags
-    </p>
+      <div id="need_tag" class="panel-group faq">
+        <%- @tags.each do |tag_list|-%>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" aria-expanded="true" class="">
+                 <%= tag_list[0]%>
+              </a>
+            </h4>
+          </div>
+          <div class="panel-collapse collapse in" id="collapseOne" aria-expanded="false" style="">
+            <div class="panel-body background-clouds">
+              <% tag_list[1].each do |tag| %>
+                <%= check_box_tag 'tags[]', tag %> <%= tag %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <%- end -%>
+      </div>
     <hr/>    
+<!-- todo:
     <h3>参考案例</h3>
     <p>
      add products
@@ -27,10 +48,11 @@
     <p>
      add ants
     </p>
-    
+     -->
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, value: t('new_need') %>
+    <%= f.button :submit, value: t('new_need') if params[:id].blank? %>
+    <%= f.button :submit, value: t('edit_need') unless params[:id].blank? %>
   </div>
 <% end %>
