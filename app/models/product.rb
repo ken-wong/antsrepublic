@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
-  belongs_to :queen
+
   belongs_to :user
+  belongs_to :queen, class_name: "User"
+  has_many :queen_product_relations
 	mount_uploader :avatar, AvatarUploader
 	mount_uploader :main_media, MainMediaUploader
 

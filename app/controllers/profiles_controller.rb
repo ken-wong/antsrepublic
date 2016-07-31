@@ -57,8 +57,7 @@ class ProfilesController < InheritedResources::Base
   private
 
     def profile_params
-      params.require(:profile).permit(:phone, :company, :qq, :wechat, :verify_img1, :verify_img2, :verify_img3, :address, :other)
-      params.require(:profile).permit(:state)
+      params.require(:profile).permit(:phone, :company, :qq, :wechat, :verify_img1, :verify_img2, :verify_img3, :address, :other, :state)
     end
 end
 

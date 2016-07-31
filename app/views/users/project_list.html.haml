@@ -8,7 +8,8 @@
           .caption
             %h3
               = t('user_product')
-              = link_to t('new'), new_need_path, class: "btn btn-primary" if @user.has_role? :owner 
+              = link_to t('new_need'), new_need_path, class: "btn btn-primary" if @user.has_role? :owner 
+              = link_to t('new_product'), new_product_path, class: "btn btn-primary" if @user.has_role? :queen 
           %table.table
             %thead
               %tr
@@ -26,5 +27,6 @@
                   %td= product.state
                   %td
                     =# link_to t('show'), product, class: 'btn btn-primary'
+                    = link_to '日程计划', tasks_path(user_id: current_user), class: 'btn btn-info'
                     = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary'
                     = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' 

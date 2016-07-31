@@ -1,6 +1,7 @@
 ActiveAdmin.register Product do
 
-	permit_params :title, :client_name, :ref_price, :category, :description, :avatar, :main_media, :avatar_cache, :main_media_cache, :tag_list, :state
+	permit_params :title, :client_name, :ref_price, :category, :description, :avatar, 
+	:main_media, :avatar_cache, :main_media_cache, :tag_list, :state, :user_id, :queen_id
 
 	qiniu_deal = (Rails.env.test? || Rails.env.development?) ? "" : '?imageView2/2/w/200/h/200'
 
@@ -18,7 +19,7 @@ ActiveAdmin.register Product do
 		f.input :category
 		f.input	:description
 		f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
-		f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| [u.email, u.id]}
+		# f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| [u.email, u.id]}
 		f.input :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] 
 		end
 		f.actions
@@ -40,4 +41,6 @@ ActiveAdmin.register Product do
 			row :state
 		end
 	end
+
+
 end
