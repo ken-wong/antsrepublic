@@ -11,4 +11,30 @@ class Product < ActiveRecord::Base
   acts_as_votable
 
   # :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] 
+  state_machine :state, :initial => :'等待审核' do
+    event :confirm! do
+      transition [nil, :'等待审核'] => :'指派蚁后'
+    end
+
+    event :unconfirm! do
+      transition [nil, :'等待审核'] => :'审核拒绝'
+    end
+
+    event :start! do
+      transition [nil, :'指派蚁后'] => :'项目开始'
+    end
+
+    event :fail! do
+      transition [nil, :'指派蚁后', :'项目开始',:'等待审核'] => :'项目终止'
+    end
+
+    event :redo! do
+      transition [:'项目终止'] => :'等待审核'
+    end    
+
+    event :redo! do
+      transition [:'项目开始'] => :'项目完成'
+    end  
+
+  end
 end
