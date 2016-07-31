@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   
 
   protected
-
+# todo, replace devise with ken's code
   def authenticate_user!
     if current_user.blank?
     	redirect_to login_path
