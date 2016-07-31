@@ -18,6 +18,7 @@ ActiveAdmin.register Product do
 		f.input :category
 		f.input	:description
 		f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
+		f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| [u.email, u.id]}
 		f.input :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] 
 		end
 		f.actions

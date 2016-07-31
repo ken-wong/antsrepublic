@@ -31,6 +31,7 @@ class NeedsController < ApplicationController
         @need.tag_list.add(tag)
       end
       @need.save
+      @need.redo!
 
       if @need.update(need_params)
         format.html { redirect_to project_list_user_path(current_user), notice: 'Product was successfully updated.' }
