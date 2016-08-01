@@ -27,6 +27,7 @@ zh-CN:
         ending_date:  投标截止日
         final_date:  项目截止日
         price_range:  价格范围
+        state: 状态
       admin:
         name: 姓名
         password: 密码

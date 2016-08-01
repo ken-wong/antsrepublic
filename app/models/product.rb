@@ -37,7 +37,11 @@ class Product < ActiveRecord::Base
 
     event :close! do
       transition [:'项目开始'] => :'项目完成'
-    end  
+    end
+  end
 
+  def send_message(admin, from, to)
+    admin.send_message(user, "<a href=\"/products/#{id}\" >#{title}</a>从#{from}到#{to}") if user
+    admin.send_message(queen, "<a href=\"/products/#{id}\" >#{title}</a>从#{from}到#{to}") if queen
   end
 end

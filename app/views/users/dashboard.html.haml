@@ -7,6 +7,5 @@
 				.content
 					%h1 项目动态
 					%ul
-						- @messages=['欢迎访问蚂蚁共和']
 						- @messages.each_with_index do |m,i|
-							%li= m
+							%li= simple_format(m.body)

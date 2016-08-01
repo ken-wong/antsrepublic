@@ -4,6 +4,9 @@
 
 ## change log
 
+## 0801
+gem ransack 和 acts-as-messageable冲突，解决办法[参考](https://github.com/LTe/acts-as-messageable/pull/73#discussion-diff-23638195)
+
 ## 0731
 		
 		MySQL外键 Cannot add or update a child row错误的实例解释

@@ -13,14 +13,14 @@ ActiveAdmin.register Product do
 			f.input :avatar_cache, as: :hidden 
 		end
 		f.inputs 'more' do
-		f.input :title
-		f.input :client_name
-		f.input :ref_price
-		f.input :category
-		f.input	:description
-		f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
-		f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| [u.email, u.id]}
-		f.input :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] 
+			f.input :title
+			f.input :client_name
+			f.input :ref_price
+			f.input :category
+			f.input	:description
+			f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
+			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| [u.email, u.id]}
+			f.input :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] 
 		end
 		f.actions
 	end
@@ -45,5 +45,14 @@ ActiveAdmin.register Product do
 		end
 	end
 
+	member_action :confirm, method: :get do
+	  if resource.confirm!
+		  resource.send_message(current_admin_user, "等待审核", "指派蚁后")
+		end
+	  redirect_to resource_path, notice: "Confirm!"
+	end
 
+	action_item only: :show do
+	  link_to t(:confirm), confirm_admin_product_path(product)
+	end
 end

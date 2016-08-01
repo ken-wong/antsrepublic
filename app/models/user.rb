@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   acts_as_follower
   acts_as_voter
+  acts_as_messageable  :required => :body
 
   state_machine :state, :initial => :'未认证' do
     event :confirm! do

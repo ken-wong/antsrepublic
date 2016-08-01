@@ -58,6 +58,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = User.find(params[:id])
+    @messages = @user.messages
   end
 
   def choose
