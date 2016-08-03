@@ -51,11 +51,14 @@ class UsersController < ApplicationController
 
   def project_list
     @user = User.find(params[:id])
-    @products = @user.products
+    @products = []
+    @products = Product.where("user_id = ?", current_user.id) if @user.has_role?(:owner)
+    @products = Product.where("queen_id = ?", current_user.id) if @user.has_role?(:queen_id)
   end
 
   def dashboard
     @user = User.find(params[:id])
+    @messages = @user.messages
   end
 
   def choose
