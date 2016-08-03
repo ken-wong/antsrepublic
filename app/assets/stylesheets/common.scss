@@ -99,6 +99,17 @@ section.product_list_section{
 	min-height:400px;
 	background:$mainBgColor;
 	.product_list_header{
+		h2{
+			font-weight:900;
+			.product_list_header_icon{
+				display:inline-block;
+				width:38px;
+				height:38px;
+				background:url(image_path('homepage/show_cases_icon.png')) no-repeat scroll;
+				vertical-align: top;
+				border-bottom:0px;
+			}
+		}
 		ul{
 			margin-top:20px;
 			li{
@@ -106,11 +117,54 @@ section.product_list_section{
 					font-size:20px;
 					color:#000;
 					border-radius:0px;
+					border-bottom:3px solid $mainBgColor;
+					&.active{
+						border-color:$primaryColor;
+					}
 					&:hover{
 						background-color:transparent;
-						border-bottom:3px solid $primaryColor;
+						border-color:$primaryColor;
 					}
 				}
+			}
+		}
+	}
+	.product{
+		height:350px;
+		
+		.productBlock{
+			width:98%;
+			height:350px;
+			border-radius:15px;
+			background-color:#fff;
+			border:1px solid #fff;
+			padding:30px;
+		}
+		.thumbnail{
+			float:left;
+			width:68%;
+			max-height:284px;
+			overflow:hidden;
+			img{
+				width:343px;
+			}
+		}
+		.caption{
+			display:inline-block;
+			width:28%;
+			margin-left:15px;
+			h3{
+				font-size:18px;
+			}
+			.description{
+				height:180px;
+				div b{
+					font-size:14px;
+				}	
+			}
+			.btn{
+				background-color:$primaryColor;
+				border-color:$primaryColor;
 			}
 		}
 	}
@@ -169,8 +223,52 @@ section.quick_startup_section{
 	}
 }
 section.ants_list{
-	min-height:400px;
+	min-height:500px;
 	background-color:$mainBgColor;
+	h2{
+		font-weight:900;
+		span.queen_header_icon{
+			vertical-align: top;
+			display:inline-block;
+			border-bottom:0px;
+			width:30px;
+			height:30px;
+			background:url(image_path('homepage/queens_header_icon.png')) no-repeat scroll;
+		}
+	}
+	.ants_list_block{
+		a.thumbnail.gallery-thumbnail{
+			margin:0px;
+		}
+		.ants_queen_contact_card{
+			display:none;
+			position:relative;
+			z-index:99;
+			margin:-15px auto 0px auto;
+			width:60%;
+			height:85px;
+			border-radius:5px;
+			background-color:white;
+			box-shadow:1px 1px 3px #ccc;
+			padding-top:10px;
+			h6{
+				font-size:18px;
+				margin:0px;
+			}
+			a.btn{
+				margin-top:10px;
+				border:0px;
+				width:90px;
+				background-color:$primaryColor;
+			}
+		}
+		&:hover{
+			.ants_queen_contact_card{
+				display: block;
+			}
+		}
+	}
+
 }
 section.ants_feature_section{
 	min-height:200px;
