@@ -323,3 +323,25 @@ section.contact_section{
 		border-color:$primaryColor;
 	}
 }
+
+.background-clouds .breadcrumbs-container{
+	padding:20px 0;
+	background-color:#383f49;
+	margin-top:0px;
+	ol.breadcrumb{
+		padding:0px;
+		&>li{
+			color:white;
+			&:before{
+				color:#999;
+			}
+			&>a{
+				color:#999;
+			}
+		}
+	}
+
+	ol>li>a{
+		
+	}
+}

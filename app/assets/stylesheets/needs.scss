@@ -1,3 +1,58 @@
 // Place all the styles related to the Needs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.needs_form_section{
+	background-color:$mainBgColor;
+	h1{
+		font-weight:900;
+	}
+	.container{
+		.desc_textarea{
+			height:120px;
+		}
+		h5.project_tags_header{
+			font-size:16px;
+		}
+		.project_tags_block{
+			ul.nav.nav-tabs{
+				width:10%;
+				float:left;
+				border-bottom:0px;
+				li{
+					margin-top:0px;
+					margin-bottom:4px;
+					a{
+						margin-right:0px;
+						border:0px;
+						border-top-right-radius:0px;
+						border-bottom-right-radius:0px;
+						background-color:#d9e9ef;
+						text-align:center;
+						&:hover{
+							// background
+						}
+					}
+					&.active{
+						a{
+							background-color:white;
+							color:#000;
+						}
+					}
+				}
+			}
+			.tab-content{
+				float:right;
+				width:90%;
+				height:364px;
+				background-color:white;
+				padding:50px;
+				span.tag{
+					margin-right:20px;
+				}
+			}
+		}
+		.form_submit_block{
+			margin-top:20px;
+		}
+	}
+}

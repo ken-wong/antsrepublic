@@ -1,53 +1,100 @@
 <%= simple_form_for(@need) do |f| %>
   <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :title, required: true %>
-    <%= radio_button(:need, :category, "效果图") %>效果图
-    <%= radio_button(:need, :category, "影片") %>影片
-    <%= radio_button(:need, :category, "多媒体") %>多媒体
-    <%= f.input :description %>
-    <%= f.input :ending_date, required: true %>
-    <%= f.input :final_date, required: true %> 
-    <!--todo, 根据 radio_button 显示不同提示
-        效果图人视：高端大于5k／中端2～5k／低端1～2k
-        效果图鸟瞰：高端大于9k／中端3～9k／低端1～3k以下
-        影      片：高端大于30w／中端15～30w／低端8～15w以下
-    -->   
-    <%= f.input :price_range, priority: [ "高端" ], collection: [ "高端", "中端", "低端"], required: true %>
-    <%#= f.input :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成'] %>
-    <hr/>
-    <h3>项目关键字</h3>
-      <div id="need_tag" class="panel-group faq">
-        <%- @tags.each do |tag_list|-%>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" aria-expanded="true" class="">
-                 <%= tag_list[0]%>
-              </a>
-            </h4>
-          </div>
-          <div class="panel-collapse collapse in" id="collapseOne" aria-expanded="false" style="">
-            <div class="panel-body background-clouds">
-              <% tag_list[1].each do |tag| %>
-                <%- 
-                  @flag = false
-                  @need.tag_list.each do |t|
-                    @flag = true if t == tag and !t.blank?
-                  end
-                   -%>
-                 <%- if @flag -%>  
-                  <%= check_box_tag 'tags[]', tag, :checked  %> <%= tag %>
-                <% else %>
-                <%= check_box_tag 'tags[]', tag  %> <%= tag %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <%- end -%>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <%= f.input :title, placeholder: '请输入项目名称', required: true, label: false  %>
       </div>
-    <hr/>    
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-4">
+        <%= f.input :ending_date, required: true %>
+      </div>
+      <div class="col-lg-4">
+        <%= f.input :final_date, required: true %> 
+      </div>
+      <div class="col-lg-4">
+        <%= f.input :price_range, priority: [ "高端" ], collection: [ "高端", "中端", "低端"], required: true %>
+        <!--todo, 根据 radio_button 显示不同提示
+          效果图人视：高端大于5k／中端2～5k／低端1～2k
+          效果图鸟瞰：高端大于9k／中端3～9k／低端1～3k以下
+          影     片：高端大于30w／中端15～30w／低端8～15w以下
+        -->   
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <%= f.input :description, input_html: { class: 'desc_textarea' } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h5 class="project_tags_header">
+          项目关键字
+        </h5>
+      </div>
+    </div>
+    <div class="row project_tags_block">
+      <div class="col-lg-12">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-pills nav-stacked" role="tablist">
+          <%- @i = 0 -%>
+          <%- @tags.each do |tag_list|-%>
+          <li role="presentation" 
+            <%- if @i == 0 -%>
+              class="active"
+            <%- end -%>
+          >
+            <a href="#<%= tag_list[1][0]['id'] %>" aria-controls="home" role="tab" data-toggle="tab">
+              <%= tag_list[0]%>
+            </a>
+          </li>
+          <%- @i += 1 -%>
+          <%- end -%>
+        </ul>
+
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <%- @i = 0 -%>
+          <%- @tags.each do |tag_list|-%>
+          
+          <div role="tabpanel" class="tab-pane 
+            <%- if @i == 0 -%>
+              active
+            <%- end -%>
+          " id="<%= tag_list[1][0]['id'] %>">
+            <% tag_list[1][1]['tags'].each do |tag| %>
+              <%- 
+                @flag = false
+                @need.tag_list.each do |t|
+                  @flag = true if t == tag and !t.blank?
+                end
+              -%>
+            <span class="tag">
+              
+              
+              <%- if @flag -%>
+                <%= check_box_tag 'tags[]', tag, :checked  %>
+              <% else %>
+                <%= check_box_tag 'tags[]', tag  %> 
+              <% end %>
+              <label for=""><%= tag %></label>
+            </span>
+
+            <% end %>
+
+          </div>
+          <%- @i += 1 -%>
+          <%- end -%>
+        </div>
+      </div>  
+    </div>
+   
 <!-- todo:
     <h3>参考案例</h3>
     <p>
@@ -59,10 +106,13 @@
      add ants
     </p>
      -->
+
+     <div class="row form_submit_block">
+       <div class="col-lg-12 text-center">
+          <%= f.button :submit, class:'btn btn-primary btn-lg', value: t('new_need') if params[:id].blank? %>
+          <%= f.button :submit, value: t('edit_need') unless params[:id].blank? %>
+       </div>
+     </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, value: t('new_need') if params[:id].blank? %>
-    <%= f.button :submit, value: t('edit_need') unless params[:id].blank? %>
-  </div>
 <% end %>
