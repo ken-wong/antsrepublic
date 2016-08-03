@@ -237,36 +237,37 @@ section.ants_list{
 		}
 	}
 	.ants_list_block{
-		a.thumbnail.gallery-thumbnail{
+		div.thumbnail.gallery-thumbnail{
 			margin:0px;
-		}
-		.ants_queen_contact_card{
-			display:none;
-			position:relative;
-			z-index:99;
-			margin:-15px auto 0px auto;
-			width:60%;
-			height:85px;
-			border-radius:5px;
-			background-color:white;
-			box-shadow:1px 1px 3px #ccc;
-			padding-top:10px;
-			h6{
-				font-size:18px;
-				margin:0px;
-			}
-			a.btn{
-				margin-top:10px;
-				border:0px;
-				width:90px;
-				background-color:$primaryColor;
-			}
-		}
-		&:hover{
 			.ants_queen_contact_card{
-				display: block;
+				display:none;
+				position:relative;
+				z-index:99;
+				margin:-15px auto 0px auto;
+				width:60%;
+				height:85px;
+				border-radius:5px;
+				background-color:white;
+				box-shadow:1px 1px 3px #ccc;
+				padding-top:10px;
+				h6{
+					font-size:18px;
+					margin:0px;
+				}
+				a.btn{
+					margin-top:10px;
+					border:0px;
+					width:90px;
+					background-color:$primaryColor;
+				}
+			}
+			&:hover{
+				.ants_queen_contact_card{
+					display: block;
+				}
 			}
 		}
+		
 	}
 
 }
