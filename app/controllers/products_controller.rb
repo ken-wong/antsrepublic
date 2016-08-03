@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.where("user_id = #{params[:user_id]}")  
     end
+    @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
   end
 
   # GET /products/1
