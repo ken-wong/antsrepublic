@@ -53,7 +53,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @products = []
     @products = Product.where("user_id = ?", current_user.id) if @user.has_role?(:owner)
-    @products = Product.where("queen_id = ?", current_user.id) if @user.has_role?(:queen_id)
+    @products = Product.where("queen_id = ?", current_user.id) if @user.has_role?(:queen)
   end
 
   def dashboard

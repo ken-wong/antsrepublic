@@ -8,7 +8,7 @@
   <%= image_tag(@queen.avatar_url) %>
 </p>
 <p>
-  收藏（<%= @queen.followers_count %>）
+  收藏（<%= @queen.follow_count %>）
 </p>
 <p>
   <%= @queen.send(:name) %>
@@ -17,7 +17,7 @@
   <%= @queen.state %>
 </p>
 <p>
-  <%= @queen.desc %>
+  <%= @queen.description %>
 </p>
 
 <p>
@@ -30,7 +30,7 @@
 </p>
 
 <p>
-  网友点赞：<%= "10" %>
+  网友点赞：
 </p>
 
 <p>相关案例</p>

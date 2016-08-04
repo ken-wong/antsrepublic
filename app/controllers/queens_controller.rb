@@ -5,6 +5,10 @@ class QueensController < ApplicationController
     @messages = ['url1','url2']
   end
 
+  def index
+    @queens = Queen.with_role(:queen)
+  end
+
   def new
     @queen = Queen.new
   end
