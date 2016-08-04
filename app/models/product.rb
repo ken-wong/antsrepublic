@@ -6,6 +6,8 @@ class Product < ActiveRecord::Base
 	mount_uploader :avatar, AvatarUploader
 	mount_uploader :main_media, MainMediaUploader
 
+	validates :title, presence: true
+
 	has_many :uploads
 
   acts_as_taggable

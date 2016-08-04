@@ -38,6 +38,7 @@ class NeedsController < ApplicationController
         format.html { redirect_to project_list_user_path(current_user), notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @need }
       else
+        @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
         format.html { render :edit }
         format.json { render json: @need.errors, status: :unprocessable_entity }
       end
