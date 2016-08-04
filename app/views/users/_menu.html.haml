@@ -1,9 +1,8 @@
 .list-group.bright.background-clouds.color-text
   %a.list-group-item{ href: dashboard_user_path(current_user), class: active_class(dashboard_user_path(current_user)) }
     首页面板
-  - unless @user.has_role? :queen 
-    %a.list-group-item{ href: project_list_user_path(current_user), class: active_class(project_list_user_path(current_user)) }
-      项目管理
+  %a.list-group-item{ href: project_list_user_path(current_user), class: active_class(project_list_user_path(current_user)) }
+    项目管理
   / - if @user.has_role? :queen 
   /   %a.list-group-item{ href: product_list_user_path(current_user), class: active_class(product_list_user_path(current_user)) }
   /     = 我的案例 
