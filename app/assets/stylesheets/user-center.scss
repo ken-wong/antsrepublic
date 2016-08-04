@@ -1,0 +1,22 @@
+.user-center-section{
+	background-color:$mainBgColor;
+	
+}
+.user-tabs-group{
+	a.tabs-group-item{
+		width:120px;
+		height:44px;
+		line-height:44px;
+		display:inline-block;
+		color:#666;
+		font-weight:900;
+		background:url(image_path('user/tab_normal.png')) scroll no-repeat;
+		&.active{
+			color:#000;
+			background-image:url(image_path('user/tab_active.png'));
+		}
+		&:hover{
+
+		}
+	}
+}
