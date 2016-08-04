@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
 	mount_uploader :main_media, MainMediaUploader
 
 	validates :title, presence: true
+	validates :category, presence: true
 
 	has_many :uploads
 

@@ -7,10 +7,7 @@
     <%= f.input :client_name %>
     <%= f.input :ref_price %>
 
-    <%= radio_button(:product, :category, "效果图") %>效果图
-    <%= radio_button(:product, :category, "影片") %>影片
-    <%= radio_button(:product, :category, "多媒体") %>多媒体
-    <%#= f.select :category, options_for_select([ "效果图", "影片", "多媒体" ], "效果图") %>
+    <%= f.input :category, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], required: true, label: false  %>
     <%#= f.input :main_media %>
     <%= f.input :description %>
     

@@ -9,11 +9,11 @@
       .col-lg-6.col-sm-12
         %ul.nav.nav-pills.pull-right
           %li.nav-item
-            =link_to "效果图", root_url(category: "效果图"), class: "nav-link active"
+            =link_to "效果图", products_path(category: "效果图"), class: "nav-link active"
           %li.nav-item
-            =link_to "影片", root_url(category: "影片"), class: "nav-link"
+            =link_to "影片", products_path(category: "影片"), class: "nav-link"
           %li.nav-item
-            =link_to "多媒体", root_url(category: "多媒体"), class: "nav-link"
+            =link_to "多媒体", products_path(category: "多媒体"), class: "nav-link"
     .row
       - @products.each do |product|
         .product.col-sm-6.col-md-6

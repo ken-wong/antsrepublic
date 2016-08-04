@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-12">
         <%= f.input :title, placeholder: '请输入项目名称', required: true, label: false  %>
-      </div>
+        <%= f.input :category, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], required: true, label: false  %>
     </div>
 
 

@@ -4,12 +4,19 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
+
     if params[:user_id].nil?
       @products = Product.all
     else
       @products = Product.where("user_id = #{params[:user_id]}")  
     end
-    @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
+    
+    if params[:category].nil?
+      @products = Product.all
+    else
+      @products = Product.where("category = '#{params[:category]}'")
+    end
   end
 
   # GET /products/1
