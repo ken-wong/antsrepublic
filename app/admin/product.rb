@@ -16,7 +16,7 @@ ActiveAdmin.register Product do
 			f.input :title
 			f.input :client_name
 			f.input :ref_price
-			f.input :category
+			f.input :category, as: :select, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]]
 			f.input	:description
 			f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
 			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| [u.email, u.id]}
