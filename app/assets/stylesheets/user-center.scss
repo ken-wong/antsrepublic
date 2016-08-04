@@ -1,6 +1,14 @@
 .user-center-section{
 	background-color:$mainBgColor;
-	
+	.back-to-projects{
+		display:inline-block;
+		width:120px;
+		height:36px;
+		line-height:36px;
+		border:1px solid $primaryColor;
+		border-radius:5px;
+		color:$primaryColor;
+	}
 }
 .user-tabs-group{
 	a.tabs-group-item{
