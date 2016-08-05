@@ -10,13 +10,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-       if User.count > 0 then
-         @user.add_role 'visitor' 
-        else 
-          @user.add_role 'admin'
-        end
+     if User.count > 0 then
+       @user.add_role 'visitor' 
+      else 
+        @user.add_role 'admin'
+      end
+      @user.send_message(User.first, "欢迎注册蚂蚁共和,请在个人<a href='#{user_path(@user)}'>中心申请认证</a> 甲方或蚁后")  
       log_in(@user)
-      redirect_to edit_user_path(@user)
+      redirect_to dashboard_user_path(@user)
     else
       render 'new'
     end

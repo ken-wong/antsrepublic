@@ -7,5 +7,7 @@
 				.content
 					%h1 项目动态
 					%ul
+						- if @messages.blank?
+							%li 所有消息都读过了
 						- @messages.each_with_index do |m,i|
 							%li= simple_format(m.body)
