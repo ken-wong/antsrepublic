@@ -136,13 +136,6 @@ ActiveRecord::Schema.define(version: 20160804082625) do
     t.integer  "user_id",     limit: 4
   end
 
-  create_table "queen_product_relations", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "product_id", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
   create_table "queens", force: :cascade do |t|
     t.string   "email",           limit: 255
     t.string   "name",            limit: 255

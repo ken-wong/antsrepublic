@@ -57,10 +57,10 @@ class UsersController < ApplicationController
     
   end
 
-  def product_list
-    @user = User.find(params[:id])
-    @products = []
-    @products = Product.where("queen_id = ? and state ='我的案例'", current_user.id) if @user.has_role?(:queen)    
+  def queen_work_list
+    @queen = Queen.find(params[:id])
+    @queen_works = []
+    @queen_works = @queen.queen_works
   end
 
   def dashboard

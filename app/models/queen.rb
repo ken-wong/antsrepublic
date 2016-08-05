@@ -1,5 +1,4 @@
 class Queen < User
-
-	has_many :products
-  acts_as_messageable  :required => :body
+	default_scope { with_role :queen }
+	has_many :queen_works
 end
