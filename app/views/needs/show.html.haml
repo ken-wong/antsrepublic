@@ -6,4 +6,4 @@
 			.col-md-12
 				%p= @need.title
 				%p= @need.state
-				%p= link_to 'edit', edit_need_path(@need), class: 'btn btn-primary' 
+				%p= link_to t('back'), project_list_user_path(current_user), class: 'btn btn-primary' 

@@ -25,6 +25,15 @@ ActiveAdmin.register Product do
 		f.actions
 	end
 
+	index do
+		selectable_column
+	  column :title
+	  column :client_name
+	  column :category
+	  column :state
+	  actions
+	end
+
 	show do
 		attributes_table do
 			row :title
@@ -52,7 +61,18 @@ ActiveAdmin.register Product do
 	  redirect_to resource_path, notice: "Confirm!"
 	end
 
+	member_action :unconfirm, method: :get do
+	  if resource.unconfirm!
+		  resource.send_message(current_admin_user, "等待审核", "审核拒绝")
+		end
+	  redirect_to resource_path, notice: "Not allow!"
+	end
+
 	action_item only: :show do
 	  link_to t(:confirm), confirm_admin_product_path(product)
 	end
+
+	action_item only: :show do
+	  link_to t(:unconfirm), unconfirm_admin_product_path(product)
+	end	
 end

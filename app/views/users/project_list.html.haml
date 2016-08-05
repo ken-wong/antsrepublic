@@ -29,6 +29,8 @@
                   %td= product.state
                   %td
                     =# link_to t('show'), product, class: 'btn btn-primary'
-                    = link_to '日程计划', tasks_path(user_id: current_user), class: 'btn btn-info'
-                    = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary'
-                    = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' 
+                    - unless product.state == '等待审核'
+                      = link_to '日程计划', tasks_path(user_id: current_user), class: 'btn btn-info'
+                    - else
+                      = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary'
+                      = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' 

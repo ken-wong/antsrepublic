@@ -57,6 +57,7 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     respond_to do |format|
       if @product.update(product_params)
+
         format.html { redirect_to project_list_user_path(current_user), notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
