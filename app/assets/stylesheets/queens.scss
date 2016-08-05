@@ -1,0 +1,10 @@
+section.queens_page_list{
+	background-color:$mainBgColor;
+	h2{
+		font-weight:900;
+		span.queens_page_list_header_icon{
+			@include inlineBlockIcon(image_path('queens/queens_page_list_icon.png'),26px,28px);
+		}
+	}
+
+}
