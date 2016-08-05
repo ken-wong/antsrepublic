@@ -74,5 +74,10 @@ ActiveAdmin.register Product do
 
 	action_item only: :show do
 	  link_to t(:unconfirm), unconfirm_admin_product_path(product)
-	end	
+	end
+
+	after_update do |product|
+		current_admin_user.send_message(product.queen, "") if product.queen
+		current_admin_user.send_message(product.user, "") if product.user
+	end
 end
