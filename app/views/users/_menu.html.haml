@@ -3,9 +3,9 @@
     首页面板
   %a.tabs-group-item.text-center{ href: project_list_user_path(current_user), class: active_class(project_list_user_path(current_user)) }
     项目管理
-  / - if @user.has_role? :queen 
-  /   %a.tabs-group-item.text-center{ href: product_list_user_path(current_user), class: active_class(product_list_user_path(current_user)) }
-  /     = 我的案例 
+  - if @user.has_role? :queen 
+    %a.tabs-group-item.text-center{ href: product_list_user_path(current_user), class: active_class(product_list_user_path(current_user)) }
+      我的案例 
   %a.tabs-group-item.text-center{ href: following_list_user_path(current_user), class: active_class(following_list_user_path(current_user)) }
     我的收藏
   %a.tabs-group-item.text-center{ href: voteable_list_user_path(current_user), class: active_class(voteable_list_user_path(current_user)) }

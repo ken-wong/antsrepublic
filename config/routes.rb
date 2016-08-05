@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'verify'
       get 'choose'
       get 'project_list'
+      get 'product_list'
     end
     resource :profile
   end
