@@ -1,2 +1,9 @@
-- @queens.each do |queen|
-	%li= link_to queen.email, queen_path(queen)
+%section.queens_page_list
+  .container
+    .row
+      %h2
+        %span.queens_page_list_header_icon
+        认证蚁后
+      .col-md-12
+        - @queens.each do |queen|
+          %li= link_to queen.email, queen_path(queen)

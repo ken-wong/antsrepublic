@@ -1,5 +1,18 @@
 $mainBgColor:#ecf4f7;
 $primaryColor:#5eb4e7;
+@mixin iconBg($img){
+	background:url($img) scroll no-repeat;
+}
+@mixin inlineBlockEle($w,$h){
+	display:inline-block;
+	width:$w;
+	height:$h;
+}
+@mixin inlineBlockIcon($img,$w,$h){
+	@include inlineBlockEle($w,$h);
+	@include iconBg($img);
+}
+.row>h2>span{border-bottom:0px;}
 .topNav{
 	background-color:$mainBgColor;
 	.nav{
@@ -85,11 +98,8 @@ section.ants_index_section{
 			line-height:40px;
 			color:#333;
 			span.ants_index_list_icon{
-				display:inline-block;
+				@include inlineBlockIcon(image_path('homepage/ants_index_list_icon.png'),12px,12px);
 				margin-right:20px;
-				width:12px;
-				height:12px;
-				background:url(image_path('homepage/ants_index_list_icon.png')) scroll no-repeat;
 			}
 		}
 	}
@@ -102,10 +112,7 @@ section.product_list_section,.products_section{
 		h2{
 			font-weight:900;
 			.product_list_header_icon{
-				display:inline-block;
-				width:38px;
-				height:38px;
-				background:url(image_path('homepage/show_cases_icon.png')) no-repeat scroll;
+				@include inlineBlockIcon(image_path('homepage/show_cases_icon.png'),38px,38px);
 				vertical-align: top;
 				border-bottom:0px;
 			}
