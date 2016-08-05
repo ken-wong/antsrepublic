@@ -43,7 +43,7 @@ class Product < ActiveRecord::Base
     end
 
     event :final! do
-      transition [:'项目完成'] => :'我的案例'
+      transition [nil, :'等待审核', :'项目完成'] => :'我的案例'
     end
   end
 

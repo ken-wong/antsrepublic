@@ -57,6 +57,8 @@ class NeedsController < ApplicationController
           @need.tag_list.add(tag)
         end
         @need.save
+       
+        
         format.html { redirect_to need_path(@need), notice: 'Product was successfully updated.'  }
         format.json { render :show, status: :created, location: @need }
       else

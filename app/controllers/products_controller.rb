@@ -42,6 +42,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        @product.final!
         format.html { redirect_to project_list_user_path(current_user), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
