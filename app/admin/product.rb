@@ -19,7 +19,7 @@ ActiveAdmin.register Product do
 			f.input :category, as: :select, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]]
 			f.input	:description
 			f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
-			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| [u.email, u.id]}
+			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| ["#{u.name}|#{u.email}", u.id]}
 			f.input :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '项目开始', '项目终止', '项目完成'] 
 		end
 		f.actions
@@ -48,7 +48,7 @@ ActiveAdmin.register Product do
 			row	:description
 			row :tag_list
 			row '蚁后' do 
-				product.queen.email unless product.queen.nil?
+				link_to product.queen.name, admin_user_path(product.queen) if product.queen
 			end
 			row :state
 		end
@@ -77,7 +77,12 @@ ActiveAdmin.register Product do
 	end
 
 	after_update do |product|
-		current_admin_user.send_message(product.queen, "") if product.queen
-		current_admin_user.send_message(product.user, "") if product.user
+		
+		if product.queen
+			message_str = "项目:<a href='#{need_path(product)}'>#{product.title}</a>, 已经指派给<a href='#{queen_path(product.queen_id)}'>#{product.queen.name}</a> "
+			current_admin_user.send_message(product.queen, message_str) 
+			current_admin_user.send_message(product.user, message_str)
+		end
+
 	end
 end
