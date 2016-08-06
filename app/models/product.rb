@@ -51,4 +51,8 @@ class Product < ActiveRecord::Base
     admin.send_message(user, "<a href=\"/products/#{id}\" >#{title}</a>从#{from}到#{to}") if user
     admin.send_message(queen, "<a href=\"/products/#{id}\" >#{title}</a>从#{from}到#{to}") if queen
   end
+
+  def is_my?(user_id)
+    user_id == self.queen_id ? true : false
+  end
 end
