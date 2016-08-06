@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-
+    @messages = User.find(current_user).messages
   end
   
   def new
