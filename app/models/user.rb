@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   has_many :products
   mount_uploader :avatar, AvatarUploader
 
-  has_many :queen_product_relations
 
   acts_as_follower
   acts_as_voter
