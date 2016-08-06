@@ -3,6 +3,10 @@ class UploadsController < InheritedResources::Base
 		@uploads = Product.find(params[:product_id]).uploads
 	end
 	
+	def new
+		@upload = Upload.new
+	end
+	
   private
 
     def upload_params

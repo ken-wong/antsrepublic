@@ -1,6 +1,7 @@
 class QueenWorksController < ApplicationController
   def show
-  	redirect_to product_path(params[:id])
+  	@product = QueenWork.find(params[:id])
+  	render '/products/show'
   end
 
   def new
@@ -40,6 +41,7 @@ class QueenWorksController < ApplicationController
       end
     end
   end
+
   private
   def queen_work_params
     params.require(:queen_work).permit(:title, :avatar, 
