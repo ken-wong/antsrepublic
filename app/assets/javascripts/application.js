@@ -16,3 +16,5 @@
 //= require bootstrap-sprockets
 //= require blueimp-gallery-all
 
+//= require neat/responsive-calendar-min.js
+//= require task_fuc
