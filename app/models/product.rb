@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
   # todo, 改变状态发送消息
   state_machine :state, :initial => :'等待审核' do
     event :confirm! do
-      transition [nil, :'等待审核'] => :'指派蚁后'
+      transition [nil, :'等待审核'] => :'寻找蚁后'
     end
 
     event :unconfirm! do
@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
     end
 
     event :start! do
-      transition [nil, :'指派蚁后'] => :'项目开始'
+      transition [nil, :'等待审核' , :'寻找蚁后'] => :'项目开始'
     end
 
     event :fail! do
