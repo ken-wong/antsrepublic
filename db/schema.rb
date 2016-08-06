@@ -136,6 +136,13 @@ ActiveRecord::Schema.define(version: 20160804082625) do
     t.integer  "user_id",     limit: 4
   end
 
+  create_table "queen_product_relations", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "product_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "queens", force: :cascade do |t|
     t.string   "email",           limit: 255
     t.string   "name",            limit: 255
@@ -231,5 +238,4 @@ ActiveRecord::Schema.define(version: 20160804082625) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "queens"
 end
