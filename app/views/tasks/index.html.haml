@@ -6,28 +6,92 @@
       .col-md-12
         .content
           #notice= notice
-          %p
-            %a.back-to-projects.text-center{:href => "#"} 返回项目列表
-          .caption
-            %h3 
-              Listing Tasks
-          %table
-            %thead
-              %tr
-                %th Dead line
-                %th Title
-                %th Description
-                %th State
-                %th{colspan:'3'}
-            %tbody
-              - @tasks.each do |task| 
-                %tr
-                  %td= task.dead_line
-                  %td= task.title
-                  %td= task.description
-                  %td= task.state
-                  %td= link_to 'Show', task
-                  %td= link_to 'Edit', edit_task_path(task)
-                  %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
-          %p= link_to 'New Task', new_task_path
+          .row
+            %p
+              %a.back-to-projects.text-center{:href => "#"} 返回项目列表
+            .row.create-plan
+              .col-md-12
+                %h3.text-center 你好！项目已经开始！请尽快制定任务计划，并提交给甲方确认
+                %p.text-center
+                  %button.btn.btn-primary#newTaskModalBtn{:'data-toggle' => "modal",:'data-target' => "#editTaskModal"}
+                    新建计划
+            .row.re-receate-plan
+              .col-md-12
+                %h3.text-center 很可惜！甲方没有通过计划，请重新安排计划！
+                %p.text-center
+                  %button.btn.btn-primary#newTaskModalBtn{:'data-toggle' => "modal",:'data-target' => "#editTaskModal"}
+                    重新安排计划
+            .row.project-plan
+              .col-md-5
+                .responsive-calendar.background-lead.color-white
+                  .controls
+                    %a.btn.btn-lead.darken.pull-left{:'data-go' => "prev"}
+                      %i.fa.fa-chevron-left
+                    %a.btn.btn-lead.darken.pull-right{:'data-go' => "next"}
+                      %i.fa.fa-chevron-right
+                    %h4
+                      %span{:'data-head-year'=>""}
+                      %span{:'data-head-month'=>""}
+                  .day-headers
+                    .day.header Mon
+                    .day.header Tue
+                    .day.header Wed
+                    .day.header Thu
+                    .day.header Fri
+                    .day.header Sat
+                    .day.header Sun
+                  .days.color-white{:'data-group'=>"days"}
+              .col-md-7
+                %ul.project-plan-list
+                  - @tasks.each do |task| 
+                    %li.plan-task
+                      %span.task-checkbox.text-center
+                        %input{:type => "checkbox", :value => "false", :disabled => "disabled"}/
+                      %span.task-time= task.dead_line
+                      %span.task-title= task.title
+                      %span.task-action
+                        %a.btn.btn-primary#check-task-result{:href => "javascript:void(0);"}
+                          查看结果
+          .row
+            %h3 任务提交
+          .row.task-result
+            .row.task-result-header
+              .col-md-2.text-center 
+                %h5 任务名称
+              .col-md-7
+                %h5 这是一个任务的标题名称
+              .col-md-3
+                %h5 任务状态
+            .row.task-result-files
+              %h6 文件列表
 
+
+.modal#editTaskModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editTaskModalLabel"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{:type => "button", :'data-dismiss'=>"modal", :'aria-label' => "close"}
+          %span{ :'aria-hidden' => "true"}
+        %h4.modal-title#editTaskModalLabel 新建工作计划
+      .modal-body.edit-project-task
+        %p
+          %a.new-task{:role=>'button', :'data-toggle'=>"collapse", :href => "#new-task-form", :'aria-expanded'=>"false", :'aria-controls' => "new-task-form"}
+            %span.glyphicon.glyphicon-plus-sign
+        .edit-task-list
+          - @tasks.each do |task| 
+            .task-unit
+              %span.task-time= task.dead_line
+              %span.task-title= task.title
+              %span.task-action
+                = link_to 'Edit', edit_task_path(task)
+                = link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
+        .collapse#new-task-form
+          - task = Task.new
+          = render :partial => 'form', :locals => { :task => task }
+      .modal-footer
+        %button.btn.btn-default{:type=>'button', :'data-dismiss' => "modal"} 关闭
+        %button.btn.btn-primary{:type=>'button'} 保存
+:javascript
+  var taskData={
+    #{create_canlendar_data_obj_string(@tasks)}
+  }

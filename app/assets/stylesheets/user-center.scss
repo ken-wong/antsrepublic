@@ -1,9 +1,9 @@
 .user-center-section{
 	background-color:$mainBgColor;
+	.content{padding: 0px 30px;}
 	.back-to-projects{
-		display:inline-block;
-		width:120px;
-		height:36px;
+		margin-top:20px;
+		@include inlineBlockEle(120px,36px);
 		line-height:36px;
 		border:1px solid $primaryColor;
 		border-radius:5px;
@@ -25,6 +25,89 @@
 		}
 		&:hover{
 
+		}
+	}
+}
+.edit-project-task{
+	.new-task{
+	}
+	.edit-task-list{
+		.task-unit{
+			width:100%;
+			height:40px;
+			line-height:40px;
+			margin-bottom:10px;
+			background-color:$mainBgColor;
+			border-radius:10px;
+			span{
+				display: inline-block;
+			}
+			span.task-time{
+				width:30%;
+			}
+			span.task-title{
+				width:50%;
+			}
+			span.task-action{
+				width:18%;
+			}
+
+		}
+	}
+	.new-task-form{
+		display:none
+	}	
+}
+.project-plan-list{
+	width:90%;
+	height:378px;
+	list-style:none;
+	margin:0;
+	padding:0;
+	overflow-y:scroll;
+	li.plan-task{
+		height:60px;
+		line-height:60px;
+		margin-bottom:10px;
+		background-color:$mainBgColor;
+		border-radius:10px;
+		span{
+			display: inline-block;
+		}
+		span.task-checkbox{
+			width:10%
+		}
+		span.task-time{
+			width:25%;
+		}
+		span.task-title{
+			width:40%;
+		}
+		span.task-action{
+			width:18%;
+		}
+	}
+}
+.task-result{
+	background-color:#f5f9fb;
+	.task-result-header{
+		padding:0px 20px;
+		h5{
+			height:40px;
+			line-height:40px;
+			background-color:$mainBgColor;
+		}
+	}
+	.task-result-files{
+		
+		min-height:260px;
+		padding:0px 20px;
+		h6{
+			width:50px;
+			font-size:22px;
+			letter-spacing:20px;
+			word-wrap:break-word;
+			background-color:#eee;
 		}
 	}
 }
