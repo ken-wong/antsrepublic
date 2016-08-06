@@ -41,11 +41,11 @@ class UsersController < ApplicationController
   end
 
   def following_list
-    @products = User.find(current_user).all_following
+    @products = current_user.all_following
   end
 
   def voteable_list
-    @products = User.find(current_user).find_liked_items
+    @products = current_user.find_voted_items
   end
 
   def project_list

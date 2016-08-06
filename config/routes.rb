@@ -16,7 +16,12 @@ Rails.application.routes.draw do
     resource :profile
   end
 
-  resources :queen_works
+  resources :queen_works do
+    member do
+      get 'follow_it'
+      get 'vote_it'
+    end
+  end
 
   resources :queens do
     member do

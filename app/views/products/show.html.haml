@@ -11,7 +11,14 @@
         %a.next
         %a.play-pause
         %ol.indicator
-      
+      %p
+        = link_to "#{current_user.following?(@product) ? 'Unfollow 取消' : 'Follow 收藏'}(#{@product.followers_count})", follow_it_queen_work_path(@product) 
+        |
+        - unless current_user.voted_for? @product
+          = link_to "点赞(#{@product.votes_for.size})", vote_it_queen_work_path(@product)
+        - else
+          = "点赞(#{@product.votes_for.size})"
+        
       %p
         %strong 案例名称
         = @product.title
@@ -38,7 +45,7 @@
         %h3 more pic
         - @product.uploads.each do |item|
           %span= image_tag item.media.url
-          
+
       - if logged_in? and @product.is_my?(current_user.id)
         = link_to 'add more media', new_upload_path(product_id: @product.id), class: 'btn btn-primary'
         |  

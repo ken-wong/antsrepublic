@@ -12,6 +12,21 @@ class QueenWorksController < ApplicationController
     @queen_work = QueenWork.find(params[:id])
   end
 
+  def follow_it
+
+  	queen_work = QueenWork.find(params[:id])
+  	current_user.following?(queen_work) ? current_user.stop_following(queen_work) : current_user.follow(queen_work)
+  	
+
+  	redirect_to queen_work_path(params[:id])
+  end
+
+  def vote_it
+  	queen_work = QueenWork.find(params[:id])
+  	queen_work.liked_by current_user
+  	redirect_to queen_work_path(params[:id])
+  end
+
   def create
     @queen_work = QueenWork.new(queen_work_params)
     @queen_work.queen_id = current_user.id

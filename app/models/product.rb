@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
 	has_many :uploads
 
   acts_as_taggable
-  acts_as_follower
+  acts_as_followable
   acts_as_votable
 
   # :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '项目开始', '项目终止', '项目完成', '我的案例'] 
