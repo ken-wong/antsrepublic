@@ -8,7 +8,11 @@ ActiveAdmin.register User do
 # or
 #
  permit_params do
-   permitted = [:permitted, :attributes]
+   permitted = [
+   		:permitted, :attributes, 
+   		:email, :name, :cell, :password_digest, 
+   		:avatar, :state, :description, :sort_no
+   	]
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
    permitted
  end
@@ -20,6 +24,7 @@ ActiveAdmin.register User do
   end
 
 	index do
+		column :sort_no
 	  column :email
 	  column :name
 	  column :cell

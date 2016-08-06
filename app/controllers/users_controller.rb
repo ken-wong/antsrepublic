@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-
+    @messages = User.find(current_user).messages
   end
   
   def new
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       else 
         @user.add_role 'admin'
       end
-      @user.send_message(User.first, "欢迎注册蚂蚁共和,请在个人<a href='#{user_path(@user)}'>中心申请认证</a> 甲方或蚁后")  
+      @user.send_message(User.first, "欢迎注册蚂蚁共和,请在<a href='#{user_path(@user)}'>个人中心</a> 申请认证甲方或蚁后")  
       log_in(@user)
       redirect_to dashboard_user_path(@user)
     else
@@ -50,14 +50,14 @@ class UsersController < ApplicationController
 
   def project_list
     @products = []
-    @products = Product.where("user_id = ? ", current_user.id) if current_user.has_role?(:owner)
-    @products = Product.where("queen_id = ? ", current_user.id) if current_user.has_role?(:queen)
+    @products = Product.where("user_id = ? ", current_user.id).order(created_at: :desc) if current_user.has_role?(:owner)
+    @products = Product.where("queen_id = ? ", current_user.id).order(created_at: :desc) if current_user.has_role?(:queen)
     
   end
 
   def product_list
     @products = []
-    @products = Queen.find(current_user).queen_works
+    @products = Queen.find(current_user).queen_works.order(created_at: :desc)
   end
 
   def dashboard

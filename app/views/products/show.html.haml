@@ -11,15 +11,19 @@
         %a.next
         %a.play-pause
         %ol.indicator
+      
       %p
         %strong 案例名称
         = @product.title
+      %p 
+        %strong 蚁后
+        = @product.queen.name  
       %p
         %strong 委托客户
         = @product.client_name
       %p
         %strong 项目制作
-        = @product.queen.name unless @product.queen.nil?
+        =  @product.queen ? @product.queen.name : '无名'
       %p
         %strong 参考价格
         = @product.ref_price
@@ -29,13 +33,19 @@
       %p
         %strong 项目说明
         = @product.description
-      - if logged_in? or queen_logged_in?
+      
+      %p
+        %h3 more pic
+        - @product.uploads.each do |item|
+          %span= image_tag item.media.url
+          
+      - if logged_in? and @product.is_my?(current_user.id)
         = link_to 'add more media', new_upload_path(product_id: @product.id), class: 'btn btn-primary'
         |  
         = link_to 'Edit', edit_product_path(@product)
         |
         \#{link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }} |
         |
-        = link_to t('back'), :back
+        = link_to t('back'), product_list_user_path(current_user)
 
 

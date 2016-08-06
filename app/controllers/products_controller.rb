@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_tags
 
   # GET /products
   # GET /products.json
   def index
-    @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
-
+    
     if params[:user_id].nil?
       @products = Product.all
     else
@@ -82,6 +82,10 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def set_tags
+      @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

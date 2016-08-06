@@ -5,6 +5,8 @@
         %ul.nav.navbar-nav.center-block
                
           - if logged_in?
+            %li
+              = "你好, #{current_user.name}"
             %li 
               = link_to '个人中心', dashboard_user_path(session[:user_id])
             %li
