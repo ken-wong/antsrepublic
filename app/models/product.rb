@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
   acts_as_follower
   acts_as_votable
 
-  # :state, collection: ['等待审核', '审核拒绝', '指派蚁后', '项目开始', '项目终止', '项目完成', '我的案例'] 
+  # :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '项目开始', '项目终止', '项目完成', '我的案例'] 
   # todo, 改变状态发送消息
   state_machine :state, :initial => :'等待审核' do
     event :confirm! do
@@ -31,7 +31,7 @@ class Product < ActiveRecord::Base
     end
 
     event :fail! do
-      transition [nil, :'指派蚁后', :'项目开始',:'等待审核'] => :'项目终止'
+      transition [nil, :'寻找蚁后', :'项目开始',:'等待审核'] => :'项目终止'
     end
 
     event :redo! do

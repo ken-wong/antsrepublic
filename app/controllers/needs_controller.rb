@@ -1,17 +1,14 @@
-class NeedsController < ApplicationController
+class NeedsController < InheritedResources::Base
   before_action :authenticate_user!
+  before_action :set_tags
   def new
     @need = Need.new
     @need.user_id = params[:user_id]
-    @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
   end
 
-  def index
-  end
 
   def edit
     @need = Need.find(params[:id])
-    @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
   end
 
   def show
@@ -38,7 +35,6 @@ class NeedsController < ApplicationController
         format.html { redirect_to need_path(@need), notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @need }
       else
-        @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
         format.html { render :edit }
         format.json { render json: @need.errors, status: :unprocessable_entity }
       end
@@ -57,19 +53,19 @@ class NeedsController < ApplicationController
           @need.tag_list.add(tag)
         end
         @need.save
-       
         
         format.html { redirect_to need_path(@need), notice: 'Product was successfully updated.'  }
         format.json { render :show, status: :created, location: @need }
       else
-        @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
         format.html { render :new }
         format.json { render json: @need.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def desttroy
+  private
+  def set_tags
+    @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
   end
 
   def need_params
@@ -77,5 +73,5 @@ class NeedsController < ApplicationController
         :client_name, :ref_price, :category, :main_media, 
         :description, :user_id, :start_date, 
         :ending_date, :final_date, :price_range)
-    end
+  end
 end
