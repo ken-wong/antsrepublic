@@ -16,10 +16,8 @@
             <div class="thumbnail gallery-thumbnail" href="#">
               <%= image_tag( queen.avatar.url , class: 'img-circle') %>
               <div class="ants_queen_contact_card text-center">
-                <h6><%= queen.email%></h6>
-                <a href="#" class="btn btn-primary text-center">
-                  <%= link_to '联系TA', queen_path(queen)%>
-                </a>
+                <h6><%=  link_to queen.name, queen_path(queen) %></h6>
+                <p><%= queen.description %></p>
               </div>
             </div>
           </div>
