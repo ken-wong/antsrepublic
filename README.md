@@ -4,6 +4,11 @@
 
 ## change log
 
+## 0806
+
+		推荐蚁后(权重sort_no 从大到小), 在后台 用户-编辑, 设置 sort_no
+
+
 ## 0801
 gem ransack 和 acts-as-messageable冲突，解决办法[参考](https://github.com/LTe/acts-as-messageable/pull/73#discussion-diff-23638195)
 
