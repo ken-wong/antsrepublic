@@ -41,30 +41,25 @@ class UsersController < ApplicationController
   end
 
   def following_list
-    @user = User.find(params[:id])
-    @products = @user.all_following
+    @products = User.find(current_user).all_following
   end
 
   def voteable_list
-    @user = User.find(params[:id])
-    @products = @user.find_liked_items
+    @products = User.find(current_user).find_liked_items
   end
 
   def project_list
-    @user = User.find(params[:id])
     @products = []
-    @products = Product.where("user_id = ?", current_user.id) if @user.has_role?(:owner)
+    @products = User.find(current_user).products
     
   end
 
-  def queen_work_list
-    @queen = Queen.find(params[:id])
-    @queen_works = []
-    @queen_works = @queen.queen_works
+  def product_list
+    @products = []
+    @products = Queen.find(current_user).queen_works
   end
 
   def dashboard
-    @user = User.find(params[:id])
     @messages = @user.messages
   end
 
