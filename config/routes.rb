@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'queen_works/show'
+
   resources :tasks
   resources :users do
     member do
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
     resource :profile
   end
 
-
+  resources :queen_works
 
   resources :queens do
     member do

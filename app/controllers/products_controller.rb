@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
     end
     
     if params[:category].nil?
-      @products = Product.all
+      @products = QueenWork.all
     else
-      @products = Product.where("category = '#{params[:category]}'")
+      @products = QueenWork.where("category = '#{params[:category]}'")
     end
   end
 
