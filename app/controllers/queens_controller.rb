@@ -37,7 +37,7 @@ class QueensController < ApplicationController
   end
 
   def show
-    @queen = Queen.find(params[:id])
+    @queen = User.find(params[:id])
   end
 
   def choose
