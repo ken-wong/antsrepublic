@@ -60,7 +60,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @messages = @user.messages
+    @messages = User.find(current_user).messages
   end
 
   def choose
