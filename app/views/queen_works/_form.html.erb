@@ -1,0 +1,19 @@
+<%= simple_form_for(@queen_work) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :avatar, as: :file, hint: f.object.avatar.nil? ? '' :image_tag(f.object.avatar.small_url, size: '128x128') %>
+    <%= f.input :client_name %>
+    <%= f.input :ref_price %>
+
+    <%= f.input :category, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], required: true, label: false  %>
+    <%#= f.input :main_media %>
+    <%= f.input :description %>
+    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
