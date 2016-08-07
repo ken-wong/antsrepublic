@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :queen_product_relationship do
-    user_id 1
-    product_id 1
+    association :user
+    association :product
   end
 end

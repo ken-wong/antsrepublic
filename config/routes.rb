@@ -55,6 +55,12 @@ Rails.application.routes.draw do
   post    'login'   => 'sessions#create'
   delete  'logout'  => 'sessions#destroy'
   get     'signup'  => 'users#new'
+
+  namespace :api, defaults: {format: :json} do
+    resources :queens do
+      get :search, on: :collection
+    end
+  end
   # get     'queen_login'   => 'queen_sessions#new'
   # post    'queen_login'   => 'queen_sessions#create'
   # delete  'queen_logout'  => 'queen_sessions#destroy'
