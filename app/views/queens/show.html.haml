@@ -1,0 +1,23 @@
+
+%p= image_tag(@queen.avatar_url)
+%p= @queen.send(:name)
+%p
+  .label.label-info= t('queen') if @user.has_role? :queen
+
+%p= @queen.state
+%p= @queen.description
+%p
+  甲方评价
+%p
+  交货速度
+  作品质量
+  服务态度
+%p
+  网友点赞：
+%p
+  相关案例
+
+- if current_user.id == @queen.id  
+  = link_to t(:edit), edit_queen_path(@queen)
+  |
+  = link_to t(:back), :back

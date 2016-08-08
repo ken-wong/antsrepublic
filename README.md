@@ -46,5 +46,7 @@ gem ransack 和 acts-as-messageable冲突，解决办法[参考](https://github.
 		https://github.com/blueimp/Gallery
 
 
-
-
+## queen search
+```
+curl -X GET -d "q=xxx" http://localhost/api/queens/search
+```
