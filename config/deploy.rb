@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.1'
+lock '3.6.0'
 
 set :application, 'antsrepublic'
 set :repo_url, 'git@github.com:ken-wong/antsrepublic.git'

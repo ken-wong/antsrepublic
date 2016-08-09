@@ -2,7 +2,7 @@
 %p= image_tag(@queen.avatar_url)
 %p= @queen.send(:name)
 %p
-  .label.label-info= t('queen') if @user.has_role? :queen
+  .label.label-info= t('queen') if @queen.has_role? :queen
 
 %p= @queen.state
 %p= @queen.description
