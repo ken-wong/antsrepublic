@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806124650) do
+ActiveRecord::Schema.define(version: 20160809092253) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -194,6 +194,7 @@ ActiveRecord::Schema.define(version: 20160806124650) do
     t.string   "state",       limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "need_id",     limit: 4
   end
 
   create_table "uploads", force: :cascade do |t|
@@ -239,4 +240,5 @@ ActiveRecord::Schema.define(version: 20160806124650) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "queens"
 end

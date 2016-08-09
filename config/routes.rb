@@ -60,6 +60,11 @@ Rails.application.routes.draw do
     resources :queens do
       get :search, on: :collection
     end
+
+    resources :needs do
+      resources :tasks
+    end
+    resources :tasks
   end
   # get     'queen_login'   => 'queen_sessions#new'
   # post    'queen_login'   => 'queen_sessions#create'
