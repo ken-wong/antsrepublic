@@ -4,5 +4,6 @@ FactoryGirl.define do
     title "MyString"
     description "MyText"
     state "MyString"
+    association :need
   end
 end
