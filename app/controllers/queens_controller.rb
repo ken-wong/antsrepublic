@@ -38,6 +38,7 @@ class QueensController < ApplicationController
 
   def show
     @queen = User.find(params[:id])
+    @queens = Queen.with_role(:queen)
   end
 
   def choose

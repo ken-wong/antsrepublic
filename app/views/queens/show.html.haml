@@ -1,23 +1,35 @@
+%section.queen_info
+  .container
+    .row
+      .col-md-2
+        = image_tag(@queen.avatar_url, class:"img-circle")
+      .col-md-10
+        %h4= @queen.send(:name)
+        %p= @queen.description
 
-%p= image_tag(@queen.avatar_url)
-%p= @queen.send(:name)
-%p
-  .label.label-info= t('queen') if @queen.has_role? :queen
+%section.queen_comments
+  .container
+    .row
+      .col-md-12
+        .queen_comments_wapper
+          .width-15
+            %h4 甲方评价
+          .width-35
+            %p 交货速度
+            %p 作品质量
+            %p 服务态度
+          .width-15
+            %h4 网友点赞
+          .width-35
 
-%p= @queen.state
-%p= @queen.description
-%p
-  甲方评价
-%p
-  交货速度
-  作品质量
-  服务态度
-%p
-  网友点赞：
-%p
-  相关案例
+%section.queen_cases
 
 - if current_user.id == @queen.id  
   = link_to t(:edit), edit_queen_path(@queen)
   |
   = link_to t(:back), :back
+
+
+= render :partial => 'shared/ant_list'
+= render :partial => 'welcome/ants_feature'
+= render :partial => 'welcome/contact_section'

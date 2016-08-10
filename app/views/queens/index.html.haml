@@ -1,10 +1,18 @@
 %section.queens_page_list
   .container
     .row
-      %h2
-        %span.queens_page_list_header_icon
-        认证蚁后
+      .col-md-21
+        %h2
+          %span.queens_page_list_header_icon
+          认证蚁后
     .row
-      .col-md-12
-        - @queens.each do |queen|
-          %li= link_to queen.email, queen_path(queen)
+      - @queens.each do |queen|
+        .col-md-6
+          %a{:href => queen_path(queen)}
+            .queen_avatar.text-right
+              = image_tag(image_path(queen.avatar_url), class: 'img-circle')
+            .queen_name_desc
+              %h4
+                %strong= queen.name
+= render :partial => 'welcome/ants_feature'
+= render :partial => 'welcome/contact_section'
