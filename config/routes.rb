@@ -30,7 +30,9 @@ Rails.application.routes.draw do
   end
   
   resources :products
-  resources :needs 
+  resources :needs do
+    resources :tasks
+  end
   resources :uploads  
 
   get 'needs/index'
