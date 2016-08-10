@@ -41,9 +41,13 @@
 			border-radius:10px;
 			span{
 				display: inline-block;
+				input{
+					height:30px;
+				}
 			}
 			span.task-time{
 				width:30%;
+
 			}
 			span.task-title{
 				width:50%;
@@ -51,7 +55,7 @@
 			span.task-action{
 				width:18%;
 			}
-
+			
 		}
 	}
 	.new-task-form{
