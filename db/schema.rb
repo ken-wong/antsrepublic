@@ -240,5 +240,4 @@ ActiveRecord::Schema.define(version: 20160809092253) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "queens"
 end
