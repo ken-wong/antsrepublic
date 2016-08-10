@@ -50,3 +50,23 @@ gem ransack 和 acts-as-messageable冲突，解决办法[参考](https://github.
 ```
 curl -X GET -d "q=xxx" http://localhost/api/queens/search
 ```
+## task creation
+```
+curl -X POST -d "task[deadline]=2016-07-31&task[title]=title&task[description]=desc" http://localhost/api/needs/{need.id}/tasks
+```
+## task show
+```
+curl -X GET http://localhost/api/tasks/{task.id}
+```
+## task update
+```
+curl -X PATCH -d "task[deadline]=2016-07-31&task[title]=title&task[description]=desc" http://localhost/api/tasks/{task.id}
+```
+## task list
+```
+curl -X GET http://localhost/api/needs/{need.id}/tasks
+```
+## task deletion
+```
+curl -X DELETE http://localhost/api/tasks/{task.id}
+```
