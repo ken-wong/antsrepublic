@@ -42,7 +42,7 @@
 
 	    	$.ajax({
 	    		method: "POST",
-	    		url:"http://localhost/api/needs/{need.id}/tasks"
+	    		url:"http://localhost/api/needs//tasks"
 	    	}).done(function(msg){
 
 	    	});
