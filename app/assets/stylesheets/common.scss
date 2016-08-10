@@ -12,7 +12,7 @@ $primaryColor:#5eb4e7;
 	@include inlineBlockEle($w,$h);
 	@include iconBg($img);
 }
-.row>h2>span{border-bottom:0px;}
+.row h2 span{border-bottom:0px;}
 .topNav{
 	background-color:$mainBgColor;
 	.nav{

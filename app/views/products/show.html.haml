@@ -1,58 +1,102 @@
-%section
+%section.queens_work_slider
+  #links{style: "display:none"}
+    = link_to image_tag(@product.avatar.url), image_path(@product.avatar.url, alt: '万科1'), title: @product.title
+
+  #blueimp-gallery-carousel.blueimp-gallery.blueimp-gallery-carousel
+    .slides
+    %a.prev
+    %a.next
+    %ol.indicator
+
+%section.queens_work_title
   .container
     .row
-      #links{style: "display:none"}
-        = link_to image_tag(@product.avatar.url), image_path(@product.avatar.url, alt: '万科1'), title: @product.title
-
-      #blueimp-gallery-carousel.blueimp-gallery.blueimp-gallery-carousel
-        .slides
-        %h3.title
-        %a.prev
-        %a.next
-        %a.play-pause
-        %ol.indicator
-      %p
-        = link_to "#{current_user.following?(@product) ? 'Unfollow 取消' : 'Follow 收藏'}(#{@product.followers_count})", follow_it_queen_work_path(@product) 
-        |
-        - unless current_user.voted_for? @product
-          = link_to "点赞(#{@product.votes_for.size})", vote_it_queen_work_path(@product)
+      .col-md-10
+        %p
+          %strong= @product.title
+      .col-md-2        
+        - unless current_user.following? @product
+          %a{:href => follow_it_queen_work_path(@product), :title => "收藏" }
+            %span.bookmark_icon
+          / = @product.followers_count
         - else
-          = "点赞(#{@product.votes_for.size})"
-        
-      %p
-        %strong 案例名称
-        = @product.title
-      %p 
-        %strong 蚁后
-        = @product.queen.name  
-      %p
-        %strong 委托客户
-        = @product.client_name
-      %p
-        %strong 项目制作
-        =  @product.queen ? @product.queen.name : '无名'
-      %p
-        %strong 参考价格
-        = @product.ref_price
-      %p
-        %strong 案例分类
-        = @product.category
-      %p
-        %strong 项目说明
-        = @product.description
-      
-      %p
-        %h3 more pic
-        - @product.uploads.each do |item|
-          %span= image_tag item.media.url
+          %a{:href => follow_it_queen_work_path(@product), :title => "收藏" }
+            %span.bookmark_icon.unbookmark
+          / = @product.followers_count
 
-      - if logged_in? and @product.is_my?(current_user.id)
-        = link_to 'add more media', new_upload_path(product_id: @product.id), class: 'btn btn-primary'
-        |  
-        = link_to 'Edit', edit_product_path(@product)
-        |
-        \#{link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }} |
-        |
-        = link_to t('back'), product_list_user_path(current_user)
+
+
+        - unless current_user.voted_for? @product
+          %a{:href => vote_it_queen_work_path(@product), :title => "点赞"}
+            %span.like_icon
+        - else
+          %span.like_icon.liked
+        / - end
+    
+%section.queens_work_desc
+  .container
+    .row
+      .col-md-12
+        %h2
+          %span.desc_title_icon
+          %strong 项目说明
+        %p.ref_price
+          参考价格：
+          %strong= @product.ref_price
+        %p
+          = @product.description
+      
+%section.queens_work_queen
+  .container
+    .row
+      .col-md-2
+        .avatar_wapper.text-center
+          = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
+        %p.text-center
+          %strong= @product.queen.name 
+          
+      .col-md-10
+        .col-md-10
+          .clientStarAndLike
+            .width-15.text-right
+              %h4 网友点赞
+            .width-35
+              %strong.like-num
+                #{@product.votes_for.size}
+
+%section.queens_work_client
+  .container
+    .row
+      .col-md-2
+        .avatar_wapper.text-center
+          = image_tag(image_path("queens_work/client_avatar.jpg"), class: 'img-circle')
+        %p.text-center
+          %strong= @product.client_name
+
+
+%section.queens_work_likes
+  .container
+    .row
+      .col-md-6
+        %h4 点赞历史
+      .col-md-6
+        %h4 相关案例
+= render :partial => 'welcome/ants_feature'
+= render :partial => 'welcome/contact_section'
+      
+%section.queens_work_edit
+  / %p
+  /   %h3 more pic
+  /   - @product.uploads.each do |item|
+  /     %span= image_tag item.media.url
+
+  - if logged_in? and @product.is_my?(current_user.id)
+    = link_to 'add more media', new_upload_path(product_id: @product.id), class: 'btn btn-primary'
+    |  
+    = link_to 'Edit', edit_product_path(@product)
+    |
+    \#{link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }} |
+    |
+    = link_to t('back'), product_list_user_path(current_user)
 
 

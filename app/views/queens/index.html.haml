@@ -4,6 +4,7 @@
       %h2
         %span.queens_page_list_header_icon
         认证蚁后
+    .row
       .col-md-12
         - @queens.each do |queen|
           %li= link_to queen.email, queen_path(queen)

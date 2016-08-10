@@ -1,0 +1,122 @@
+section.queens_work_slider{
+	padding:0px;
+	#blueimp-gallery-carousel{
+		margin:0;
+	}
+}
+section.queens_work_title{
+	padding:0;
+	height:40px;
+	margin-top:-40px;
+	background-color:rgba(0,0,0,.5);
+	.col-md-10{
+		p{
+			line-height:40px;
+			color:white;
+			font-size:24px;
+		}
+	}
+	.col-md-2{
+		span.like_icon{
+			@include inlineBlockIcon(image_path("queens_work/like_sprite.png"),35px,30px);
+			&.liked{
+				background-position:-36px 0px;
+			}
+		}
+		span.bookmark_icon{
+			@include inlineBlockIcon(image_path("queens_work/bookmark_sprite.png"),31px,30px);
+			&.unbookmark{
+				background-position:-32px 0px;
+			}
+		}
+	}
+}
+
+section.queens_work_desc{
+	h2{
+		margin-bottom:30px;
+		span.desc_title_icon{
+			@include inlineBlockIcon(image_path("queens_work/desc_title_icon.png"),22px,30px)
+		}
+	}
+	p{
+		text-indent:2em;
+		&.ref_price>strong{
+			color:$primaryColor
+		}
+	}
+}
+
+
+
+section.queens_work_queen,section.queens_work_client{
+	.avatar_wapper{
+		margin-bottom:15px;
+		img{
+			width:120px;
+			border:1px solid #eee;
+		}
+	} 
+	.width-15{
+		display:inline-block;
+		width:15%;
+	}
+	.width-35{
+		display:inline-block;
+		width:35%;
+	}
+}
+
+section.queens_work_queen{
+	background-color:$mainBgColor;
+	.row{
+		.col-md-10 .clientStarAndLike{
+			width:95%;
+			height:150px;
+			background-color:white;
+			border-radius:10px;
+			float:right;
+			&:before{
+				display:inline-block;
+				content:" ";
+				background-color:white;
+				width:20px;
+				height:20px;
+				transform: rotate(45deg);
+				position:relative;
+				top: 60px;
+				left: -10px;
+				vertical-align: top;
+			}
+			div{
+				height:150px;
+				&.width-15{
+					line-height:140px;
+				}
+				&.width-35{
+					line-height:150px;
+				}
+			}
+			h4{
+				font-size:20px;
+				font-weight:900;
+				color:$primaryColor;
+			}
+			.like-num{
+				color:$primaryColor;
+				font-size:32px;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+section.queens_work_likes{
+	background-color:$mainBgColor;
+}
