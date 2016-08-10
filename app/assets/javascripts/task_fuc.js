@@ -38,13 +38,16 @@
 	    })
 
 	    $(".createTaskBtn").click(function(evt){
+	    	var needId = $(evt.currentTarget).attr("data-need");
 	    	var formData = $("#create_task_form").serialize();
 
 	    	$.ajax({
 	    		method: "POST",
-	    		url:"http://localhost/api/needs//tasks"
+	    		url:"http://localhost:3000/api/needs/"+needId+"/tasks",
+	    		data: formData
 	    	}).done(function(msg){
-
+	    		$("#new-task-form").toggle();
+	    		// msg.task_id
 	    	});
 	    })
 

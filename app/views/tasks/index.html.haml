@@ -107,7 +107,7 @@
                   .form-group
                     %input.form-control{:type => "text",:name => "task[title]"}/
                 %span.task-action
-                  %a.createTaskBtn{:href => "javascript:void(0);", data:{need:@need.title}} 保存
+                  %a.createTaskBtn{:href => "javascript:void(0);", data:{need:@need.id}} 保存
       .modal-footer
         %button.btn.btn-default{:type=>'button', :'data-dismiss' => "modal"} 关闭
         %button.btn.btn-primary{:type=>'button'} 保存
