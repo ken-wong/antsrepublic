@@ -25,7 +25,7 @@
                       
                   - else
                     - if @need.state == '等待甲方'
-                      = link_to "确认计划", plan_confirm_need_path(n@need), class: 'btn btn-primary'
+                      = link_to "确认计划", plan_confirm_need_path(@need), class: 'btn btn-primary'
                       = link_to "退回拒绝", plan_refuse_need_path(@need), class: 'btn btn-primary'
                     - else
                       你好! 请等待蚁后提交计划.
