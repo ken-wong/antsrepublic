@@ -5,6 +5,10 @@
 ## change log
 
 ## 0811
+Plan: title, dead_line, state
+
+		state: closed, open[default:open]
+
 ## plan creation
 ```
 curl -X POST -d "plan[dead_line]=2016-07-31&plan[title]=title&plan[state]=desc" http://localhost/api/needs/{need.id}/plans
