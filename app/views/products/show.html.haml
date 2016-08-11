@@ -58,6 +58,29 @@
       .col-md-10
         .col-md-10
           .clientStarAndLike
+            .width-15
+              %h4 甲方评价
+            .width-35
+              %p.margin-top-20 
+                交货速度
+                %span
+                  %span
+                  %span
+                  %span
+                  %span
+                  %span
+              %p 
+                作品质量
+                %span
+                  %span
+                  %span
+                  %span
+              %p
+                服务态度
+                %span
+                  %span
+                  %span
+                  %span
             .width-15.text-right
               %h4 网友点赞
             .width-35
@@ -71,7 +94,9 @@
         .avatar_wapper.text-center
           = image_tag(image_path("queens_work/client_avatar.jpg"), class: 'img-circle')
         %p.text-center
-          %strong= @product.client_name
+          / %strong= @product.client_name
+          %strong 甲方
+
 
 
 %section.queens_work_likes
