@@ -17,11 +17,11 @@
 	    		url:purl,
 	    		data:PatchData
 	    	}).done(function(msg){
-	    		var taskObj = msg.task;
-	    		var output = $("#task-unit-"+taskObj.id+" .task-output")
-	    		output.find("span.task-time").html(taskObj.dead_line);
-	    		output.find("span.task-title").html(taskObj.title);
-	    		toggleTaskEdit(taskObj.id);
+	    		var planObj = msg.plan;
+	    		var output = $("#plan-unit-"+planObj.id+" .plan-output")
+	    		output.find("span.plan-time").html(planObj.dead_line);
+	    		output.find("span.plan-title").html(planObj.title);
+	    		togglePlanEdit(planObj.id);
 	    	});
 	    });
 
@@ -54,17 +54,17 @@
 
 	    $(".editPlanBtn").click(function(evt){
 	    	var planId = $(evt.currentTarget).attr("data-plan");
-	    	toggleplanEdit(planId);
+	    	togglePlanEdit(planId);
 
 	    });
 
 	    $(".cancleUpdateplanBtn").click(function(evt){
 	    	var planId = $(evt.currentTarget).attr("data-plan");
-	    	toggleplanEdit(planId);
+	    	togglePlanEdit(planId);
 	    })
 	})
 
-	var toggleplanEdit = function(planId){
+	var togglePlanEdit = function(planId){
 		$("#plan-unit-"+planId+" .plan-output").toggleClass("hidden");
 	    $("#plan-unit-"+planId+" .plan-input").toggleClass("hidden");
 	}

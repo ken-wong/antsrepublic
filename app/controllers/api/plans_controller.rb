@@ -21,7 +21,7 @@ class Api::PlansController < Api::BaseController
     @plan = Plan.find(params[:id])
 
     if @plan.update(plan_params)
-      render 'show'
+      render json: {plan: @plan}, status: 200
     else
       return api_error(status: 422)
     end
