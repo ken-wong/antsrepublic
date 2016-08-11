@@ -19,7 +19,7 @@ curl -X GET http://localhost/api/plan/{plan.id}
 ```
 ## plan update
 ```
-curl -X PATCH -d "plan[dead_line]=2016-07-31&plan[title]=title&plan[state]=desc" http://localhost/api/plan/{plan.id}
+curl -X PATCH -d "plan[dead_line]=2016-07-31&plan[title]=title&plan[state]=desc" http://localhost/api/plans/{plan.id}
 ```
 ## plan list
 ```
