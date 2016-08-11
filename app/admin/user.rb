@@ -51,11 +51,15 @@ ActiveAdmin.register User do
 
   member_action :allow_verify, method: :put do
     resource.confirm!
+  	message_str = "管理员已经设置用户: <a href='#{user_path(resource)}'>#{resource.name}</a> 状态为 #{resource.state}  "
+		current_admin_user.send_message(resource, message_str) 
     redirect_to admin_users_path, notice: "passed!"
   end
 
   member_action :deny_verify, method: :put do
     resource.unconfirm!
+    message_str = "管理员已经设置用户: <a href='#{user_path(resource)}'>#{resource.name}</a> 状态为 #{resource.state}  "
+		current_admin_user.send_message(resource, message_str) 
     redirect_to admin_users_path, notice: "denied!"
   end
 
