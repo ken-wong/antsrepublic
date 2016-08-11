@@ -5,7 +5,7 @@ module TasksHelper
 
 		tasks.each do |task|
 
-			@objString += "'"+task.dead_line.strftime('%Y-%m-%d')+"':{}"
+			@objString += "'"+task.dead_line.strftime('%Y-%m-%d')+"':{}" if task.dead_line
 
 			if @i != 1
 				@objString += ","

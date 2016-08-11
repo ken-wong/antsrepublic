@@ -11,10 +11,26 @@
               %a.back-to-projects.text-center{:href => "#"} 返回项目列表
             .row.create-plan
               .col-md-12
-                %h3.text-center 你好！项目已经开始！请尽快制定任务计划，并提交给甲方确认
-                %p.text-center
-                  %button.btn.btn-primary#newTaskModalBtn{:'data-toggle' => "modal",:'data-target' => "#editTaskModal"}
-                    新建计划
+                %h3.text-center
+                  - if current_user.id == @need.queen_id then 
+                    - if @need.state == '等待甲方'
+                      计划已经提交,等待甲方确认
+                    - else
+                      你好！项目已经开始！请尽快制定任务计划，并提交给甲方确认
+                    %p.text-center
+                    %p
+                      = link_to "制定计划", new_plan_path(need_id: @need.id), class: 'btn btn-primary'
+                  
+                      = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' if @need.plans.count > 0 and @need.state != '等待甲方'
+                      
+                  - else
+                    - if @need.state == '等待甲方'
+                      = link_to "确认计划", plan_confirm_need_path(n@need), class: 'btn btn-primary'
+                      = link_to "退回拒绝", plan_refuse_need_path(@need), class: 'btn btn-primary'
+                    - else
+                      你好! 请等待蚁后提交计划.
+
+                
             / .row.re-receate-plan
             /   .col-md-12
             /     %h3.text-center 很可惜！甲方没有通过计划，请重新安排计划！
@@ -43,15 +59,14 @@
                   .days.color-white{:'data-group'=>"days"}
               .col-md-7
                 %ul.project-plan-list
-                  - @tasks.each do |task| 
+                  - @plans.each do |plan| 
                     %li.plan-task
                       %span.task-checkbox.text-center
                         %input{:type => "checkbox", :value => "false", :disabled => "disabled"}/
-                      %span.task-time= task.dead_line
-                      %span.task-title= task.title
+                      %span.task-time= plan.dead_line
+                      %span.task-title= plan.title
                       %span.task-action
-                        %a.btn.btn-primary#check-task-result{:href => "javascript:void(0);"}
-                          查看结果
+                        = link_to 'Destroy', need_plan_path(@need, plan), method: :delete, data: { confirm: 'Are you sure?' } if @need.state == '项目开始'
           .row
             %h3 任务结果
           .row.task-result

@@ -30,8 +30,20 @@ class Product < ActiveRecord::Base
       transition [nil, :'等待审核' , :'寻找蚁后'] => :'项目开始'
     end
 
+    event :waitfor! do
+      transition [:'项目开始'] => :'等待甲方'
+    end
+
+    event :plan_refuse! do
+      transition [:'等待甲方'] => :'项目开始'
+    end
+
+    event :plan_confirm! do
+      transition [:'等待甲方'] => :'乙方执行'
+    end
+    
     event :fail! do
-      transition [nil, :'寻找蚁后', :'项目开始',:'等待审核'] => :'项目终止'
+      transition [nil, :'寻找蚁后', :'项目开始',:'等待审核',:'乙方执行', :'等待甲方' ] => :'项目终止'
     end
 
     event :redo! do
@@ -39,7 +51,7 @@ class Product < ActiveRecord::Base
     end    
 
     event :close! do
-      transition [:'项目开始'] => :'项目完成'
+      transition [:'乙方执行'] => :'项目完成'
     end
 
     event :final! do

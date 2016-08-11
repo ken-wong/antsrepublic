@@ -15,6 +15,30 @@ class NeedsController < InheritedResources::Base
     @need = Need.find(params[:id])
   end
 
+  def waitfor
+    @need = Need.find(params[:id])
+    @need.waitfor!
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
+    end
+  end
+
+  def plan_confirm
+    @need = Need.find(params[:id])
+    @need.plan_confirm!
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
+    end
+  end
+
+  def plan_refuse
+    @need = Need.find(params[:id])
+    @need.plan_refuse!
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
+    end
+  end
+
   def update
     @need = Need.find(params[:id])
      tags = params[:tags]

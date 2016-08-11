@@ -17,7 +17,6 @@ class QueenWorksController < ApplicationController
   	queen_work = QueenWork.find(params[:id])
   	current_user.following?(queen_work) ? current_user.stop_following(queen_work) : current_user.follow(queen_work)
   	
-
   	redirect_to queen_work_path(params[:id])
   end
 
