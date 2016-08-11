@@ -22,7 +22,7 @@
                       / = link_to "制定计划", new_plan_path(need_id: @need.id), class: 'btn btn-primary'
                       %button.btn.btn-primary#newPlanModalBtn{:'data-toggle' => "modal",:'data-target' => "#editPlanModal"} 新建计划
                   
-                      = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' if @need.plans.count > 0 and @need.state != '等待甲方'
+                      / = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' if @need.plans.count > 0 and @need.state != '等待甲方'
                       
                   - else
                     - if @need.state == '等待甲方'
@@ -107,9 +107,11 @@
               .plan-input.hidden
                 %form{:action => "", :id => "plan_f_"+plan.id.to_s}
                   %span.plan-time
-                    %input{:type => "text", :name => "plan[dead_line]", :value => plan.dead_line}/
+                    .form-group
+                      %input.form-control.deadLineDataPicker{:type => "text", :name => "plan[dead_line]", :value => plan.dead_line, :readonly => "readonly", :placeholder => "请选择日期"}/
                   %span.plan-title
-                    %input{:type => "text", :name => "plan[title]",:value => plan.title}/
+                    .form-group
+                      %input.form-control{:type => "text", :name => "plan[title]",:value => plan.title}/
                   %span.plan-action
                     %a.updatePlanBtn{:href => "javascript:void(0);", data: {plan:plan.id.to_s} } 保存
                     %a.cancleUpdatePlanBtn{:href => "javascript:void(0);", data:{plan:plan.id.to_s}} 取消
@@ -118,15 +120,15 @@
               %form{:action => "", :id => "create_plan_form"}
                 %span.plan-time
                   .form-group
-                    %input.form-control{:type => "text",:placeholder => "请输入日期", :name => "plan[dead_line]"}/
+                    %input.form-control.deadLineDataPicker{:type => "text",:placeholder => "请选择日期", :name => "plan[dead_line]", :readonly => "readonly",}/
                 %span.plan-title
                   .form-group
                     %input.form-control{:type => "text",:name => "plan[title]"}/
                 %span.plan-action
                   %a.createPlanBtn{:href => "javascript:void(0);", data:{need:@need.id}} 保存
       .modal-footer
-        %button.btn.btn-default{:type=>'button', :'data-dismiss' => "modal"} 关闭
-        %button.btn.btn-primary{:type=>'button'} 保存
+        %button.btn.btn-default{:type=>'button', :'data-dismiss' => "modal"} 暂不提交
+        = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' 
 :javascript
   var taskData={
     #{create_canlendar_data_obj_string(@tasks)}

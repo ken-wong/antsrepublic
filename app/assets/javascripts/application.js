@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-datetimepicker
+//= require locales/bootstrap-datetimepicker.zh-CN
 //= require blueimp-gallery-all
 
 //= require neat/responsive-calendar-min.js

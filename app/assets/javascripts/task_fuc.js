@@ -1,5 +1,12 @@
 (function(){
 	$(document).ready(function(){
+		$('.deadLineDataPicker').datetimepicker({
+		    format: 'yyyy-mm-dd',
+		    autoclose: true,
+		    minView: 2,
+		    language: 'zh-CN'
+		});
+
 		$('.responsive-calendar').responsiveCalendar({
 	        time: '2016-08',
 	        events: taskData
@@ -82,10 +89,14 @@
 					"  <div class='plan-input hidden'>" +
 					"    <form id='plan_f_"+_planId+"'>" +
 					"      <span class='plan-time'>" +
-					"        <input type='text' name='plan[dead_line]' value='"+_time+"'>" +
+					"		<div class='form-group'>" +
+					"        <input class='form-control deadLineDataPicker' type='text' name='plan[dead_line]' placeholder='请选择日期' readonly value='"+_time+"'>" +
+					"		</div>" +
 					"      </span>" +
 					"      <span class='plan-title'>" +
-					"        <input type='text' name='plan[title]' value='"+_title+"'>" +
+					"		<div class='form-group'>" +
+					"        <input class='form-control' type='text' name='plan[title]' value='"+_title+"'>" +
+					"		</div>" +
 					"      </span>" +
 					"      <span class='plan-action'>" +
 					"        <a class='updateplanBtn' data-plan='"+_planId+"' href='javascript:void(0)'>保存</a>" +
