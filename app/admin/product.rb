@@ -82,6 +82,9 @@ ActiveAdmin.register Product do
 			message_str = "项目:<a href='#{need_path(product)}'>#{product.title}</a>, 已经指派给<a href='#{queen_path(product.queen_id)}'>#{product.queen.name}</a> "
 			current_admin_user.send_message(product.queen, message_str) 
 			current_admin_user.send_message(product.user, message_str)
+		else
+			message_str = "管理员更改了项目:<a href='#{need_path(product)}'>#{product.title}</a> 的状态: #{product.state}" 
+			current_admin_user.send_message(product.user, message_str)
 		end
 
 	end

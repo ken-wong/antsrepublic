@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  
-  get 'queen_works/show'
 
   resources :tasks
+  resources :plans
   resources :users do
     member do
       get 'dashboard'
@@ -30,8 +29,13 @@ Rails.application.routes.draw do
   end
   
   resources :products
+
   resources :needs do
     resources :tasks
+    resources :plans
+    member do
+      get 'waitfor'
+    end
   end
   resources :uploads  
 
@@ -67,6 +71,7 @@ Rails.application.routes.draw do
       resources :tasks
     end
     resources :tasks
+    resources :plans
   end
   # get     'queen_login'   => 'queen_sessions#new'
   # post    'queen_login'   => 'queen_sessions#create'

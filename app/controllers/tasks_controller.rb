@@ -3,6 +3,7 @@ class TasksController < InheritedResources::Base
   def index
     @need = Need.find(params[:need_id])
     @tasks = @need.tasks
+    @plans = @need.plans
   end
 
   private

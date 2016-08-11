@@ -1,0 +1,11 @@
+= simple_form_for(@plan) do |f| 
+  = f.error_notification 
+  .form-inputs
+    
+    = f.label f.object.need.title
+    = f.input :title 
+    = f.input :dead_line
+    = f.input :need_id, as: :hidden, value: params[:need_id]
+
+  .form-actions
+    = f.button :submit

@@ -2,7 +2,7 @@ class QueensController < ApplicationController
   
   def dashboard
     @queen = Queen.find(params[:id])
-    @messages = ['url1','url2']
+    
   end
 
   def index
