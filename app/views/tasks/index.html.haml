@@ -19,13 +19,14 @@
                       你好！项目已经开始！请尽快制定任务计划，并提交给甲方确认
                     %p.text-center
                     %p
-                      = link_to "制定计划", new_plan_path(need_id: @need.id), class: 'btn btn-primary'
+                      / = link_to "制定计划", new_plan_path(need_id: @need.id), class: 'btn btn-primary'
+                      %button.btn.btn-primary#newPlanModalBtn{:'data-toggle' => "modal",:'data-target' => "#editPlanModal"} 新建计划
                   
                       = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' if @need.plans.count > 0 and @need.state != '等待甲方'
                       
                   - else
                     - if @need.state == '等待甲方'
-                      = link_to "确认计划", plan_confirm_need_path(n@need), class: 'btn btn-primary'
+                      = link_to "确认计划", plan_confirm_need_path(@need), class: 'btn btn-primary'
                       = link_to "退回拒绝", plan_refuse_need_path(@need), class: 'btn btn-primary'
                     - else
                       你好! 请等待蚁后提交计划.
@@ -81,48 +82,48 @@
               %h6 文件列表
 
 
-.modal#editTaskModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editTaskModalLabel"}
+.modal#editPlanModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editPlanModalLabel"}
   .modal-dialog{:role => "document"}
     .modal-content
       .modal-header
         %button.close{:type => "button", :'data-dismiss'=>"modal", :'aria-label' => "close"}
           %span{ :'aria-hidden' => "true"}
         %h4.modal-title#editTaskModalLabel 新建工作计划
-      .modal-body.edit-project-task
+      .modal-body.edit-project-plan
         %p
-          %a.new-task{:role=>'button', :'data-toggle'=>"collapse", :href => "#new-task-form", :'aria-expanded'=>"false", :'aria-controls' => "new-task-form"}
+          %a.new-plan{:role=>'button', :'data-toggle'=>"collapse", :href => "#new-plan-form", :'aria-expanded'=>"false", :'aria-controls' => "new-plan-form"}
             %span.glyphicon.glyphicon-plus-sign
-        .edit-task-list
-          - @tasks.each do |task| 
-            .task-unit{:id => "task-unit-"+task.id.to_s}
-              .task-output
-                %span.task-time= task.dead_line
-                %span.task-title= task.title
-                %span.task-action
-                  %a.editTaskBtn{:href => "javascript:void(0);", data: {task:task.id.to_s}} 编辑
+        .edit-plan-list
+          - @plans.each do |plan| 
+            .plan-unit{:id => "plan-unit-"+plan.id.to_s}
+              .plan-output
+                %span.plan-time= plan.dead_line
+                %span.plan-title= plan.title
+                %span.plan-action
+                  %a.editPlanBtn{:href => "javascript:void(0);", data: {plan:plan.id.to_s}} 编辑
 
-                  %a.delTaskBtn{:href => "javascript:void(0);", data: {task:task.id.to_s}} 删除
+                  %a.delPlanBtn{:href => "javascript:void(0);", data: {plan:plan.id.to_s}} 删除
 
-              .task-input.hidden
-                %form{:action => "", :id => "task_f_"+task.id.to_s}
-                  %span.task-time
-                    %input{:type => "text", :name => "task[dead_line]", :value => task.dead_line}/
-                  %span.task-title
-                    %input{:type => "text", :name => "task[title]",:value => task.title}/
-                  %span.task-action
-                    %a.updateTaskBtn{:href => "javascript:void(0);", data: {task:task.id.to_s} } 保存
-                    %a.cancleUpdateTaskBtn{:href => "javascript:void(0);", data:{task:task.id.to_s}} 取消
-          .collapse#new-task-form
-            .task-unit
-              %form{:action => "", :id => "create_task_form"}
-                %span.task-time
+              .plan-input.hidden
+                %form{:action => "", :id => "plan_f_"+plan.id.to_s}
+                  %span.plan-time
+                    %input{:type => "text", :name => "plan[dead_line]", :value => plan.dead_line}/
+                  %span.plan-title
+                    %input{:type => "text", :name => "plan[title]",:value => plan.title}/
+                  %span.plan-action
+                    %a.updatePlanBtn{:href => "javascript:void(0);", data: {plan:plan.id.to_s} } 保存
+                    %a.cancleUpdatePlanBtn{:href => "javascript:void(0);", data:{plan:plan.id.to_s}} 取消
+          .collapse#new-plan-form
+            .plan-unit
+              %form{:action => "", :id => "create_plan_form"}
+                %span.plan-time
                   .form-group
-                    %input.form-control{:type => "text",:placeholder => "请输入日期", :name => "task[dead_line]"}/
-                %span.task-title
+                    %input.form-control{:type => "text",:placeholder => "请输入日期", :name => "plan[dead_line]"}/
+                %span.plan-title
                   .form-group
-                    %input.form-control{:type => "text",:name => "task[title]"}/
-                %span.task-action
-                  %a.createTaskBtn{:href => "javascript:void(0);", data:{need:@need.id}} 保存
+                    %input.form-control{:type => "text",:name => "plan[title]"}/
+                %span.plan-action
+                  %a.createPlanBtn{:href => "javascript:void(0);", data:{need:@need.id}} 保存
       .modal-footer
         %button.btn.btn-default{:type=>'button', :'data-dismiss' => "modal"} 关闭
         %button.btn.btn-primary{:type=>'button'} 保存
