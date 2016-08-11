@@ -69,15 +69,22 @@
                       %span.task-action
                         = link_to 'Destroy', need_plan_path(@need, plan), method: :delete, data: { confirm: 'Are you sure?' } if @need.state == '项目开始'
           .row
-            %h3 任务结果
+            %h3 
+              = link_to '提交成果', new_task_path(need_id: @need)
           .row.task-result
-            .row.task-result-header
-              .col-md-2.text-center 
-                %h5 任务名称
-              .col-md-7
-                %h5 这是一个任务的标题名称
-              .col-md-3
-                %h5 任务状态
+            - @tasks.each do |task|
+              .row.task-result-header
+                .col-md-2.text-center 
+                  %h5
+                    = "#{task.plan.title}[#{task.plan.dead_line}]" if task.plan
+                .col-md-7
+                  %h5
+                    = task.title 
+                .col-md-3
+                  %h5
+                    = task.plan.state if task.plan
+                    = link_to 'show', need_task_path(@need, task)
+                    = link_to 'Destroy', need_task_path(@need, task), method: :delete, data: { confirm: 'Are you sure?' }
             .row.task-result-files
               %h6 文件列表
 

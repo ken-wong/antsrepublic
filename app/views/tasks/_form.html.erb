@@ -1,14 +1,24 @@
-<%= simple_form_for(task) do |f| %>
+<%= simple_form_for(@task) do |f| %>
   <%= f.error_notification %>
   <div class="task-unit">
-    <span class="task-time">
+<!--     <span class="task-time">
       <div class="form-group">
         <input type="text" name="task[dead_line]" class="form-control">
       </div>
-    </span>
+    </span> -->
     <span class="task-title">
-      <%= f.input :title, label:false %>
+      <%= f.input :title, label: '成果简介' %>
     </span>
+    <span class="task-description">
+      <%= f.input :description, label: '补充说明' %>
+    </span>
+    <span class="task-attachment">
+      <%= f.input :attachement, as: :file, label: '上传文件' %>
+    </span>
+    <span class="task-plan">
+      <%= f.input :plan_id, collection: @need.plans.map{|n| ["#{n.title}[#{n.dead_line}]", n.id]}, label: '选择计划' %>
+    </span>
+    <%= f.input :need_id, as: :hidden, value: params[:need_id] %>
     <span class="task-action">
       <%= f.button :submit %>
     </span>

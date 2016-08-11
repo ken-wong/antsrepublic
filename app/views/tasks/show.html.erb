@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Dead line:</strong>
-  <%= @task.dead_line %>
-</p>
-
-<p>
   <strong>Title:</strong>
   <%= @task.title %>
 </p>
@@ -15,10 +10,15 @@
   <%= @task.description %>
 </p>
 
+<% if @task.attachment %>
+<p>
+  <strong>Attachement</strong>
+  <%= link_to File.basename(@task.attachment.url), @task.attachment.url %>
+</p>
+<% end %>
 <p>
   <strong>State:</strong>
   <%= @task.state %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Back', need_tasks_path(@need,@tasks) %>

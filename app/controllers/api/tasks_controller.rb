@@ -35,6 +35,6 @@ class Api::TasksController < Api::BaseController
   private
     def task_params
       params.require(:task).permit(
-        :dead_line, :title, :description)
+        :dead_line, :title, :description, :plan_id, :attachment)
     end
 end
