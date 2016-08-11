@@ -15,7 +15,7 @@
 
           %p
             %strong= User.human_attribute_name(:avatar)
-            = image_tag(@user.avatar_url)
+            = image_tag(@user.avatar.small_url)
           %p
             %strong= User.human_attribute_name(:email)
             = @user.send(:email)
