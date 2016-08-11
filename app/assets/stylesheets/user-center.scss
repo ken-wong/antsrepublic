@@ -1,6 +1,9 @@
 .user-center-section{
 	background-color:$mainBgColor;
-	.content{padding: 0px 30px;}
+	.content{
+		padding: 0px 30px;
+		min-height:300px;
+	}
 	.back-to-projects{
 		margin-top:20px;
 		@include inlineBlockEle(120px,36px);
