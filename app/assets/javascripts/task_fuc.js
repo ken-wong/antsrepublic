@@ -39,7 +39,8 @@
 
 	    $(".createTaskBtn").click(function(evt){
 	    	var needId = $(evt.currentTarget).attr("data-need");
-	    	var formData = $("#create_task_form").serialize();
+	    	var formData = $("#create_task_form").serializeArray();
+
 
 	    	$.ajax({
 	    		method: "POST",
@@ -47,7 +48,7 @@
 	    		data: formData
 	    	}).done(function(msg){
 	    		$("#new-task-form").toggle();
-	    		// msg.task_id
+	    		$(".collapse#new-task-form").before(createTaskUnit(msg.task_id,formData[0].value,formData[1].value));
 	    	});
 	    })
 
@@ -67,6 +68,36 @@
 		$("#task-unit-"+taskId+" .task-output").toggleClass("hidden");
 	    $("#task-unit-"+taskId+" .task-input").toggleClass("hidden");
 	}
+
+	var createTaskUnit = function(_taskId, _time, _title){
+		return "	<div class='task-unit' id='task-unit-"+_taskId+"'>" +
+					"  <div class='task-output'>" +
+					"    <span class='task-time'>"+_time+"</span>" +
+					"    <span class='task-title'>"+_title+"</span>" +
+					"    <span class='task-action'>" +
+					"      <a class='editTaskBtn' data-task='"+_taskId+"' href='javascript:void(0)'>编辑</a>" +
+					"      <a class='delTaskBtn' data-task='"+_taskId+"' href='javascript:void(0)'>删除</a>" +
+					"    </span>" +
+					"  </div>" +
+					"  <div class='task-input hidden'>" +
+					"    <form id='task_f_"+_taskId+"'>" +
+					"      <span class='task-time'>" +
+					"        <input type='text' name='task[dead_line]' value='"+_time+"'>" +
+					"      </span>" +
+					"      <span class='task-title'>" +
+					"        <input type='text' name='task[title]' value='"+_title+"'>" +
+					"      </span>" +
+					"      <span class='task-action'>" +
+					"        <a class='updateTaskBtn' data-task='"+_taskId+"' href='javascript:void(0)'>保存</a>" +
+					"        <a class='cancleUpdateTaskBtn' data-task='"+_taskId+"' href='javascript:void(0)'>取消</a>" +
+					"      </span>" +
+					"    </form>" +
+					"  </div>" +
+					"</div>";
+	}
+
+	
+
 
 }());
 
