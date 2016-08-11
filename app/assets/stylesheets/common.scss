@@ -114,7 +114,6 @@ section.product_list_section,.products_section{
 			.product_list_header_icon{
 				@include inlineBlockIcon(image_path('homepage/show_cases_icon.png'),38px,38px);
 				vertical-align: top;
-				border-bottom:0px;
 			}
 		}
 		ul{
@@ -182,7 +181,6 @@ section.quick_startup_section{
 	span.flow_header_icon{
 		vertical-align: top;
 		display:inline-block;
-		border-bottom:0px;
 		width:30px;
 		height:30px;
 		background:url(image_path('homepage/flow_header_icon.png')) scroll no-repeat;
@@ -237,7 +235,6 @@ section.ants_list{
 		span.queen_header_icon{
 			vertical-align: top;
 			display:inline-block;
-			border-bottom:0px;
 			width:30px;
 			height:30px;
 			background:url(image_path('homepage/queens_header_icon.png')) no-repeat scroll;

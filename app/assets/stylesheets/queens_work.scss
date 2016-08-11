@@ -17,16 +17,21 @@ section.queens_work_title{
 		}
 	}
 	.col-md-2{
+		&>a{
+			margin-top:10px;
+		    display: inline-block;
+		}
 		span.like_icon{
-			@include inlineBlockIcon(image_path("queens_work/like_sprite.png"),35px,30px);
+			@include inlineBlockIcon(image_path("queens_work/like_sprite.png"),24px,20px);
 			&.liked{
-				background-position:-36px 0px;
+				background-position:-24px 0px;
 			}
 		}
 		span.bookmark_icon{
-			@include inlineBlockIcon(image_path("queens_work/bookmark_sprite.png"),31px,30px);
+			@include inlineBlockIcon(image_path("queens_work/bookmark_sprite.png"),21px,20px);
+			margin-right:10px;
 			&.unbookmark{
-				background-position:-32px 0px;
+				background-position:-22px 0px;
 			}
 		}
 	}

@@ -1,8 +1,9 @@
 %section.queen_info
   .container
     .row
-      .col-md-2
-        = image_tag(@queen.avatar_url, class:"img-circle")
+      .col-md-2.text-center
+        = image_tag(@queen.avatar.small_url , class: 'img-circle')
+
       .col-md-10
         %h4= @queen.send(:name)
         %p= @queen.description
@@ -15,19 +16,38 @@
           .width-15
             %h4 甲方评价
           .width-35
-            %p 交货速度
-            %p 作品质量
-            %p 服务态度
+            %p.margin-top-50 
+              交货速度
+              %span
+                %span
+                %span
+                %span
+                %span
+                %span
+            %p 
+              作品质量
+              %span
+                %span
+                %span
+                %span
+            %p
+              服务态度
+              %span
+                %span
+                %span
+                %span
           .width-15
             %h4 网友点赞
           .width-35
+            %h5 2000
 
 %section.queen_cases
-
-- if current_user.id == @queen.id  
-  = link_to t(:edit), edit_queen_path(@queen)
-  |
-  = link_to t(:back), :back
+  .container
+    .row
+      .col-md-12
+        %h2
+          %span.queen_cases_header_icon
+          相关案例
 
 
 = render :partial => 'shared/ant_list'
