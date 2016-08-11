@@ -4,6 +4,29 @@
 
 ## change log
 
+## 0811
+## plan creation
+```
+curl -X POST -d "plan[dead_line]=2016-07-31&plan[title]=title&plan[state]=desc" http://localhost/api/needs/{need.id}/plans
+```
+## plan show
+```
+curl -X GET http://localhost/api/plan/{plan.id}
+```
+## plan update
+```
+curl -X PATCH -d "plan[dead_line]=2016-07-31&plan[title]=title&plan[state]=desc" http://localhost/api/plan/{plan.id}
+```
+## plan list
+```
+curl -X GET http://localhost/api/needs/{need.id}/plans
+```
+## plan deletion
+```
+curl -X DELETE http://localhost/api/plan/{plan.id}
+```
+
+
 ## 0806
 
 		推荐蚁后(权重sort_no 从大到小), 在后台 用户-编辑, 设置 sort_no

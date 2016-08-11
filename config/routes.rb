@@ -69,6 +69,7 @@ Rails.application.routes.draw do
 
     resources :needs do
       resources :tasks
+      resources :plans
     end
     resources :tasks
     resources :plans
