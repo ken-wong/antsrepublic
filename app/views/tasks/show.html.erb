@@ -1,24 +1,45 @@
+<section>
+	<div class='container'>	
 <p id="notice"><%= notice %></p>
-
+<row>
 <p>
-  <strong>Title:</strong>
+  <strong>蚁后:</strong>
+  <%= @task.need.queen.name %>
+</p>
+<p>
+  <strong>上传时间:</strong>
+  <%= @task.created_at %>
+</p>
+<p>
+  <strong>成果简介:</strong>
   <%= @task.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>补充说明:</strong>
   <%= @task.description %>
 </p>
 
 <% if @task.attachment %>
 <p>
   <strong>Attachement</strong>
-  <%= link_to File.basename(@task.attachment.url), @task.attachment.url %>
+  <%= link_to File.basename(@task.file_name), @task.attachment.url %>
 </p>
 <% end %>
 <p>
-  <strong>State:</strong>
+  <strong>状态:</strong>
   <%= @task.state %>
 </p>
-
-<%= link_to 'Back', need_tasks_path(@need,@tasks) %>
+<% if @task.need.user_id == current_user.id and @task.state == '等待甲方'%>
+<p>
+<%= link_to '甲方确认', confirm_task_path(@task), class: 'btn btn-info' %>
+<%= link_to '退回重来', refuse_task_path(@task), class: 'btn btn-warning' %>
+<% end %>
+</p>
+<p>
+<%= link_to t('edit'), edit_task_path(@task) %>
+<%= link_to t('back'), need_tasks_path(@need,@tasks) %>
+</p>
+</row>
+</div>
+</section>

@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   def project_list
     @products = []
     @products = Product.where("user_id = ? ", current_user.id).order(created_at: :desc) if current_user.has_role?(:owner)
-    @products = Product.where("queen_id = ? ", current_user.id).order(created_at: :desc) if current_user.has_role?(:queen)
+    @products = Need.where("queen_id = ? ", current_user.id).order(created_at: :desc) if current_user.has_role?(:queen)
     
   end
 

@@ -23,6 +23,14 @@ class NeedsController < InheritedResources::Base
     end
   end
 
+  def complete
+    @need = Need.find(params[:id])
+    @need.close!
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
+    end
+  end
+
   def plan_confirm
     @need = Need.find(params[:id])
     @need.plan_confirm!

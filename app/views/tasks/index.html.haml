@@ -15,12 +15,14 @@
                   - if current_user.id == @need.queen_id then 
                     - if @need.state == '等待甲方'
                       计划已经提交,等待甲方确认
+                    - elsif @need.state == '乙方执行'
+                      甲方已经确认全部计划, 马上提交工作成果吧
                     - else
                       你好！项目已经开始！请尽快制定任务计划，并提交给甲方确认
-                    %p.text-center
-                    %p
-                      / = link_to "制定计划", new_plan_path(need_id: @need.id), class: 'btn btn-primary'
-                      %button.btn.btn-primary#newPlanModalBtn{:'data-toggle' => "modal",:'data-target' => "#editPlanModal"} 新建计划
+                      %p.text-center
+                      %p
+                        / = link_to "制定计划", new_plan_path(need_id: @need.id), class: 'btn btn-primary'
+                        %button.btn.btn-primary#newPlanModalBtn{:'data-toggle' => "modal",:'data-target' => "#editPlanModal"} 制定计划
                   
                       / = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' if @need.plans.count > 0 and @need.state != '等待甲方'
                       
@@ -29,7 +31,12 @@
                       = link_to "确认计划", plan_confirm_need_path(@need), class: 'btn btn-primary'
                       = link_to "退回拒绝", plan_refuse_need_path(@need), class: 'btn btn-primary'
                     - else
-                      你好! 请等待蚁后提交计划.
+                      - if @need.state == "确认计划"
+                        你好! 请等待蚁后提交计划.
+                      - else
+                        = "项目启动,等待蚁后#{@need.queen.name}提交成果"
+
+                      
 
                 
             / .row.re-receate-plan
@@ -67,28 +74,41 @@
                       %span.task-time= plan.dead_line
                       %span.task-title= plan.title
                       %span.task-action
-                        = link_to 'Destroy', need_plan_path(@need, plan), method: :delete, data: { confirm: 'Are you sure?' } if @need.state == '项目开始'
+                        = link_to 'Destroy', need_plan_path(@need, plan), method: :delete, data: { confirm: 'Are you sure?' } if @need.state == '项目开始' if current_user.id == @need.queen_id
           .row
             %h3 
-              = link_to '提交成果', new_task_path(need_id: @need)
+              = link_to '提交成果', new_task_path(need_id: @need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.id == @need.queen_id
+              = link_to '项目完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.id == @need.queen_id
           .row.task-result
+            .row.task-result-header
+              .col-md-3.text-center 
+                %h5 计划
+              .col-md-3.text-center 
+                %h5 成果简介
+              .col-md-2.text-center 
+                %h5 成果文件
+              .col-md-2.text-center 
+                %h5 成果状态
+              .col-md-2.text-center 
+                %h5 其他      
             - @tasks.each do |task|
-              .row.task-result-header
-                .col-md-2.text-center 
-                  %h5
-                    = "#{task.plan.title}[#{task.plan.dead_line}]" if task.plan
-                .col-md-7
-                  %h5
-                    = task.title 
+              .row
+                .col-md-3.text-center 
+
+                  = "#{task.plan.title}[#{task.plan.dead_line}]" if task.plan
                 .col-md-3
+                  = task.title
+                .col-md-2
+                  = link_to File.basename(task.file_name), task.attachment.url, target: "_blank"  if task.file_name
+                .col-md-2
+                  = task.state if task.state
+                .col-md-2
                   %h5
-                    = task.plan.state if task.plan
-                    = link_to 'show', need_task_path(@need, task)
-                    = link_to 'Destroy', need_task_path(@need, task), method: :delete, data: { confirm: 'Are you sure?' }
-            .row.task-result-files
-              %h6 文件列表
-
-
+                    = link_to '查看确认', need_task_path(@need, task)
+                    = link_to 'Destroy', need_task_path(@need, task), method: :delete, data: { confirm: 'Are you sure?' } if current_user.id == @need.queen_id and task.state == '等待甲方'
+            - if @need.tasks.size == 0
+              .row.task-result-files
+                %h6 文件列表
 .modal#editPlanModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editPlanModalLabel"}
   .modal-dialog{:role => "document"}
     .modal-content

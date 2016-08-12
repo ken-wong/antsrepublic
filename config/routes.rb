@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :tasks
+  resources :tasks do
+    member do
+      get 'confirm'
+      get 'refuse'
+    end
+  end
   resources :plans
   resources :users do
     member do
@@ -37,6 +42,7 @@ Rails.application.routes.draw do
       get 'waitfor'
       get 'plan_confirm'
       get 'plan_refuse'
+      get 'complete'
     end
   end
   resources :uploads  

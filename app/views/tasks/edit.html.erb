@@ -1,6 +1,12 @@
-<h1>Editing Task</h1>
-
+<h1>Edit Task</h1>
+<section>
+	<div class='container'>	
+		<div class='row'>
 <%= render 'form' %>
+</div>
+<p>
+<%= link_to t('back'), :back %>
+</p>
+</div>
+</section>
 
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>

@@ -16,3 +16,5 @@ if Rails.env.test? or Rails.env.development? or Rails.env.cucumber?
     config.enable_processing = false
   end
 end
+
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
