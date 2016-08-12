@@ -47,6 +47,8 @@ ActiveAdmin.register Product do
 			row :category
 			row	:description
 			row :tag_list
+			row :reference_product_ids
+			row :reference_queen_ids
 			row '蚁后' do 
 				link_to product.queen.name, admin_user_path(product.queen) if product.queen
 			end
