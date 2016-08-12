@@ -56,3 +56,26 @@
 		}
 	}
 }
+
+.select_queen{
+	.queenSelector{
+		width:100%;
+	}
+
+}
+.select2-result-repository{
+	.select2-result-repository__avatar{
+		display:inline-block;
+		width:80px;
+		img{
+			width:60px;
+		}
+	}
+	.select2-result-repository__meta{
+		display:inline-block;
+		width:300px;
+		.select2-result-repository__title{
+
+		}
+	}
+}

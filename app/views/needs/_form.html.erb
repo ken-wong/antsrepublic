@@ -6,7 +6,7 @@
         <%= f.input :title, placeholder: '请输入项目名称', required: true, label: false  %>
       </div>
       <div class="col-lg-4">
-        <%= f.input :category, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], required: true, label: false  %>
+        <%= f.input :category, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], required: true, label: false, prompt: "请选择需求类型"   %>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
         <%= f.input :final_date, required: true %> 
       </div>
       <div class="col-lg-4">
-        <%= f.input :price_range, priority: [ "高端" ], collection: [ "高端", "中端", "低端"], required: true %>
+        <%= f.input :price_range, priority: [ "高端" ], collection: [ "高端", "中端", "低端"], required: true, prompt: "请选择价格范围" %>
         <!--todo, 根据 radio_button 显示不同提示
           效果图人视：高端大于5k／中端2～5k／低端1～2k
           效果图鸟瞰：高端大于9k／中端3～9k／低端1～3k以下
@@ -100,7 +100,16 @@
     <%= f.input :reference_product_ids, collection: QueenWork.all, input_html: { multiple: true } %>
     <hr/>    
     <h3>指定蚁后</h3>
-    <%= f.input :reference_queen_ids, collection: Queen.all, input_html: { multiple: true } %>
+    <row class="select_queen">
+      <div class="col-md-12">
+        <%= f.input :reference_queen_ids, label:false %>
+        # <%= f.input :reference_queen_ids, label:false, as:'hidden' %>
+        <select name="queen_search" class="queenSelector">
+          <option value="1">1</option>
+        </select>
+      </div>
+    </row>
+    
 
      <div class="row form_submit_block">
        <div class="col-lg-12 text-center">
@@ -110,4 +119,7 @@
      </div>
   </div>
 
+<% end %>
+<% content_for :page_js_block do %>
+  <%= javascript_include_tag 'edit_need_fuc.js' %>
 <% end %>

@@ -1,0 +1,30 @@
+.row.project-plan
+  .col-md-5
+    .responsive-calendar.background-lead.color-white
+      .controls
+        %a.btn.btn-lead.darken.pull-left{:'data-go' => "prev"}
+          %i.fa.fa-chevron-left
+        %a.btn.btn-lead.darken.pull-right{:'data-go' => "next"}
+          %i.fa.fa-chevron-right
+        %h4
+          %span{:'data-head-year'=>""}
+          %span{:'data-head-month'=>""}
+      .day-headers
+        .day.header Mon
+        .day.header Tue
+        .day.header Wed
+        .day.header Thu
+        .day.header Fri
+        .day.header Sat
+        .day.header Sun
+      .days.color-white{:'data-group'=>"days"}
+  .col-md-7
+    %ul.project-plan-list
+      - @plans.each do |plan| 
+        %li.plan-task
+          %span.task-checkbox.text-center
+            %input{:type => "checkbox", :value => "false", :disabled => "disabled"}/
+          %span.task-time= plan.dead_line
+          %span.task-title= plan.title
+          %span.task-action
+            / = link_to 'Destroy', need_plan_path(@need, plan), method: :delete, data: { confirm: 'Are you sure?' } if @need.state == '项目开始' if current_user.id == @need.queen_id
