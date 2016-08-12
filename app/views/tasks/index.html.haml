@@ -6,109 +6,72 @@
       .col-md-12
         .content
           #notice= notice
-          .row
+          .row.back-project-list
             %p
-              %a.back-to-projects.text-center{:href => "#"} 返回项目列表
-            .row.create-plan
-              .col-md-12
-                %h3.text-center
-                  - if current_user.id == @need.queen_id then 
-                    - if @need.state == '等待甲方'
-                      计划已经提交,等待甲方确认
-                    - elsif @need.state == '乙方执行'
-                      甲方已经确认全部计划, 马上提交工作成果吧
-                    - else
-                      你好！项目已经开始！请尽快制定任务计划，并提交给甲方确认
-                      %p.text-center
-                      %p
-                        / = link_to "制定计划", new_plan_path(need_id: @need.id), class: 'btn btn-primary'
-                        %button.btn.btn-primary#newPlanModalBtn{:'data-toggle' => "modal",:'data-target' => "#editPlanModal"} 制定计划
-                  
-                      / = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' if @need.plans.count > 0 and @need.state != '等待甲方'
-                      
-                  - else
-                    - if @need.state == '等待甲方'
-                      = link_to "确认计划", plan_confirm_need_path(@need), class: 'btn btn-primary'
-                      = link_to "退回拒绝", plan_refuse_need_path(@need), class: 'btn btn-primary'
-                    - else
-                      - if @need.state == "确认计划"
-                        你好! 请等待蚁后提交计划.
-                      - else
-                        = "项目启动,等待蚁后#{@need.queen.name}提交成果"
+              %a.back-to-projects.text-center{:href => project_list_user_path(current_user)} 返回项目列表
 
-                      
+          - if current_user.id == @need.queen_id then 
+            - if @need.state == '等待甲方'
+              = render "queen_waitfor_plan"
+            - elsif @need.state == '乙方执行'
+              = render "queen_begin_plan"
+            - else
+              = render "queen_create_plan"
+          - else
+            - if @need.state == '等待甲方'
+              = render "partyA_check_plan"
+            - else
+              - if @need.state == "确认计划"
+                = render "partyA_waitfor_plan"
+              - else
+                = render :partial => "partyA_begin_plan", :locals => {need:@need}
 
-                
-            / .row.re-receate-plan
-            /   .col-md-12
-            /     %h3.text-center 很可惜！甲方没有通过计划，请重新安排计划！
-            /     %p.text-center
-            /       %button.btn.btn-primary#newTaskModalBtn{:'data-toggle' => "modal",:'data-target' => "#editTaskModal"}
-            /         重新安排计划
-            .row.project-plan
-              .col-md-5
-                .responsive-calendar.background-lead.color-white
-                  .controls
-                    %a.btn.btn-lead.darken.pull-left{:'data-go' => "prev"}
-                      %i.fa.fa-chevron-left
-                    %a.btn.btn-lead.darken.pull-right{:'data-go' => "next"}
-                      %i.fa.fa-chevron-right
-                    %h4
-                      %span{:'data-head-year'=>""}
-                      %span{:'data-head-month'=>""}
-                  .day-headers
-                    .day.header Mon
-                    .day.header Tue
-                    .day.header Wed
-                    .day.header Thu
-                    .day.header Fri
-                    .day.header Sat
-                    .day.header Sun
-                  .days.color-white{:'data-group'=>"days"}
-              .col-md-7
-                %ul.project-plan-list
-                  - @plans.each do |plan| 
-                    %li.plan-task
-                      %span.task-checkbox.text-center
-                        %input{:type => "checkbox", :value => "false", :disabled => "disabled"}/
-                      %span.task-time= plan.dead_line
-                      %span.task-title= plan.title
-                      %span.task-action
-                        = link_to 'Destroy', need_plan_path(@need, plan), method: :delete, data: { confirm: 'Are you sure?' } if @need.state == '项目开始' if current_user.id == @need.queen_id
+          - if @need.state == '乙方执行'
+            = render :partial => "calendar", :locals => {plan:@plans, need:@need}
+
           .row
             %h3 
               = link_to '提交成果', new_task_path(need_id: @need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.id == @need.queen_id
               = link_to '项目完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.id == @need.queen_id
-          .row.task-result
-            .row.task-result-header
-              .col-md-3.text-center 
-                %h5 计划
-              .col-md-3.text-center 
-                %h5 成果简介
-              .col-md-2.text-center 
-                %h5 成果文件
-              .col-md-2.text-center 
-                %h5 成果状态
-              .col-md-2.text-center 
-                %h5 其他      
-            - @tasks.each do |task|
-              .row
-                .col-md-3.text-center 
 
-                  = "#{task.plan.title}[#{task.plan.dead_line}]" if task.plan
-                .col-md-3
-                  = task.title
+          - @tasks.each do |task|
+            .row.task-result
+              .task-result-header
                 .col-md-2
-                  = link_to File.basename(task.file_name), task.attachment.url, target: "_blank"  if task.file_name
-                .col-md-2
-                  = task.state if task.state
-                .col-md-2
-                  %h5
-                    = link_to '查看确认', need_task_path(@need, task)
-                    = link_to 'Destroy', need_task_path(@need, task), method: :delete, data: { confirm: 'Are you sure?' } if current_user.id == @need.queen_id and task.state == '等待甲方'
-            - if @need.tasks.size == 0
-              .row.task-result-files
-                %h6 文件列表
+                  %h5.text-center 任务名称
+                .col-md-7
+                  %h5.color-black= task.plan.title
+                .col-md-3.task-status
+                  %strong= task.state if task.state
+              .task-result-files
+                .col-md-1
+                  %h6 文件列表
+                .col-md-11
+                  %ul
+                    %li.text-center
+                      %p
+                        = image_tag(image_path('user/task-file-img.png'))
+                      %h6
+                        = link_to File.basename(task.file_name), task.attachment.url, target: "_blank"  if task.file_name
+
+.modal#checkPlanModal{:tabindex=>"-2", :role => "dialog", :'aria-labelledby' =>"checkPlanModalLabel"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{:type => "button", :'data-dismiss'=>"modal", :'aria-label' => "close"}
+          %span{ :'aria-hidden' => "true"}
+        %h4.modal-title#editPlanModalLabel 查看工作计划
+      .modal-body.edit-project-plan
+        .edit-plan-list
+          - @plans.each do |plan| 
+            .plan-unit{:id => "plan-unit-"+plan.id.to_s}
+              .plan-output
+                %span.plan-time= plan.dead_line
+                %span.plan-title= plan.title
+      .modal-footer
+        = link_to "确认计划", plan_confirm_need_path(@need), class: 'btn btn-primary'
+        = link_to "退回拒绝", plan_refuse_need_path(@need), class: 'btn'           
+
 .modal#editPlanModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editPlanModalLabel"}
   .modal-dialog{:role => "document"}
     .modal-content
@@ -128,7 +91,6 @@
                 %span.plan-title= plan.title
                 %span.plan-action
                   %a.editPlanBtn{:href => "javascript:void(0);", data: {plan:plan.id.to_s}} 编辑
-
                   %a.delPlanBtn{:href => "javascript:void(0);", data: {plan:plan.id.to_s}} 删除
 
               .plan-input.hidden
@@ -147,16 +109,16 @@
               %form{:action => "", :id => "create_plan_form"}
                 %span.plan-time
                   .form-group
-                    %input.form-control.deadLineDataPicker{:type => "text",:placeholder => "请选择日期", :name => "plan[dead_line]", :readonly => "readonly",}/
+                    %input.form-control.deadLineDataPicker{:type => "text", :placeholder => "请选择日期", :name => "plan[dead_line]", :readonly => "readonly"}/
                 %span.plan-title
                   .form-group
                     %input.form-control{:type => "text",:name => "plan[title]"}/
                 %span.plan-action
-                  %a.createPlanBtn{:href => "javascript:void(0);", data:{need:@need.id}} 保存
+                  %a.createPlanBtn{:href => "javascript:void(0);", :data => {need:@need.id}} 保存
       .modal-footer
         %button.btn.btn-default{:type=>'button', :'data-dismiss' => "modal"} 暂不提交
         = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' 
 :javascript
   var taskData={
-    #{create_canlendar_data_obj_string(@tasks)}
+    #{create_canlendar_data_obj_string(@plans)}
   }

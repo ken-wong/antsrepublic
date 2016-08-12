@@ -54,8 +54,8 @@
 	    		url:"http://localhost:3000/api/needs/"+needId+"/plans",
 	    		data: formData
 	    	}).done(function(msg){
-	    		$("#new-plan-form").toggle();
 	    		$(".collapse#new-plan-form").before(createPlanUnit(msg.plan_id,formData[0].value,formData[1].value));
+	    		$(".collapse#new-plan-form").collapse('toggle');	    		
 	    	});
 	    })
 
