@@ -97,22 +97,10 @@
     </div>
 
     <h3>参考案例</h3>
-    <p>
-    <% QueenWork.all.each do |work| %>
-      <p>
-        <%= link_to image_tag(Product.find(work.id).avatar.small_url), work %>
-        <%= work.title %>
-      </p>
-    <% end %>
-    </p>
+    <%= f.input :reference_product_ids, collection: QueenWork.all, input_html: { multiple: true } %>
     <hr/>    
     <h3>指定蚁后</h3>
-    <p>
-      <% Queen.all.each do |queen| %>
-        <%= link_to image_tag(User.find(queen.id).avatar.small_url), queen %>
-        <%= queen.name %>
-      <% end %>
-    </p>
+    <%= f.input :reference_queen_ids, collection: Queen.all, input_html: { multiple: true } %>
 
      <div class="row form_submit_block">
        <div class="col-lg-12 text-center">

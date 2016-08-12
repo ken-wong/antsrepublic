@@ -49,6 +49,8 @@ class NeedsController < InheritedResources::Base
 
   def update
     @need = Need.find(params[:id])
+    @need.reference_queen_ids = params[:need][:reference_queen_ids]
+    @need.reference_product_ids = params[:need][:reference_product_ids]
      tags = params[:tags]
      tags = [] if tags.nil?
       
@@ -76,6 +78,8 @@ class NeedsController < InheritedResources::Base
   def create
     @need = Need.new(need_params)
     @need.user_id = current_user.id
+    @need.reference_queen_ids = params[:need][:reference_queen_ids]
+    @need.reference_product_ids = params[:need][:reference_product_ids]
     tags = params[:tags]
     tags = [] if tags.nil?
 
