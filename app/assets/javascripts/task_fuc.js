@@ -6,7 +6,7 @@
 		    minView: 2,
 		    language: 'zh-CN'
 		});
-
+		
 		$('.responsive-calendar').responsiveCalendar({
 	        time: '2016-08',
 	        events: taskData

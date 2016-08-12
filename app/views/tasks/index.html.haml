@@ -118,6 +118,10 @@
       .modal-footer
         %button.btn.btn-default{:type=>'button', :'data-dismiss' => "modal"} 暂不提交
         = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' 
+
+- content_for :page_js_block do
+  = javascript_include_tag 'task_fuc.js'
+
 :javascript
   var taskData={
     #{create_canlendar_data_obj_string(@plans)}
