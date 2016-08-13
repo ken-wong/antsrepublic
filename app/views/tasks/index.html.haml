@@ -53,36 +53,15 @@
                         = image_tag(image_path('user/task-file-img.png'))
                       %h6
                         = link_to File.basename(task.file_name), task.attachment.url, target: "_blank"  if task.file_name
-
-.modal#checkPlanModal{:tabindex=>"-2", :role => "dialog", :'aria-labelledby' =>"checkPlanModalLabel"}
-  .modal-dialog{:role => "document"}
-    .modal-content
-      .modal-header
-        %button.close{:type => "button", :'data-dismiss'=>"modal", :'aria-label' => "close"}
-          %span{ :'aria-hidden' => "true"}
-        %h4.modal-title#editPlanModalLabel 查看工作计划
-      .modal-body.edit-project-plan
-        .edit-plan-list
-          - @plans.each do |plan| 
-            .plan-unit{:id => "plan-unit-"+plan.id.to_s}
-              .plan-output
-                %span.plan-time= plan.dead_line
-                %span.plan-title= plan.title
-      .modal-footer
-        = link_to "确认计划", plan_confirm_need_path(@need), class: 'btn btn-primary'
-        = link_to "退回拒绝", plan_refuse_need_path(@need), class: 'btn'           
+        
 
 .modal#editPlanModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editPlanModalLabel"}
   .modal-dialog{:role => "document"}
     .modal-content
       .modal-header
-        %button.close{:type => "button", :'data-dismiss'=>"modal", :'aria-label' => "close"}
-          %span{ :'aria-hidden' => "true"}
-        %h4.modal-title#editTaskModalLabel 新建工作计划
-      .modal-body.edit-project-plan
-        %p
-          %a.new-plan{:role=>'button', :'data-toggle'=>"collapse", :href => "#new-plan-form", :'aria-expanded'=>"false", :'aria-controls' => "new-plan-form"}
-            %span.glyphicon.glyphicon-plus-sign
+        %h4.modal-title.pull-left#editTaskModalLabel 新建工作计划
+        = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info pull-right' 
+      .modal-body.edit-project-plan          
         .edit-plan-list
           - @plans.each do |plan| 
             .plan-unit{:id => "plan-unit-"+plan.id.to_s}
@@ -116,8 +95,11 @@
                 %span.plan-action
                   %a.createPlanBtn{:href => "javascript:void(0);", :data => {need:@need.id}} 保存
       .modal-footer
-        %button.btn.btn-default{:type=>'button', :'data-dismiss' => "modal"} 暂不提交
-        = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info' 
+        %a.new-plan.pull-left{:role=>'button', :'data-toggle'=>"collapse", :href => "#new-plan-form", :'aria-expanded'=>"false", :'aria-controls' => "new-plan-form"}
+          %span.glyphicon.glyphicon-plus-sign
+          新增
+        %button.btn.btn-default.pull-right{:type=>'button', :'data-dismiss' => "modal"} 暂不提交
+        
 
 - content_for :page_js_block do
   = javascript_include_tag 'task_fuc.js'
