@@ -29,6 +29,9 @@ gem 'haml'
 
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
+
+gem 'kaminari' # 分页
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

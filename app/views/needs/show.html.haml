@@ -2,8 +2,9 @@
 %section
 	.container
 		.row
-			%div 请等待管理员审核!
-			.col-md-12
-				%p= @need.title
-				%p= @need.state
-				%p= link_to t('back'), project_list_user_path(current_user), class: 'btn btn-primary' 
+			%blockquote
+				%p 
+					= @need.title
+					\:需求已提交平台, 管理员正在加紧审核!
+
+			%p= link_to t('back'), project_list_user_path(current_user), class: 'btn btn-primary' 

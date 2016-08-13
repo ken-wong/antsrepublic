@@ -13,7 +13,7 @@ class PlansController < ApplicationController
     @need = @plan.need
     respond_to do |format|
       if @plan.save
-      	@need.plan_refuse!
+      	@need.start!
         format.html { redirect_to need_tasks_path(need_id: @plan.need_id), notice: 'Plan was successfully created.' }
         format.json { render :show, status: :created, location: @plan }
       else

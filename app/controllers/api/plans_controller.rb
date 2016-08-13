@@ -1,9 +1,10 @@
 class Api::PlansController < Api::BaseController
   def create
     need = Need.find(params[:need_id])
-    plan = need.plans.build(plan_params)
-    if plan.save
-      render json: {plan_id: plan.id, plan: plan}, status: 201
+    @plan = need.plans.build(plan_params)
+    if @plan.save
+      @plan.need.start!
+      render json: {plan_id: @plan.id, plan: @plan}, status: 201
     else
       return api_error(status: 422)
     end
@@ -21,6 +22,7 @@ class Api::PlansController < Api::BaseController
     @plan = Plan.find(params[:id])
 
     if @plan.update(plan_params)
+      @plan.need.start!
       render json: {plan: @plan}, status: 200
     else
       return api_error(status: 422)
