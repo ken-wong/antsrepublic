@@ -1,5 +1,23 @@
 (function(){
 	$(document).ready(function() {
+		var queen_ids_arr = new Array(eval($("#need_reference_queen_ids").val()));
+
+		var addQueen = function(_id){
+			if(queen_ids_arr.indexOf(_id)<0){
+				queen_ids_arr.push(_id);
+				$("#need_reference_queen_ids").val(queen_ids_arr.toString());
+			}
+			// return queen_ids_arr
+		}
+
+		var delQueen = function(_id){
+			var idx = queen_ids_arr.indexOf(_id)
+			if(idx > -1){
+				queen_ids_arr.splice(idx,1);
+				$("#need_reference_queen_ids").val(queen_ids_arr.toString());
+			}
+		}
+
 		$(".queenSelector").select2({
 			ajax: {
 			    url: "http://localhost:3000/api/queens/search",
@@ -32,7 +50,13 @@
 			templateResult: formatRepo, // omitted for brevity, see the source of this page
 			templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
 		});
+		
+		$('.queenSelector').on('select2:select', function (evt) {
+			var select_queen_id = evt.params.data.id;
+			addQueen(select_queen_id);
+		});
 	});
+
 
 	function formatRepo (repo) {
 		if (repo.loading) return repo.text;
