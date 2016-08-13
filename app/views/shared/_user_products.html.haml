@@ -1,3 +1,7 @@
+- if @products.size == 0
+  %blockquote
+    %p= simple_format("案例库是空的,去<a href='#{root_path}'>首页</a>看看")
+
 - @products.each do |product|
   .col-md-4
     %a{href: product_path(product), class: :thumbnail}

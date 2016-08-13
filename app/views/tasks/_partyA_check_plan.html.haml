@@ -5,4 +5,12 @@
     %p.text-center
       %button.btn.btn-primary#checkPlanModalBtn{:'data-toggle' => "modal",:'data-target' => "#checkPlanModal"} 
         查看计划
+    %p
+      %ul
+        %li 计划1
+        %li 计划2
+        %li 计划3 直接list吧
+    %p
+      = link_to '计划不错,予以确认', plan_confirm_need_path(@need), data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'
+      = link_to '有问题,需要再讨论', plan_refuse_need_path(@need), data: { confirm: 'Are you sure?' }, class: 'btn btn-warning'
                   

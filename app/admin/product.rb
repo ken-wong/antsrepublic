@@ -20,7 +20,7 @@ ActiveAdmin.register Product do
 			f.input	:description
 			f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
 			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| ["#{u.name}|#{u.email}", u.id]}
-			f.input :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '项目开始', '项目终止', '项目完成', '我的案例'] 
+			f.input :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '提交计划', '项目终止', '项目完成', '我的案例'] 
 		end
 		f.actions
 	end
@@ -47,6 +47,8 @@ ActiveAdmin.register Product do
 			row :category
 			row	:description
 			row :tag_list
+			row :reference_product_ids
+			row :reference_queen_ids
 			row '蚁后' do 
 				link_to product.queen.name, admin_user_path(product.queen) if product.queen
 			end
@@ -79,11 +81,11 @@ ActiveAdmin.register Product do
 	after_update do |product|
 		
 		if product.queen
-			message_str = "项目:<a href='#{need_path(product)}'>#{product.title}</a>, 已经指派给<a href='#{queen_path(product.queen_id)}'>#{product.queen.name}</a> "
+			message_str = "<strong>项目<a href='#{product_path(product)}'>#{product.title}</a>, 已经指派给蚁后:<a href='#{queen_path(product.queen_id)}'>#{product.queen.name}</a> </strong>"
 			current_admin_user.send_message(product.queen, message_str) 
 			current_admin_user.send_message(product.user, message_str)
 		else
-			message_str = "管理员更改了项目:<a href='#{need_path(product)}'>#{product.title}</a> 的状态: #{product.state}" 
+			message_str = "管理员更改了项目:<a href='#{product_path(product)}'>#{product.title}</a> 的状态: #{product.state}" 
 			current_admin_user.send_message(product.user, message_str)
 		end
 

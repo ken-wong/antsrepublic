@@ -17,21 +17,24 @@
               %thead
                 %tr
                   %th 项目名称
-                  %th 委托客户
+                  %th 截止时间
                   %th 项目类型
                   %th 项目状态
                   %th 
               %tbody
                 - @products.each do |product|
                   %tr
-                    %td= product.title
-                    %td= product.client_name
+                    %td= link_to product.title, product_path(product)
+                    %td= product.final_date
                     %td= product.category
                     %td= product.state
                     %td
-                      =# link_to t('show'), product, class: 'btn btn-primary'
-                      - unless (product.state == '等待审核' or product.state == '审核拒绝')
-                        = link_to '日程计划', need_tasks_path(product), class: 'btn btn-info'
-                      - if current_user.id == product.user_id and (product.state == '等待审核' or product.state == '审核拒绝')
-                        = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary' unless product.state == '我的案例'
-                        = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary'  unless product.state == '我的案例'
+                      - if product.state == '等待审核' or product.state == '审核拒绝'
+                        = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary' 
+                        = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' 
+                      - else
+                        = link_to '日程计划', need_tasks_path(product), class: 'btn btn-info' 
+
+
+
+

@@ -9,6 +9,8 @@ class NeedsController < InheritedResources::Base
 
   def edit
     @need = Need.find(params[:id])
+    @reference_product_ids = @need.reference_product_ids.gsub!(/\"/, '').gsub!(/\[|\]/, '').gsub(' ', '').split(',').reject { |c| c.empty? }
+    @reference_queen_ids = @need.reference_queen_ids.gsub!(/\"/, '').gsub!(/\[|\]/, '').gsub(' ', '').split(',').reject { |c| c.empty? }
   end
 
   def show
@@ -18,6 +20,10 @@ class NeedsController < InheritedResources::Base
   def waitfor
     @need = Need.find(params[:id])
     @need.waitfor!
+    
+    message_str = "蚁后提交了<a href='#{need_path(@need)}'>#{@need.title}</a> 的项目计划: #{@need.state}" 
+    current_user.send_message(@need.user, message_str)
+    
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
     end
@@ -34,6 +40,9 @@ class NeedsController < InheritedResources::Base
   def plan_confirm
     @need = Need.find(params[:id])
     @need.plan_confirm!
+    message_str = "甲方确认了<a href='#{need_path(@need)}'>#{@need.title}</a> 的项目计划: #{@need.state}" 
+    current_user.send_message(@need.queen, message_str)
+
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
     end
@@ -42,6 +51,8 @@ class NeedsController < InheritedResources::Base
   def plan_refuse
     @need = Need.find(params[:id])
     @need.plan_refuse!
+    message_str = "甲方拒绝并质疑<a href='#{need_path(@need)}'>#{@need.title}</a> 的项目计划: #{@need.state}" 
+    current_user.send_message(@need.queen, message_str)
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
     end

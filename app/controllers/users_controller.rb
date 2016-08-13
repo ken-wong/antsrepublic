@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-    @messages = User.find(current_user).messages
+    @messages = User.find(current_user).messages.page params[:page]
   end
   
   def new
@@ -49,19 +49,18 @@ class UsersController < ApplicationController
   end
 
   def project_list
-    @products = []
-    @products = Product.where("user_id = ? ", current_user.id).order(created_at: :desc) if current_user.has_role?(:owner)
-    @products = Need.where("queen_id = ? ", current_user.id).order(created_at: :desc) if current_user.has_role?(:queen)
-    
+    if current_user.has_role?(:owner)
+      @products = Need.where("user_id = ? and state <> '我的案例'", current_user.id).order(created_at: :desc) 
+    elsif current_user.has_role?(:queen)  
+      @products = Need.where("queen_id = ? and state <> '我的案例'", current_user.id).order(created_at: :desc) 
+    else
+      @products = []
+    end    
   end
 
   def product_list
     @products = []
     @products = Queen.find(current_user).queen_works.order(created_at: :desc)
-  end
-
-  def dashboard
-    @messages = User.find(current_user).messages
   end
 
   def choose

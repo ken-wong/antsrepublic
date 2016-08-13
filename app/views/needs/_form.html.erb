@@ -98,6 +98,13 @@
 
     <h3>参考案例</h3>
     <%= f.input :reference_product_ids, collection: QueenWork.all, input_html: { multiple: true } %>
+    <%  if !@need.new_record? %>
+      <% Product.where(id: @reference_product_ids).each do |product| %>
+        <%= product.id %>
+        <%= product.title %>
+        <%= product.avatar.small_url %>
+      <% end %>
+    <% end %>
     <hr/>    
     <h3>指定蚁后</h3>
     <row class="select_queen">
@@ -110,6 +117,14 @@
     </row>
     
 
+    <%= f.input :reference_queen_ids, collection: Queen.all, input_html: { multiple: true } %>
+    <%  if !@need.new_record? %>
+      <% User.where(id: @reference_queen_ids).each do |user| %>
+        <%= user.id %>
+        <%= user.name %>
+        <%= user.avatar.small_url %>
+      <% end %>
+    <% end %>
      <div class="row form_submit_block">
        <div class="col-lg-12 text-center">
           <%= f.button :submit, class:'btn btn-primary btn-lg', value: t('new_need') if params[:id].blank? %>
