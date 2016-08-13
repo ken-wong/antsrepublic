@@ -1,6 +1,6 @@
 (function(){
 	$(document).ready(function() {
-		var queen_ids_arr = new Array(eval($("#need_reference_queen_ids").val()));
+		var queen_ids_arr = $("#need_reference_queen_ids").val().split(',');
 
 		var addQueen = function(_id){
 			if(queen_ids_arr.indexOf(_id)<0){
@@ -19,6 +19,7 @@
 		}
 
 		$(".queenSelector").select2({
+			placeholder:"请搜索你想合作的蚁后",
 			ajax: {
 			    url: "http://localhost:3000/api/queens/search",
 			    method: 'GET',
@@ -54,8 +55,39 @@
 		$('.queenSelector').on('select2:select', function (evt) {
 			var select_queen_id = evt.params.data.id;
 			addQueen(select_queen_id);
+			addQueenToSelectedList(evt.params.data);
+		});
+
+		$("a.queen").click(function(evt){
+			$(evt.currentTarget).toggleClass('selected');
+		})
+
+		$("a.queen span.delete_btn").click(function(evt){
+			var qid = $(evt.currentTarget).attr("data-queen");
+			console.log("delete the queen "+qid);
+			$(evt.currentTarget).parents(".queen").remove();
+			delQueen(qid);
+		})
+
+		$("form.edit_need").on("submit",function(evt){
+			$("form.edit_need #need_reference_queen_ids").val(convertAarryToString(queen_ids_arr));
 		});
 	});
+
+	function addQueenToSelectedList(_data){
+
+		var str = '		<div class="col-md-2 text-center">' +
+				'        <a class="queen" href="javascript:void(0)" data-queen="'+_data.id+'">' +
+				'          <p>' +
+				'          	<img src="'+_data.avatar_small_url+'" class="img-circle">' +
+				'          </p>' +
+				'          <h6>' +
+							_data.name +
+				'          </h6>' +
+				'        </a>' +
+				'      </div>';
+		$('.selected_queen_list').append($(str));
+	}
 
 
 	function formatRepo (repo) {
@@ -71,6 +103,17 @@
 
     function formatRepoSelection (repo) {
       return repo.name || repo.text;
+    }
+
+    function convertAarryToString(_arr){
+    	var str = '[';
+    	for(var i=0;i<_arr.length;i++){
+    		if(i>0){
+    			str += ",";
+    		}
+    		str += '"'+_arr[i]+'"';
+    	}
+    	return str+']';
     }
 
 }());

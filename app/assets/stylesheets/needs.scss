@@ -56,6 +56,36 @@
 		}
 	}
 }
+.selected_queen_list{
+	background-color:white;
+	border-radius:10px;
+	height:200px;
+	min-height:200px;
+	.col-md-2{
+		a.queen{
+			@include inlineBlockEle(100px,130px);
+			margin-top:20px;
+			padding-top:10px;
+			text-align:center;
+			border:1px solid white;
+			color:#333;
+			.delete_btn{
+				display:none;
+			}
+			img{
+				width:80px;
+			}
+			&:hover{
+				text-decoration:none;
+				border-color:$primaryColor;
+			}
+			&.selected{
+				border-color:$primaryColor;
+				.delete_btn{display:block}
+			}
+		}
+	}
+}
 
 .select_queen{
 	.queenSelector{
