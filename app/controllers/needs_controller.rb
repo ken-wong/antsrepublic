@@ -9,6 +9,8 @@ class NeedsController < InheritedResources::Base
 
   def edit
     @need = Need.find(params[:id])
+    @reference_product_ids = @need.reference_product_ids.gsub!(/\"/, '').gsub!(/\[|\]/, '').gsub(' ', '').split(',').reject { |c| c.empty? }
+    @reference_queen_ids = @need.reference_queen_ids.gsub!(/\"/, '').gsub!(/\[|\]/, '').gsub(' ', '').split(',').reject { |c| c.empty? }
   end
 
   def show
