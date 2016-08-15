@@ -73,7 +73,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :queens do
       get :search, on: :collection
+      get :following_list, on: :collection
     end
+
+    resources :queen_works do
+      get :search, on: :collection
+    end    
 
     resources :needs do
       resources :tasks

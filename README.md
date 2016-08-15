@@ -4,6 +4,19 @@
 
 ## change log
 
+## 0815
+queen_works search
+
+```
+curl -X GET -d "q=xxx" http://localhost/api/queen_works/search
+```
+
+queen_works following_list
+```
+curl -X GET -d "user_id=1" http://localhost/api/queen_works/following_list
+```
+
+
 ## 0811
 Plan: title, dead_line, state
 
