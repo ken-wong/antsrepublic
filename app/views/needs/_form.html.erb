@@ -106,9 +106,15 @@
       <% end %>
     <% end %>
 
+    <div class="row select_case">
+      <div class="col-md-12">
+        <select name="case_search" class="caseSelector"></select>
+      </div>
+    </div>
+
     <h3>指定蚁后</h3>
-    <%  if !@need.new_record? %>
     <div class="row selected_queen_list">
+    <%  if !@need.new_record? %>
       <% @selectedQueens.each do |user| %>
       <div class="col-md-2 text-center">
         <a class="queen" href="javascript:void(0)">
@@ -125,22 +131,20 @@
 
         </a>
       </div>
-      <% end %>
+      <% end %>    
+    <% end %>
     </div>
-        
-        
-      
-    <row class="select_queen">
+
+    <div class="row select_queen">
       <div class="col-md-12">
         <%= f.input :reference_queen_ids, label:false, as:"hidden" %>
         <select name="queen_search" class="queenSelector">
         </select>
       </div>
-    </row>
+    </div>
     
 
     
-    <% end %>
      <div class="row form_submit_block">
        <div class="col-lg-12 text-center">
           <%= f.button :submit, class:'btn btn-primary btn-lg', value: t('new_need') if params[:id].blank? %>
