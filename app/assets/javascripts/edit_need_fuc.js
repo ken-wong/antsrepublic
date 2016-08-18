@@ -151,13 +151,13 @@
     			_arr = _input.val().length>0 ? _input.val().split(',') : [];
     		},
     		add:function(_id){
-    			if(_arr.indexOf(parseInt(_id))<0){
-					_arr.push(_id);
+    			if(_arr.indexOf(_id)<0){
+					_arr.push(_id.toString());
 					_input.val(_arr.toString());
 				}	
     		},
     		del:function(_id){
-    			var idx = _arr.indexOf(parseInt(_id))
+    			var idx = _arr.indexOf(_id)
 				if(idx > -1){
 					_arr.splice(idx,1);
 					_input.val(_arr.toString());

@@ -106,9 +106,9 @@
               <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
             </p>
             <h6>
-              <%= user.title %>
+              <%= product.title %>
             </h6>
-            <span class="delete_btn btn" data-case="<%= product.id%>" data-type="case">
+            <span class="delete_btn btn" data-id="<%= product.id%>" data-type="case">
               删除
             </span>
           </a>
