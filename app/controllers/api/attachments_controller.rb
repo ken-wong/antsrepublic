@@ -12,7 +12,7 @@ class Api::AttachmentsController < Api::BaseController
   end
 
   def create
-    @attachment = Attachment.find(attachement_params)
+    @attachment = Attachment.new(attachement_params)
     if @attachment.save
       render json: {attachment: @attachment}, status: 201
     else

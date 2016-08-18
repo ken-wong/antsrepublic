@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :need
   belongs_to :plan
-  has_many :attachements
+  has_many :attachments
 
   validates :title, presence: true
   validates :need_id, presence: true

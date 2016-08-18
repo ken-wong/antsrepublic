@@ -84,7 +84,9 @@ Rails.application.routes.draw do
       resources :tasks
       resources :plans
     end
-    resources :tasks
+    resources :tasks do
+      resources :attachments
+    end
     resources :plans
   end
   # get     'queen_login'   => 'queen_sessions#new'
