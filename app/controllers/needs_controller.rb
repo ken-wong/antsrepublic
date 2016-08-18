@@ -4,6 +4,7 @@ class NeedsController < InheritedResources::Base
   def new
     @need = Need.new
     @need.user_id = params[:user_id]
+    @my_fav_products = current_user.all_following
   end
 
 
