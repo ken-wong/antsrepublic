@@ -1,9 +1,9 @@
 .user-tabs-group
   %a.tabs-group-item.text-center{ href: dashboard_user_path(current_user), class: active_class(dashboard_user_path(current_user)) }
-    首页面板
+    消息提醒
   - if current_user.has_role? :queen or  current_user.has_role? :owner   
     %a.tabs-group-item.text-center{ href: project_list_user_path(current_user), class: active_class(project_list_user_path(current_user)) }
-      项目管理
+      = 项目管理
   - if current_user.has_role? :queen 
     %a.tabs-group-item.text-center{ href: product_list_user_path(current_user), class: active_class(product_list_user_path(current_user)) }
       我的案例 

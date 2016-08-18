@@ -1,12 +1,13 @@
 class Task < ActiveRecord::Base
   belongs_to :need
   belongs_to :plan
+  has_many :attachments
 
   validates :title, presence: true
-  validates :plan_id, presence: true
-  mount_uploader :attachment, MediaUploader
+  validates :need_id, presence: true
 
-    state_machine :state, :initial => :'等待甲方' do
+
+  state_machine :state, :initial => :'等待甲方' do
     event :confirm! do
       transition [nil, :'等待甲方'] => :'甲方确认'
     end

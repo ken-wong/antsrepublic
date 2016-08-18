@@ -4,6 +4,29 @@
 
 ## change log
 
+## 0818
+attachment index
+
+```
+curl -X GET http://localhost/api/tasks/{task.id}/attachments
+```
+
+attachment create
+
+```
+curl -F "attachment[file]=@{file_path/file_name}" -F 'attachment[task_id]={task.id}'  http://localhost/api/tasks/{task.id}/attachments
+```
+
+attachment show
+
+```
+curl -X GET http://localhost/api/tasks/{task.id}/attachments/{attachment.id}
+```
+
+
+
+
+
 ## 0815
 queen_works search
 

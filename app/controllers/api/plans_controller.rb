@@ -3,7 +3,7 @@ class Api::PlansController < Api::BaseController
     need = Need.find(params[:need_id])
     @plan = need.plans.build(plan_params)
     if @plan.save
-      @plan.need.start!
+      #@plan.need.start!
       render json: {plan_id: @plan.id, plan: @plan}, status: 201
     else
       return api_error(status: 422)

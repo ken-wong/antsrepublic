@@ -40,7 +40,7 @@
                 .col-md-2
                   %h5.text-center 任务名称
                 .col-md-7
-                  %h5.color-black= task.plan.title
+                  %h5.color-black= task.plan.title if task.plan
                 .col-md-3.task-status
                   %strong= task.state if task.state
               .task-result-files

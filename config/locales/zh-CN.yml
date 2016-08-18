@@ -3,12 +3,15 @@ zh-CN:
     models:
       admin_user: 管理员
       user: 用户
-      product: 案例
+      product: 项目
       comment: 评论
       queen: 蚁后
       banner: 轮播图
       tag: 标签
       profile: 认证资料
+      message: 消息中心
+      need: 需求
+      queen_work: 案例
     attributes:
       product:
         title: 项目名称

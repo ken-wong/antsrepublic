@@ -1,4 +1,4 @@
-ActiveAdmin.register Product do
+ActiveAdmin.register Need do
 
 	permit_params :title, :client_name, :ref_price, :category, :description, :avatar, 
 	:main_media, :avatar_cache, :main_media_cache, :tag_list, :state, :user_id, :queen_id
@@ -37,8 +37,8 @@ ActiveAdmin.register Product do
 	show do
 		attributes_table do
 			row :title
-			row I18n.t('activerecord.attributes.product.avatar') do
-				image_tag product.avatar.url + qiniu_deal unless product.avatar.url.nil?
+			row I18n.t('activerecord.attributes.need.avatar') do
+				image_tag need.avatar.url + qiniu_deal unless need.avatar.url.nil?
 			end
 
 			row :main_media
@@ -50,7 +50,7 @@ ActiveAdmin.register Product do
 			row :reference_product_ids
 			row :reference_queen_ids
 			row '蚁后' do 
-				link_to product.queen.name, admin_user_path(product.queen) if product.queen
+				link_to need.queen.name, admin_user_path(need.queen) if need.queen
 			end
 			row :state
 		end
@@ -71,22 +71,22 @@ ActiveAdmin.register Product do
 	end
 
 	action_item only: :show do
-	  link_to t(:confirm), confirm_admin_product_path(product)
+	  link_to t(:confirm), confirm_admin_need_path(need)
 	end
 
 	action_item only: :show do
-	  link_to t(:unconfirm), unconfirm_admin_product_path(product)
+	  link_to t(:unconfirm), unconfirm_admin_need_path(need)
 	end
 
-	after_update do |product|
+	after_update do |need|
 		
-		if product.queen
-			message_str = "<strong>项目<a href='#{product_path(product)}'>#{product.title}</a>, 已经指派给蚁后:<a href='#{queen_path(product.queen_id)}'>#{product.queen.name}</a> </strong>"
-			current_admin_user.send_message(product.queen, message_str) 
-			current_admin_user.send_message(product.user, message_str)
+		if need.queen
+			message_str = "<strong>项目<a href='#{need_path(need)}'>#{need.title}</a>, 已经指派给蚁后:<a href='#{queen_path(need.queen_id)}'>#{need.queen.name}</a> </strong>"
+			current_admin_user.send_message(need.queen, message_str) 
+			current_admin_user.send_message(need.user, message_str)
 		else
-			message_str = "管理员更改了项目:<a href='#{product_path(product)}'>#{product.title}</a> 的状态: #{product.state}" 
-			current_admin_user.send_message(product.user, message_str)
+			message_str = "管理员更改了项目:<a href='#{need_path(need)}'>#{need.title}</a> 的状态: #{need.state}" 
+			current_admin_user.send_message(need.user, message_str)
 		end
 
 	end

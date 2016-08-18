@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
     end
 
     event :start! do
-      transition [nil, :'等待审核' , :'寻找蚁后'] => :'提交计划'
+      transition [nil, :'等待审核' , :'寻找蚁后', :'提交计划'] => :'提交计划'
     end
 
     event :waitfor! do
