@@ -8,13 +8,12 @@ class Api::AttachmentsController < Api::BaseController
 
   def show
   	@attachment = Attachment.find(params[:id])
-  	render json: {attachment: @attachment}, status: 201
   end
 
   def create
     @attachment = Attachment.new(attachement_params)
     if @attachment.save
-      render json: {attachment: @attachment}, status: 201
+      render json: {attachment_id: @attachment.id}, status: 201
     else
       return api_error(status: 422)
     end  
@@ -27,6 +26,6 @@ class Api::AttachmentsController < Api::BaseController
 
   private
   def attachement_params
-    params.require(:attachment).permit(:task_id, :name, :file)
+    params.require(:attachment).permit(:task_id, :file_name, :file)
   end
 end

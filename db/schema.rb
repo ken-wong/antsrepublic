@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815084930) do
+ActiveRecord::Schema.define(version: 20160818090935) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20160815084930) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "task_id",    limit: 4
-    t.string   "name",       limit: 255
+    t.string   "file_name",  limit: 255
     t.string   "file",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
