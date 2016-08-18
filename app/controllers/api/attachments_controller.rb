@@ -12,8 +12,9 @@ class Api::AttachmentsController < Api::BaseController
 
   def create
     @attachment = Attachment.new(attachement_params)
+    @attachment.file_name = @attachment.file.base_name
     if @attachment.save
-      render json: {attachment_id: @attachment.id}, status: 201
+      render json: {attachment_id: @attachment.id, attachment: @attachment.file_name}, status: 201
     else
       return api_error(status: 422)
     end  
