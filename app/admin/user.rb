@@ -17,18 +17,20 @@ ActiveAdmin.register User do
    permitted
  end
 
- sidebar "profile Details", only: [:show] do
-    ul do
-      li link_to "认证资料",    admin_profile_path(user.profile) unless user.profile.nil?
-    end
-  end
+ # sidebar "profile Details", only: [:show] do
+ #    ul do
+ #      li link_to "认证资料",    admin_profile_path(user.profile) unless user.profile.nil?
+ #    end
+ #  end
 
 	index do
-		column :sort_no
+		column :id
 	  column :email
 	  column :name
 	  column :cell
-	  column :avatar
+	  column :avatar do |user|
+	  	image_tag user.avatar.small_url, size: '128x128'
+	  end
 	  column '申请角色' do |user|
 	  	I18n.t(user.roles.last.name) unless (user.roles.blank? or user.roles.last.nil?)
 	  end
