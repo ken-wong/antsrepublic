@@ -1,5 +1,5 @@
 ActiveAdmin.register QueenWork do
-
+	menu priority: 3
 	permit_params :title, :client_name, :ref_price, :category, :description, :avatar, 
 	:main_media, :avatar_cache, :main_media_cache, :tag_list, :state, :user_id, :queen_id
 
