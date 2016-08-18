@@ -97,18 +97,51 @@
     </div>
 
     <h3>参考案例</h3>
-    <%= f.input :reference_product_ids, collection: QueenWork.all, input_html: { multiple: true } %>
-    <%  if !@need.new_record? %>
-      <% Product.where(id: @reference_product_ids).each do |product| %>
-        <%= product.id %>
-        <%= product.title %>
-        <%= product.avatar.small_url %>
+    <div class="row selected_case_list">
+      <%  if !@need.new_record? %>
+        <% Product.where(id: @reference_product_ids).each do |product| %>
+        <div class="col-md-2 text-center">
+          <a class="queen" href="javascript:void(0)">
+            <p>
+              <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
+            </p>
+            <h6>
+              <%= user.title %>
+            </h6>
+            <span class="delete_btn btn" data-case="<%= product.id%>" data-type="case">
+              删除
+            </span>
+          </a>
+        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
     <div class="row select_case">
       <div class="col-md-12">
-        <select name="case_search" class="caseSelector"></select>
+        <%= f.input :reference_product_ids, as:'hidden' %>
+        <div role="tabpanel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#case-seach" aria-controls="home" role="tab" data-toggle="tab">搜索</a>
+            </li>
+            <li role="presentation">
+              <a href="#case-bookmark" aria-controls="tab" role="tab" data-toggle="tab">收藏</a>
+            </li>
+          </ul>
+        
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="case-seach">
+              <select name="case_search" class="caseSelector"></select>
+              
+            </div>
+            <div role="tabpanel" class="tab-pane" id="case-bookmark">
+              haha
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -124,11 +157,9 @@
           <h6>
             <%= user.name %>
           </h6>
-
-            <span class="delete_btn btn" data-queen="<%= user.id%>">
-              删除
-            </span>
-
+          <span class="delete_btn btn" data-id="<%= user.id%>" data-type="queen">
+            删除
+          </span>
         </a>
       </div>
       <% end %>    
