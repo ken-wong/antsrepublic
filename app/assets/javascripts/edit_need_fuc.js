@@ -20,17 +20,33 @@
 
 		setupSelect2(caseSelectorOption);
 		setupSelect2(queenSelectorOption);
+
+		$('.add-product').click(function(evt){
+			var select_case_id = $(evt.currentTarget).attr("data-id");
+			var select_case_img = $(evt.currentTarget).attr("data-img");
+			var select_case_title = $(evt.currentTarget).attr("data-title");
+			var case_data = {
+				avatar_small_url:select_case_img,
+				title:select_case_title,
+				id:select_case_id
+			}
+			if(_caseModel.add(select_case_id)){
+				addProductToSelectedList(case_data);
+			}
+		});
 		
 		$('.queenSelector').on('select2:select', function (evt) {
 			var select_queen_id = evt.params.data.id;
-			_queenModel.add(select_queen_id);
-			addQueenToSelectedList(evt.params.data);
+			if(_queenModel.add(select_queen_id)){
+				addQueenToSelectedList(evt.params.data);
+			}
 		});
 
 		$('.caseSelector').on('select2:select', function (evt) {
 			var select_case_id = evt.params.data.id;
-			_caseModel.add(select_case_id);
-			addProductToSelectedList(evt.params.data);
+			if(_caseModel.add(select_case_id)){
+				addProductToSelectedList(evt.params.data);
+			}
 		});
 
 		$("a.queen").click(function(evt){
@@ -76,7 +92,7 @@
 				'           </span>';
 				'        </a>' ;
 
-		$('<div class="col-md-2 text-center"></div>').append($(str).click(function(evt){
+		$('<div class="col-md-2 col-case-and-queen text-center"></div>').append($(str).click(function(evt){
 			$(evt.currentTarget).toggleClass('selected');
 		}).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.selected_case_list');
 	}
@@ -96,7 +112,7 @@
 				'        </a>';
 
 
-		$('<div class="col-md-2 text-center"></div>').append($(str).click(function(evt){
+		$('<div class="col-md-2 col-case-and-queen text-center"></div>').append($(str).click(function(evt){
 			$(evt.currentTarget).toggleClass('selected');
 		}).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.selected_queen_list');
 	}
@@ -133,7 +149,7 @@
     var removeSelectedUnit = function(evt){
 		var _id = $(evt.currentTarget).attr("data-id");
 		var isQueen = ($(evt.currentTarget).attr("data-type") == "queen");
-		$(evt.currentTarget).parents(".queen").remove();
+		$(evt.currentTarget).parents(".col-case-and-queen").remove();
 		if(isQueen){
 			_queenModel.del(_id);
 			console.log("delete the queen "+_id);
@@ -151,10 +167,13 @@
     			_arr = _input.val().length>0 ? _input.val().split(',') : [];
     		},
     		add:function(_id){
-    			if(_arr.indexOf(_id)<0){
+    			if(_arr.indexOf(_id.toString())<0){
 					_arr.push(_id.toString());
 					_input.val(_arr.toString());
-				}	
+					return true;
+				}else{
+					return false
+				}
     		},
     		del:function(_id){
     			var idx = _arr.indexOf(_id)

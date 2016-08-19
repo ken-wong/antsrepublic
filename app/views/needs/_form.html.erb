@@ -100,7 +100,7 @@
     <div class="row selected_case_list">
       <%  if !@need.new_record? %>
         <% Product.where(id: @reference_product_ids).each do |product| %>
-        <div class="col-md-2 text-center">
+        <div class="col-md-2 col-case-and-queen text-center">
           <a class="queen" href="javascript:void(0)">
             <p>
               <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
@@ -135,10 +135,27 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="case-seach">
               <select name="case_search" class="caseSelector"></select>
-              
             </div>
             <div role="tabpanel" class="tab-pane" id="case-bookmark">
-              haha
+                <div class="row">
+                  <% @my_fav_products.each do |product| %>
+                  <div class="col-md-3">
+                    <div class="fav-product">
+                      <p>
+                        <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
+                      </p>
+                      <h6>
+                        <%= product.title %>
+                      </h6>
+                      <p>
+                        <a href="javascript:void(0);" data-img="<%= product.avatar.small_url %>" data-id="<%= product.id%>" data-title="<%= product.title %>" class="add-product">
+                          添加
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
             </div>
           </div>
         </div>
@@ -149,7 +166,7 @@
     <div class="row selected_queen_list">
     <%  if !@need.new_record? %>
       <% @selectedQueens.each do |user| %>
-      <div class="col-md-2 text-center">
+      <div class="col-md-2 col-case-and-queen text-center">
         <a class="queen" href="javascript:void(0)">
           <p>
             <%= image_tag(image_path(user.avatar.small_url), class:"img-circle")%>

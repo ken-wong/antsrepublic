@@ -114,3 +114,10 @@
 		}
 	}
 }
+
+.fav-product{
+	a.add-product{display:none}
+	&:hover{
+		a.add-product{display:block}
+	}
+}
