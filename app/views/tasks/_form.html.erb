@@ -15,10 +15,6 @@
     <span class="task-description">
       <%= f.input :description, label: '补充说明' %>
     </span>
-    <span class="task-attachment">
-      <%= f.input :attachment, hint: f.object.file_name, as: :file, label: '上传文件' %>
-    </span>
-
     <%= f.input :need_id, as: :hidden, value: params[:need_id] %>
     <span class="task-action">
       <%= f.button :submit %>
