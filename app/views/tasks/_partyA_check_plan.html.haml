@@ -6,7 +6,7 @@
 
 = render :partial => "calendar", :locals => {plan:@plans, need:@need}
 .row    
-  %p
-    = link_to '计划不错,予以确认', plan_confirm_need_path(@need), data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'
-    = link_to '有问题,需要再讨论', plan_refuse_need_path(@need), data: { confirm: 'Are you sure?' }, class: 'btn btn-warning'
+  %p.text-center
+    = link_to '计划不错,予以确认', plan_confirm_need_path(@need), data: { confirm: '计划是没问题,予以确认?'}, class: 'btn btn-primary'
+    = link_to '有问题,需要再讨论', plan_refuse_need_path(@need), data: { confirm: '计划有问题,需要驳回?' }, class: 'btn btn-warning'
                   

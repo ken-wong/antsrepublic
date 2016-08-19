@@ -35,7 +35,6 @@ class TasksController < InheritedResources::Base
   def create
     @task = Task.new(task_params)
     @need = @task.need
-    @task.file_name = @task.attachment.base_name
     respond_to do |format|
       if @task.save
         format.html { redirect_to need_tasks_path(need_id: @task.plan.need_id), notice: 'Task was successfully created.' }
@@ -81,7 +80,7 @@ class TasksController < InheritedResources::Base
   private
 
     def task_params
- 			params.require(:task).permit(:title, :file_name, :description, :plan_id, :attachment, :need_id, :state)
+ 			params.require(:task).permit(:title, :description, :plan_id, :need_id, :state)
     end
 end
 
