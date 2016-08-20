@@ -1,10 +1,11 @@
 ActiveAdmin.register Banner do
-  permit_params :title, :image, :state
+  permit_params :title, :image, :state, :linkage
 
   qiniu_deal = (Rails.env.test? || Rails.env.development?) ? "" : '?imageView2/2/w/200/h/200'
 
   form do |f|
     f.input :title
+    f.input :linkage
     f.inputs I18n.t('activerecord.attributes.banner.image'), :multipart => true do
       f.input :image, as: :file, hint: (image_tag(f.object.image.url + qiniu_deal) if !f.object.new_record?)
       f.input :image_cache, as: :hidden 
