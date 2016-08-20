@@ -1,8 +1,12 @@
+
+.p
+  .text-center.alert.alert-danger
+    - [:error, :warning, :notice, :message].each do |key|
+      = content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}"if flash[key]
+      
 .breadcrumbs-container
   .container
     .row
-      - [:error, :warning, :notice, :message].each do |key|
-        = content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}"if flash[key]
       %ol.breadcrumb
         - unless current_user.blank?
           - if @queen && current_page?(queen_path(@queen))
