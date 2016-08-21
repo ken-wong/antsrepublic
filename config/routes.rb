@@ -71,6 +71,7 @@ Rails.application.routes.draw do
   get     'signup'  => 'users#new'
 
   namespace :api, defaults: {format: :json} do
+    resources :banners
     resources :queens do
       get :search, on: :collection
       get :following_list, on: :collection

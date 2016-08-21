@@ -3,6 +3,14 @@
 			power by amos
 
 ## change log
+## 0819
+banner index
+	
+		admin banner 添加, api获取路径
+
+```
+curl -X GET http://localhost/api/banners
+```
 
 ## 0818
 attachment index
