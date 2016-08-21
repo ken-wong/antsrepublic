@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
 
   validates :title, presence: true
   validates :need_id, presence: true
+  validates :plan_id, presence: true
 
 
   state_machine :state, :initial => :'等待甲方' do
