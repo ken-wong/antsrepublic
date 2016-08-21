@@ -34,7 +34,7 @@ class QueenWorksController < ApplicationController
       if @queen_work.save
         @queen_work.final!
         format.html { redirect_to product_list_user_path(current_user), notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @queen_work }
+        format.json { render :json => [@queen_work.to_jq_upload].to_json }
       else
         format.html { render :new }
         format.json { render json: @queen_work.errors, status: :unprocessable_entity }

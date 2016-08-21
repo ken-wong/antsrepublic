@@ -17,3 +17,18 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<%= content_for :page_js_block do%>
+<script>
+$(function () {
+    $('#queen_work_avatar').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });
+        }
+    });
+});
+</script>
+<% end %>
