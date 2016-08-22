@@ -48,7 +48,7 @@ class QueenWorksController < ApplicationController
       if @queen_work.update(queen_work_params)
 
         format.html { redirect_to product_list_user_path(current_user), notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @queen_work }
+        format.json { render :json => [@queen_work.to_jq_upload].to_json }
       else
         format.html { render :edit }
         format.json { render json: @queen_work.errors, status: :unprocessable_entity }
