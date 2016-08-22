@@ -2,6 +2,7 @@ class NeedsController < InheritedResources::Base
   before_action :authenticate_user!
   before_action :set_tags
   def new
+    redirect_to user_path(current_user) , notice: '只有甲方才可以发布需求' unless current_user.has_role? :owner
     @need = Need.new
     @need.user_id = params[:user_id]
     @my_fav_products = current_user.all_following
