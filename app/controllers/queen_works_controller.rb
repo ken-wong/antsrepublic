@@ -43,12 +43,13 @@ class QueenWorksController < ApplicationController
   end
 
   def update
-      @queen_work = Product.find(params[:id])
+    @queen_work = QueenWork.find(params[:id])
     respond_to do |format|
       if @queen_work.update(queen_work_params)
 
         format.html { redirect_to product_list_user_path(current_user), notice: 'Product was successfully updated.' }
         format.json { render :json => [@queen_work.to_jq_upload].to_json }
+        # format.json { render :show, status: :ok, location: @queen_work }
       else
         format.html { render :edit }
         format.json { render json: @queen_work.errors, status: :unprocessable_entity }
