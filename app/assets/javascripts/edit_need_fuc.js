@@ -7,14 +7,14 @@
 		var caseSelectorOption = {
 			selector:$('.caseSelector'),
 			placeholder:"请搜索你想作为参考的案例",
-			url:"http://localhost:3000/api/queen_works/search",
+			url:"/api/queen_works/search",
 			processResultsFuc:function (data, params) {return {results: data.queen_works}},
 		}
 
 		var queenSelectorOption = {
 			selector:$('.queenSelector'),
 			placeholder:"请搜索你想合作的蚁后",
-			url:"http://localhost:3000/api/queens/search",
+			url:"/api/queens/search",
 			processResultsFuc:function (data, params) {return {results: data.queens}},
 		}
 

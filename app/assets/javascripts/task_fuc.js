@@ -17,7 +17,7 @@
 	    	var formId = "#plan_f_"+planId;
 	    	var PatchData = $(formId).serialize();
 
-	    	var purl = "http://localhost:3000/api/plans/"+planId;
+	    	var purl = "/api/plans/"+planId;
 	    	// console.log(PatchData);
 	    	$.ajax({
 	    		method:"PATCH",
@@ -34,7 +34,7 @@
 
 	    $(".delPlanBtn").click(function(evt){
 	    	var planId = $(evt.currentTarget).attr("data-plan");
-	    	var purl = "http://localhost:3000/api/plans/"+planId;
+	    	var purl = "/api/plans/"+planId;
 
 	    	$.ajax({
 	    		method:"DELETE",
@@ -51,7 +51,7 @@
 
 	    	$.ajax({
 	    		method: "POST",
-	    		url:"http://localhost:3000/api/needs/"+needId+"/plans",
+	    		url:"/api/needs/"+needId+"/plans",
 	    		data: formData
 	    	}).done(function(msg){
 	    		$(".collapse#new-plan-form").before(createPlanUnit(msg.plan_id,formData[0].value,formData[1].value));
