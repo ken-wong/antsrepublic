@@ -17,18 +17,23 @@ attachment index
 
 ```
 curl -X GET http://localhost/api/tasks/{task.id}/attachments
+or
+curl -X GET http://localhost/api/queen_works/{queen_work.id}/attachments
 ```
 
-attachment create
+attachment create: resource[task|queen_work]
 
 ```
-curl -F "attachment[file]=@{file_path/file_name}" -F 'attachment[task_id]={task.id}'  http://localhost/api/tasks/{task.id}/attachments
+curl -F "attachment[file]=@{file_path/file_name}" -F 'attachment[title]=xxxx' http://localhost/api/tasks/{task.id}/attachments
+or
+curl -F "attachment[file]=@{file_path/file_name}" -F 'attachment[title]=xxxx' http://localhost/api/queen_works/{queen_work.id}/attachments
 ```
 
 attachment show
 
 ```
 curl -X GET http://localhost/api/tasks/{task.id}/attachments/{attachment.id}
+curl -X GET http://localhost/api/queen_works/{queen_work.id}/attachments/{attachment.id}
 ```
 
 
