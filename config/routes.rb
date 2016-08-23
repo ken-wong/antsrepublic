@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'attachment/create'
-
-  get 'attachment/new'
-
-  get 'attachment/destroy'
-
-
   resources :attachments
   resources :tasks do
     member do
