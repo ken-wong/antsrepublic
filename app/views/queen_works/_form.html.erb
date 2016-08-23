@@ -39,7 +39,7 @@
         <% unless @attachments.empty? %>
           <% @attachments.each do |attachment| %>
               <li class="span3" id="attachment_<%= attachment.id %>">
-              <%= link_to attachment.file_name, attachment.file.url %>
+              <%= link_to image_tag attachment.file.url, attachment.file.url %>
               </li>
           <% end %>
         <% end %>
