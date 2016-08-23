@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'attachment/create'
+
+  get 'attachment/new'
+
+  get 'attachment/destroy'
+
+
+  resources :attachments
   resources :tasks do
     member do
       get 'confirm'
@@ -8,6 +16,7 @@ Rails.application.routes.draw do
 
     resources :attachments
   end
+
   resources :plans
   resources :users do
     member do
@@ -92,6 +101,10 @@ Rails.application.routes.draw do
     end
     resources :tasks do
       resources :attachments
+      member do
+        get :confirm 
+        get :confuse
+      end
     end
     resources :plans
   end

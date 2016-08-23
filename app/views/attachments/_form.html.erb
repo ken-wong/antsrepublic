@@ -1,0 +1,21 @@
+<%= simple_form_for([@task, @attachment]) do |f| %>
+  <%= f.error_notification %>
+  <div class="attachment-unit">
+<!--     <span class="task-time">
+      <div class="form-group">
+        <input type="text" name="task[dead_line]" class="form-control">
+      </div>
+    </span> -->
+     
+    <span class="attachment-file">
+      <%= f.input :file, as: :file %>
+    </span>
+    
+    <%= f.input :attachmentable_id, as: :hidden, value: @attachment.attachmentable_id %>
+    <%= f.input :attachmentable_type, as: :hidden, value: @attachment.attachmentable_type %>
+    
+    <span class="task-action">
+      <%= f.button :submit %>
+    </span>
+  </div>
+<% end %>
