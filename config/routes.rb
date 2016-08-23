@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       get 'confirm'
       get 'refuse'
     end
+
+    resources :attachments
   end
   resources :plans
   resources :users do
@@ -25,6 +27,8 @@ Rails.application.routes.draw do
       get 'follow_it'
       get 'vote_it'
     end
+
+    resources :attachments
   end
 
   resources :queens do
@@ -79,6 +83,7 @@ Rails.application.routes.draw do
 
     resources :queen_works do
       get :search, on: :collection
+      resources :attachments
     end    
 
     resources :needs do

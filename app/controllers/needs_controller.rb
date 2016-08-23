@@ -36,6 +36,10 @@ class NeedsController < InheritedResources::Base
   def complete
     @need = Need.find(params[:id])
     @need.close!
+
+    message_str = "蚁后完成了项目<a href=#{need_path(@need)}>#{@need.title}</a>" 
+    current_user.send_message(@need.user, message_str)
+    
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
     end
