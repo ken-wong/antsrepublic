@@ -2,6 +2,7 @@ class TasksController < InheritedResources::Base
 
   def index
     @need = Need.find(params[:need_id])
+    @task = @need.tasks.build
     @tasks = @need.tasks.order(created_at: :desc)
     @plans = @need.plans
   end
