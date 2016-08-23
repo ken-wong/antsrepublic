@@ -81,7 +81,7 @@ ActiveAdmin.register Need do
 	after_update do |need|
 		
 		if need.queen
-			message_str = "<strong>项目<a href='#{need_path(need)}'>#{need.title}</a>, 已经指派给蚁后:<a href='#{queen_path(need.queen_id)}'>#{need.queen.name}</a> </strong>"
+			message_str = "项目<a href='#{need_path(need)}'>#{need.title}</a>, 已经指派给蚁后:<a href='#{queen_path(need.queen_id)}'>#{need.queen.name}</a>"
 			current_admin_user.send_message(need.queen, message_str) 
 			current_admin_user.send_message(need.user, message_str)
 		else

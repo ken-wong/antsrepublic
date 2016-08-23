@@ -37,6 +37,9 @@ class TasksController < InheritedResources::Base
     @need = @task.need
     respond_to do |format|
       if @task.save
+      	message_str = "蚁后提交了<a href='#{need_path(@need)}'>#{@need.title}</a> 的工作成果: #{@task.title}" 
+    		current_user.send_message(@need.user, message_str)
+    
         format.html { redirect_to need_tasks_path(need_id: @task.plan.need_id), notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
