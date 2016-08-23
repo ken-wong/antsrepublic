@@ -38,7 +38,7 @@ class Api::AttachmentsController < Api::BaseController
   end
 
   private
-  def attachement_params
+  def attachment_params
     params.require(:attachment).permit(:attachmentable_id, :attachmentable_type, :file_name, :file)
   end
 end
