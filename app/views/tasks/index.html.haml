@@ -31,8 +31,8 @@
 
             .row
               %h3.text-center 
-                = link_to '提交阶段成果', new_task_path(need_id: @need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.id == @need.queen_id
-                = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.id == @need.queen_id
+                = link_to '提交阶段成果', new_task_path(need_id: @need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.has_role? :queen
+                = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.has_role? :owner
 
             - @tasks.each do |task|
               .row.task-result
