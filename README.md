@@ -39,8 +39,13 @@ curl -X GET http://localhost/api/tasks/{task.id}/attachments/{attachment.id}
 curl -X GET http://localhost/api/queen_works/{queen_work.id}/attachments/{attachment.id}
 ```
 
+attachment destroy
 
+```
+curl -X DELETE http://localhost/api/tasks/{task.id}/attachments/{attachment.id}
+curl -X DELETE http://localhost/api/queen_works/{queen_work.id}/attachments/{attachment.id}
 
+```
 
 
 ## 0815
