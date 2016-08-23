@@ -22,6 +22,31 @@ class TasksController < InheritedResources::Base
   	@need = @task.need
   end
 
+  def confirm
+  	@task = Task.find(params[:id])
+  	@need = @task.need
+  	@task.confirm!
+
+    message_str = "甲方确认工作成果:#{@task.title}</a>" 
+    current_user.send_message(@need.queen, message_str)
+    
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: 'Task was successfully updated.' }
+    end
+  end
+
+	def refuse
+		@task = Task.find(params[:id])
+  	@need = @task.need
+  	@task.refuse!
+
+    message_str = "甲方质疑了工作成果:#{@task.title}</a>" 
+    current_user.send_message(@need.queen, message_str)
+    
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: 'Task was successfully updated.' }
+    end
+  end
 
   def destroy
   	@need = Need.find(params[:need_id])
