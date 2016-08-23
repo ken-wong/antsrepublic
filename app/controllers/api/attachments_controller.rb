@@ -26,7 +26,7 @@ class Api::AttachmentsController < Api::BaseController
 
     @attachment.file_name = @attachment.file.base_name
     if @attachment.save
-      render json: {attachment_id: @attachment.id, attachment: @attachment.to_json}, status: 201
+      render json: {id: @attachment.id, file_name: @attachment.file_name, file_url: @attachment.file.url, attachmentable_id: @attachment.attachmentable_id, attachmentable_type: @attachment.attachmentable_type }, status: 201
     else
       return api_error(status: 422)
     end  
