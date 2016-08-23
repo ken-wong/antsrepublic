@@ -17,11 +17,11 @@ class Api::AttachmentsController < Api::BaseController
 
   def create
   	if params[:task_id].present?	
-    	@attachment = Task.find(params[:task_id]).attachments.new(attachement_params)
+    	@attachment = Task.find(params[:task_id]).attachments.new(attachment_params)
     elsif params[:queen_work_id].present?	
-    	@attachment = QueenWork.find(params[:queen_work_id]).attachments.new(attachement_params)
+    	@attachment = QueenWork.find(params[:queen_work_id]).attachments.new(attachment_params)
     else
-    	@attachment = Attachment.new(attachement_params)
+    	@attachment = Attachment.new(attachment_params)
     end
 
     @attachment.file_name = @attachment.file.base_name
