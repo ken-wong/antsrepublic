@@ -118,6 +118,32 @@ class NeedsController < InheritedResources::Base
     end
   end
 
+  def create_comment
+    @need = Need.find(params[:id])
+    comment = @need.comments.create(comment_params)
+    comment.save
+    respond_to do |format|
+      format.html { redirect_to need_path(@need), notice: 'Comment was successfully added.' }
+    end
+  end
+
+  def destroy_comment
+    @need = Need.find(params[:id])
+    comment = Comment.find(params[:comment_id]).destroy
+    respond_to do |format|
+      format.html { redirect_to need_path(@need), notice: 'Comment was successfully delete.' }
+    end
+  end
+
+  def update_comment
+    @need = Need.find(params[:id])
+    comment = Comment.find(params[:comment_id])
+    comment.update(need_params)
+    respond_to do |format|
+      format.html { redirect_to need_path(@need), notice: 'Comment was successfully updated.' }
+    end
+  end
+
   private
   def set_tags
     @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
@@ -128,5 +154,9 @@ class NeedsController < InheritedResources::Base
         :client_name, :ref_price, :category, :main_media, 
         :description, :user_id, :start_date, 
         :ending_date, :final_date, :price_range)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:title, :comment)
   end
 end

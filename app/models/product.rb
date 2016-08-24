@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
   belongs_to :user
   belongs_to :queen, class_name: "User"
 
+  acts_as_commentable
+
 	mount_uploader :avatar, AvatarUploader
 	mount_uploader :main_media, MainMediaUploader
 

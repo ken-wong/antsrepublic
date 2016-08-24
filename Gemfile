@@ -29,6 +29,7 @@ gem 'haml'
 
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
+gem 'acts_as_commentable'
 
 gem 'kaminari' # 分页
 
