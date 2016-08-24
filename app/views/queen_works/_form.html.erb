@@ -1,51 +1,60 @@
-<%= simple_form_for(@queen_work) do |f| %>
-  <%= f.error_notification %>
+<div class="row">
+  <div class="col-md-6">
+    <%= simple_form_for(@queen_work) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
+      <div class="form-inputs">
+        <%= f.input :title %>
 
-    <%= f.input :avatar, as: :file, hint: f.object.avatar.present? ? image_tag(f.object.avatar.small_url, size: '128x128') : content_tag(:span, '没有上传任何图片') %>
-    <%= f.input :avatar_cache , as: :hidden %>
-    <%= f.input :client_name %>
-    <%= f.input :ref_price %>
+        <%= f.input :avatar, as: :file, hint: f.object.avatar.present? ? image_tag(f.object.avatar.small_url, size: '128x128') : content_tag(:span, '没有上传任何图片') %>
+        <%= f.input :avatar_cache , as: :hidden %>
+        <%= f.input :client_name %>
+        <%= f.input :ref_price %>
 
-    <%= f.input :category, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], required: true, label: false  %>
-    <%#= f.input :main_media %>
-    <%= f.input :description %>
-    
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-
-
-<%- if @queen_work.id.present? -%>
-  <%= form_for [@queen_work, @attachment], :html => { :multipart => true, :id => "fileupload"  } do |f| %>
-    <div class="row">
-      <div class=" fileupload-buttonbar">
-        <div class="progressbar fileupload-progressbar nofade"><div style="width:0%;"></div></div>
-        <span class="btn btn-mini fileinput-button">
-          <i class="icon-plus"></i>
-          <span><%= '添加附件' %>...</span>
-          <%= f.file_field :file %>
-        </span>
+        <%= f.input :category, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], required: true, label: false  %>
+        <%#= f.input :main_media %>
+        <%= f.input :description %>
+        
       </div>
-    </div>
-    <br>
-    <div class="row">
-      <ul class="thumbnails files">
-        <% unless @attachments.empty? %>
-          <% @attachments.each do |attachment| %>
-              <li class="span3" id="attachment_<%= attachment.id %>">
-              <%= link_to image_tag attachment.file.url, attachment.file.url %>
-              </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <%- if @queen_work.id.present? -%>
+      <%= form_for [@queen_work, @attachment], :html => { :multipart => true, :id => "fileupload"  } do |f| %>
+        
+          <div class="fileupload-buttonbar ">
+            <span class="btn btn-primary fileinput-button">
+              <i class="glyphicon glyphicon-plus"></i>
+              <span><%= '添加附件' %>...</span>
+              <%= f.file_field :file %>
+            </span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                <span class="sr-only">40% Complete (success)</span>
+              </div>
+            </div>
+          </div>
+
+          <ul class="thumbnails files">
+
+            <% @attachments.each do |attachment| %>
+                <li class="span3" id="attachment-id-<%=attachment.id%>">
+                <%= link_to(image_tag("#{attachment.file.url}?imageView2/1/w/200/h/200"), attachment.file.url) %>
+                  <a href="javascript:void(0);" class="del-attachment-btn" data-id='<%= attachment.id %>'>删除</a>
+                </li>
+            <% end %>
+
+          </ul>
+
+    <% end %>
+  </div>
+
+
 
   <script>
     var fileUploadErrors = {
@@ -58,19 +67,41 @@
     };
   </script>
 <%-end-%>
+  
+</div>
 
 <%= content_for :page_js_block do%>
 <script>
+var queen_work_id = <%=@queen_work.id%>;
 $(function () {
     $('#attachment_file').fileupload({
         url: '/api/queen_works/<%= @queen_work.id %>/attachments',
         dataType: 'json',
+        submit: function(e, data){
+          $('.fileupload-buttonbar').toggleClass('active');
+        },
+        progressall: function (e, data) {
+          var progress = parseInt(data.loaded / data.total * 100, 10);
+          $('.fileupload-buttonbar .progress-bar').css(
+            'width',
+            progress + '%'
+          );
+        },
         done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                $('<p/>').text(file.name).appendTo(document.body);
-            });
+            $("ul.thumbnails").prepend('<li><img src="'+data._response.result.file_url+'?imageView2/1/w/200/h/200"></li>');
+          $('.fileupload-buttonbar').toggleClass('active');
         }
     });
+    $('.thumbnails .del-attachment-btn').click(function(evt){
+      var atcm_id = $(evt.currentTarget).attr('data-id');
+      $.ajax({
+        method:'DELETE',
+        url:'/api/queen_works/'+queen_work_id+'/attachments/'+atcm_id,
+      }).done(function(data){
+        $('#attachment-id-'+atcm_id).remove();
+      }
+      );
+    })
 });
 </script>
 <% end %>
