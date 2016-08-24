@@ -147,6 +147,7 @@
 				margin:50px 0px;
 				li{
 					@include inlineBlockEle(180px,120px);
+					vertical-align: top;
 					img{
 						margin:0;
 						display: inline;
@@ -156,6 +157,25 @@
 						a{
 							color:#666;
 							
+						}
+					}
+					a.add_task_attachment{
+
+						span.glyphicon-plus{
+							font-size: 80px;
+						    display: block;
+						    width: 180px;
+						    height: 180px;
+						    line-height: 180px;
+						    background-color: #eee;
+						    border-radius: 5px;
+						    color: #999;
+						}
+						&:hover{
+							text-decoration:none;
+							span.glyphicon-plus{
+								background-color:#ddd
+							}
 						}
 					}
 				}

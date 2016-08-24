@@ -41,14 +41,14 @@
           </div>
 
           <ul class="thumbnails files">
-
-            <% @attachments.each do |attachment| %>
-                <li class="span3" id="attachment-id-<%=attachment.id%>">
-                <%= link_to(image_tag("#{attachment.file.url}?imageView2/1/w/200/h/200"), attachment.file.url) %>
-                  <a href="javascript:void(0);" class="del-attachment-btn" data-id='<%= attachment.id %>'>删除</a>
-                </li>
+            <% unless @attachments.empty? %>
+              <% @attachments.each do |attachment| %>
+                  <li class="span3" id="attachment-id-<%=attachment.id%>">
+                  <%= link_to(image_tag("#{attachment.file.url}?imageView2/1/w/200/h/200"), attachment.file.url) %>
+                    <a href="javascript:void(0);" class="del-attachment-btn" data-id='<%= attachment.id %>'>删除</a>
+                  </li>
+              <% end %>
             <% end %>
-
           </ul>
 
     <% end %>

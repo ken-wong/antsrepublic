@@ -29,10 +29,6 @@
           - if @need.state == '乙方执行'
             = render :partial => "calendar", :locals => {plan:@plans, need:@need}
 
-            .row
-              %h3.text-center 
-                = link_to '提交阶段成果', new_task_path(need_id: @need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.has_role? :queen
-                = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.has_role? :owner
 
             - @tasks.each do |task|
               .row.task-result
@@ -47,12 +43,12 @@
 
                   .col-md-2.task-status
                     - if task.state == '等待甲方' or task.state == '退回重来'
-                      = link_to '添加附件', new_task_attachment_path(task) if current_user.has_role? :queen
+                      / - if current_user.has_role? :queen
+                        
                       - if current_user.has_role? :owner
                         = link_to '认可成果', confirm_task_path(task) 
                         = link_to '退回重来', refuse_task_path(task)
-                      
-                    
+                       
                 - if task.attachments.size > 0
                   .task-result-files
                     .col-md-1
@@ -62,10 +58,19 @@
                         - task.attachments.each do |attachment|
                           %li.text-center
                             %p
-                              = image_tag(image_path('user/task-file-img.png'))
-                            %h6
-                              = link_to File.basename(attachment.file_name), attachment.file.url, target: "_blank"  if attachment.file_name
+                              = image_tag(image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"),alt:attachment.file_name)
                             %p= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' }
+                        %li.text-center
+                          %p
+                            = form_for attachment, :html => { :multipart => true, :id => "fileupload-#{task.id}"  } do |f|
+                              = f.file_field :file
+                            = link_to new_task_attachment_path(task),class:'add_task_attachment' do
+                              %span.glyphicon.glyphicon-plus
+                              
+
+            .row
+              %h3.text-center 
+                = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.has_role? :owner
         
 
 .modal#editPlanModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editPlanModalLabel"}
