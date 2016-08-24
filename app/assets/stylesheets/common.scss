@@ -1,5 +1,9 @@
-$mainBgColor:#ecf4f7;
-$primaryColor:#5eb4e7;
+$navBgColor:#000;
+$navWordColor:#fff;
+//$mainBgColor:#ecf4f7;
+$mainBgColor:#f3f3f3;
+//$primaryColor:#5eb4e7;
+$primaryColor:#f7b706;
 @mixin iconBg($img){
 	background:url($img) scroll no-repeat;
 }
@@ -14,12 +18,27 @@ $primaryColor:#5eb4e7;
 }
 .row h2 span{border-bottom:0px;}
 .topNav{
-	background-color:$mainBgColor;
+	background-color:$navBgColor;
 	.nav{
-		a{color:#7a849b}
-		float:none;
-		width:600px;
+		a{
+			display: inline-block;
+			color:$navWordColor;
+		}
+		img{
+			height:20px;
+		}
+		img+a{
+			padding-left:0;
+		}
+		float:right;
+		width:auto;
 		line-height:48px;
+		li{
+			color:$navWordColor;
+			a:hover,a:focus{
+				background-color: #333;
+			}
+		}
 	}
 
 }
@@ -31,12 +50,17 @@ nav.navbar{
 		button.btn.btn-lg{
 			border:none;
 			background:none;
-			color:#60b3e5;
+			color:#faa74a;
 			font-size:24px;
 		}
 	}
 }
-
+.footNav{
+	height: 60px;
+	line-height:60px;
+	color: #999;
+	background-color:$navBgColor;
+}
 #blueimp-gallery-carousel{
 	box-shadow:none;
 	margin:4px auto;
@@ -50,11 +74,22 @@ section#quick_navi_section{
 		height:100%;
 		display:inline-block;
 		border-radius:5px;
-		box-shadow:1px 2px 20px #bcdae5;
+		box-shadow:1px 2px 20px #ccc;
 		background-color:white;
 		.quick_btn_picture{
 			text-align:center;
-			margin:50px 0px 20px 0px;
+			vertical-align:middle;
+			width: 140px;
+			height:140px;
+			background-color:#fae39e;
+			margin:50px auto 20px auto;
+			border-radius:140px;
+			overflow:hidden;
+			img{
+				display:block;
+				margin: 40px auto;
+				height:60px;
+			}
 		}
 		h2{
 			border:0;
@@ -98,8 +133,30 @@ section.ants_index_section{
 			line-height:40px;
 			color:#333;
 			span.ants_index_list_icon{
-				@include inlineBlockIcon(image_path('homepage/ants_index_list_icon.png'),12px,12px);
+				//@include inlineBlockIcon(image_path('homepage/ants_index_list_icon.png'),12px,12px);
 				margin-right:20px;
+				position:relative;
+				z-index:1;
+				&:before,&:after{
+					content: '';
+					display: block;
+					position: absolute;
+					z-index: 2;
+					border-radius: 16px;
+					border: 2px solid #faa74a;
+				}
+				&:before{
+					top: 2px;
+					left: 2px;
+					width: 12px;
+					height: 12px;
+				}
+				&:after{
+					top:6px;
+					left:6px;
+					width: 0px;
+					height: 0px;
+				}
 			}
 		}
 	}
@@ -349,3 +406,19 @@ section.contact_section{
 		
 	}
 }
+
+/*append footer*/
+footer.background-midnight-blue{
+	padding-bottom: 0;
+	background-color: #1b1b1b;
+	h3{
+		color: $primaryColor;
+		border:none;
+	}
+	.nav-footer{
+		li,li a{
+			color:#888;
+		}
+	}
+}
+

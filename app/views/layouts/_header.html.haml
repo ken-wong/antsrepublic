@@ -13,9 +13,15 @@
               = link_to t('logout'), logout_path, method: :delete 
           - else
             %li
-              = link_to( t('signup'), signup_path ) 
+              %a{:href => signup_path}
+                %img{:src => image_path("icon_login.png")}
+                注册
             %li
-              = link_to t('login'), login_path
+              %a{:href => login_path}
+                %img{:src => image_path("icon_profile.png")}
+                登录
+          %li  
+            = link_to t('我的订单'), '#'
           %li  
             = link_to t('联系客服'), '#'
           %li  
