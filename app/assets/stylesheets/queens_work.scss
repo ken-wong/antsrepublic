@@ -136,13 +136,19 @@ section.queens_work_queen{
 	}
 }
 
-
-
-
-
-
-
-
 section.queens_work_likes{
 	background-color:$mainBgColor;
+}
+
+// 个人中心，新建、编辑页面 样式
+
+.fileupload-buttonbar{
+	.progress{
+		display:none;
+	}
+	&.active{
+		.progress{
+			display:block
+		}
+	}
 }
