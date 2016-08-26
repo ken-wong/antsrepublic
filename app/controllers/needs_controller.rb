@@ -121,6 +121,7 @@ class NeedsController < InheritedResources::Base
   def create_comment
     @need = Need.find(params[:id])
     comment = @need.comments.create(comment_params)
+    comment.user_id = current_user.id
     comment.save
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: 'Comment was successfully added.' }
