@@ -1,5 +1,25 @@
 (function(){
 	$(document).ready(function(){
+
+		$('.attachment_file_upload').fileupload({
+	        dataType: 'json',
+	        // submit: function(e, data){
+	        //   $('.fileupload-buttonbar').toggleClass('active');
+	        // },
+	        // progressall: function (e, data) {
+	        //   var progress = parseInt(data.loaded / data.total * 100, 10);
+	        //   $('.fileupload-buttonbar .progress-bar').css(
+	        //     'width',
+	        //     progress + '%'
+	        //   );
+	        // },
+	        done: function (e, data) {
+	          //   $("ul.thumbnails").prepend('<li><img src="'+data._response.result.file_url+'?imageView2/1/w/200/h/200"></li>');
+	          // $('.fileupload-buttonbar').toggleClass('active');
+	          console.log(data.result);
+	        }
+	    });
+
 		$('.deadLineDataPicker').datetimepicker({
 		    format: 'yyyy-mm-dd',
 		    autoclose: true,
