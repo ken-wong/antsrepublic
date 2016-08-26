@@ -23,7 +23,7 @@
               %tbody
                 - @products.each do |product|
                   %tr
-                    %td= product.title
+                    %td= link_to product.title, queen_work_path(product)
                     %td= product.client_name
                     %td= product.category
                     %td= product.state

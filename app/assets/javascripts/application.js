@@ -22,3 +22,5 @@
 //= require neat/responsive-calendar-min.js
 
 //= require jquery-fileupload/basic
+//
+//= require video
