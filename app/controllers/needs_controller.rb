@@ -109,7 +109,7 @@ class NeedsController < InheritedResources::Base
         end
         @need.save
         
-        format.html { redirect_to need_path(@need), notice: 'Product was successfully updated.'  }
+        format.html { redirect_to edit_need_path(@need), notice: 'Product was successfully updated.'  }
         format.json { render :show, status: :created, location: @need }
       else
         format.html { render :new }
