@@ -5,6 +5,7 @@ class TasksController < InheritedResources::Base
     @task = @need.tasks.build
     @tasks = @need.tasks.order(created_at: :desc)
     @plans = @need.plans
+    @comments = @need.comments
   end
 
   def new
