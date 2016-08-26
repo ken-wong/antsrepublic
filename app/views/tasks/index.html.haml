@@ -66,6 +66,27 @@
                             %h6
                               = link_to File.basename(attachment.file_name), attachment.file.url, target: "_blank"  if attachment.file_name
                             %p= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' }
+
+            .row
+              %h2 用户评论
+              %ul
+                - @comments.each do |comment|
+                  %li
+                    %p= comment.title
+                    %p= comment.comment
+                    %p
+                      %span= comment.created_at.strftime('%Y-%m-%d')
+                      |
+                      %span= comment.user.name if comment.user
+                      |
+                      %span= link_to t('destroy'), destroy_comment_need_path(@need, comment_id: comment), action: :delete
+              .need-comment
+                = simple_form_for :comment, url: create_comment_need_path(@need) do |f|
+                  = f.input :title
+                  = f.input :comment
+                  = f.button :submit
+
+
         
 
 .modal#editPlanModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editPlanModalLabel"}

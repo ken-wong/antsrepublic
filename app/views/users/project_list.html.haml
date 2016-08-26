@@ -24,7 +24,7 @@
               %tbody
                 - @products.each do |product|
                   %tr
-                    %td= link_to product.title, product_path(product)
+                    %td= link_to product.title,  need_tasks_path(product)
                     %td= product.final_date
                     %td= product.category
                     %td= product.state

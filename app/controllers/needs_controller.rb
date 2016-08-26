@@ -123,7 +123,7 @@ class NeedsController < InheritedResources::Base
     comment = @need.comments.create(comment_params)
     comment.save
     respond_to do |format|
-      format.html { redirect_to need_path(@need), notice: 'Comment was successfully added.' }
+      format.html { redirect_to need_tasks_path(@need), notice: 'Comment was successfully added.' }
     end
   end
 
@@ -131,7 +131,7 @@ class NeedsController < InheritedResources::Base
     @need = Need.find(params[:id])
     comment = Comment.find(params[:comment_id]).destroy
     respond_to do |format|
-      format.html { redirect_to need_path(@need), notice: 'Comment was successfully delete.' }
+      format.html { redirect_to need_tasks_path(@need), notice: 'Comment was successfully delete.' }
     end
   end
 
@@ -140,7 +140,7 @@ class NeedsController < InheritedResources::Base
     comment = Comment.find(params[:comment_id])
     comment.update(need_params)
     respond_to do |format|
-      format.html { redirect_to need_path(@need), notice: 'Comment was successfully updated.' }
+      format.html { redirect_to need_tasks_path(@need), notice: 'Comment was successfully updated.' }
     end
   end
 
