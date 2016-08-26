@@ -1,0 +1,36 @@
+- tasks.each do |task|
+  .row.task-result{:id=>"plan_task_#{task.id}"}
+    .task-result-header
+      .col-md-3
+        %h5.text-center= task.plan.title if task.plan
+      .col-md-7
+        %h5.color-black
+          .col-md-5= task.updated_at.strftime('%Y-%m-%d').to_s  
+          .col-md-5= link_to task.title, edit_task_path(task) if task.plan
+          .col-md-2= task.state if task.state
+
+      .col-md-2.task-status
+        - if task.state == '等待甲方' or task.state == '退回重来'
+          / - if current_user.has_role? :queen
+            
+          - if current_user.has_role? :owner
+            = link_to '认可成果', confirm_task_path(task) 
+            = link_to '退回重来', refuse_task_path(task)
+
+    .task-result-files
+      .col-md-1
+        %h6 文件列表
+      .col-md-11
+        %ul
+          - task.attachments.each do |attachment|
+            %li.text-center
+              %p
+                = image_tag(image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"),alt:attachment.file_name)
+              %p= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' }
+
+          - attachment = task.attachments.build
+          %li.text-center
+            = form_for attachment, :html => { :multipart => true, :id => "fileupload-#{task.id}"  } do |f|
+              %a.add_task_attachment.fileinput-button{:href => "javascript:void(0);"}
+                %span.glyphicon.glyphicon-plus
+                = f.file_field :file, :class=>"attachment_file_upload", :data=>{:url=>"/api/tasks/#{task.id}/attachments"}     
