@@ -62,8 +62,8 @@
                             %p= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' }
                         %li.text-center
                           %p
-                            = form_for attachment, :html => { :multipart => true, :id => "fileupload-#{task.id}"  } do |f|
-                              = f.file_field :file
+                            / = form_for :attachment, :html => { :multipart => true, :id => "fileupload-#{task.id}"  } do |f|
+                            /   = f.file_field :file
                             = link_to new_task_attachment_path(task),class:'add_task_attachment' do
                               %span.glyphicon.glyphicon-plus
                               
