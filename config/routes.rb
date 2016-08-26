@@ -44,24 +44,18 @@ Rails.application.routes.draw do
   resources :needs do
     resources :tasks
     resources :plans
+
     member do
       get 'waitfor'
       get 'plan_confirm'
       get 'plan_refuse'
       get 'complete'
+      post 'create_comment'
+      put  'update_comment'
+      get 'destroy_comment'
     end
   end
   resources :uploads  
-
-  get 'needs/index'
-
-  get 'needs/show'
-
-  get 'needs/update'
-
-  get 'needs/create'
-
-  get 'needs/desttroy'
 
   get 'needs/need_params'
 

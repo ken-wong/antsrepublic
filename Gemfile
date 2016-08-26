@@ -29,6 +29,7 @@ gem 'haml'
 
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
+gem 'acts_as_commentable'
 
 gem 'kaminari' # 分页
 
@@ -64,6 +65,7 @@ gem 'bootstrap-sass'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'bcrypt'
+gem 'videojs_rails'
 gem 'rack-cors'
 # carrierwave for image upload and save in qiniu
 gem 'carrierwave'

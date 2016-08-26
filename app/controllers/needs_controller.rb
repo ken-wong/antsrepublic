@@ -109,12 +109,39 @@ class NeedsController < InheritedResources::Base
         end
         @need.save
         
-        format.html { redirect_to need_path(@need), notice: 'Product was successfully updated.'  }
+        format.html { redirect_to edit_need_path(@need), notice: 'Product was successfully updated.'  }
         format.json { render :show, status: :created, location: @need }
       else
         format.html { render :new }
         format.json { render json: @need.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def create_comment
+    @need = Need.find(params[:id])
+    comment = @need.comments.create(comment_params)
+    comment.user_id = current_user.id
+    comment.save
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: 'Comment was successfully added.' }
+    end
+  end
+
+  def destroy_comment
+    @need = Need.find(params[:id])
+    comment = Comment.find(params[:comment_id]).destroy
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: 'Comment was successfully delete.' }
+    end
+  end
+
+  def update_comment
+    @need = Need.find(params[:id])
+    comment = Comment.find(params[:comment_id])
+    comment.update(need_params)
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: 'Comment was successfully updated.' }
     end
   end
 
@@ -128,5 +155,9 @@ class NeedsController < InheritedResources::Base
         :client_name, :ref_price, :category, :main_media, 
         :description, :user_id, :start_date, 
         :ending_date, :final_date, :price_range)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:title, :comment)
   end
 end
