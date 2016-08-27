@@ -14,9 +14,11 @@
 	        //   );
 	        // },
 	        done: function (e, data) {
+	        	var obj = data.result;
 	          //   $("ul.thumbnails").prepend('<li><img src="'+data._response.result.file_url+'?imageView2/1/w/200/h/200"></li>');
 	          // $('.fileupload-buttonbar').toggleClass('active');
-	          console.log(data.result);
+	          $('#plan_task_'+obj.attachmentable_id+" .task-result-files ul").prepend('<li><a href="' + obj.file_url  + '">' + obj.file_name + '</a></li>')
+	          console.log();
 	        }
 	    });
 
