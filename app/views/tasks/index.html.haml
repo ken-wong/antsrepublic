@@ -36,25 +36,7 @@
               %h3.text-center 
                 = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.has_role? :owner
 
-
-            .row
-              %h2 用户评论
-              %ul
-                - @comments.each do |comment|
-                  %li
-                    %p{style: comment.user.has_role?(:queen) ? 'color: #666' : 'color: red'}= comment.title
-                    
-                    %div
-                      %span.label.label-info= comment.created_at.strftime('%Y-%m-%d')
-                      |
-                      %span.label.label-warning= comment.user.name if comment.user
-                      - if current_user == comment.user
-                        |
-                        %span.label.label-danger= link_to t('destroy'), destroy_comment_need_path(@need, comment_id: comment), action: :delete 
-              .need-comment
-                = simple_form_for :comment, url: create_comment_need_path(@need) do |f|
-                  = f.input :title, label: false
-                  = f.button :submit, value: '我有话说'
+            = render partial: "comment", :locals => {comments:@comments}    
 
 
 
