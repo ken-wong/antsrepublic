@@ -20,12 +20,6 @@
   <%= @task.description %>
 </p>
 
-<% if @task.attachment %>
-<p>
-  <strong>Attachement</strong>
-  <%= link_to File.basename(@task.file_name), @task.attachment.url %>
-</p>
-<% end %>
 <p>
   <strong>状态:</strong>
   <%= @task.state %>
