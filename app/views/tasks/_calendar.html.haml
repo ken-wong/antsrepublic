@@ -39,7 +39,7 @@
               - @planTasks.each do |planTask|
                 %a.btn.btn-primary{:href => "javascript:void(0);", :data=>{"id":planTask.id}} 查看结果
         
-            - if current_user.has_role? :queen
+            -elsif current_user.has_role? :queen
               = simple_form_for([@need, @task]) do |f|
                 = f.input :plan_id, as:'hidden', input_html:{value:plan.id}
                 = f.input :title, as:'hidden', input_html:{value:plan.title}
