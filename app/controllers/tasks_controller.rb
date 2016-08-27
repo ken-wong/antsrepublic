@@ -4,7 +4,7 @@ class TasksController < InheritedResources::Base
     @need = Need.find(params[:need_id])
     @task = @need.tasks.build
     @tasks = @need.tasks.order(created_at: :desc)
-    @plans = @need.plans
+    @plans = @need.plans.order(:created_at => :desc)
     @comments = @need.comments
   end
 

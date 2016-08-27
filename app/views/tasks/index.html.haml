@@ -43,11 +43,11 @@
 
                   .col-md-2.task-status
                     - if task.state == '等待甲方' and current_user.has_role? :owner
-                      = link_to '认可成果', confirm_task_path(task) 
-                      = link_to '退回重来', refuse_task_path(task)
+                      = link_to '认可成果', confirm_task_path(task), class: 'btn btn-info' 
+                      = link_to '退回重来', refuse_task_path(task), class: 'btn btn-warning'
                     
                     - if current_user.has_role? :queen and task.state == '提交附件'
-                      = link_to '通知甲方', send_message_task_path(task)
+                      = link_to '通知甲方', send_message_task_path(task), class: 'btn btn-info'
 
                 .task-result-files
                   .col-md-1
