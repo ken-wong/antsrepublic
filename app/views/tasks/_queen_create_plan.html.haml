@@ -1,7 +1,10 @@
 .row.create-plan
   .col-md-12
     %h3.text-center
-      你好！项目已经开始！请尽快制定任务计划，并提交给甲方确认
+      - unless @need.state == '甲方拒绝'
+        ='你好！项目已经开始！请尽快制定任务计划，并提交给甲方确认'
+      - else
+        ='甲方拒绝了你计划,请重新修改计划'
     %p.text-center
       %button.btn.btn-primary#newPlanModalBtn{:'data-toggle' => "modal",:'data-target' => "#editPlanModal"}
         制定计划

@@ -1,4 +1,5 @@
 class QueenWorksController < ApplicationController
+	before_action :authenticate_user!, only: [:vote_it, :follow_it]
   def show
   	@product = QueenWork.find(params[:id])
   	render '/products/show'

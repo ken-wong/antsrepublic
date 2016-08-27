@@ -103,6 +103,7 @@
       .modal-header
         %h4.modal-title.pull-left#editTaskModalLabel 新建工作计划
         = link_to "提交计划", waitfor_need_path(@need), class: 'btn btn-info pull-right' 
+        %button.btn.btn-default.pull-left{:type=>'button', :'data-dismiss' => "modal"} 暂不提交
       .modal-body.edit-project-plan          
         .edit-plan-list
           - @plans.each do |plan| 
@@ -137,10 +138,10 @@
                 %span.plan-action
                   %a.createPlanBtn{:href => "javascript:void(0);", :data => {need:@need.id}} 保存
       .modal-footer
-        %a.new-plan.pull-left{:role=>'button', :'data-toggle'=>"collapse", :href => "#new-plan-form", :'aria-expanded'=>"false", :'aria-controls' => "new-plan-form"}
+        %a.new-plan.pull-right{:role=>'button', :'data-toggle'=>"collapse", :href => "#new-plan-form", :'aria-expanded'=>"false", :'aria-controls' => "new-plan-form"}
           %span.glyphicon.glyphicon-plus-sign
           新增
-        %button.btn.btn-default.pull-right{:type=>'button', :'data-dismiss' => "modal"} 暂不提交
+        
         
 
 - content_for :page_js_block do
