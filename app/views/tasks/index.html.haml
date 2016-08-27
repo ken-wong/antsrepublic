@@ -56,8 +56,11 @@
                     %ul
                       - task.attachments.each do |attachment|
                         %li.text-center
-                          %p
-                            = image_tag(image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"),alt:attachment.file_name)
+                          %span
+                            - if %w{jpg png gif bmp}.include?(attachment.file.file.extension.downcase)
+                              = image_tag(image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"),alt:attachment.file_name)
+                            - else
+                              = attachment.file_name
                           %p= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' }
 
                       - attachment = task.attachments.build

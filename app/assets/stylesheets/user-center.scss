@@ -148,6 +148,7 @@
 				li{
 					@include inlineBlockEle(180px,120px);
 					vertical-align: top;
+					word-wrap: break-word;
 					img{
 						margin:0;
 						display: inline;
