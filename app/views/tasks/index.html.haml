@@ -58,14 +58,15 @@
                         %li.text-center
                           %span
                             - if %w{jpg png gif bmp}.include?(attachment.file.file.extension.downcase)
-                              = image_tag(image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"),alt:attachment.file_name)
+                              = link_to image_tag(image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"),alt:attachment.file_name), attachment.file.url, target: '_blank'
                             - else
-                              = attachment.file_name
-                          %p= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' }
+                              = link_to attachment.file_name, attachment.file.url, target: '_blank'
+                          %p
+                            .label.label-warning= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' } unless task.state == '甲方确认'
 
                       - attachment = task.attachments.build
                       %li.text-center
-                        - if (task.state == '退回重来' or task.state == '等待甲方') and current_user.has_role? :queen
+                        - if (task.state == '退回重来' or task.state == '等待甲方' or task.state == '提交附件') and current_user.has_role? :queen
                           = form_for attachment, :html => { :multipart => true, :id => "fileupload-#{task.id}"  } do |f|
                             %a.add_task_attachment.fileinput-button{:href => "javascript:void(0);"}
                               %span.glyphicon.glyphicon-plus
