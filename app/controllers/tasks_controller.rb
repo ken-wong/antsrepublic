@@ -32,7 +32,7 @@ class TasksController < InheritedResources::Base
     current_user.send_message(@need.queen, message_str)
     
     respond_to do |format|
-      format.html { redirect_to need_tasks_path(@need), notice: 'Task was successfully updated.' }
+      format.html { redirect_to need_tasks_path(@need), notice: '甲方确认工作成果' }
     end
   end
 
@@ -45,7 +45,19 @@ class TasksController < InheritedResources::Base
     current_user.send_message(@need.queen, message_str)
     
     respond_to do |format|
-      format.html { redirect_to need_tasks_path(@need), notice: 'Task was successfully updated.' }
+      format.html { redirect_to need_tasks_path(@need), notice: '甲方质疑了工作成果' }
+    end
+  end
+
+  def send_message
+    @task = Task.find(params[:id])
+    @need = @task.need
+    @task.wait_for!
+    message_str = "乙方提交了工作计划:#{@task.title}全部附件,请甲方检查</a>" 
+    current_user.send_message(@need.queen, message_str)
+
+    respond_to do |format|
+      format.html { redirect_to need_tasks_path(@need), notice: '已经通知甲方!' }
     end
   end
 
@@ -54,7 +66,7 @@ class TasksController < InheritedResources::Base
   	@task = Task.find(params[:id])
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to need_tasks_path(need_id: params[:need_id]), notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to need_tasks_path(need_id: params[:need_id]), notice: '任务被删除了!' }
       format.json { head :no_content }
     end
   end
@@ -89,21 +101,6 @@ class TasksController < InheritedResources::Base
         format.html { render :edit }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
-    end
-  end
-  def confirm
-    @task = Task.find(params[:id])
-    @task.confirm!
-    respond_to do |format|
-      format.html { redirect_to need_tasks_path(@task.need_id), notice: 'Task was successfully updated.' }
-    end
-  end
-
-  def refuse
-    @task = Task.find(params[:id])
-    @task.refuse!
-    respond_to do |format|
-      format.html { redirect_to need_tasks_path(@task.need_id), notice: 'Task was successfully updated.' }
     end
   end
 

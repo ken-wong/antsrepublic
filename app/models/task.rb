@@ -8,7 +8,11 @@ class Task < ActiveRecord::Base
   validates :plan_id, presence: true
 
 
-  state_machine :state, :initial => :'等待甲方' do
+  state_machine :state, :initial => :'提交附件' do
+    event :wait_for! do
+      transition [nil, :'提交附件'] => :'等待甲方'
+    end
+    
     event :confirm! do
       transition [nil, :'等待甲方'] => :'甲方确认'
     end
@@ -18,7 +22,7 @@ class Task < ActiveRecord::Base
     end
 
     event :redo! do
-    	transition [nil, :'等待甲方', :'退回重来'] => :'等待甲方'
+    	transition [nil, :'等待甲方', :'退回重来'] => :'提交附件'
     end
   end
 end

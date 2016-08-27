@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     member do
       get 'confirm'
       get 'refuse'
+      get :send_message
     end
 
     resources :attachments
@@ -91,6 +92,7 @@ Rails.application.routes.draw do
       member do
         get :confirm 
         get :confuse
+
       end
     end
     resources :plans

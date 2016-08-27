@@ -23,9 +23,16 @@
       - @plans.each do |plan| 
         %li.plan-task
           %span.task-checkbox.text-center
-            %input{:type => "checkbox", :value => "false", :disabled => "disabled"}/
-          %span.task-time= plan.dead_line
-          %span.task-title= plan.title
+            - check_flag = (plan.tasks.first.state == '甲方确认' ? true : false) if plan.tasks.first
+            %input{:type => "checkbox", :value => "false", :disabled => "disabled", checked: check_flag}/
+          - if check_flag
+            %span.task-time
+              %del= plan.dead_line
+            %span.task-title
+              %del= plan.title
+          - else
+            %span.task-time= plan.dead_line
+            %span.task-title= plan.title
           %span.task-action
             - @planTasks = plan.tasks
             - if @planTasks.size > 0
