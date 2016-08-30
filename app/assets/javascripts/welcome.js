@@ -1,5 +1,5 @@
-
-blueimp.Gallery(
+$(function(){
+  blueimp.Gallery(
 
     document.getElementById('links').getElementsByTagName('a'),
     {
@@ -7,4 +7,6 @@ blueimp.Gallery(
         carousel: true,
         stretchImages: 'cover'
     }
-);
+  );
+
+})
