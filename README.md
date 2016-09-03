@@ -9,11 +9,11 @@ api:
 	
 	1. home page, 案例輸出12個
 
-		/api/queen_works.json?category={'效果图'|'影片'|多媒体'}&page={0...page_num}
+		curl http://localhost:3000/api/queen_works.json?category={'效果图'|'影片'|多媒体'}&page={0...page_num}
 
 	2 home page, queens
 
-		/api/queens.json?page={page_num}
+		curl http://localhost:3000/api/queens.json?page={page_num}
 
 
 ## 0823
