@@ -38,7 +38,9 @@ class QueensController < ApplicationController
 
   def show
     @queen = User.find(params[:id])
-    @queens = Queen.with_role(:queen)
+    @queens = Queen.with_role(:queen).limit(12)
+    @products = @queen.queen_works
+
   end
 
   def choose
