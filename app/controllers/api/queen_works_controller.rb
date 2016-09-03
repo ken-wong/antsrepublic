@@ -12,7 +12,11 @@ class Api::QueenWorksController < Api::BaseController
   	if params[:category].nil?
       @products = QueenWork.page params[:page]
     else
-      @products = QueenWork.where("category = '#{params[:category]}'").page params[:page]
+      #@products = QueenWork.where("category = '#{params[:category]}'").page params[:page]
+     	
+     	#TODO: per page 12
+     	@q = QueenWork.ransack(category_eq: params[:category]).page(params[:page])
+    	@products = @q.result
     end
   end
 end
