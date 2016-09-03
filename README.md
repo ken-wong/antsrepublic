@@ -3,6 +3,16 @@
 			power by amos
 
 ## change log
+
+##0903
+api:
+	
+	1. home page, 案例輸出12個
+
+		/api/queen_works.json?category={'效果图'|'影片'|多媒体'}&page={0...page_num}
+
+
+
 ## 0823
 update attachment api
 

@@ -7,4 +7,12 @@ class Api::QueenWorksController < Api::BaseController
   def following_list
     @queen_works = User.find(params[:user_id]).all_following
   end
+
+  def index
+  	if params[:category].nil?
+      @products = QueenWork.page params[:page]
+    else
+      @products = QueenWork.where("category = '#{params[:category]}'").page params[:page]
+    end
+  end
 end
