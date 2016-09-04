@@ -5,23 +5,7 @@
 
 <%= render "welcome/ants_index" %>
 
-
-%section.product_list_section.color-black
-  .container
-    .row.product_list_header
-      .col-lg-6.col-sm-12
-        %h2
-          %span.product_list_header_icon
-          案例展示
-      .col-lg-6.col-sm-12
-        %ul.nav.nav-pills.pull-right
-          %li.nav-item
-            =link_to "效果图", products_path(category: "效果图"), class: "nav-link active"
-          %li.nav-item
-            =link_to "影片", products_path(category: "影片"), class: "nav-link"
-          %li.nav-item
-            =link_to "多媒体", products_path(category: "多媒体"), class: "nav-link"
-		= render "shared/product_list"
+<%= render "welcome/ants_example" %>
 
 <%= render "welcome/quick_startup" %>
 
