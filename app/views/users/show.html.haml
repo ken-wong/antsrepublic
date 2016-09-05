@@ -26,6 +26,9 @@
             %strong= User.human_attribute_name(:cell)
             = @user.send(:cell)
           %p
+            %strong= User.human_attribute_name(:description)
+            = @user.send(:description)
+          %p
             %strong= User.human_attribute_name(:state)
             = @user.send(:state)
           %p

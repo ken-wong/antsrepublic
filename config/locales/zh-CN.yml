@@ -46,6 +46,7 @@ zh-CN:
         company: 公司
         avatar: 头像
         state: 审核
+        description: 简介
       profile:
         phone: 联系电话
         qq: QQ
