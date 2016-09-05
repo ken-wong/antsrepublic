@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @q = QueenWork.ransack(category_eq: params[:category])
-    @products = @q.result
+    @products = @q.result.limit(4)
 
     if Queen.where('sort_no > 0').count > 0
     	@queens = Queen.where('sort_no > 0').order(:sort_no => :desc)

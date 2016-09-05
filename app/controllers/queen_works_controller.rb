@@ -1,5 +1,23 @@
 class QueenWorksController < ApplicationController
 	before_action :authenticate_user!, only: [:vote_it, :follow_it]
+  before_action :set_tags
+
+  def index
+    if params[:user_id].nil?
+      @products = Product.all
+    else
+      @products = Product.where("user_id = #{params[:user_id]}")  
+    end
+    
+    if params[:category].nil?
+      @products = QueenWork.page params[:page]
+    else
+      @products = QueenWork.where("category = '#{params[:category]}'")
+    end
+
+    render '/products/index'
+  end
+
   def show
   	@product = QueenWork.find(params[:id])
   	render '/products/show'
@@ -69,4 +87,9 @@ class QueenWorksController < ApplicationController
       :description, :user_id, :start_date, 
       :ending_date, :final_date, :price_range)
   end
+
+  def set_tags
+    @tags = YAML::load(File.read(Rails.root.to_s + '/config/project_tags.yml'))
+  end
+
 end

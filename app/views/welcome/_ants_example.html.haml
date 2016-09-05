@@ -8,9 +8,11 @@
       .col-lg-6.col-sm-12
         %ul.nav.nav-pills.pull-right
           %li.nav-item
-            =link_to "效果图", products_path(category: "效果图"), class: "nav-link active"
+            =link_to "效果图", root_path(category: "效果图"), class: "nav-link #{active_class(root_path(category: '效果图'))}"
           %li.nav-item
-            =link_to "影片", products_path(category: "影片"), class: "nav-link"
+            =link_to "影片", root_path(category: "影片"), class: "nav-link  #{active_class(root_path(category: '影片'))} "
           %li.nav-item
-            =link_to "多媒体", products_path(category: "多媒体"), class: "nav-link"
+            =link_to "多媒体", root_path(category: "多媒体"), class: "nav-link #{active_class(root_path(category: '多媒体'))}"
+          %li.nav-item
+            =link_to "更多案例", products_path, class: "nav-link"
     = render "shared/product_list"
