@@ -16,3 +16,6 @@
 /config/database.yml
 /public/uploads/
 /.byebug_history
+/Gemfile
+/Gemfile.lock
+/config/database.yml.default
