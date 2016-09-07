@@ -82,6 +82,29 @@
 
 	});
 
+	// 参考案例弹出层
+	$(function(){
+		$('.queenSelector+span').width("1170px");
+		var chooseCase=$("div#chooseCase");
+		var btnChoose=$("button#sureChoose");
+		var addCase=$("span.addCase");
+		chooseCase.hide();
+		$("span.addCase,button#sureChoose").click(function(){
+			var add=addCase.html();
+			if(add=="+")
+			{
+				addCase.css("line-height","30px");
+				addCase.html("-");
+			}
+			else{
+				addCase.css("line-height","40px");
+				addCase.html("+");
+			}
+			chooseCase.toggle();
+			btnChoose.toggle();
+		});
+	});
+
 	function setupSelect2(_option){
 		_option.selector.select2({
 			placeholder:_option.placeholder,
