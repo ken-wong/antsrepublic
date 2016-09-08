@@ -3,6 +3,7 @@ class QueenWorksController < ApplicationController
   before_action :set_tags
 
   def index
+    @queen_work = QueenWork.new
     if params[:user_id].nil?
       @products = Product.all
     else
@@ -10,7 +11,7 @@ class QueenWorksController < ApplicationController
     end
     
     if params[:category].nil?
-      @products = QueenWork.page params[:page]
+      @products = QueenWork.all.page params[:page]
     else
       @products = QueenWork.where("category = '#{params[:category]}'")
     end
@@ -20,7 +21,7 @@ class QueenWorksController < ApplicationController
 
   def search
     @queen_work = QueenWork.new(queen_work_params)
-    @products = QueenWork.where("category = '#{params[:queen_work][:category]}' and title like '%#{params[:queen_work][:title]}%'")
+    @products = QueenWork.where("category = '#{params[:queen_work][:category]}' and title like '%#{params[:queen_work][:title]}%'").page params[:page]
     render '/products/index'
   end
 
