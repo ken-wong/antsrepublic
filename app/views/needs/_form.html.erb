@@ -96,72 +96,76 @@
         </div>
       </div>  
     </div>
-
-    <h3>参考案例</h3>
-    <div class="row selected_case_list">
-      <%  if !@need.new_record? %>
-        <% Product.where(id: @reference_product_ids).each do |product| %>
-        <div class="col-md-2 col-case-and-queen text-center">
-          <a class="queen" href="javascript:void(0)">
-            <p>
-              <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
-            </p>
-            <h6>
-              <%= product.title %>
-            </h6>
-            <span class="delete_btn btn" data-id="<%= product.id%>" data-type="case">
-              删除
-            </span>
-          </a>
-        </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="row select_case">
-      <div class="col-md-12">
-        <%= f.input :reference_product_ids, as:'hidden' %>
-        <div role="tabpanel">
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
-              <a href="#case-seach" aria-controls="home" role="tab" data-toggle="tab">搜索</a>
-            </li>
-            <li role="presentation">
-              <a href="#case-bookmark" aria-controls="tab" role="tab" data-toggle="tab">收藏</a>
-            </li>
-          </ul>
-        
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="case-seach">
-              <select name="case_search" class="caseSelector"></select>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="case-bookmark">
-                <div class="row">
-                  <% @my_fav_products.each do |product| %>
-                  <div class="col-md-3">
-                    <div class="fav-product">
-                      <p>
-                        <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
-                      </p>
-                      <h6>
-                        <%= product.title %>
-                      </h6>
-                      <p>
-                        <a href="javascript:void(0);" data-img="<%= product.avatar.small_url %>" data-id="<%= product.id%>" data-title="<%= product.title %>" class="add-product">
-                          添加
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                  <% end %>
+    <!-- 控制弹出层的内容 -->
+    <div class="box">
+      <h3>参考案例<span class="addCase">+</span></h3>
+      <div class="row selected_case_list" style="height: auto;">
+        <div class="row select_case" id="chooseCase">
+          <div class="col-md-12">
+            <%= f.input :reference_product_ids, as:'hidden' %>
+            <div role="tabpanel">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active" style="margin-left:30px;">
+                  <a href="#case-seach" aria-controls="home" role="tab" data-toggle="tab">搜索</a>
+                </li>
+                <li role="presentation">
+                  <a href="#case-bookmark" aria-controls="tab" role="tab" data-toggle="tab">我的收藏</a>
+                </li>
+              </ul>
+            
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="case-seach">
+                  <select name="case_search" class="caseSelector"></select>
                 </div>
+                <div role="tabpanel" class="tab-pane" id="case-bookmark">
+                    <div class="row">
+                      <% @my_fav_products.each do |product| %>
+                      <div class="col-md-2" style="text-align: center;">
+                        <div class="fav-product">
+                          <p>
+                            <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
+                          </p>
+                          <h6>
+                            <%= product.title %>
+                          </h6>
+                          <p>
+                            <a href="javascript:void(0);" data-img="<%= product.avatar.small_url %>" data-id="<%= product.id%>" data-title="<%= product.title %>" class="add-product">
+                              添加
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                      <% end %>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <%  if !@need.new_record? %>
+          <% Product.where(id: @reference_product_ids).each do |product| %>
+          <div class="col-md-2 col-case-and-queen text-center">
+            <a class="queen" href="javascript:void(0)">
+              <p>
+                <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
+              </p>
+              <h6>
+                <%= product.title %>
+              </h6>
+              <span class="delete_btn btn" data-id="<%= product.id%>" data-type="case">
+                删除
+              </span>
+            </a>
+          </div>
+          <% end %>
+        <% end %>
       </div>
+      <!-- 关闭弹出层 -->
+      <button type="button" class="btn btn-info defaultHide" id="sureChoose">确定</button>
     </div>
+    
 
     <h3>指定蚁后</h3>
     <div class="row selected_queen_list">
@@ -185,7 +189,7 @@
     </div>
 
     <div class="row select_queen">
-      <div class="col-md-12">
+      <div class="col-md-12" style="margin-top: 30px;margin-left: -16px;">
         <%= f.input :reference_queen_ids, label:false, as:"hidden" %>
         <select name="queen_search" class="queenSelector">
         </select>
