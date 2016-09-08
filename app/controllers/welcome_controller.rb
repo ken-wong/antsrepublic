@@ -8,5 +8,29 @@ class WelcomeController < ApplicationController
     else
     	@queens = Queen.order(:sort_no => :desc).limit(12)
     end
+  
+    @ant_point = AntPoint.first
+    if @ant_point 
+    	@ant_point.total_amounts ||= 0 
+    	@ant_point.total_projects ||= 0
+    	@ant_point.total_ants ||= 0
+    	# 随机加数字, 假
+    	if rand(5) > 3
+    		@ant_point.total_amounts += rand(3000..150000) 
+    		@ant_point.total_projects += rand(0..5) 
+    	end
+    	
+    	@ant_point.total_ants += rand(0..2) if rand(10)>8
+    	
+    	@ant_point.save
+    else
+    	@ant_point = AntPoint.create!
+    	@ant_point.total_amounts = 0
+    	@ant_point.total_projects = 0
+    	@ant_point.total_ants = 0
+    	@ant_point.save
+    end
   end
+
+
 end
