@@ -18,6 +18,12 @@ class QueenWorksController < ApplicationController
     render '/products/index'
   end
 
+  def search
+    @queen_work = QueenWork.new(queen_work_params)
+    @products = QueenWork.where("category = '#{params[:queen_work][:category]}' and title like '%#{params[:queen_work][:title]}%'")
+    render '/products/index'
+  end
+
   def show
   	@product = QueenWork.find(params[:id])
   	render '/products/show'

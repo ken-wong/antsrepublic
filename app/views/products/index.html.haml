@@ -1,0 +1,32 @@
+%section.products_section
+  .container
+    = form_tag "/queen_works/search", method: 'get' do  
+      .row
+        .col-lg-12
+          .form-group        
+            = text_field_tag('queen_work[title]', @queen_work.title)
+            = select_tag 'queen_work[category]', options_for_select([['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], @queen_work.category)
+            = submit_tag('搜索案例')
+      .row.project_tags_block
+        .col-lg-12
+          / Nav tabs
+          %ul.nav.nav-tabs.nav-pills.nav-stacked{:role => "tablist"}
+            - @tags.each_with_index do |tag_list, index|
+              - index == 0 ? @flag = 'active' : @flag = ''
+              %li{:role => "presentation", class: @flag}
+                %a{:href => "##{tag_list[1][0]['id']}" ,'aria-controls': "home", role:"tab", 'data-toggle': "tab"}
+                  = tag_list[0]
+          / Tab panes
+          .tab-content
+            - @i = 0
+            - @tags.each_with_index do |tag_list, index|
+              - index == 0 ? @flag = 'active' : @flag = ''
+              .tab-pane{:role => "tabpanel", calss: @flag , id: "#{tag_list[1][0]['id']}" }
+                - tag_list[1][1]['tags'].each do |tag|
+                  %span.tag
+                    = check_box_tag 'tags[]', tag
+                    %label{:for => ""}= tag
+      .row
+        .container
+          = render "shared/product_list"
+        
