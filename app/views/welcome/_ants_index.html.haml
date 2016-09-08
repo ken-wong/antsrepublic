@@ -25,16 +25,12 @@
             = link_to '蚂蚁共和网站数据网站数据', '/pages/page4'
 
       .col-lg-8.col-md-8.col-sm-12
-        %strong 
-          total amount:
-          = @ant_point.total_amounts
-          |
-        %strong 
-          total project:
-          = @ant_point.total_projects
-          |
-        %strong 
-          total ant:
-          = @ant_point.total_ants
-          
-        %img{:src => image_path('homepage/ants_index_bg.png'), :alt => ""}/
+        .ants_index_block
+          %p
+            %strong.text-center#total-amounts
+              = @ant_point.total_amounts
+            %strong.text-center#total-projects
+              = @ant_point.total_projects
+            %strong.text-center#total-ants
+              = @ant_point.total_ants
+

@@ -215,6 +215,33 @@ section.ants_index_section{
 			}
 		}
 	}
+	.ants_index_block{
+		width:749px;
+		height:271px;
+		background:url(image_path('homepage/ants_index_bg.jpg')) no-repeat scroll;
+		&>p{
+			padding-top:100px;
+			&>strong{
+				color:#fff;
+				font-size:50px;
+				font-weight:normal;
+				display:inline-block;
+			}
+			strong#total-amounts{
+				width: 200px;
+			    margin-left: 80px;
+			}
+			strong#total-projects{
+				width: 100px;
+			    margin-left: 93px;
+			}
+			strong#total-ants{
+				margin-left: 90px;
+			    width: 100px;
+			}
+
+		}
+	}
 }
 
 section.product_list_section,.products_section{
