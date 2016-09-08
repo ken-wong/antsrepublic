@@ -12,6 +12,9 @@ zh-CN:
       message: 消息
       need: 需求
       queen_work: 案例
+      plan: 计划
+      task: 任务
+      ant_point: 指数
     attributes:
       product:
         title: 项目名称
