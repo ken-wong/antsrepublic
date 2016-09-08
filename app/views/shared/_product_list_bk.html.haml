@@ -1,0 +1,18 @@
+.row.owl-carousel.owl-theme
+  - count = 1
+  - @products.each do |product|
+    - if count%2 != 0
+      .item
+        .product.col-sm-4.col-md-4
+          .productBlock{:style=>"background-image:url(#{product.avatar.small_url})"}
+            .caption.bordered
+              %h3= link_to(product.title, product) unless product.title.nil?
+              .description
+                %p
+                  %b 委托客户:
+                  = product.client_name
+                %p
+                  %b 参考价格:
+                  = product.ref_price
+
+    

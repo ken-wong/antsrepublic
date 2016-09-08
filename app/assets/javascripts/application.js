@@ -15,9 +15,9 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker.min
+//= require owlcarousel/owl.carousel.min.js
 //= require select2.min
 //= require locales/bootstrap-datetimepicker.zh-CN
-//= require blueimp-gallery-all
 
 //= require neat/responsive-calendar-min.js
 

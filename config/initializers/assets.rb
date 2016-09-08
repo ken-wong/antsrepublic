@@ -12,7 +12,6 @@ Rails.application.config.assets.version = '1.2'
 # 
 Rails.application.config.assets.precompile += %w( neat/neat-blue.css )
 
-Rails.application.config.assets.precompile += %w( task_fuc.js )
+Rails.application.config.assets.precompile += %w( welcome.js task_fuc.js edit_need_fuc.js)
 
-Rails.application.config.assets.precompile += %w( edit_need_fuc.js)
 Rails.application.config.assets.precompile += %w( video-js.swf vjs.eot vjs.svg vjs.ttf vjs.woff )

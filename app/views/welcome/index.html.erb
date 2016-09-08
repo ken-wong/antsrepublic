@@ -15,4 +15,6 @@
 
 <%= render "welcome/contact_section" %>
 
-<script src="/assets/welcome.js" type="text/javascript" charset="utf-8" async defer></script>
+<% content_for :page_js_block do %>
+  <%= javascript_include_tag 'welcome.js' %>
+<% end %>

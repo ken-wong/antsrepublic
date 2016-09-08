@@ -17,6 +17,12 @@ $primaryColor:#f7b706;
 	@include iconBg($img);
 }
 .row h2 span{border-bottom:0px;}
+.fixed-nav{
+	position:fixed;
+	width:100%;
+	top:0;
+	z-index:100;
+}
 .topNav{
 	background-color:$navBgColor;
 	.nav{
@@ -43,15 +49,24 @@ $primaryColor:#f7b706;
 
 }
 nav.navbar{
-	height:80px;
+	height:120px;
 	.navbar-form{
 		height:60px;
 		margin-top:16px;
+		.input-group-btn span{
+			color:#F7B705
+		}
 		button.btn.btn-lg{
 			border:none;
 			background:none;
 			color:#faa74a;
 			font-size:24px;
+		}
+	}
+	a.navbar-brand{
+		height:70px;
+		img{
+			height:70px;
 		}
 	}
 }
@@ -61,16 +76,56 @@ nav.navbar{
 	color: #999;
 	background-color:$navBgColor;
 }
-#blueimp-gallery-carousel{
-	box-shadow:none;
-	margin:4px auto;
+
+.homepageCarousel{
+	margin-top:170px;
+	position:relative;
+	width:100%;
+	height:600px;
+	.owl-stage-outer{
+		width:100%;
+		height:600px;
+	}
+	.owl-nav{
+		position:absolute;
+		top:300px;
+		width:100%;
+		.owl-prev,.owl-next{
+			@include inlineBlockEle(40px,40px);
+			background-color:rgba(255,255,255,.5);
+			border:1px solid rgba(30,30,30,.5);
+			color:rgba(255,255,255,.5);
+			text-align:center;
+			line-height:40px;
+		}
+		.owl-next{
+			float:right;
+		}
+			
+	}
+	.owl-dots{
+		position:absolute;
+		top:550px;
+		width:100%;
+		height:10px;
+		text-align:center;
+		.owl-dot{
+			@include inlineBlockEle(10px,10px);
+			background-color:#ccc;
+			border-radius:5px;
+			margin-right:10px;
+			&.active{
+				background-color:#fff;
+			}
+		}
+	}
 }
 
 section#quick_navi_section{
-	min-height:400px;
+	min-height:220px;
 	background:$mainBgColor;
 	a.quick_btn{
-		width:100%;
+		width:80%;
 		height:100%;
 		display:inline-block;
 		border-radius:5px;
@@ -82,7 +137,7 @@ section#quick_navi_section{
 			width: 140px;
 			height:140px;
 			background-color:#fae39e;
-			margin:50px auto 20px auto;
+			margin:20px auto 20px auto;
 			border-radius:140px;
 			overflow:hidden;
 			img{
@@ -95,7 +150,7 @@ section#quick_navi_section{
 			border:0;
 			color:#47525f;
 			text-align:center;
-			margin-bottom:50px;
+			margin-bottom:20px;
 			font-weight:900;
 		}
 		&:hover{
@@ -192,42 +247,65 @@ section.product_list_section,.products_section{
 			}
 		}
 	}
-	.product{
-		height:350px;
-		
-		.productBlock{
-			width:98%;
-			height:350px;
-			border-radius:15px;
-			background-color:#fff;
-			border:1px solid #fff;
-			padding:30px;
-		}
-		.thumbnail{
-			float:left;
-			width:68%;
-			max-height:284px;
-			overflow:hidden;
-			img{
-				width:343px;
+	.case-carousel{
+		.product{			
+			.productBlock{
+				width:100%;
+				position: relative;
+				border-radius:15px;
+				background-color:#fff;
+				border:1px solid #fff;
+			    padding-bottom: 62.5%;
+			    background:no-repeat scroll;
+			    background-size:cover;
+			    margin-bottom:10px;
+			}
+			
+			.caption{
+				display:inline-block;
+			    position: absolute;
+		        width: 90%;
+			    bottom: 0px;
+			    text-align: right;
+				h3{
+					font-size:18px;
+					a{
+						color:#fff;
+					}
+				}
+				.description{
+					p{
+						font-size:14px;
+						color:#fff;
+					}	
+				}
+				.btn{
+					background-color:$primaryColor;
+					border-color:$primaryColor;
+				}
 			}
 		}
-		.caption{
-			display:inline-block;
-			width:28%;
-			margin-left:15px;
-			h3{
-				font-size:18px;
+		.owl-nav{
+			position:absolute;
+			width:112%;
+			left:-70px;
+			top:214px;
+			&>div{
+				display: inline-block;
+				width:50px;
+				height:50px;
+				background-color:#fff;
+				border-radius:3px;
+				text-align:center;
+				line-height:50px;
+				color:#999;
+				&:hover{
+					color:#666;
+					transition:color 2s;
+				}
 			}
-			.description{
-				height:180px;
-				div b{
-					font-size:14px;
-				}	
-			}
-			.btn{
-				background-color:$primaryColor;
-				border-color:$primaryColor;
+			.owl-next{
+				float:right;
 			}
 		}
 	}
@@ -262,7 +340,7 @@ section.quick_startup_section{
 			color:#888;
 			width:80%;
 			font-size:18px;
-			line-height:30px;
+			line-height:22px;
 			word-space:3px;
 			height:70px;
 		}
@@ -292,8 +370,8 @@ section.ants_list{
 		span.queen_header_icon{
 			vertical-align: top;
 			display:inline-block;
-			width:30px;
-			height:30px;
+			width:37px;
+			height:37px;
 			background:url(image_path('homepage/queens_header_icon.png')) no-repeat scroll;
 		}
 	}
@@ -302,8 +380,9 @@ section.ants_list{
 			margin:0px;
 			.ants_queen_contact_card{
 				display:none;
-				position:relative;
-				z-index:99;
+				position: absolute;
+			    left: 60px;
+			    z-index: 80;
 				margin:-15px auto 0px auto;
 				width:60%;
 				height:85px;
@@ -370,9 +449,9 @@ section.ants_feature_section{
 
 }
 section.contact_section{
-	min-height:200px;
+	min-height:100px;
 	background-color:$mainBgColor;
-	padding-top:80px;
+	padding-top:30px;
 	h5{
 		font-size:24px;
 		font-weight:900;

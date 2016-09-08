@@ -1209,19 +1209,19 @@ h4.text-right {
   background: transparent;
 }
 .gallery-thumbnail img {
-  -webkit-box-shadow: 0 0 0 3px #3498db;
-  box-shadow: 0 0 0 3px #3498db;
+  /*-webkit-box-shadow: 0 0 0 3px #3498db;*/
+  /*box-shadow: 0 0 0 3px #3498db;*/
   -webkit-transition: -webkit-transform 1s, box-shadow .5s;
   -moz-transition: -moz-transform 1s, box-shadow .5s;
   -o-transition: -o-transform 1s, box-shadow .5s;
   transition: transform 1s, box-shadow .5s;
 }
 .gallery-thumbnail:hover img {
-  animation: gallery-humbnail 0.6s forwards;
-  -webkit-animation: gallery-humbnail 0.6s forwards;
+  /*animation: gallery-humbnail 0.6s forwards;*/
+  /*-webkit-animation: gallery-humbnail 0.6s forwards;*/
   /* Safari and Chrome */
-  -webkit-box-shadow: 0 0 0 10px #3498db;
-  box-shadow: 0 0 0 10px #3498db;
+  /*-webkit-box-shadow: 0 0 0 10px #3498db;*/
+  /*box-shadow: 0 0 0 10px #3498db;*/
   -webkit-transform: scale(1.07);
   -ms-transform: scale(1.07);
   transform: scale(1.07);

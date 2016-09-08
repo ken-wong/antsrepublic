@@ -1,0 +1,32 @@
+<div class="row owl-carousel owl-theme case-carousel">
+  <% @products.each_with_index do |product, index|%>
+    <% if index%2 == 0 %>
+      <div class="item">
+    <% end %>
+        <div class="product">
+          <div class="productBlock" style="background-image:url(<%=product.avatar.small_url%>)">
+            <div class="caption bordered">
+              <h3>
+                <%= link_to(product.title, product) unless product.title.nil?%>
+              </h3>
+              <div class="description">
+                <p>
+                    <b>委托客户:</b>
+                    <%= product.client_name%>
+                </p>
+                <p>
+                    <b>参考价格:</b>
+                    <%= product.ref_price%>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% if index%2 != 0 %>
+      </div>
+    <% end %>
+   
+  <% end %>
+</div>
+
+    
