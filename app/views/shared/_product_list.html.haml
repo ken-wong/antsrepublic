@@ -1,0 +1,28 @@
+.row
+  - @products.each do |product|
+    .product.col-sm-6.col-md-6
+      .productBlock
+        .thumbnail.info-thumbnail
+          - if product.avatar
+            - if product.avatar.file and %w{jpg png gif bmp}.include?(product.avatar.file.extension.downcase)
+              = link_to(image_tag(product.avatar.url + "?imageView2/0/h/480"), product.avatar.url, target: '_blank')
+            - if product.avatar.file and %w{mp4 webm}.include?(product.avatar.file.extension.downcase)
+              %video{ src: product.avatar.url , controls: "controls"}
+
+
+        .caption.bordered.background-white
+          %h3= link_to(product.title, product) unless product.title.nil?
+          .description
+            %p
+              %b 案例类型:
+              = product.category
+            %p
+              %b 委托客户:
+              = product.client_name
+            %p
+              %b 参考价格:
+              = product.ref_price
+
+          %p.buttons
+            = link_to '查看详情', product, class: 'btn btn-lead'
+    
