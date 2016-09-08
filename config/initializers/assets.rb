@@ -15,3 +15,4 @@ Rails.application.config.assets.precompile += %w( neat/neat-blue.css )
 Rails.application.config.assets.precompile += %w( welcome.js task_fuc.js edit_need_fuc.js)
 
 Rails.application.config.assets.precompile += %w( video-js.swf vjs.eot vjs.svg vjs.ttf vjs.woff )
+Rails.application.config.assets.precompile += %w( owl.carousel.min.js owl.carousel.min.css owl.theme.default.min.css owl.theme.green.min.css)

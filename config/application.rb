@@ -48,7 +48,5 @@ module Antsrepublic
         resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'javascripts', 'owlcarousel')
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'stylesheets', 'owlcarousel')
   end
 end
