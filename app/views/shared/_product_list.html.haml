@@ -3,10 +3,12 @@
     .product.col-sm-6.col-md-6
       .productBlock
         .thumbnail.info-thumbnail
-          - unless product.avatar.nil?
-            = link_to(image_tag(product.avatar.small_url), product) unless product.avatar.nil?
-          - else
-            %img{:alt => "...", :src => image_path("neat/img#{product.id}.jpg")}/
+          - if product.avatar
+            - if product.avatar.file and %w{jpg png gif bmp}.include?(product.avatar.file.extension.downcase)
+              = link_to(image_tag(product.avatar.url + "?imageView2/0/h/480"), product.avatar.url, target: '_blank')
+            - if product.avatar.file and %w{mp4 webm}.include?(product.avatar.file.extension.downcase)
+              %video{ src: product.avatar.url , controls: "controls"}
+
 
         .caption.bordered.background-white
           %h3= link_to(product.title, product) unless product.title.nil?
