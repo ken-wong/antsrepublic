@@ -85,3 +85,4 @@ gem 'state_machines-activerecord'
 gem 'blueimp-gallery'
 gem 'acts-as-messageable'
 gem "jquery-fileupload-rails"
+gem 'tzinfo-data'

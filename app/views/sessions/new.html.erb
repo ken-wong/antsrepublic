@@ -1,15 +1,40 @@
-<section>
+<link href="/assets/selfNeed.css">
+<section style="background-color:#ECF4F7">
 	<div class="container">
 	    <div class="row">
 			<div class="col-sm-12 col-md-offset-3 col-md-6">
-				<div class="thumbnail info-thumbnail background-lead color-white">
-					<div class="caption">
-						<h3><span class="fa fa-user"></span> 登陆</h3>
-						<%= simple_form_for(:session, url: login_path) do |f| %>
-							<%= f.input :email, label: User.human_attribute_name("email") %>
-							<%= f.input :password, label: User.human_attribute_name("password") %>
-						 	<%= f.button :submit, t(:login) %>
-						<% end %>
+				<div class="thumbnail info-thumbnail">
+					<div class="caption" id="jackLogin">
+						<h3>登录</h3>
+						<form novalidate="novalidate" class="simple_form session form-horizontal" action="/login" accept-charset="UTF-8" method="post" role="form">
+							<input name="utf8" type="hidden" value="✓">
+							<input type="hidden" name="authenticity_token" value="dHFmQR0JrhdN1paZT+SETyW8p7ReFxqa1DRMznT03B24q47938sVgqFCzoXdTQyLcP4rK3WcN5PzGujb0bLS2g==">
+						<div class="form-group email required session_email">
+							<label class="email required control-label col-sm-2" for="session_email">邮箱</label>
+							<div class="col-sm-10">
+								<input class="string email required form-control" type="email" name="session[email]" id="session_email">
+							</div>
+						</div>
+						<div class="form-group password required session_password">
+							<label class="password required control-label col-sm-2" for="session_password">密码</label>
+							<div class="col-sm-10">
+								<input class="password required form-control" type="password" name="session[password]" id="session_password">
+							</div>
+						</div>
+						<div class="col-sm-offset-2 col-sm-10">
+							<input type="submit" name="commit" value="登录" class="btn btn-block btn-info" style="background-color:#5EB4E7;color:#fff;font-weight: bold;letter-spacing: 2px;font-size: 26px;">
+						</div>
+						</form>
+					</div>
+					<!-- 快速登录 -->
+					<div style="clear: both"></div>
+					<div class="fastLogin">
+						<h3>快速登录</h3>
+						<div class="btn-group">
+							<a href="#" class="xinlang" title="新浪登录"></a>
+							<a href="#" class="weChat" title="微信登录"></a>
+							<a href="#" class="QQ" title="qq登录"></a>
+						</div>
 					</div>
 				</div>
 			</div>
