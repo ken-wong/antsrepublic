@@ -365,6 +365,76 @@ section.product_list_section{
 		}
 	}
 }
+.products_section{
+	min-height:400px;
+	background:$mainBgColor;
+	.product_list_header{
+		h2{
+			font-weight:900;
+			.product_list_header_icon{
+				@include inlineBlockIcon(image_path('homepage/show_cases_icon.png'),38px,38px);
+				vertical-align: top;
+			}
+		}
+		ul{
+			margin-top:20px;
+			li{
+				a.nav-link{
+					font-size:20px;
+					color:#000;
+					border-radius:0px;
+					border-bottom:3px solid $mainBgColor;
+					&.active{
+						border-color:$primaryColor;
+					}
+					&:hover{
+						background-color:transparent;
+						border-color:$primaryColor;
+					}
+				}
+			}
+		}
+	}
+	.product{
+		height:350px;
+		
+		.productBlock{
+			width:98%;
+			height:350px;
+			border-radius:15px;
+			background-color:#fff;
+			border:1px solid #fff;
+			padding:30px;
+		}
+		.thumbnail{
+			float:left;
+			width:68%;
+			max-height:284px;
+			overflow:hidden;
+			img{
+				width:343px;
+			}
+		}
+		.caption{
+			display:inline-block;
+			width:28%;
+			margin-left:15px;
+			h3{
+				font-size:18px;
+			}
+			.description{
+				height:180px;
+				div b{
+					font-size:14px;
+				}	
+			}
+			.btn{
+				background-color:$primaryColor;
+				border-color:$primaryColor;
+			}
+		}
+	}
+}
 
 section.quick_startup_section{
 	min-height:450px;
