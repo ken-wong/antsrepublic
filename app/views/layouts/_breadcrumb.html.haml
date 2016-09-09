@@ -47,6 +47,14 @@
             %li= link_to '个人中心', dashboard_user_path(current_user)
             %li= link_to '项目管理', user_path(current_user)
             
+        - if current_page?(signup_path)
+          %li= link_to I18n.t('root_path'), root_path
+          %li= '注册'
+
+        - if current_page?(login_path)
+          %li= link_to I18n.t('root_path'), root_path
+          %li= '登陆'
+
 
         - if !@product.nil? and current_page?(new_product_path)
           %li= link_to I18n.t('root_path'), root_path
