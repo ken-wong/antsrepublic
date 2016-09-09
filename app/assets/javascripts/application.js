@@ -17,7 +17,9 @@
 //= require bootstrap-datetimepicker.min
 //= require owlcarousel/owl.carousel.min.js
 //= require select2.min
+//= require jquery.scrollUp.min
 //= require locales/bootstrap-datetimepicker.zh-CN
+
 
 //= require neat/responsive-calendar-min.js
 

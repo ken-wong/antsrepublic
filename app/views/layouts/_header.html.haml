@@ -1,7 +1,7 @@
 - if current_page?(root_path) 
   - fixedNav = 'fixed-nav'
 
-#nav-wrapper.background-white.color-black{:class => fixedNav}
+#nav-wrapper.background-white.color-black{:class => fixedNav, 'data-spy'=>"affix", 'data-offset-top'=>"1"}
   %div.topNav
     .container
       .row
@@ -12,10 +12,14 @@
               = "你好, #{current_user.name}"
             %li 
               = link_to '个人中心', dashboard_user_path(session[:user_id])
-            %li
-              = link_to t('logout'), logout_path, method: :delete 
             %li  
               = link_to t('我的项目'), project_list_user_path(current_user)
+            %li
+              = link_to dashboard_user_path(current_user) do
+                消息中心
+                %span.badge.badge-danger 4
+            %li
+              = link_to t('logout'), logout_path, method: :delete 
           - else
             %li
               %a{:href => signup_path}
@@ -25,9 +29,7 @@
               %a{:href => login_path}
                 %img{:src => image_path("icon_profile.png")}
                 登录
-          
-          %li  
-            = link_to t('联系客服'), '#'
+
           %li
             %img{:src => image_path("icon_telephone.png")}  
             4000 - 5566 - 36

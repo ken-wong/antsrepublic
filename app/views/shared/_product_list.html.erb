@@ -4,7 +4,9 @@
       <div class="item">
     <% end %>
         <div class="product">
-          <div class="productBlock" style="background-image:url(<%=product.avatar.small_url%>)">
+          <div class="productBlock" >
+            <div class="product-image" style="background-image:url(<%=product.avatar.small_url%>)">
+            </div>
             <div class="caption bordered">
               <h3>
                 <%= link_to(product.title, product) unless product.title.nil?%>
@@ -17,6 +19,12 @@
                 <p>
                     <b>参考价格:</b>
                     <%= product.ref_price%>
+                </p>
+                <p>
+                  <span class="glyphicon glyphicon-heart"></span>
+                  <span>100</span>
+                  <span class="glyphicon glyphicon-share"></span>
+                  <span>100</span>
                 </p>
               </div>
             </div>
