@@ -299,12 +299,10 @@ section.product_list_section{
 		.product{			
 			.productBlock{
 				width:100%;
-				border-radius:15px;
 				background-color:#fff;
 				border:1px solid #fff;
 			    margin-bottom:10px;
 			    .product-image{
-				border-radius:15px;
 				    background:no-repeat scroll;
 				    background-size:cover;
 			    	width:100%;
@@ -345,7 +343,7 @@ section.product_list_section{
 				display: inline-block;
 				width:50px;
 				height:50px;
-				background-color:#fff;
+				background-color:#ccc;
 				border-radius:3px;
 				text-align:center;
 				line-height:50px;
@@ -356,11 +354,11 @@ section.product_list_section{
 				}
 			}
 			.owl-prev{
-				left:-70px;
+				left:30px;
 				top:310px;
 			}
 			.owl-next{
-				right:-70px;
+				right:30px;
 				top:310px;
 			}
 		}

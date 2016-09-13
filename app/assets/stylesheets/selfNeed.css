@@ -114,8 +114,8 @@ button#sureChoose {
 }
 #jackLogin label{
     font-weight: bold;
-    letter-spacing: 3px;
-    font-size:18px;
+    letter-spacing:1px;
+    font-size:14px;
     line-height: 40px;
 }
 #jackLogin .form-control{

@@ -13,4 +13,5 @@
             =link_to "影片", root_path(category: "影片"), class: "nav-link  #{active_class(root_path(category: '影片'))} "
           %li.nav-item
             =link_to "多媒体", root_path(category: "多媒体"), class: "nav-link #{active_class(root_path(category: '多媒体'))}"
+  .container-fluid
     = render "shared/product_list"
