@@ -1,5 +1,5 @@
 ActiveAdmin.register AntPoint do
-permit_params :total_amounts, :total_projects, :total_ants
+permit_params :total_amounts, :total_projects, :total_ants, :ants_text
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
