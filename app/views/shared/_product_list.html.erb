@@ -5,8 +5,11 @@
     <% end %>
         <div class="product">
           <div class="productBlock" >
+          <%= link_to(product) do%>
             <div class="product-image" style="background-image:url(<%=product.avatar.small_url%>)">
             </div>
+            <% end %>
+
             <div class="caption bordered">
               <h3>
                 <%= link_to(product.title, product) unless product.title.nil?%>
@@ -22,9 +25,9 @@
                 </p>
                 <p>
                   <span class="glyphicon glyphicon-heart"></span>
-                  <span>100</span>
+                  <span><%= product.votes_for.size %></span>
                   <span class="glyphicon glyphicon-share"></span>
-                  <span>100</span>
+                  <span><%= product.followers_count %></span>
                 </p>
               </div>
             </div>
