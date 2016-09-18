@@ -15,8 +15,8 @@ class Api::QueenWorksController < Api::BaseController
       #@products = QueenWork.where("category = '#{params[:category]}'").page params[:page]
      	
      	#TODO: per page 12
-     	@q = QueenWork.ransack(category_eq: params[:category]).page(params[:page])
-    	@products = @q.result
+     	@q = QueenWork.ransack(category_eq: params[:category])
+    	@products = @q.result.page params[:page]
     end
   end
 end
