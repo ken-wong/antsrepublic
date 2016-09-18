@@ -52,4 +52,8 @@ module ApplicationHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def message_count
+    message_count = User.find(current_user).messages.unreaded.size if current_user
+  end
 end

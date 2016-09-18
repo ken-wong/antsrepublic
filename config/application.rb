@@ -32,6 +32,9 @@ module Antsrepublic
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.i18n.available_locales = ['zh-CN', :en]
+    config.assets.paths << "#{Rails.root}/vendor/assets/*"
+    config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
+    config.assets.paths << "#{Rails.root}/vendor/assets/stylesheets"
     config.generators do |g|
       g.test_framework :rspec,
       fixtures: true,

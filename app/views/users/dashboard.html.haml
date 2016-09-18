@@ -14,9 +14,10 @@
                 %span= m.created_at.strftime('%Y-%m-%d %H:%M:%S').to_s  
                 - unless m.opened 
                   %strong= simple_format(m.body)
+                  - m.read
                 - else
                   %span= simple_format(m.body)
-                  - m.read
+                  
           %p
             = link_to_next_page @messages, '下一页'
 

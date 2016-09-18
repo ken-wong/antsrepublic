@@ -1,11 +1,16 @@
 $(function(){
+    $.scrollUp({
+    	scrollDistance: 600, 
+    	scrollText: '返回顶部'
+    });
+
 	$('.homepageCarousel.owl-carousel').owlCarousel({
-		stagePadding: 50,
+		stagePadding: 300,
 		loop:true,
-		margin:10,
+		margin:50,
 		nav:true,
 		dots:true,
-		navText:['<','>'],
+		navText:['',''],
 		responsive:{
 	        0:{
 	            items:1

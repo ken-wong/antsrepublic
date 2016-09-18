@@ -4,7 +4,12 @@
       <div class="item">
     <% end %>
         <div class="product">
-          <div class="productBlock" style="background-image:url(<%=product.avatar.small_url%>)">
+          <div class="productBlock" >
+          <%= link_to(product) do%>
+            <div class="product-image" style="background-image:url(<%=product.avatar.small_url%>)">
+            </div>
+            <% end %>
+
             <div class="caption bordered">
               <h3>
                 <%= link_to(product.title, product) unless product.title.nil?%>
@@ -18,6 +23,12 @@
                     <b>参考价格:</b>
                     <%= product.ref_price%>
                 </p>
+                <p>
+                  <span class="glyphicon glyphicon-heart"></span>
+                  <span><%= product.votes_for.size %></span>
+                  <span class="glyphicon glyphicon-share"></span>
+                  <span><%= product.followers_count %></span>
+                </p>
               </div>
             </div>
           </div>
@@ -28,5 +39,9 @@
    
   <% end %>
 </div>
-
+<div class="row">
+  <div class="col-sm-12 text-right">
+    <a href="/queen_works/search?utf8=✓&queen_work%5Btitle%5D=&queen_work%5Bcategory%5D=效果图">更多</a>
+  </div>
+</div>
     
