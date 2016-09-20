@@ -2,7 +2,7 @@
     <% banners =  Banner.where(state: "active").order(created_at: :desc).first(4) %>
     <% banners.each do |banner| %>
 	    <div class="item">
-	        <%= link_to image_tag(banner.image_url(:thumb), alt: banner.title), banner.image_url, title: banner.title %>
+	        <%= link_to image_tag(banner.image_url(:thumb), alt: banner.title), banner.linkage, title: banner.title, target:'_blank' %>
 	    </div>
     <% end %>
 </div>
