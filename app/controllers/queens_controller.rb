@@ -6,7 +6,7 @@ class QueensController < ApplicationController
   end
 
   def index
-    @queens = Queen.with_role(:queen)
+    @queens = Queen.with_role(:queen).page params[:page]
   end
 
   def new

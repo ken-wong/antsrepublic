@@ -11,7 +11,7 @@ class QueenWorksController < ApplicationController
     end
     
     if params[:category].nil?
-      @products = QueenWork.all.page params[:page]
+      @products = QueenWork.page params[:page]
     else
       @products = QueenWork.where("category = '#{params[:category]}'")
     end

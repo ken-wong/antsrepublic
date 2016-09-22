@@ -7,13 +7,13 @@ class ProductsController < ApplicationController
   def index
     
     if params[:user_id].nil?
-      @products = Product.all
+      @products = Product.page params[:page]
     else
       @products = Product.where("user_id = #{params[:user_id]}")  
     end
     
     if params[:category].nil?
-      @products = QueenWork.all
+      @products = QueenWork.page params[:page]
     else
       @products = QueenWork.where("category = '#{params[:category]}'")
     end
