@@ -40,7 +40,7 @@ $(function(){
 		$productList.eq(indexValue).addClass("active_class");
 		$.ajax({
 			url:"/api/queen_works.json",
-			type:"post",
+			type:"GET",
 			data:{category:'效果图'},
 			dataType:"json",
 			success:function(data){
