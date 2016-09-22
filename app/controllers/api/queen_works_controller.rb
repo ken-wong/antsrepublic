@@ -10,13 +10,13 @@ class Api::QueenWorksController < Api::BaseController
 
   def index
   	if params[:category].nil?
-      @queen_works = QueenWork.all
+      @products = QueenWork.page params[:page]
     else
       #@products = QueenWork.where("category = '#{params[:category]}'").page params[:page]
      	
      	#TODO: per page 12
-     	@q = QueenWork.ransack(category_eq: params[:category])
-    	@queen_works = @q.result.page params[:page]
+     	@q = QueenWork.ransack(category_eq: params[:category]).page(params[:page])
+    	@products = @q.result
     end
   end
 end
