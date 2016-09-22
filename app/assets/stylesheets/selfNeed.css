@@ -121,6 +121,12 @@ button#sureChoose {
 #jackLogin .form-control{
     height: 50px;
 }
+#jackLogin button{
+    background-color:#5EB4E7;
+    color:#fff;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
 .fastLogin{
      text-align: center;
 }

@@ -1,4 +1,5 @@
 class Api::QueenWorksController < Api::BaseController
+#encoding=UTF-8
   def search
     @q = QueenWork.ransack(title_cont: params[:q])
     @queen_works = @q.result
@@ -10,13 +11,14 @@ class Api::QueenWorksController < Api::BaseController
 
   def index
   	if params[:category].nil?
-      @products = QueenWork.page params[:page]
+      @queen_works = QueenWork.all
     else
       #@products = QueenWork.where("category = '#{params[:category]}'").page params[:page]
      	
      	#TODO: per page 12
-     	@q = QueenWork.ransack(category_eq: params[:category]).page(params[:page])
-    	@products = @q.result
+      @q = QueenWork.ransack(category_eq: params[:category])
+      @queen_works = @q.result.page params[:page]
+
     end
   end
 end

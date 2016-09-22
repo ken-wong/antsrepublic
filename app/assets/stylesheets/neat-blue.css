@@ -535,7 +535,7 @@ footer h1 {
   margin: 0 0 25px 0;
 }
 [class*="col-"] {
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
 }
 form [class*="col-"],
 footer [class*="col-"] {

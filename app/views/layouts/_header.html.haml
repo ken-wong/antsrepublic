@@ -1,7 +1,9 @@
 - if current_page?(root_path) 
   - fixedNav = 'fixed-nav'
+  - isaffix = "affix"
+  - affixOffset = "1"
 
-#nav-wrapper.background-white.color-black{:class => fixedNav, 'data-spy'=>"affix", 'data-offset-top'=>"1"}
+#nav-wrapper.background-white.color-black{:class => fixedNav, 'data-spy'=> isaffix, 'data-offset-top'=> affixOffset}
   %div.topNav
     .container
       .row

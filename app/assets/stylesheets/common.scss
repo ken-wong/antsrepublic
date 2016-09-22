@@ -336,7 +336,7 @@ section.product_list_section{
 			}
 		}
 		.owl-nav{
-			width:112%;
+			width:100%;
 			
 			&>div{
 				position:absolute;
@@ -347,19 +347,20 @@ section.product_list_section{
 				border-radius:3px;
 				text-align:center;
 				line-height:50px;
-				color:#999;
+				color:#fff;
+				opacity:.5;
 				&:hover{
-					color:#666;
-					transition:color 2s;
+					opacity:1;
+					transition:opacity 1s;
 				}
 			}
 			.owl-prev{
 				left:30px;
-				top:310px;
+				top:482px;
 			}
 			.owl-next{
 				right:30px;
-				top:310px;
+				top:482px;
 			}
 		}
 	}

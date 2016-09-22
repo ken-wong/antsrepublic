@@ -14,11 +14,7 @@ class WelcomeController < ApplicationController
     	@ant_point.total_amounts ||= 0 
     	@ant_point.total_projects ||= 0
     	@ant_point.total_ants ||= 0
-    	# 随机加数字, 假
-    	if rand(5) > 3
-    		@ant_point.total_amounts += rand(3000..150000) 
-    		@ant_point.total_projects += rand(0..5) 
-    	end
+    	
     	
     	@ant_point.total_ants += rand(0..2) if rand(10)>8
     	

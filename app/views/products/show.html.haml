@@ -1,3 +1,16 @@
+%section.queens_work_slider
+  .container-fliud
+    .row
+      .col-sm-12
+        - if @product.avatar
+          - if @product.avatar.file and %w{jpg png gif bmp}.include?(@product.avatar.file.extension.downcase)
+            = image_tag(@product.avatar.url + "?imageView2/0/h/480", width:"100%")
+          - if @product.avatar.file and %w{mp4 webm}.include?(@product.avatar.file.extension.downcase)
+            //https://github.com/seanbehan/videojs_rails
+            =# @product.avatar.url
+            =# videojs_rails sources: { mp4: @product.avatar.url, webm: @product.avatar.url + "/avthumb/webm"}, setup: "{}", controls: true, width:"90%"
+            %video{ src: @product.avatar.url , width: "80%", controls: "controls"}
+
 %section.queens_work_title
   .container
     .row
@@ -14,23 +27,11 @@
             %span.bookmark_icon
           / = @product.followers_count          
 
-
-
         - if current_user and current_user.voted_for? @product
           %span.like_icon.liked
         - else
           %a{:href => vote_it_queen_work_path(@product), :title => "点赞"}
             %span.like_icon
-    
-%section.queens_work_slider
-  //https://github.com/seanbehan/videojs_rails
-  - if @product.avatar
-    - if @product.avatar.file and %w{jpg png gif bmp}.include?(@product.avatar.file.extension.downcase)
-      = link_to(image_tag(@product.avatar.url + "?imageView2/0/h/480"), @product.avatar.url, target: '_blank')
-    - if @product.avatar.file and %w{mp4 webm}.include?(@product.avatar.file.extension.downcase)
-      =# @product.avatar.url
-      =# videojs_rails sources: { mp4: @product.avatar.url, webm: @product.avatar.url + "/avthumb/webm"}, setup: "{}", controls: true, width:"90%"
-      %video{ src: @product.avatar.url , width: "80%", controls: "controls"}
 
 %section.queens_work_desc
   .container
@@ -105,8 +106,6 @@
         %h4 点赞历史
       .col-md-6
         %h4 相关案例
-= render :partial => 'welcome/ants_feature'
-= render :partial => 'welcome/contact_section'
       
 
 
