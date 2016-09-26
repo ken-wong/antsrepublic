@@ -2,15 +2,7 @@
 <section style="background-color:#ECF4F7">
 	<div class="container">
 	    <div class="row">
-			<% [:error, :warning, :notice, :message].each do |key| %>
-			  <% if flash[key] %>
-			    <p>
-			      <div class='text-center alert alert-danger'>
-			        <%= content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}" %> 
-			       </div>
-			    </p>
-			  <% end %>
-			<% end %>      
+			     
 			<div class="col-sm-12 col-md-offset-3 col-md-6">
 				<div class="thumbnail info-thumbnail">
 					<div class="caption" id="jackLogin">
