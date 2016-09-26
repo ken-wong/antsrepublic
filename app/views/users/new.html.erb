@@ -1,9 +1,4 @@
-<style>
-#jackLogin label{
-	line-height: 55px;
-}
-</style>
-<section style="background-color:#ECF4F7">
+<section style="background-color:#ECF4F7" class="userSignup">
 	<div class='container'>	
 		<div class='row'>
 			<div class='col-sm-12 col-md-offset-3 col-md-6'>
@@ -11,37 +6,41 @@
 					<div class="caption" id="jackLogin">
 						<h3 class="col-sm-offset-3 col-sm-9">注册</h3>
 					
-					<%= simple_form_for @user, defaults: { input_html: { class: 'default_class' } } do |f| %>
-						<div class="form-group">
-							<label class="control-label col-sm-3">姓名*</label>
-							<div class="col-sm-9">
-							  <%= f.input :name, label: false %>
+						<%= simple_form_for @user, defaults: { input_html: { class: 'default_class' } } do |f| %>
+							<div class="form-group">
+								<label class="control-label col-sm-3 text-right">*邮箱</label>
+								<div class="col-sm-9">
+								  <%= f.input :email, label: false %>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-3">邮箱*</label>
-							<div class="col-sm-9">
-							  <%= f.input :email, label: false %>
+							<div class="form-group">
+								<label class="control-label col-sm-3 text-right">*密码</label>
+								<div class="col-sm-9">
+								  <%= f.input :password, label: false %>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-3">密码*</label>
-							<div class="col-sm-9">
-							  <%= f.input :password, label: false %>
+							<div class="form-group">
+								<label class="control-label col-sm-3 text-right">*确认密码</label>
+								<div class="col-sm-9">
+								  <%= f.input :password_confirmation, label: false %>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-3">确认密码*</label>
-							<div class="col-sm-9">
-							  <%= f.input :password_confirmation, label: false %>
+							<div class="col-sm-offset-3 col-sm-9">
+							  	<%= f.button :submit, value: '注册',class:'btn btn-block btn-info"',:style=>"background-color:#5EB4E7;color:#fff;letter-spacing: 2px;font-size: 25px;" %>
 							</div>
+						<% end %>
+						
+					</div>
+					<!-- 快速登录 -->
+					<div style="clear: both"></div>
+					<div class="fastLogin">
+						<h3>快速登录</h3>
+						<div class="btn-group">
+							<a href="#" class="xinlang" title="新浪登录"></a>
+							<a href="#" class="weChat" title="微信登录"></a>
+							<a href="#" class="QQ" title="qq登录"></a>
 						</div>
-						<div class="col-sm-offset-3 col-sm-3">
-						  	<%= f.button :submit, value: '注册',class:'btn btn-block btn-info"',:style=>"background-color:#5EB4E7;color:#fff;letter-spacing: 2px;font-size: 14px;" %>
-						</div>
-					<% end %>
-					
-				</div>
+					</div>
 				</div>
 			</div>
 		</div>

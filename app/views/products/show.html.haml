@@ -1,15 +1,14 @@
 %section.queens_work_slider
-  .container-fliud
+  .container
     .row
-      .col-sm-12
-        - if @product.avatar
-          - if @product.avatar.file and %w{jpg png gif bmp}.include?(@product.avatar.file.extension.downcase)
-            = image_tag(@product.avatar.url + "?imageView2/0/h/480", width:"100%")
-          - if @product.avatar.file and %w{mp4 webm}.include?(@product.avatar.file.extension.downcase)
-            //https://github.com/seanbehan/videojs_rails
-            =# @product.avatar.url
-            =# videojs_rails sources: { mp4: @product.avatar.url, webm: @product.avatar.url + "/avthumb/webm"}, setup: "{}", controls: true, width:"90%"
-            %video{ src: @product.avatar.url , width: "80%", controls: "controls"}
+      - if @product.avatar
+        - if @product.avatar.file and %w{jpg png gif bmp}.include?(@product.avatar.file.extension.downcase)
+          = image_tag(@product.avatar.url + "?imageView2/0/h/480", width:"100%")
+        - if @product.avatar.file and %w{mp4 webm}.include?(@product.avatar.file.extension.downcase)
+          //https://github.com/seanbehan/videojs_rails
+          =# @product.avatar.url
+          =# videojs_rails sources: { mp4: @product.avatar.url, webm: @product.avatar.url + "/avthumb/webm"}, setup: "{}", controls: true, width:"90%"
+          %video{ src: @product.avatar.url , width: "80%", controls: "controls"}
 
 %section.queens_work_title
   .container
@@ -40,9 +39,6 @@
         %h2
           %span.desc_title_icon
           %strong 项目说明
-        %p.ref_price
-          参考价格：
-          %strong= @product.ref_price
         %p
           = @product.description
       

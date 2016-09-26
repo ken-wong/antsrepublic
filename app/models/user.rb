@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # admin, visitor, queen, owner
   # 
   validates :email, presence: true
-  validates :name, presence: true
+  validates :name, presence: false
   validates :email, uniqueness: true
 
   has_one :profile

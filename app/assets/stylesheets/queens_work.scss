@@ -8,7 +8,11 @@ section.queens_work_title{
 	padding:0;
 	height:40px;
 	margin-top:-40px;
-	background-color:rgba(0,0,0,.5);
+	background: transparent;
+	.container{
+		
+		background-color:rgba(0,0,0,.5);
+	}
 	.col-md-10{
 		p{
 			line-height:40px;

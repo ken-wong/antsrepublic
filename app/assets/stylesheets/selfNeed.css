@@ -99,6 +99,10 @@ button#sureChoose {
 
 
 // 登录
+section.userSignup, section.userLogin{
+    padding-bottom:200px;
+}
+
 #jackLogin h3{
     text-align: center;
     font-size: 25px;
@@ -115,17 +119,17 @@ button#sureChoose {
 #jackLogin label{
     font-weight: bold;
     letter-spacing:1px;
-    font-size:14px;
+    font-size:20px;
     line-height: 40px;
 }
 #jackLogin .form-control{
-    height: 50px;
+    height: 40px;
 }
-#jackLogin button{
+#jackLogin input[type='submit']{
     background-color:#5EB4E7;
     color:#fff;
     letter-spacing: 2px;
-    font-size: 14px;
+    font-size: 25px;
 }
 .fastLogin{
      text-align: center;
