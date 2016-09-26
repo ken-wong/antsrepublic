@@ -1,3 +1,13 @@
+
+<% [:error, :warning, :notice, :message].each do |key| %>
+  <% if flash[key] %>
+    <p>
+      <div class='text-center alert alert-danger'>
+        <%= content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}" %> 
+       </div>
+    </p>
+  <% end %>
+<% end %> 
 <section style="background-color:#ECF4F7" class="userSignup">
 	<div class='container'>	
 		<div class='row'>
