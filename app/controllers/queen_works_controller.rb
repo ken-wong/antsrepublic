@@ -5,7 +5,7 @@ class QueenWorksController < ApplicationController
   def index
     @queen_work = QueenWork.new
     if params[:user_id].nil?
-      @products = Product.all
+      @products = Product.page params[:page]
     else
       @products = Product.where("user_id = #{params[:user_id]}")  
     end
@@ -21,7 +21,10 @@ class QueenWorksController < ApplicationController
 
   def search
     @queen_work = QueenWork.new(queen_work_params)
-    @products = QueenWork.where("category = '#{params[:queen_work][:category]}' and title like '%#{params[:queen_work][:title]}%'").page params[:page]
+
+    _sql = "category = '#{params[:queen_work][:category]}' and title like '%#{params[:queen_work][:title]}%'"
+    @products = QueenWork.where(_sql).page params[:page]
+    
     render '/products/index'
   end
 
