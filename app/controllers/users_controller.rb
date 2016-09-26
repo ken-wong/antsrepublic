@@ -3,6 +3,12 @@ class UsersController < ApplicationController
     @messages = User.find(current_user).messages.page params[:page]
   end
   
+  def mread
+    m = Message.find(params[:mid])
+    m.read
+    redirect_to dashboard_user_path  
+  end
+
   def new
     @user = User.new
   end
@@ -39,6 +45,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
+
 
   def following_list
     @products = current_user.all_following

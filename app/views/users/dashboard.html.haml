@@ -13,8 +13,9 @@
               %li
                 %span= m.created_at.strftime('%Y-%m-%d %H:%M:%S').to_s  
                 - unless m.opened 
-                  %strong= simple_format(m.body)
-                  - m.read
+                  %strong
+                    = simple_format(m.body)                  
+                    = link_to '确认已读', mread_user_path(mid: m.id), class: 'btn btn-info'
                 - else
                   %span= simple_format(m.body)
                   
