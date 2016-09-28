@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :password_resets
+
   resources :attachments
   resources :tasks do
     member do
