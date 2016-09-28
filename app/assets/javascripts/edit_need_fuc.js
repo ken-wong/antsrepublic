@@ -58,28 +58,6 @@
 			$("form.edit_need #need_reference_product_ids").val(convertAarryToString(_caseModel.data));
 		});
 
-    $(document).on('change', '.tab-pane .tag input[type=checkbox]', function(){
-      var checkbox = $(this);
-      var content = checkbox.closest('.tag').find('label').html();
-      if(checkbox.prop('checked')){
-        tablistChange(content, 'add');
-      }else{
-        tablistChange(content, 'delete');
-      }
-    });
-
-    $(document).on('click', '.tablist-tag .tablist-close', function(){
-      var list = $('.tab-pane .tag');
-      var content = $(this).closest('.tablist-tag').find('.tablist-content').html();
-      $(this).closest('.tablist-tag').remove();
-      for(var i = 0;i <list.length; i++){
-        var item = $(list[i]);
-        if(item.find('label').html() == content){
-          item.find('input[type=checkbox]').prop('checked',false);
-        }
-      }
-    });
-
 	});
 
 	// 参考案例弹出层
@@ -93,11 +71,11 @@
 			var add=addCase.html();
 			if(add=="+")
 			{
-				addCase.css("line-height","30px");
-				addCase.html("-");
+				// addCase.css("line-height","30px");
+				addCase.html("x");
 			}
 			else{
-				addCase.css("line-height","40px");
+				// addCase.css("line-height","40px");
 				addCase.html("+");
 			}
 			chooseCase.toggle();
@@ -233,24 +211,5 @@
 
     var _queenModel = new Model();
     var _caseModel = new Model();
-
-  function tablistChange(content,type){
-    var block = $('#tablist');
-    var list =  block.find('div');
-    var contain = false;
-    for(var i = 0;i < list.length; i++){
-      var item = $(list[i]);
-      if(item.find('.tablist-content').html() == content){
-        contain = item;
-      }
-    }
-    if(type == "add"){
-      contain || block.append('<div class="tablist-tag">\
-                                <span class="tablist-close"></span>\
-                                <div class="tablist-content">' + content + '</div>\
-                              </div>');
-    }else if(type == "delete"){
-      contain && contain.remove();
-    }
-  }
+  
 }());

@@ -63,8 +63,7 @@
 .selected_queen_list, .selected_case_list{
 	background-color:white;
 	border-radius:10px;
-	height:200px;
-	min-height:200px;
+	min-height:160px;
 	.col-md-2{
 		a.queen{
 			@include inlineBlockEle(100px,130px);
@@ -123,59 +122,5 @@
 	a.add-product{display:none}
 	&:hover{
 		a.add-product{display:block}
-	}
-}
-
-.choose_tablist{
-	margin-bottom: 20px;
-	.tablist-tag{
-		padding: 0 10px;
-		display:inline-block;
-		margin-right:10px;
-		color:#fff;
-		height: 30px;
-		font-size:14px;
-    line-height: 30px;
-    border-radius: 5px;
-		background-color:#5eb4e7;
-		vertical-align:top;
-		box-shadow: 1px 1px  3px #5eb4e7;
-		.tablist-close{
-			position:relative;
-			z-index:1;
-			display:inline-block;
-			height:30px;
-			width:10px;
-			cursor:pointer;
-			&:before,&:after{
-				content: '';
-				position:absolute;
-				z-index:2;
-				display:block;
-				left: 50%;
-				top: 50%;
-				background-color: #fff;
-				-webkit-transform: roate(45deg);
-				transform: rotate(45deg);
-			}
-			&:before{
-				margin-top:-5px;
-				margin-left:-1px;
-				width:2px;
-				height: 10px; 
-			}
-			&:after{
-				margin-top:-1px;
-				margin-left:-5px;
-				height:2px;
-				width:10px;
-			}
-		}
-		.tablist-content{
-			display:inline-block;
-			text-align:center;
-			min-width:60px;
-			vertical-align:top;
-		}
 	}
 }
