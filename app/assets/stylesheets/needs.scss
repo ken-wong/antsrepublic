@@ -18,40 +18,27 @@
 			font-size:16px;
 		}
 		.project_tags_block{
-			ul.nav.nav-tabs{
-				width:10%;
-				float:left;
-				border-bottom:0px;
-				li{
-					margin-top:0px;
-					margin-bottom:4px;
-					a{
-						margin-right:0px;
-						border:0px;
-						border-top-right-radius:0px;
-						border-bottom-right-radius:0px;
-						background-color:#d9e9ef;
-						text-align:center;
-						&:hover{
-							// background
-						}
-					}
-					&.active{
-						a{
-							background-color:white;
-							color:#000;
-						}
-					}
-				}
+			background-color:white;
+			border-radius:15px;
+			padding:10px 0px;
+			.col-sm-1,.col-sm-11{
+				height:40px;
 			}
-			.tab-content{
-				float:right;
-				width:90%;
-				height:364px;
-				background-color:white;
-				padding:50px;
-				span.tag{
-					margin-right:20px;
+			.tags_title>h6{
+				text-align:right;
+				font-size:16px;
+				font-weight:bold;
+				height:40px;
+				margin:0;
+				line-height:40px;
+			}
+			.tags_list{
+				span{
+					line-height:40px;
+					margin-right:5px;
+				}
+				label{
+					font-weight:normal;
 				}
 			}
 		}
