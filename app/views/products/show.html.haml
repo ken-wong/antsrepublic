@@ -1,3 +1,4 @@
+
 %section.queens_work_slider
   .container
     .row
@@ -17,20 +18,30 @@
         %p
           %strong= @product.title
       .col-md-2        
-        - if current_user and current_user.following? @product
-          %a{:href => follow_it_queen_work_path(@product), :title => "收藏" }
-            %span.bookmark_icon.unbookmark
-          / = @product.followers_count
-        - else
-          %a{:href => follow_it_queen_work_path(@product), :title => "收藏" }
-            %span.bookmark_icon
-          / = @product.followers_count          
-
         - if current_user and current_user.voted_for? @product
           %span.like_icon.liked
         - else
           %a{:href => vote_it_queen_work_path(@product), :title => "点赞"}
             %span.like_icon
+
+        / %a.share_icon{:href=>'javascript:void(0);', :title => "分享"}
+
+
+        <!-- JiaThis Button BEGIN -->
+        .jiathis_style
+          %a.jiathis.jiathis_txt.jiathis_separator.share_icon{:href => "http://www.jiathis.com/share?uid=2116682",:target=>"_blank"}
+        :javascript
+          var jiathis_config={
+            data_track_clickback:true,
+            siteNum:4,
+            sm:"weixin,tsina,cqq,qzone",
+            summary:"",
+            boldNum:4,
+            shortUrl:false,
+            hideMore:false
+          }
+
+        %script{:src => "http://v3.jiathis.com/code/jia.js?uid=2116682",:type => "text/javascript"}
 
 %section.queens_work_desc
   .container

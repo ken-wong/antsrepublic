@@ -24,25 +24,24 @@
                   %span.glyphicon.glyphicon-search  
                   搜索案例
 
-      .row.project_tags_block
-        .col-lg-12
-          / Nav tabs
-          %ul.nav.nav-tabs.nav-pills.nav-stacked{:role => "tablist"}
-            - @tags.each_with_index do |tag_list, index|
-              - index == 0 ? @flag = 'active' : @flag = ''
-              %li{:role => "presentation", class: @flag}
-                %a{:href => "##{tag_list[1][0]['id']}" ,'aria-controls': "home", role:"tab", 'data-toggle': "tab"}
-                  = tag_list[0]
-          / Tab panes
-          .tab-content
-            - @i = 0
-            - @tags.each_with_index do |tag_list, index|
-              - index == 0 ? @flag = 'active' : @flag = ''
-              .tab-pane{:role => "tabpanel", calss: @flag , id: "#{tag_list[1][0]['id']}" }
+    .row
+      .col-lg-12
+        %h5.project_tags_header 项目关键字
+    .row
+      .col-lg-12
+        .container-fliud.project_tags_block
+          - @tags.each_with_index do |tag_list, i|
+            .row
+              .col-sm-1.tags_title
+                %h6
+                  =tag_list[0]    
+              .col-sm-11.tags_list
                 - tag_list[1][1]['tags'].each do |tag|
-                  %span.tag
+                  %span
                     = check_box_tag 'tags[]', tag
-                    %label{:for => ""}= tag
+                    %label{:for => ""}=tag
+
+
   .container
     = render "shared/product_list_normal"
 - content_for :page_js_block do

@@ -9,59 +9,76 @@
 .breadcrumbs-container
   .container
     .row
-      %ol.breadcrumb
-        - unless current_user.blank?
-          - if @queen && current_page?(queen_path(@queen))
-            %li= link_to I18n.t('root_path'), root_path
-            %li= link_to '蚁后', queens_url
-            %li= @queen.name
+      .col-sm-8
+        %ol.breadcrumb
+          - unless current_user.blank?
+            - if @queen && current_page?(queen_path(@queen))
+              %li= link_to I18n.t('root_path'), root_path
+              %li= link_to '蚁后', queens_url
+              %li= @queen.name
 
-          - if current_page?(dashboard_user_path(current_user))
-            %li= link_to I18n.t('root_path'), root_path
-            %li= '个人中心'
-          
-          - if current_page?((current_user))
-            %li= link_to I18n.t('root_path'), root_path
-            %li= link_to '个人中心', dashboard_user_path(current_user)
-            %li 个人资料
-
-          - if current_page?(voteable_list_user_path(current_user))
-            %li= link_to I18n.t('root_path'), root_path
-            %li= link_to '个人中心', dashboard_user_path(current_user)
-            %li= I18n.t('user_voteable')        
-
-          - if current_page?(following_list_user_path(current_user))
-            %li= link_to I18n.t('root_path'), root_path
-            %li= link_to '个人中心', dashboard_user_path(current_user)
-            %li= I18n.t('user_following')        
-
-
-          - if current_page?(choose_user_path(current_user))
-            %li= link_to I18n.t('root_path'), root_path
-            %li= link_to '个人中心', dashboard_user_path(current_user)
-            %li= link_to '用户资料', user_path(current_user)
-            %li 认证审核             
-
-          - if current_page?(project_list_user_path(current_user))
-            %li= link_to I18n.t('root_path'), root_path
-            %li= link_to '个人中心', dashboard_user_path(current_user)
-            %li= link_to '项目管理', user_path(current_user)
+            - if current_page?(dashboard_user_path(current_user))
+              %li= link_to I18n.t('root_path'), root_path
+              %li= '个人中心'
             
-        - if current_page?(signup_path)
-          %li= link_to I18n.t('root_path'), root_path
-          %li= '注册'
+            - if current_page?((current_user))
+              %li= link_to I18n.t('root_path'), root_path
+              %li= link_to '个人中心', dashboard_user_path(current_user)
+              %li 个人资料
 
-        - if current_page?(login_path)
-          %li= link_to I18n.t('root_path'), root_path
-          %li= '登陆'
+            - if current_page?(voteable_list_user_path(current_user))
+              %li= link_to I18n.t('root_path'), root_path
+              %li= link_to '个人中心', dashboard_user_path(current_user)
+              %li= I18n.t('user_voteable')        
+
+            - if current_page?(following_list_user_path(current_user))
+              %li= link_to I18n.t('root_path'), root_path
+              %li= link_to '个人中心', dashboard_user_path(current_user)
+              %li= I18n.t('user_following')        
 
 
-        - if !@product.nil? and current_page?(new_product_path)
-          %li= link_to I18n.t('root_path'), root_path
-          %li= '案例'
+            - if current_page?(choose_user_path(current_user))
+              %li= link_to I18n.t('root_path'), root_path
+              %li= link_to '个人中心', dashboard_user_path(current_user)
+              %li= link_to '用户资料', user_path(current_user)
+              %li 认证审核             
 
-        - if current_page?(new_need_path)
-          %li= link_to I18n.t('root_path'), root_path
-          %li= link_to '个人中心', dashboard_user_path(current_user)
-          %li= link_to '项目管理', project_list_user_path(current_user)
-          %li 发布需求
+            - if current_page?(project_list_user_path(current_user))
+              %li= link_to I18n.t('root_path'), root_path
+              %li= link_to '个人中心', dashboard_user_path(current_user)
+              %li= link_to '项目管理', user_path(current_user)
+              
+          - if current_page?(signup_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li= '注册'
+
+          - if current_page?(login_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li= '登陆'
+
+
+          - if !@product.nil? and current_page?(new_product_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li= '案例'
+
+          - if current_page?(new_need_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li= link_to '个人中心', dashboard_user_path(current_user)
+            %li= link_to '项目管理', project_list_user_path(current_user)
+            %li 发布需求
+
+          - if current_page?(queen_work_path(@product))
+            %li= link_to I18n.t('root_path'), root_path
+            %li= link_to "精彩案例", queen_works_path
+      
+      - if current_page?(queen_work_path(@product))
+        .col-sm-2.col-sm-offset-2.queen_words_bookmark
+          - if current_user and current_user.following? @product
+            %a{:href => follow_it_queen_work_path(@product), :title => "收藏" }
+              %span.bookmark_icon.unbookmark
+              收藏
+          - else
+            %a{:href => follow_it_queen_work_path(@product), :title => "收藏" }
+              %span.bookmark_icon
+              收藏
+

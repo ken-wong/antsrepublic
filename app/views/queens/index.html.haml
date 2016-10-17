@@ -7,7 +7,7 @@
           认证蚁后
     .row
       - @queens.each do |queen|
-        .col-md-6
+        .col-md-6.queen
           %a{:href => queen_path(queen)}
             .queen_avatar.text-right
               = image_tag(image_path(queen.avatar_url), class: 'img-circle')
@@ -16,5 +16,3 @@
                 %strong= queen.name
               %p
                 = queen.description if queen.description
-= render :partial => 'welcome/ants_feature'
-= render :partial => 'welcome/contact_section'

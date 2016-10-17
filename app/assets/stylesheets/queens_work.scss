@@ -32,13 +32,39 @@ section.queens_work_title{
 				background-position:-24px 0px;
 			}
 		}
-		span.bookmark_icon{
-			@include inlineBlockIcon(image_path("queens_work/bookmark_sprite.png"),21px,20px);
-			margin-right:10px;
-			&.unbookmark{
-				background-position:-22px 0px;
-			}
+		a.share_icon{
+			@include inlineBlockIcon(image_path("queens_work/share_icon.png"),20px,20px);
+			margin-left:25px;
 		}
+		.jiathis_style{
+			display:inline;
+		}
+	}
+}
+.queen_words_bookmark{
+	line-height:30px;
+	a{
+		line-height:30px;
+		color:white;
+		font-size:20px;
+		vertical-align: top;
+		&:hover{
+			color:white;
+			text-decoration:none
+		}
+	}
+	span.bookmark_icon{
+		@include inlineBlockIcon(image_path("queens_work/bookmark_sprite.png"),21px,20px);
+		margin-right:10px;
+	    margin-top: 3px;
+		&.unbookmark{
+			background-position:-22px 0px;
+		}
+	}
+	strong{
+		color:white;
+		font-size:20px;
+		font-weight:bold;
 	}
 }
 
@@ -144,6 +170,7 @@ section.queens_work_queen{
 section.queens_work_likes{
 	background-color:$mainBgColor;
 }
+
 
 // 个人中心，新建、编辑页面 样式
 
