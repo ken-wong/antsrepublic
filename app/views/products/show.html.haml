@@ -24,12 +24,7 @@
           %a{:href => vote_it_queen_work_path(@product), :title => "点赞"}
             %span.like_icon
 
-        / %a.share_icon{:href=>'javascript:void(0);', :title => "分享"}
-
-
-        <!-- JiaThis Button BEGIN -->
-        .jiathis_style
-          %a.jiathis.jiathis_txt.jiathis_separator.share_icon{:href => "http://www.jiathis.com/share?uid=2116682",:target=>"_blank"}
+        %a.jiathis.jiathis_txt.jiathis_separator.share_icon{:href => "http://www.jiathis.com/share?uid=2116682",:target=>"_blank"}
         :javascript
           var jiathis_config={
             data_track_clickback:true,
