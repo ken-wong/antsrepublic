@@ -20,7 +20,7 @@
               = render "queen_create_plan"
           
           - else # 我是甲方
-            - case @need.state == '等待甲方'
+            - case @need.state
             - when '等待甲方'
               = render "partyA_check_plan"
             - when "确认计划"
