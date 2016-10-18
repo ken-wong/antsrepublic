@@ -79,6 +79,14 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :banners
+
+    resources :needs do
+      member do
+        post :vote_to_me
+        get :vote_sum
+      end
+    end
+
     resources :queens do
       get :search, on: :collection
       get :following_list, on: :collection
