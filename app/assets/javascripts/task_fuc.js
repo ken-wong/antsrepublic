@@ -3,22 +3,24 @@
 
 		$('.attachment_file_upload').fileupload({
 	        dataType: 'json',
-	        // submit: function(e, data){
-	        //   $('.fileupload-buttonbar').toggleClass('active');
-	        // },
-	        // progressall: function (e, data) {
-	        //   var progress = parseInt(data.loaded / data.total * 100, 10);
-	        //   $('.fileupload-buttonbar .progress-bar').css(
-	        //     'width',
-	        //     progress + '%'
-	        //   );
-	        // },
+	        submit: function(e, data){
+	          // $('.fileupload-buttonbar').toggleClass('active');
+	          var id = data.form.attr("id");
+	          id = id.split('-')[1];
+	          $('#plan_task_' + id + ' .task-result-files ul').prepend('<li class="uploading"><a>上传中</a></li>')
+	        },
+	        progressall: function (e, data) {
+	          var progress = parseInt(data.loaded / data.total * 100, 10);
+	          $('.task-result-files li.uploading>a').html(progress+"%");
+	        },
 	        done: function (e, data) {
 	        	var obj = data.result;
-	          //   $("ul.thumbnails").prepend('<li><img src="'+data._response.result.file_url+'?imageView2/1/w/200/h/200"></li>');
-	          // $('.fileupload-buttonbar').toggleClass('active');
-	          $('#plan_task_'+obj.attachmentable_id+" .task-result-files ul").prepend('<li><a href="' + obj.file_url  + '">' + obj.file_name + '</a></li>')
-	          console.log();
+	        	$('.task-result-files li.uploading').remove();
+				$('#plan_task_'+obj.attachmentable_id+" .task-result-files ul").prepend('<li class="text-center"><span>'+
+					'<a href="' + obj.file_url  + '">'+
+					'<img src="' + obj.file_url + '?imageView2/1/w/200/h/200">'+
+					'</a></span></li>')
+				console.log();
 	        }
 	    });
 
@@ -30,7 +32,7 @@
 		});
 		
 		$('.responsive-calendar').responsiveCalendar({
-	        time: '2016-08',
+	        time: firstTaskData,
 	        events: taskData
 	    });	
 

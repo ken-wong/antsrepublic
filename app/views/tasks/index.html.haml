@@ -32,14 +32,11 @@
             = render :partial => "plan_task_list", :locals => {tasks:@tasks}                  
 
 
-            .row
-              %h3.text-center 
-                = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.has_role? :owner
+          .row
+            %h3.text-center 
+              = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.has_role? :owner
 
-            = render partial: "comment", :locals => {comments:@comments}    
-
-
-
+          = render partial: "comment", :locals => {comments:@comments}    
         
 
 .modal#editPlanModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editPlanModalLabel"}
@@ -93,6 +90,7 @@
   = javascript_include_tag 'task_fuc.js'
 
 :javascript
+  var firstTaskData="#{getFirstTaskData(@plans)}"
   var taskData={
     #{create_canlendar_data_obj_string(@plans)}
   }

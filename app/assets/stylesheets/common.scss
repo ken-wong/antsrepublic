@@ -398,9 +398,9 @@ section.product_list_section{
 	}
 	.product{
 		height:350px;
-		
+		margin-bottom:10px;
 		.productBlock{
-			width:98%;
+			width:100%;
 			height:350px;
 			border-radius:15px;
 			background-color:#fff;
@@ -502,8 +502,14 @@ section.ants_list{
 		}
 	}
 	.ants_list_block{
+		&>.row>.col-lg-3{
+			margin-bottom:20px;
+		}
 		div.thumbnail.gallery-thumbnail{
 			margin:0px;
+			.img-circle {
+			  width: 120px;
+			}
 			.ants_queen_contact_card{
 				display:none;
 				position: absolute;
