@@ -14,7 +14,8 @@ class Api::TasksController < Api::BaseController
   end
 
   def index
-    @tasks = Task.ransack(need_id_eq: params[:need_id]).result
+    tasks = Task.ransack(need_id_eq: params[:need_id]).result
+    @tasks =  tasks.order('created_at')
   end
 
   def update
