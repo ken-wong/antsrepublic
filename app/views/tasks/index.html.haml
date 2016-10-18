@@ -16,6 +16,8 @@
               = render "queen_waitfor_plan"
             - when '乙方执行'
               = render "queen_begin_plan"
+            - when '项目完成'
+              = render "task_success_over"
             - else
               = render "queen_create_plan"
           
@@ -25,11 +27,13 @@
               = render "partyA_check_plan"
             - when "确认计划"
               = render "partyA_waitfor_plan"
+            - when '项目完成'
+              = render "task_success_over"
             - else
               = render :partial => "partyA_begin_plan", :locals => {need:@need}
 
 
-          - if @need.state == '乙方执行'
+          - if @need.state == '乙方执行' or @need.state == '项目完成'
             = render :partial => "calendar", :locals => {plan:@plans, need:@need}
             = render :partial => "plan_task_list", :locals => {tasks:@tasks}                  
 
