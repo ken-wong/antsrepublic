@@ -67,11 +67,20 @@
             %li= link_to '项目管理', project_list_user_path(current_user)
             %li 发布需求
 
-          - if current_page?(queen_work_path)
+          - if current_page?(queen_works_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li 搜案例
+          
+          - if current_page?(queens_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li 找蚁后
+
+
+          - if @product && current_page?(queen_work_path(@product))
             %li= link_to I18n.t('root_path'), root_path
             %li= link_to "精彩案例", queen_works_path
       
-      - if current_page?(queen_work_path)
+      - if @product && current_page?(queen_work_path(@product))
         .col-sm-2.col-sm-offset-2.queen_words_bookmark
           - if current_user and current_user.following? @product
             %a{:href => follow_it_queen_work_path(@product), :title => "收藏" }

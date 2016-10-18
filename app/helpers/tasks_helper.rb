@@ -16,4 +16,8 @@ module TasksHelper
 
 		return @objString
 	end
+
+	def getFirstTaskData(tasks = [])
+		return tasks.at(0).dead_line if tasks.at(0)
+	end
 end

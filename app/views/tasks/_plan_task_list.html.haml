@@ -1,43 +1,57 @@
 - tasks.each do |task|
-  .row.task-result{:id=>"plan_task_#{task.id}"}
-    .task-result-header
-      .col-md-3
-        %h5.text-center= task.plan.title if task.plan
-      .col-md-7
-        %h5.color-black
-          .col-md-5= task.updated_at.strftime('%Y-%m-%d').to_s  
-          .col-md-5= link_to task.title, edit_task_path(task) if task.plan
-          .col-md-2= task.state if task.state
+  - if !(task.state == '提交附件' and current_user.has_role? :owner)
+    .row.task-result{:id=>"plan_task_#{task.id}"}
+      .col-sm-12
+        .row.task-result-header
+          .col-md-3
+            / %h5.text-center= task.plan.title if task.plan
+            %h5.text-center 任务名称
+          .col-md-6
+            %h5.color-black.left-offest-2em
+              = task.title
+              / .col-md-5= task.updated_at.strftime('%Y-%m-%d').to_s  
+              / .col-md-5= link_to task.title, edit_task_path(task) if task.plan
+              / .col-md-2= task.state if task.state
+          .col-md-3.task-status
+            - if task.state == '甲方确认'
+              %span.task_success
+                通过
+            - elsif task.state == '等待甲方'
+              = "确认时限 " + (task.updated_at + 3.days).strftime('%Y-%m-%d').to_s 
 
-      .col-md-2.task-status
-        - if task.state == '等待甲方' and current_user.has_role? :owner
-          = link_to '认可成果', confirm_task_path(task), class: 'btn btn-info' 
-          = link_to '退回重来', refuse_task_path(task), class: 'btn btn-warning'
-        
-        - if current_user.has_role? :queen and task.state == '提交附件'
-          = link_to '通知甲方', send_message_task_path(task), class: 'btn btn-info'
+        .row.task-result-files
+          .col-md-1
+            %h6 文件列表
+          .col-md-11
+            %ul
+              - task.attachments.each do |attachment|
+                %li.text-center
+                  %span
+                    - if %w{jpg png gif bmp}.include?(attachment.file.file.extension.downcase)
+                      = link_to image_tag(image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"),alt:attachment.file_name), attachment.file.url, target: '_blank'
+                    - else
+                      = link_to attachment.file_name, attachment.file.url, target: '_blank'
+                  %p
+                    .label.label-warning= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' } unless task.state == '甲方确认'
 
-    .task-result-files
-      .col-md-1
-        %h6 文件列表
-      .col-md-11
-        %ul
-          - task.attachments.each do |attachment|
-            %li.text-center
-              %span
-                - if %w{jpg png gif bmp}.include?(attachment.file.file.extension.downcase)
-                  = link_to image_tag(image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"),alt:attachment.file_name), attachment.file.url, target: '_blank'
-                - else
-                  = link_to attachment.file_name, attachment.file.url, target: '_blank'
-              %p
-                .label.label-warning= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' } unless task.state == '甲方确认'
+              - attachment = task.attachments.build
+              %li.text-center
+                - if (task.state == '退回重来' or task.state == '等待甲方' or task.state == '提交附件') and current_user.has_role? :queen
+                  = form_for attachment, :html => { :multipart => true, :id => "fileupload-#{task.id}"  } do |f|
+                    %a.add_task_attachment.fileinput-button{:href => "javascript:void(0);"}
+                      %span.glyphicon.glyphicon-plus
+                      = f.file_field :file, :class=>"attachment_file_upload", :data=>{:url=>"/api/tasks/#{task.id}/attachments"}  
+          .clear 
 
-          - attachment = task.attachments.build
-          %li.text-center
-            - if (task.state == '退回重来' or task.state == '等待甲方' or task.state == '提交附件') and current_user.has_role? :queen
-              = form_for attachment, :html => { :multipart => true, :id => "fileupload-#{task.id}"  } do |f|
-                %a.add_task_attachment.fileinput-button{:href => "javascript:void(0);"}
-                  %span.glyphicon.glyphicon-plus
-                  = f.file_field :file, :class=>"attachment_file_upload", :data=>{:url=>"/api/tasks/#{task.id}/attachments"}      
+        .task-confim-block
+          .col-sm-4.col-sm-offset-8
+            - if task.state == '等待甲方'
+              - if current_user.has_role? :owner
+                = link_to '认可成果', confirm_task_path(task), class: 'btn btn-info' 
+                = link_to '退回重来', refuse_task_path(task), class: 'btn btn-warning'
+              - else
+                %a.btn.btn-warning{:href => "javascript:void(0)"} 审核中
+            - elsif current_user.has_role? :queen and task.state == '提交附件'
+              = link_to '提交审核', send_message_task_path(task), class: 'btn btn-info'
 
 
