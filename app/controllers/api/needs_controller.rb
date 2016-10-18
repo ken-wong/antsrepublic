@@ -18,6 +18,17 @@ class Api::NeedsController < Api::BaseController
     vspeed   = @need.find_votes_for(:vote_scope => 'speed').sum(:vote_weight) # => 6
     vquality = @need.find_votes_for(:vote_scope => 'quality').sum(:vote_weight) # => 6
     vservice = @need.find_votes_for(:vote_scope => 'service').sum(:vote_weight) # => 6
-    render json: {vote_speed: vspeed, vote_quality: vquality, vote_service: vservice}, status: 201
+
+    sp_size =@need.find_votes_for(:vote_scope => 'speed').size
+    ql_size =@need.find_votes_for(:vote_scope => 'quality').size
+    sv_size =@need.find_votes_for(:vote_scope => 'service').size
+    render json: {
+        vote_speed: vspeed, 
+        vote_quality: vquality, 
+        vote_service: vservice, 
+        speed_size: sp_size, 
+        quality_size: ql_size, 
+        service_size: sv_size
+        }, status: 201
   end
 end
