@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
   
   def mread
-    m = Message.find(params[:mid])
-    m.read
+    m = User.find(current_user).messages.where("messages.id = #{params[:mid]}").first
+    m.mark_as_read
     redirect_to dashboard_user_path  
   end
 
