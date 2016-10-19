@@ -48,7 +48,7 @@ $(function(){
 			data:{category:'效果图'},
 			dataType:"json",
 			success:function(data){
-				alert("success");
+				// alert("success");
 			},
 			error:function(e){
 				console.log(e);
