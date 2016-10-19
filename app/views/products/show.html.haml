@@ -39,7 +39,7 @@
         %script{:src => "http://v3.jiathis.com/code/jia.js?uid=2116682",:type => "text/javascript"}
 
 %section.queens_work_desc
-  .container
+  .container.background-white
     .row
       .col-md-12
         %h2
@@ -58,7 +58,7 @@
           %strong= @product.queen.name 
           
       .col-md-10
-        .col-md-10
+        %div
           .clientStarAndLike
             .width-15
               %h4 甲方评价
@@ -89,25 +89,43 @@
               %strong.like-num
                 #{@product.votes_for.size}
 
-%section.queens_work_client
-  .container
-    .row
-      .col-md-2
-        .avatar_wapper.text-center
-          = image_tag(image_path("queens_work/client_avatar.jpg"), class: 'img-circle')
-        %p.text-center
-          / %strong= @product.client_name
-          %strong 甲方
+/ %section.queens_work_client
+/   .container
+/     .row
+/       .col-md-2
+/         .avatar_wapper.text-center
+/           = image_tag(image_path("queens_work/client_avatar.jpg"), class: 'img-circle')
+/         %p.text-center
+/           / %strong= @product.client_name
+/           %strong 甲方
 
 
 
 %section.queens_work_likes
-  .container
+  .container.background-white
     .row
       .col-md-6
         %h4 点赞历史
+        .liked-histroy
+          .avatar-warpper
+            = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
+          .avatar-warpper
+            = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
+          .avatar-warpper
+            = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
+          .avatar-warpper
+            = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
       .col-md-6
         %h4 相关案例
+        .recommend-case
+          .avatar-warpper
+            = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
+          .avatar-warpper
+            = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
+          .avatar-warpper
+            = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
+          .avatar-warpper
+            = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
       
 
 

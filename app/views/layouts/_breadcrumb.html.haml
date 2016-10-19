@@ -46,7 +46,12 @@
             - if current_page?(project_list_user_path(current_user))
               %li= link_to I18n.t('root_path'), root_path
               %li= link_to '个人中心', dashboard_user_path(current_user)
-              %li= link_to '项目管理', user_path(current_user)
+              %li 项目管理
+
+            - if current_page?(product_list_user_path(current_user))
+              %li= link_to I18n.t('root_path'), root_path
+              %li= link_to '个人中心', dashboard_user_path(current_user)
+              %li 我的案例
               
           - if current_page?(signup_path)
             %li= link_to I18n.t('root_path'), root_path

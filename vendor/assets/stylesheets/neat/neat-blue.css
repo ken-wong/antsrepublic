@@ -424,8 +424,8 @@ a:focus,
 section,
 footer {
   position: relative;
-  padding: 40px 0 10px 0;
-  background: #fff;
+  /*padding: 40px 0 10px 0;*/
+  /*background: #fff;*/
 }
 section.border-bottom,
 footer.border-bottom {
