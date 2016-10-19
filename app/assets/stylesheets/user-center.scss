@@ -210,7 +210,24 @@
 		a.btn{
 			width:120px;
 			height:35px;
-
+			
 		}
 	}
 }
+
+.project-comment{
+	.need-comment{
+		.project-comment-textarea{
+			height:260px;
+			background-color:#ecf4f7;
+			border:none;
+			box-shadow: inset 0 3px 8px rgba(8, 89, 93, 0.22);
+		}
+		.submitComment{
+			margin:10px 0px;
+			width:120px;
+			height:40px;
+		}
+	}
+}
+

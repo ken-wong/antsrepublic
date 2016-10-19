@@ -1,5 +1,5 @@
-.row
-  %h2 用户评论
+.row.project-comment
+  %h2 任务讨论
   %ul
     - @comments.each do |comment|
       %li
@@ -9,12 +9,9 @@
           %span.label.label-info= comment.created_at.strftime('%Y-%m-%d %H:%M')
           |
           %span.label.label-warning= comment.user.name if comment.user
-          - if current_user == comment.user
-            |
-            %span.label.label-danger= link_to t('destroy'), destroy_comment_need_path(@need, comment_id: comment), action: :delete 
             
   - if @need.state != '项目完成'
     .need-comment
       = simple_form_for :comment, url: create_comment_need_path(@need) do |f|
-        = f.input :title, label: false
-        = f.button :submit, value: '我有话说'
+        = f.text_area :title, label: false, class:'project-comment-textarea col-sm-12'
+        = f.button :submit, value: '提交评论', class:'btn btn-primary submitComment'

@@ -51,7 +51,10 @@
                 = link_to '退回重来', refuse_task_path(task), class: 'btn btn-warning'
               - else
                 %a.btn.btn-warning{:href => "javascript:void(0)"} 审核中
-            - elsif current_user.has_role? :queen and task.state == '提交附件'
-              = link_to '提交审核', send_message_task_path(task), class: 'btn btn-info'
+            - elsif current_user.has_role? :queen
+              - if task.state == '退回重来' 
+                = link_to '重新提交', send_message_task_path(task), class: 'btn btn-info'
+              - if task.state == '提交附件'
+                = link_to '提交审核', send_message_task_path(task), class: 'btn btn-info'
 
 
