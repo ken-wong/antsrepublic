@@ -2,6 +2,11 @@
 		
 			power by amos
 
+#TODO
+	
+	1. amdin消息通知(项目状态变更, 认证状态变更)
+	1.
+
 ## change log
 ##1018
 
