@@ -60,6 +60,7 @@ Rails.application.routes.draw do
       post 'create_comment'
       put  'update_comment'
       get 'destroy_comment'
+      get 'convert_to_queen_work'
     end
   end
   resources :uploads  

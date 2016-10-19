@@ -57,9 +57,14 @@ class NeedsController < InheritedResources::Base
 
   def convert_to_queen_work
     @need = Need.find(params[:id])
-    @queen_work = @need.dup
-    @queen_work.final!
-    @queen_work.save
+    pics = @need.tasks.last.attachments
+    pics.each do |pic|
+      @queen_work = @need.dup
+      @queen_work.avatar = pic
+      @queen_work.final!
+      @queen_work.save
+    end
+    
 
     respond_to do |format|
       format.html { redirect_to product_list_user_path(current_user), notice: 'queen_work was successfully updated.' }

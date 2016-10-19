@@ -5,23 +5,37 @@
 #TODO
 	
 	1. amdin消息通知(项目状态变更, 认证状态变更)
-	1. 允许空密码save user
 
 ## change log
+
+## 1019
+need convert_to_queen_work
+
+```
+curl -X GET http://localhost/api/needs/{need.id}/convert_to_queen_work
+```
+
+
 ##1018
 
 api:
-	1. api/needs/:id/vote_to_me POST
+	1. api/needs/:id/vote_to_me 
+		
+		action: POST
 		vote_type= service|speed|quality 
-
+```
 		curl -X POST -d "voter_id=1" -d "vote_type=service" -d "stars=3"  http://localhost:3000/api/needs/4/vote_to_me
-
+```
+		return:
 		{"vote_speed":0,"vote_quality":0,"vote_service":3}%
 
-	2. api/needs/:id/vote_sum GET
+	2. api/needs/:id/vote_sum 
 
+		action: GET
+```
 		curl -X GET http://localhost:3000/api/needs/4/vote_sum
-		
+```		
+		return:
 		{"vote_speed":0,"vote_quality":0,"vote_service":3}%
 
 
