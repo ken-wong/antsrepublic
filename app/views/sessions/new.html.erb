@@ -1,3 +1,8 @@
+<% [:danger].each do |key| %>
+  <% if flash[key] %>
+    <%= content_tag :div, flash[key], :id=> key, class: "text-center alert alert-#{key}" %> 
+  <% end %>
+<% end %> 
 
 <section style="background-color:#ECF4F7" class='userLogin'>
 	<div class="container">

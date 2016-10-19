@@ -1,4 +1,14 @@
-.row.create-plan
+.row.task-vote
   .col-md-12
     %h3.text-center
       项目已完成
+    - # 获取项目评分情况
+    - # 如果项目没有评分，且是甲方，需要给甲方打分
+    - # 如果项目有评分，需要显示评分情况
+  - if current_user.id != @need.queen_id
+    .col-sm-12.vote_block
+      打分模块！
+    
+  .col-sm-12.vote_sum_block
+    项目评分
+

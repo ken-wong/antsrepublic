@@ -1,6 +1,21 @@
 (function(){
 	$(document).ready(function(){
 
+		//获取项目的评分情况
+		$.ajax({
+			method:'GET',
+			url:'/api/needs/' + need_id + '/vote_sum',
+		}).done(function(data){
+			if(data.vote_speed && parseInt(data.vote_speed) > 0){
+				//有评分，显示分数
+				$('.vote_sum_block').toggle();
+			}else{
+				//没有评分，如果是甲方，则显示打分，如果是乙方，则不显示
+				$('.vote_block').show();
+			}
+		})
+
+		//文件上传
 		$('.attachment_file_upload').fileupload({
 	        dataType: 'json',
 	        submit: function(e, data){
@@ -24,6 +39,7 @@
 	        }
 	    });
 
+		//设置计划弹窗中的日期选择
 		$('.deadLineDataPicker').datetimepicker({
 		    format: 'yyyy-mm-dd',
 		    autoclose: true,
@@ -31,11 +47,13 @@
 		    language: 'zh-CN'
 		});
 		
+		//日历
 		$('.responsive-calendar').responsiveCalendar({
 	        time: firstTaskData,
 	        events: taskData
 	    });	
 
+		//设置计划弹窗中的修改任务（task）按钮
 	    $(".updatePlanBtn").click(function(evt){
 	    	var planId = $(evt.currentTarget).attr("data-plan");
 	    	var formId = "#plan_f_"+planId;
@@ -56,6 +74,7 @@
 	    	});
 	    });
 
+	    //设置计划弹窗中的删除任务（task）按钮
 	    $(".delPlanBtn").click(function(evt){
 	    	var planId = $(evt.currentTarget).attr("data-plan");
 	    	var purl = "/api/plans/"+planId;
@@ -68,6 +87,7 @@
 	    	});
 	    })
 
+	    //设置计划弹窗中的创建任务（task）按钮
 	    $(".createPlanBtn").click(function(evt){
 	    	var needId = $(evt.currentTarget).attr("data-need");
 	    	var formData = $("#create_plan_form").serializeArray();

@@ -216,6 +216,15 @@
 	}
 }
 
+.task-vote{
+	.vote_block{
+		display:none;
+	}
+	.vote_sum_block{
+		display:none;
+	}
+}
+
 .project-comment{
 	.comments_list{
 		padding:0px 15px 40px 15px;
