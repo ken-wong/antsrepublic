@@ -3,7 +3,8 @@ class QueenWorksController < ApplicationController
   before_action :set_tags
 
   def index
-    @queen_work = QueenWork.new(category: params[:queen_work][:category], title: params[:queen_work][:title])
+    @queen_work = QueenWork.new
+    
     if params[:user_id].nil?
       @products = Product.page params[:page]
     else
