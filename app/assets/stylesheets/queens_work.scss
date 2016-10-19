@@ -9,9 +9,9 @@ section.queens_work_title{
 	height:40px;
 	margin-top:-40px;
 	background: transparent;
-	.container{
-		
+	.container-fluid{
 		background-color:rgba(0,0,0,.5);
+		
 	}
 	.col-md-10{
 		p{
@@ -73,6 +73,7 @@ section.queens_work_desc{
 	.container{
 		padding:40px 0px;
 		h2{
+			pading-left:20px;
 			margin-bottom:30px;
 			span.desc_title_icon{
 				@include inlineBlockIcon(image_path("queens_work/desc_title_icon.png"),22px,30px)
