@@ -34,13 +34,15 @@
                   %p
                     .label.label-warning= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' } unless task.state == '甲方确认'
 
-              - attachment = task.attachments.build
-              %li.text-center
-                - if (task.state == '退回重来' or task.state == '等待甲方' or task.state == '提交附件') and current_user.has_role? :queen
-                  = form_for attachment, :html => { :multipart => true, :id => "fileupload-#{task.id}"  } do |f|
-                    %a.add_task_attachment.fileinput-button{:href => "javascript:void(0);"}
-                      %span.glyphicon.glyphicon-plus
-                      = f.file_field :file, :class=>"attachment_file_upload", :data=>{:url=>"/api/tasks/#{task.id}/attachments"}  
+              - if task.state == '提交附件' or task.state =='退回重来'
+
+                - attachment = task.attachments.build
+                %li.text-center
+                  - if (task.state == '退回重来' or task.state == '等待甲方' or task.state == '提交附件') and current_user.has_role? :queen
+                    = form_for attachment, :html => { :multipart => true, :id => "fileupload-#{task.id}"  } do |f|
+                      %a.add_task_attachment.fileinput-button{:href => "javascript:void(0);"}
+                        %span.glyphicon.glyphicon-plus
+                        = f.file_field :file, :class=>"attachment_file_upload", :data=>{:url=>"/api/tasks/#{task.id}/attachments"}  
           .clear 
 
         .task-confim-block
