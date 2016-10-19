@@ -11,7 +11,7 @@
           %video{ src: @product.avatar.url , width: "80%", controls: "controls"}
 
 %section.queens_work_title
-  .container-fluid
+  .container
     .row
       .col-md-10
         %p
@@ -37,22 +37,22 @@
 
         %script{:src => "http://v3.jiathis.com/code/jia.js?uid=2116682",:type => "text/javascript"}
 
-%section.queens_work_desc
-  .container.background-white
+%section.queens_work_desc.background-white
+  .container
     .row
       .col-md-12
         %h2
           %span.desc_title_icon
-          %strong 项目说明
+          项目说明
         %p
           = @product.description
       
 %section.queens_work_queen
   .container
     .row
-      .col-md-2
+      .col-md-2.queens_work_queen_info
         .avatar_wapper.text-center
-          = image_tag(@product.queen.avatar.url, class: 'img-circle') unless @product.queen.nil?
+          = image_tag(@product.queen.avatar.url+'?imageView2/2/w/200/h/200', class: 'img-circle') unless @product.queen.nil?
         %p.text-center
           %strong= @product.queen.name unless @product.queen.nil?
           
@@ -62,7 +62,7 @@
             .width-15
               %h4 甲方评价
             .width-35
-              %p.margin-top-20 
+              %p
                 交货速度
                 %span
                   %span
@@ -101,7 +101,7 @@
 
 
 %section.queens_work_likes
-  .container.background-white
+  .container
     .row
       .col-md-6
         %h4 点赞历史
