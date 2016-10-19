@@ -55,9 +55,9 @@ zh-CN:
         qq: QQ
         wechat: 微信
         company: 企业名称
-        address: 企业地址
+        address: 联系地址
         verify_img1: 公司证照
-        verify_img2: 身份证
+        verify_img2: 身份证照
         verify_img3: 其他证件
         other: 补充说明
 

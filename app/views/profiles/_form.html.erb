@@ -4,11 +4,11 @@
   <div class="form-inputs">
     <%= f.input :phone, label: Profile.human_attribute_name(:phone)%>
     <%= f.input :company, label: Profile.human_attribute_name(:company) %>
+    <%= f.input :verify_img2, label: Profile.human_attribute_name(:verify_img2) %>
     <%= f.input :verify_img1, label: Profile.human_attribute_name(:verify_img1) if session[:role] == 'owner' %>
-    <%= f.input :verify_img2, label: Profile.human_attribute_name(:verify_img2) if session[:role] == 'queen'%>
-    <%= f.input :verify_img3, label: Profile.human_attribute_name(:verify_img3) %>
+    <%#= f.input :verify_img3, label: Profile.human_attribute_name(:verify_img3) %>
     <%= f.input :address, label: Profile.human_attribute_name(:address) if session[:role] == 'owner' %>
-    <%= f.input :other, label: Profile.human_attribute_name(:other) %>
+    <%#= f.input :other, label: Profile.human_attribute_name(:other) %>
     <%= f.input :qq, label: Profile.human_attribute_name(:qq) %>
     <%= f.input :wechat, label: Profile.human_attribute_name(:wechat) %>
   </div>
