@@ -217,7 +217,53 @@
 
 .project-comment{
 	.comments_list{
-		
+		padding:40px 15px;
+		.a-comment{
+			height:210px;
+			padding: 30px 0px;
+		    background-color: #f5f9fb;
+			.avatar_wapper{
+				.img-circle{
+					width:120px;
+				}
+			}
+			.comment-username{
+				margin-top:10px;
+			}
+			.comment-content-block{
+				width:98%;
+				margin-right:20px;
+				height:150px;
+				background-color:white;
+				border-radius:10px;
+				float:right;
+				&:before{
+					display:inline-block;
+					content:" ";
+					background-color:white;
+					width:20px;
+					height:20px;
+					transform: rotate(45deg);
+					position:relative;
+					top: 60px;
+					left: -10px;
+					vertical-align: top;
+				}
+				.comment-content{
+					width:90%;
+					margin:0 auto;
+					height:100px;
+					p{
+						font-weight:bold;
+					}
+				}
+				.comment-createtime{
+					width:90%;
+					margin:0 auto;
+
+				}
+			}
+		}
 	}
 	.need-comment{
 		.project-comment-textarea{
