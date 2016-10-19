@@ -16,12 +16,11 @@ class ProfilesController < InheritedResources::Base
     @user = User.find(session[:user_id])
     respond_to do |format|
       if @profile.save
-      	@user.remove_role @user.roles.last.name
+      	@user.remove_role @user.roles.last.name if @user.roles.last
       	@user.add_role session[:role]
       	
-
       	@user.state = '等待审核'
-      	@user.save
+      	@user.save(validate: false)
         format.html { redirect_to choose_user_path(@user), notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
@@ -40,7 +39,7 @@ class ProfilesController < InheritedResources::Base
       	@user.remove_role @user.roles.last.name
       	@user.add_role session[:role]
       	@user.state = '等待审核'
-      	@user.save
+      	@user.save(validate: false)
         format.html { redirect_to choose_user_path(@user), notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else

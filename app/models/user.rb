@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   state_machine :state, :initial => :'未认证' do
     event :confirm! do
-      transition [nil, :'未认证', :'拒绝', :'等待审核'] => :'认证通过'
+      transition [nil, :'未认证', :'认证拒绝', :'等待审核'] => :'认证通过'
     end
 
     event :unconfirm! do

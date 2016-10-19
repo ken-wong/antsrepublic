@@ -35,7 +35,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params.except(:email))
+    @user.attributes = user_params.except(:email)
+    if @user.save(validate: false)
       redirect_to @user
     else
       render 'edit'

@@ -9,7 +9,7 @@
             %h3 
               个人资料
               = link_to t(:edit), edit_user_path(@user), class: 'btn btn-primary'
-              - if @user.state == '未认证' or @user.state == '拒绝'
+              - if @user.state == '未认证' or @user.state == '认证拒绝'
                 = link_to t(:verify), choose_user_path(@user), class: 'btn btn-info' 
 
 

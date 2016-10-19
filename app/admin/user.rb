@@ -38,25 +38,26 @@ ActiveAdmin.register User do
 	  column "认证资料" do |user|
 	  	link_to "认证资料", admin_profile_path(user.profile) unless user.profile.nil?
 	  end
+	  
 	  actions defaults: false do |user|
-	    link_to "拒绝认证", deny_verify_admin_user_path(user), method: :put
-	  end
-	  actions defaults: false do |user|
-	    link_to "通过认证", allow_verify_admin_user_path(user), method: :put
+	  	link_to("拒绝 ", deny_verify_admin_user_path(user), method: :put) +
+	    link_to(" 通过", allow_verify_admin_user_path(user), method: :put)
 	  end
 
-	  actions
+	  
 	end
 
   member_action :allow_verify, method: :put do
-    User.find(params[:id]).confirm!
+    user = User.find(params[:id])
+    user.update_attribute(:state, '认证通过')
   	message_str = "管理员已经设置用户: <a href='#{user_path(resource)}'>#{resource.name}</a> 状态为 #{resource.state}  "
 		current_admin_user.send_message(resource, message_str) 
     redirect_to admin_users_path, notice: "passed!"
   end
 
   member_action :deny_verify, method: :put do
-    User.find(params[:id]).unconfirm!
+    user = User.find(params[:id])
+    user.update_attribute(:state, '认证拒绝')
     message_str = "管理员已经设置用户: <a href='#{user_path(resource)}'>#{resource.name}</a> 状态为 #{resource.state}  "
 		current_admin_user.send_message(resource, message_str) 
     redirect_to admin_users_path, notice: "denied!"
