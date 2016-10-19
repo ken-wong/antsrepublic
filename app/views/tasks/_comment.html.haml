@@ -1,17 +1,22 @@
 .row.project-comment
   %h2 任务讨论
-  %ul
+  .comments_list
     - @comments.each do |comment|
-      %li
+      .a-comment
+        .col-md-2
+          .avatar_wapper.text-center
+            = image_tag(comment.user.avatar.url, class: 'img-circle')
+          %p.text-center
+            %strong= comment.user.name 
+          
+      .col-md-10
         %p{style: comment.user.has_role?(:queen) ? 'color: #666' : 'color: red'}= comment.title
-        
-        %div
-          %span.label.label-info= comment.created_at.strftime('%Y-%m-%d %H:%M')
-          |
-          %span.label.label-warning= comment.user.name if comment.user
+        %p= comment.created_at.strftime('%Y-%m-%d %H:%M')
+  
             
   - if @need.state != '项目完成'
-    .need-comment
+
+    .col-sm-12.need-comment
       = simple_form_for :comment, url: create_comment_need_path(@need) do |f|
         = f.text_area :title, label: false, class:'project-comment-textarea col-sm-12'
         = f.button :submit, value: '提交评论', class:'btn btn-primary submitComment'
