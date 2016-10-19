@@ -1,5 +1,5 @@
 .user-center-section{
-	background-color:$mainBgColor;
+	padding-top:40px;
 	.content{
 		padding: 0px 30px;
 		min-height:300px;
@@ -217,7 +217,7 @@
 
 .project-comment{
 	.comments_list{
-		padding:40px 15px;
+		padding:0px 15px 40px 15px;
 		.a-comment{
 			height:210px;
 			padding: 30px 0px;
