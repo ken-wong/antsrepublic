@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     end
 
     event :unconfirm! do
-      transition [nil, :'认证通过',:'未认证', :'等待审核'] => :'拒绝'
+      transition [nil, :'认证通过',:'未认证', :'等待审核'] => :'认证拒绝'
     end
   end
 
