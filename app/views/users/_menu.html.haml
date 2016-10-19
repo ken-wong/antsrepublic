@@ -2,7 +2,7 @@
   %a.tabs-group-item.text-center{ href: dashboard_user_path(current_user), class: active_class(dashboard_user_path(current_user)) }
     消息提醒
   - if current_user.has_role? :queen or  current_user.has_role? :owner   
-    %a.tabs-group-item.text-center{ href: project_list_user_path(current_user), class: active_class(project_list_user_path(current_user)) }
+    %a.tabs-group-item.text-center{ href: project_list_user_path(current_user), class: params[:need_id]? active_class(need_tasks_path(params[:need_id])) :active_class(project_list_user_path(current_user)) }
       = "项目需求" if current_user.has_role? :owner 
       = "项目管理" if current_user.has_role? :queen 
   - if current_user.has_role? :queen 
