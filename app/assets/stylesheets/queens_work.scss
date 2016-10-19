@@ -8,9 +8,8 @@ section.queens_work_title{
 	padding:0;
 	height:40px;
 	margin-top:-40px;
-	background: transparent;
-	.container-fluid{
-		background-color:rgba(0,0,0,.5);
+	background-color:rgba(0,0,0,.5);
+	.container{
 		
 	}
 	.col-md-10{
@@ -26,6 +25,7 @@ section.queens_work_title{
 			margin-top:10px;
 		    display: inline-block;
 		}
+		text-align:right;
 		span.like_icon{
 			@include inlineBlockIcon(image_path("queens_work/like_sprite.png"),24px,20px);
 			&.liked{
@@ -73,14 +73,22 @@ section.queens_work_desc{
 	.container{
 		padding:40px 0px;
 		h2{
-			pading-left:20px;
+			padding-left:13px;
 			margin-bottom:30px;
+			height:50px;
+			line-height:50px;
+			font-weight:bold;
 			span.desc_title_icon{
-				@include inlineBlockIcon(image_path("queens_work/desc_title_icon.png"),22px,30px)
+				vertical-align: top;
+				line-height:50px;
+				@include inlineBlockIcon(image_path("queens_work/desc_title_icon1.png"),32px,44px)
 			}
+
 		}
 		p{
 			text-indent:2em;
+			font-size:27px;
+			line-height:50px;
 			&.ref_price>strong{
 				color:$primaryColor
 			}
@@ -96,7 +104,8 @@ section.queens_work_queen,section.queens_work_client{
 		.avatar_wapper{
 			margin-bottom:15px;
 			img{
-				width:120px;
+				width:161px;
+				height:161px;
 				box-shadow:1px 2px 3px 3px rgba(0,0,0,.1);
 			}
 		} 
@@ -114,19 +123,18 @@ section.queens_work_queen,section.queens_work_client{
 
 section.queens_work_queen{
 	padding:0px;
+	background-color:#ecf4f7;
 	.container{
-		padding:40px 0px;
-		background-color:#ecf4f7;
+		padding:40px 0px 95px 0px;
 		.row{
-			.col-md-2{
-				.img-circle{
-					
+			.col-md-2.queens_work_queen_info{
+				p strong{
+					font-size:21px;
 				}
 			}
 			.col-md-10 .clientStarAndLike{
-				width:98%;
-				margin-right:20px;
-				height:150px;
+				width:96%;
+				height:213px;
 				background-color:white;
 				border-radius:10px;
 				float:right;
@@ -138,7 +146,7 @@ section.queens_work_queen{
 					height:20px;
 					transform: rotate(45deg);
 					position:relative;
-					top: 60px;
+					top: 102px;
 					left: -10px;
 					vertical-align: top;
 				}
@@ -147,11 +155,13 @@ section.queens_work_queen{
 					height:150px;
 					&.width-15{
 						line-height:140px;
+						margin-top: 48px;
 					}
 					&.width-35{
-						line-height:150px;
+						line-height:103px;
+						margin-top: 48px;
 						p{
-							font-size:18px;
+							font-size:19px;
 							font-weight:bold;
 							color:#666;
 							line-height:28px;
@@ -171,11 +181,12 @@ section.queens_work_queen{
 					}
 				}
 				h4{
-					font-size:20px;
+					font-size:21px;
 					font-weight:900;
 					color:$primaryColor;
 					height: 100%;
-				    line-height: 140px;
+				    line-height: 89px;
+				    text-align:center;
 				}
 				.like-num{
 					color:$primaryColor;
@@ -187,12 +198,15 @@ section.queens_work_queen{
 }
 
 section.queens_work_likes{
+	background-color:#f2f5f7;
 	.container{
-		padding:40px 0px;
+		padding:33px 0px 78px 0px;
 		h4{
 			font-weight:bold;
-			margin-bottom:20px;
+			margin:0px;
+			margin-bottom:54px;
 			text-indent:1em;
+			font-size:25px;
 		}
 		.liked-histroy, .recommend-case{
 			width:100%;

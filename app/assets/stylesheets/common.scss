@@ -4,6 +4,14 @@ $navWordColor:#fff;
 $mainBgColor:#f3f3f3;
 //$primaryColor:#5eb4e7;
 $primaryColor:#f7b706;
+
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1212px;
+  }
+}
+
 @mixin iconBg($img){
 	background:url($img) scroll no-repeat;
 }
@@ -124,10 +132,10 @@ section.ants_feature_section{
 
 }
 section.contact_section{
+	background-color:$mainBgColor;
 	.container{
 		min-height:100px;
 		padding:40px;
-		background-color:$mainBgColor;
 		h5{
 			font-size:24px;
 			font-weight:900;
