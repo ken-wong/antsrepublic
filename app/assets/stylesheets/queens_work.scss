@@ -16,7 +16,7 @@ section.queens_work_title{
 		p{
 			line-height:40px;
 			color:white;
-			font-size:24px;
+			font-size:19px;
 			margin-bottom:0px;
 		}
 	}
@@ -46,7 +46,7 @@ section.queens_work_title{
 	a{
 		line-height:30px;
 		color:white;
-		font-size:20px;
+		font-size:19px;
 		vertical-align: top;
 		&:hover{
 			color:white;
@@ -74,21 +74,23 @@ section.queens_work_desc{
 		padding:40px 0px;
 		h2{
 			padding-left:13px;
+			margin:0;
 			margin-bottom:30px;
-			height:50px;
-			line-height:50px;
+			height:32px;
+			line-height:32px;
 			font-weight:bold;
+			font-size:21px;
 			span.desc_title_icon{
 				vertical-align: top;
 				line-height:50px;
-				@include inlineBlockIcon(image_path("queens_work/desc_title_icon1.png"),32px,44px)
+				@include inlineBlockIcon(image_path("queens_work/desc_title_icon.png"),22px,30px)
 			}
 
 		}
 		p{
 			text-indent:2em;
-			font-size:27px;
-			line-height:50px;
+			font-size:18px;
+			line-height:40px;
 			&.ref_price>strong{
 				color:$primaryColor
 			}
@@ -104,8 +106,8 @@ section.queens_work_queen,section.queens_work_client{
 		.avatar_wapper{
 			margin-bottom:15px;
 			img{
-				width:161px;
-				height:161px;
+				width:108px;
+				height:108px;
 				box-shadow:1px 2px 3px 3px rgba(0,0,0,.1);
 			}
 		} 
@@ -129,12 +131,12 @@ section.queens_work_queen{
 		.row{
 			.col-md-2.queens_work_queen_info{
 				p strong{
-					font-size:21px;
+					font-size:14px;
 				}
 			}
 			.col-md-10 .clientStarAndLike{
 				width:96%;
-				height:213px;
+				height:142px;
 				background-color:white;
 				border-radius:10px;
 				float:right;
@@ -152,19 +154,19 @@ section.queens_work_queen{
 				}
 				div{
 					vertical-align:top;
-					height:150px;
+					height:142px;
 					&.width-15{
 						line-height:140px;
-						margin-top: 48px;
+						margin-top: 32px;
 					}
 					&.width-35{
-						line-height:103px;
-						margin-top: 48px;
+						line-height:75px;
+						margin-top: 32px;
 						p{
-							font-size:19px;
+							font-size:14px;
 							font-weight:bold;
 							color:#666;
-							line-height:28px;
+							line-height:20px;
 							&.margin-top-20{
 								margin-top:20px;
 							}
@@ -174,18 +176,17 @@ section.queens_work_queen{
 							span>span{
 								// margin-right:1px;
 								vertical-align: middle;
-								@include inlineBlockIcon(image_path("queens_work/like_sprite.png"),24px,20px);
-								background-position:-24px 0px;
+								@include inlineBlockIcon(image_path("queens_work/like_sprite1.png"),20px,15px);
+								background-position:-17px 0px;
 							}
 						}
 					}
 				}
 				h4{
-					font-size:21px;
+					font-size:14px;
 					font-weight:900;
 					color:$primaryColor;
-					height: 100%;
-				    line-height: 89px;
+				    line-height: 64px;
 				    text-align:center;
 				}
 				.like-num{
@@ -200,13 +201,13 @@ section.queens_work_queen{
 section.queens_work_likes{
 	background-color:#f2f5f7;
 	.container{
-		padding:33px 0px 78px 0px;
+		padding:22px 0px 50px 0px;
 		h4{
 			font-weight:bold;
 			margin:0px;
-			margin-bottom:54px;
+			margin-bottom:36px;
 			text-indent:1em;
-			font-size:25px;
+			font-size:16px;
 		}
 		.liked-histroy, .recommend-case{
 			width:100%;
@@ -215,7 +216,7 @@ section.queens_work_likes{
 				width:24%;
 				text-align:center;
 				.img-circle{
-					width:95px;
+					width:65px;
 				}
 			}
 		}

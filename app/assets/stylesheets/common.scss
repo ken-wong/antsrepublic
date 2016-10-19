@@ -5,10 +5,15 @@ $mainBgColor:#f3f3f3;
 //$primaryColor:#5eb4e7;
 $primaryColor:#f7b706;
 
+@media (min-width: 992px){
+	.container {
+	    width: 816px;
+	}
+}
 
 @media (min-width: 1200px) {
   .container {
-    width: 1212px;
+    width: 816px;
   }
 }
 
@@ -37,6 +42,9 @@ $primaryColor:#f7b706;
 .topNav{
 	background-color:$navBgColor;
 	.nav{
+		float:right;
+		width:auto;
+		line-height:46px;
 		a{
 			display: inline-block;
 			color:$navWordColor;
@@ -47,9 +55,6 @@ $primaryColor:#f7b706;
 		img+a{
 			padding-left:0;
 		}
-		float:right;
-		width:auto;
-		line-height:48px;
 		li{
 			color:$navWordColor;
 			a:hover,a:focus{
@@ -63,7 +68,7 @@ $primaryColor:#f7b706;
 
 }
 nav.navbar{
-	height:120px;
+	height:100px;
 	.navbar-form{
 		height:60px;
 		margin-top:16px;
@@ -80,7 +85,7 @@ nav.navbar{
 	a.navbar-brand{
 		height:70px;
 		img{
-			height:70px;
+			height:58px;
 		}
 	}
 }
@@ -93,39 +98,41 @@ nav.navbar{
 
 
 section.ants_feature_section{
-	min-height:200px;
+	min-height:168px;
 	&>.container{
-		padding:40px;
+		padding:46px 0px;
 	}
 	h2{
+		margin:0;
 		font-weight:bold;
-
+		font-size:17px;
 		i{
 			color:$primaryColor;
 		    font-style: normal;
 		}
 	}
 	h4{
-		height:40px;
-		line-height:40px;
-		font-size:20px;
+		margin-top:36px;
+		height:20px;
+		line-height:20px;
+		font-size:15px;
 		font-weight:600;
 		color:#888;
 		&>span{
 		    vertical-align: bottom;
 			display:inline-block;
-			width:40px;
-			height:40px;
+			width:20px;
+			height:20px;
 			// verical-align:
 			background:scroll no-repeat;
 			&.featured_icon_1{
-				background-image:url(image_path('homepage/features_icon_1.png'));
+				background-image:url(image_path('homepage/features_icon_1a.png'));
 			}
 			&.featured_icon_2{
-				background-image:url(image_path('homepage/features_icon_2.png'));
+				background-image:url(image_path('homepage/features_icon_2a.png'));
 			}
 			&.featured_icon_3{
-				background-image:url(image_path('homepage/features_icon_3.png'));
+				background-image:url(image_path('homepage/features_icon_3a.png'));
 			}
 		}
 	}
@@ -134,15 +141,19 @@ section.ants_feature_section{
 section.contact_section{
 	background-color:$mainBgColor;
 	.container{
-		min-height:100px;
-		padding:40px;
+		min-height:133px;
+		padding:40px 0px 40px 32px;
 		h5{
-			font-size:24px;
+			font-size:15px;
 			font-weight:900;
 		}
 		.btn-primary{
+			font-size:14px;
 			box-shadow:2px 0px 5px $primaryColor;
-			width:200px;
+			width:135px;
+			height:33px;
+			line-height:33px;
+			padding:0px;
 			background-color:$primaryColor;
 			border-color:$primaryColor;
 		}
@@ -158,10 +169,12 @@ section.contact_section{
 			padding:0px;
 			&>li{
 				color:white;
+				font-size:19px;
 				&:before{
 					color:#999;
 				}
 				&>a{
+					font-size:19px;
 					color:#999;
 				}
 			}
@@ -189,11 +202,13 @@ footer.background-midnight-blue{
 	&>.container{
 		padding:40px;
 		h3{
+			font-size:18px;
 			color: $primaryColor;
 			border:none;
 		}
 		.nav-footer{
 			li,li a{
+				font-size:14px;
 				color:#888;
 			}
 		}
