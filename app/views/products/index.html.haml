@@ -17,8 +17,8 @@
                     %a{:href=>"#", 'data-category'=>'效果图'} 效果图
                     %a{:href=>"#", 'data-category'=>'影片'} 影片
                     %a{:href=>"#", 'data-category'=>'多媒体'} 多媒体
-              = hidden_field_tag('queen_work[category]', @queen_work.category)      
-              = text_field_tag('queen_work[title]', @queen_work.title, class:'form-control')     
+              =# hidden_field_tag('queen_work[category]', @queen_work.category)      
+              =# text_field_tag('queen_work[title]', @queen_work.title, class:'form-control')     
               .input-group-btn
                 %button.btn.btn-default#submitSearch{:type => 'button'}
                   %span.glyphicon.glyphicon-search  
