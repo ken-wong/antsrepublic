@@ -53,7 +53,7 @@
     .row
       .col-md-2
         .avatar_wapper.text-center
-          = image_tag(@product.queen.avatar.url, class: 'img-circle')
+          = image_tag(@product.queen.avatar.url, class: 'img-circle') unless @product.queen.nil?
         %p.text-center
           %strong= @product.queen.name 
           
