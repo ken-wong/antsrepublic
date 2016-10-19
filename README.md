@@ -5,7 +5,7 @@
 #TODO
 	
 	1. amdin消息通知(项目状态变更, 认证状态变更)
-	1.
+	1. 允许空密码save user
 
 ## change log
 ##1018

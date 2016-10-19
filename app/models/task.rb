@@ -10,7 +10,7 @@ class Task < ActiveRecord::Base
 
   state_machine :state, :initial => :'提交附件' do
     event :wait_for! do
-      transition [nil, :'提交附件'] => :'等待甲方'
+      transition [nil, :'提交附件', :'退回重来'] => :'等待甲方'
     end
     
     event :confirm! do
