@@ -7,8 +7,55 @@
     - # 如果项目有评分，需要显示评分情况
   - if current_user.id != @need.queen_id
     .col-sm-12.vote_block
-      打分模块！
+      %h6
+        请为乙方本次服务做出评价
+      %p
+        %strong
+          交货速度
+        %span.vote_num_selector#scoreSpeed
+          %span.score
+          %span.score
+          %span.score
+          %span.score
+          %span.score
+
+      %p
+        %strong
+          作品质量
+        %span.vote_num_selector#scoreQuality
+          %span.score
+          %span.score
+          %span.score
+          %span.score
+          %span.score
+
+      %p
+        %strong
+          服务态度
+        %span.vote_num_selector#scoreService
+          %span.score
+          %span.score
+          %span.score
+          %span.score
+          %span.score
+
+      %p
+        %a.btn.btn-primary.submitVote{:href => "javascript:void(0)"}
+          确认评分
+
+          
     
   .col-sm-12.vote_sum_block
-    项目评分
+    .col-sm-4
+      %span.vote_title
+        交货速度
+      %span.vote_speed_num.vote_type_num
+    .col-sm-4
+      %span.vote_title
+        作品质量
+      %span.vote_quality_num.vote_type_num
+    .col-sm-4
+      %span.vote_title
+        服务态度
+      %span.vote_service_num.vote_type_num
 

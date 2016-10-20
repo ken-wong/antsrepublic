@@ -12,9 +12,7 @@
 
 api:
 	1. api/needs/:id/vote_to_me POST
-		vote_type= service|speed|quality 
-
-		curl -X POST -d "voter_id=1" -d "vote_type=service" -d "stars=3"  http://localhost:3000/api/needs/4/vote_to_me
+		curl -X POST -d "voter_id=1" -d "speedStars=1" -d "qualityStars=3" -d "serviceStars=3"  http://localhost:3000/api/needs/4/vote_to_me
 
 		{"vote_speed":0,"vote_quality":0,"vote_service":3}%
 

@@ -1,4 +1,7 @@
 (function(){
+	var scoreSpeed,
+		scoreQuality,
+		scoreService = 0;
 	$(document).ready(function(){
 
 		//获取项目的评分情况
@@ -9,10 +12,76 @@
 			if(data.vote_speed && parseInt(data.vote_speed) > 0){
 				//有评分，显示分数
 				$('.vote_sum_block').toggle();
+				$('.vote_sum_block span.vote_speed_num').html(buildVoteNumIcons(data.vote_speed));
+				$('.vote_sum_block span.vote_quality_num').html(buildVoteNumIcons(data.vote_quality));
+				$('.vote_sum_block span.vote_service_num').html(buildVoteNumIcons(data.vote_service));
 			}else{
 				//没有评分，如果是甲方，则显示打分，如果是乙方，则不显示
 				$('.vote_block').show();
 			}
+		})
+
+		//打分模块
+		$('.task-vote .vote_block span.score').mouseover(function(e){
+			var child = $(e.currentTarget);
+			var parent = child.parent('.vote_num_selector');
+			var index = child.index();
+			makeStar(parent, index);
+		}).click(function(e){
+			var child = $(e.currentTarget);
+			var parent = child.parent('.vote_num_selector');
+			var index = child.index();
+			var typeId = parent.attr('id');
+			switch(typeId){
+				case 'scoreSpeed':
+					scoreSpeed = index+1; 
+					break;
+				case 'scoreQuality':
+					scoreQuality = index+1;
+					break;
+				case 'scoreService':
+					scoreService = index+1;
+					break;
+					
+			}
+
+			makeStar(parent, index);
+		});
+
+		$(".vote_num_selector").mouseout(function(e){
+			var dom = $(e.currentTarget)
+			var typeId = dom.attr('id');
+			var index = -1
+			switch(typeId){
+				case 'scoreSpeed':
+					index = scoreSpeed; 
+					break;
+				case 'scoreQuality':
+					index = scoreQuality;
+					break;
+				case 'scoreService':
+					index = scoreService;
+					break;
+			}
+
+			makeStar(dom, index-1);
+
+		});
+
+		$('.submitVote').click(function(e){
+			$(this).hide();
+			$.post('/api/needs/'+need_id+'/vote_to_me',{
+				voter_id:user_id,
+				speedStars:scoreSpeed,
+				qualityStars:scoreQuality,
+				serviceStars:scoreService
+			},function(data){
+				$('.vote_block').hide();
+				$('.vote_sum_block').show();
+				$('.vote_sum_block span.vote_speed_num').html(buildVoteNumIcons(data.vote_speed));
+				$('.vote_sum_block span.vote_quality_num').html(buildVoteNumIcons(data.vote_quality));
+				$('.vote_sum_block span.vote_service_num').html(buildVoteNumIcons(data.vote_service));
+			})
 		})
 
 		//文件上传
@@ -151,7 +220,21 @@
 					"</div>";
 	}
 
+	var buildVoteNumIcons = function(_num){
+		var _html = '';
+		for(i=0;i<_num;i++){
+			_html += '<span class="score"></span>';
+		}
+		return $(_html)
+	}
 	
+	var makeStar = function(_parentDom, _index){
+		_parentDom.find('span.score').removeClass('hover');
+		if(_index>=0){
+			_parentDom.find('.score:lt(' + (_index+1) + ')').addClass('hover');
+			
+		}
+	}
 
 
 }());
