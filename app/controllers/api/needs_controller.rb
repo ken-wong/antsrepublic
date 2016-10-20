@@ -2,10 +2,13 @@ class Api::NeedsController < Api::BaseController
   def vote_to_me
     @need     = Need.find(params[:id])
     voter_id  = params[:voter_id]
-    vote_type = params[:vote_type]
-    stars     = params[:stars]
+    speedStars     = params[:speedStars]
+    qualityStars     = params[:qualityStars]
+    serviceStars     = params[:serviceStars]
 
-    @need.vote_by voter: User.find(voter_id), vote_scope: "#{vote_type}", vote_weight: stars
+    @need.vote_by voter: User.find(voter_id), vote_scope: "speed", vote_weight: speedStars
+    @need.vote_by voter: User.find(voter_id), vote_scope: "quality", vote_weight: qualityStars
+    @need.vote_by voter: User.find(voter_id), vote_scope: "service", vote_weight: serviceStars
 
     vspeed   = @need.find_votes_for(:vote_scope => 'speed').sum(:vote_weight) # => 6
     vquality = @need.find_votes_for(:vote_scope => 'quality').sum(:vote_weight) # => 6
