@@ -64,7 +64,6 @@ class NeedsController < InheritedResources::Base
       @queen_work.final!
       @queen_work.save
     end
-    
 
     respond_to do |format|
       format.html { redirect_to product_list_user_path(current_user), notice: 'queen_work was successfully updated.' }
