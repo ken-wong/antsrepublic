@@ -12,7 +12,7 @@
 need convert_to_queen_work
 
 ```
-curl -X GET http://localhost/api/needs/{need.id}/convert_to_queen_work
+curl -X GET http://localhost/needs/{need.id}/convert_to_queen_work
 ```
 
 

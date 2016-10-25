@@ -101,6 +101,7 @@ Rails.application.routes.draw do
     resources :needs do
       resources :tasks
       resources :plans
+      get 'convert_to_queen_work'
     end
     resources :tasks do
       resources :attachments
@@ -113,7 +114,8 @@ Rails.application.routes.draw do
     resources :plans
   end
   # get     'queen_login'   => 'queen_sessions#new'
-  # post    'queen_login'   => 'queen_sessions#create'
+  # post    'queen_login'   => 'queen_seconvert
+  # ssions#create'
   # delete  'queen_logout'  => 'queen_sessions#destroy'
   # get     'queen_signup'  => 'queens#new'
   # get     'choose'  => 'welcome#choose'
