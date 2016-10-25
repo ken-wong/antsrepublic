@@ -1,7 +1,8 @@
 ActiveAdmin.register Need do
 	menu priority: 2
 	permit_params :title, :client_name, :ref_price, :category, :description, :avatar, 
-	:main_media, :avatar_cache, :main_media_cache, :tag_list, :state, :user_id, :queen_id
+	:main_media, :avatar_cache, :main_media_cache, :tag_list, :state, :user_id, :queen_id,
+	:reference_product_ids, :reference_queen_ids
 
 	qiniu_deal = (Rails.env.test? || Rails.env.development?) ? "" : '?imageView2/2/w/200/h/200'
 
@@ -18,6 +19,8 @@ ActiveAdmin.register Need do
 			f.input :ref_price
 			f.input :category, as: :select, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]]
 			f.input	:description
+			f.input :reference_product_ids
+			f.input :reference_queen_ids
 			f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
 			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| ["#{u.name}|#{u.email}", u.id]}
 			f.input :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '提交计划', '等待甲方', '乙方执行','项目终止', '项目完成', '我的案例'] 
@@ -37,8 +40,8 @@ ActiveAdmin.register Need do
 	show do
 		attributes_table do
 			row :title
-			row I18n.t('activerecord.attributes.need.avatar') do
-				image_tag need.avatar.url + qiniu_deal unless need.avatar.url.nil?
+			row I18n.t('activerecord.attributes.product.avatar') do
+				image_tag need.avatar.url + qiniu_deal if need.avatar.url
 			end
 
 			row :main_media
@@ -48,11 +51,46 @@ ActiveAdmin.register Need do
 			row	:description
 			row :tag_list
 			row :reference_product_ids
-			row :reference_queen_ids
+
 			row '蚁后' do 
 				link_to need.queen.name, admin_user_path(need.queen) if need.queen
 			end
 			row :state
+
+			panel I18n.t('activerecord.attributes.product.reference_product_ids') do
+				div do
+					need.reference_product_ids.split(',').each do |pid|
+						if QueenWork.find_by_id(pid)
+							queen_work = QueenWork.find(pid) 
+							span do
+								div do
+									link_to (image_tag queen_work.avatar.url+ qiniu_deal ), admin_queen_work_path(pid)
+								end
+								h3 do
+									queen_work.title
+								end
+							end
+						end
+					end
+				end
+			end
+			panel I18n.t('activerecord.attributes.product.reference_queen_ids') do
+				div do
+					need.reference_queen_ids.split(',').each do |pid|
+						if User.find_by_id(pid)
+							user = User.find(pid) 
+							span do
+								div do
+									link_to (image_tag user.avatar.url, size: '128x128' ), admin_user_path(pid)
+								end
+								h3 do
+									user.email
+								end
+							end
+						end
+					end
+				end
+			end
 		end
 	end
 

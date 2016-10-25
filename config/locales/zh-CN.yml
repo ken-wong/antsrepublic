@@ -34,6 +34,8 @@ zh-CN:
         final_date:  项目截止日
         price_range:  价格范围
         state: 状态
+        reference_product_ids: 参考案例
+        reference_queen_ids: 点名蚁后
       admin:
         name: 姓名
         password: 密码

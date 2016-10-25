@@ -43,8 +43,23 @@ ActiveAdmin.register User do
 	  	link_to("拒绝 ", deny_verify_admin_user_path(user), method: :put) +
 	    link_to(" 通过", allow_verify_admin_user_path(user), method: :put)
 	  end
+	end
 
-	  
+
+	show do
+		attributes_table do
+			row :id
+			row :email
+			row :name
+			row :cell
+      row :company
+      row I18n.t('activerecord.attributes.user.avatar') do
+				image_tag user.avatar.url if user.avatar.url
+			end
+      row :state
+      row :description
+      row :created_at
+		end
 	end
 
   member_action :allow_verify, method: :put do
