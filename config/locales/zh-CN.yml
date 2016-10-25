@@ -60,6 +60,7 @@ zh-CN:
         verify_img2: 身份证照
         verify_img3: 其他证件
         other: 补充说明
+        user: 用户
 
       queen:
         email: 电子邮箱

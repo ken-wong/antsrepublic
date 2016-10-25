@@ -13,4 +13,25 @@ ActiveAdmin.register Profile do
 #   permitted
 # end
 
+	show do
+		attributes_table do
+			row :user
+			row :id
+			row :phone
+      row :qq
+      row :wechat
+      row  :company
+      row  :address
+      row I18n.t('activerecord.attributes.profile.verify_img1') do
+				image_tag profile.verify_img1.url if profile.verify_img1.url
+			end
+			row I18n.t('activerecord.attributes.profile.verify_img2') do
+				image_tag profile.verify_img2.url if profile.verify_img2.url
+			end
+			row I18n.t('activerecord.attributes.profile.verify_img3') do
+				image_tag profile.verify_img3.url if profile.verify_img3.url
+			end
+      row  :other
+		end
+	end
 end
