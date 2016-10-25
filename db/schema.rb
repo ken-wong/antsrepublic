@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926151613) do
+ActiveRecord::Schema.define(version: 20161025095145) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -161,9 +161,11 @@ ActiveRecord::Schema.define(version: 20160926151613) do
     t.string   "price_range",           limit: 255
     t.string   "reference_product_ids", limit: 255
     t.string   "reference_queen_ids",   limit: 255
+    t.datetime "deleted_at"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+  add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
   add_index "products", ["queen_id"], name: "index_products_on_queen_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
@@ -263,7 +265,10 @@ ActiveRecord::Schema.define(version: 20160926151613) do
     t.integer  "sort_no",                limit: 4,     default: 0
     t.string   "password_reset_token",   limit: 255
     t.datetime "password_reset_sent_at"
+    t.datetime "deleted_at"
   end
+
+  add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
 
   create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id", limit: 4
