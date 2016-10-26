@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   belongs_to :user
   belongs_to :queen, class_name: "User"
 
+
 	mount_uploader :avatar, AvatarUploader
 	mount_uploader :main_media, MainMediaUploader
 
@@ -14,6 +15,7 @@ class Product < ActiveRecord::Base
   acts_as_taggable
   acts_as_followable
   acts_as_votable
+  acts_as_paranoid
 
   # :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '提交计划', '项目终止', '项目完成', '我的案例'] 
   # todo, 改变状态发送消息

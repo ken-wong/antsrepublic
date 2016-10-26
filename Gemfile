@@ -29,9 +29,9 @@ gem 'haml'
 
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
-gem 'acts_as_commentable'
-
+gem 'acts_as_commentable' # 评论插件
 gem 'kaminari' # 分页
+gem "paranoia", "~> 2.2" # 软删除
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -63,14 +63,14 @@ end
 
 gem 'bootstrap-sass'
 gem 'rails-i18n'
-gem 'simple_form'
+gem 'simple_form' 
 gem 'bcrypt'
 gem 'videojs_rails'
 gem 'rack-cors'
 # carrierwave for image upload and save in qiniu
-gem 'carrierwave'
-gem 'qiniu-rs'
-gem 'carrierwave-qiniu'
+gem 'carrierwave' #文件上传
+gem 'qiniu-rs' #七牛插件
+gem 'carrierwave-qiniu' #七牛和文件上传组合插件
 gem 'mini_magick'
 gem 'high_voltage'
 gem 'thin'
@@ -78,10 +78,10 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'devise-i18n'
 
-gem 'acts-as-taggable-on', '~> 3.4'
-gem "acts_as_follower"
-gem 'acts_as_votable', '~> 0.10.0'
-gem 'state_machines-activerecord'
+gem 'acts-as-taggable-on', '~> 3.4' # tag 插件
+gem "acts_as_follower" # follow/like 插件
+gem 'acts_as_votable', '~> 0.10.0' # 投票, stars 插件
+gem 'state_machines-activerecord' # 状态机
 gem 'blueimp-gallery'
 gem 'acts-as-messageable'
 gem "jquery-fileupload-rails"

@@ -91,6 +91,15 @@ class QueenWorksController < ApplicationController
     end
   end
 
+  def destroy
+    @queen_work = QueenWork.find(params[:id])
+    @queen_work.destroy
+    respond_to do |format|
+      format.html { redirect_to product_list_user_path(current_user), notice: 'Product was successfully updated.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
   def queen_work_params
     params.require(:queen_work).permit(:title, :avatar, 
