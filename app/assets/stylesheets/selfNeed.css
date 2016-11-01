@@ -1,4 +1,13 @@
 @charset "utf-8";
+@media (min-width: 1200px) {
+    .userSignup>.container {
+        width: 1170px;
+    }
+    .userLogin>.container{
+        width: 1170px;
+    }
+}
+
 // 参考案例的样式
 div.box {
     position: relative;
@@ -6,7 +15,7 @@ div.box {
 }
 
 div.box>h5 {
-    font-size:16px;
+    font-size: 16px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
@@ -41,9 +50,9 @@ div#chooseCase ul {
     background-color: #F3F3F3;
     margin-bottom: 30px;
 }
-div#chooseCase ul>li>a
-{
-	width: 140px;
+
+div#chooseCase ul>li>a {
+    width: 140px;
     height: 35px;
     line-height: 35px;
     text-align: center;
@@ -58,37 +67,46 @@ div#chooseCase ul>li>a
     -o-border-top-left-radius: 10px;
     background-color: #d9e9ef;
 }
-div#chooseCase ul>li.active>a{
-	background-color: #fff;
+
+div#chooseCase ul>li.active>a {
+    background-color: #fff;
 }
+
 // search
-div#case-seach{
-	margin:20px  30px;
+div#case-seach {
+    margin: 20px 30px;
 }
-.select2-container--default .select2-selection--single{
-	height: 40px;
+
+.select2-container--default .select2-selection--single {
+    height: 40px;
 }
-.select2-container--default .select2-selection--single .select2-selection__rendered{
-	line-height: 40px;
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 40px;
 }
-.select2-container--default .select2-selection--single .select2-selection__arrow{
-	top: 8px;
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 8px;
 }
+
 // 收藏
-.img-circle{
-	max-width: 200px;
-	max-height: 200px;
+.img-circle {
+    max-width: 200px;
+    max-height: 200px;
 }
+
 // 删除
-.delete_btn{
-	color: #7D3B2A;
+.delete_btn {
+    color: #7D3B2A;
 }
-.delete_btn:hover{
-	color:#f00;
+
+.delete_btn:hover {
+    color: #f00;
 }
+
 // 按钮
 button#sureChoose {
-	display: none;
+    display: none;
     margin-top: 20px;
     width: 185px;
     height: 35px;
@@ -98,44 +116,51 @@ button#sureChoose {
     font-family: "weiruanyahei";
 }
 
-
 // 登录
-section.userSignup, section.userLogin{
-    padding-bottom:200px;
+section.userSignup,
+section.userLogin {
+    padding-bottom: 30px;
 }
 
-#jackLogin h3{
+#jackLogin h3 {
     text-align: center;
     font-size: 25px;
     letter-spacing: 3px;
     font-weight: bold;
+    margin-top: 30px;
     margin-bottom: 30px;
     color: #000;
 }
-#jackLogin .form-group{
-    margin-left:0;
+
+#jackLogin .form-group {
+    margin-left: 0;
     margin-right: 0;
     margin-bottom: 30px;
 }
-#jackLogin label{
+
+#jackLogin label {
     font-weight: bold;
-    letter-spacing:1px;
-    font-size:20px;
+    letter-spacing: 1px;
+    font-size: 20px;
     line-height: 40px;
 }
-#jackLogin .form-control{
+
+#jackLogin .form-control {
     height: 40px;
 }
-#jackLogin input[type='submit']{
-    background-color:#5EB4E7;
-    color:#fff;
+
+#jackLogin input[type='submit'] {
+    background-color: #5EB4E7;
+    color: #fff;
     letter-spacing: 2px;
     font-size: 25px;
 }
-.fastLogin{
-     text-align: center;
+
+.fastLogin {
+    text-align: center;
 }
-.fastLogin h3{
+
+.fastLogin h3 {
     text-align: center;
     color: #5eb4e7;
     letter-spacing: 10px;
@@ -144,19 +169,21 @@ section.userSignup, section.userLogin{
     margin-bottom: 20px;
     margin-left: 50px;
 }
-.fastLogin .btn-group a{
+
+.fastLogin .btn-group a {
     display: inline-block;
     width: 110px;
     height: 110px;
     margin-left: 50px;
-    background:url(image_path('login/fastLogin.png')) no-repeat;
+    background: url(image_path('login/fastLogin.png')) no-repeat;
     background-position: 5px 0;
     border-radius: 100px;
 }
-.fastLogin .btn-group a.weChat{
+
+.fastLogin .btn-group a.weChat {
     background-position: -155px 0;
 }
-.fastLogin .btn-group a.QQ
-{
+
+.fastLogin .btn-group a.QQ {
     background-position: -311px 0;
 }
