@@ -96,6 +96,9 @@
 	        progressall: function (e, data) {
 	          var progress = parseInt(data.loaded / data.total * 100, 10);
 	          $('.task-result-files li.uploading>a').html(progress+"%");
+	          if(progress == 100){
+		          $('.task-result-files li.uploading>a').html('等待服务器处理，请勿刷新页面');
+	          }
 	        },
 	        done: function (e, data) {
 	        	var obj = data.result;
