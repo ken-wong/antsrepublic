@@ -6,6 +6,12 @@
           %span.queens_page_list_header_icon
           认证蚁后
     .row
+      .col-lg-12
+        = search_form_for @q do |f|  
+          .form-group
+            = f.search_field :name_cont
+            = submit_tag('搜索蚁后')    
+    .row
       - @queens.each do |queen|
         .col-md-6.queen
           %a{:href => queen_path(queen)}
