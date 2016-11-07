@@ -1,14 +1,13 @@
 %section.queens_work_slider
-  .container-fliud
+  .container-fluid
     .row
       - if @product.avatar
         - if @product.avatar.file and %w{jpg png gif bmp}.include?(@product.avatar.file.extension.downcase)
           = image_tag(@product.avatar.url + "?imageView2/0/h/480", width:"100%")
         - if @product.avatar.file and %w{mp4 webm}.include?(@product.avatar.file.extension.downcase)
-          //https://github.com/seanbehan/videojs_rails
-          =# @product.avatar.url
-          =# videojs_rails sources: { mp4: @product.avatar.url, webm: @product.avatar.url + "/avthumb/webm"}, setup: "{}", controls: true, width:"90%"
-          %video{ src: @product.avatar.url , width: "80%", controls: "controls"}
+          %video#caseVideo{ src: @product.avatar.url, poster:@product.avatar.small_url}
+          %a.queenWorkVideoPlay{:href => "javascript:void(0);"}
+            %span.glyphicon.glyphicon-play
 
 %section.queens_work_title
   .container
@@ -125,6 +124,6 @@
             = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
           .avatar-warpper
             = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
-      
-
-
+ 
+- content_for :page_js_block do
+  - javascript_include_tag 'queen_work_show.js'

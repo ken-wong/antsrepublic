@@ -5,6 +5,10 @@ $mainBgColor:#f3f3f3;
 //$primaryColor:#5eb4e7;
 $primaryColor:#f7b706;
 
+a{
+	text-decoration: none !important;
+}
+
 @media (min-width: 992px){
 	.container {
 	    width: 816px;

@@ -23,9 +23,9 @@
     <% end %>
   </div>
 
-<!--   <div class="col-md-6">
+<div class="col-md-6">
     <%- if @queen_work.id.present? -%>
-      <%= form_for [@queen_work, @attachment], :html => { :multipart => true, :id => "fileupload"  } do |f| %>
+      <%= form_for [@queen_work], :html => { :multipart => false, :id => "fileupload"  } do |f| %>
         
           <div class="fileupload-buttonbar ">
             <span class="btn btn-primary fileinput-button">
@@ -40,7 +40,7 @@
             </div>
           </div>
 
-          <ul class="thumbnails files">
+          <!-- <ul class="thumbnails files">
             <% unless @attachments.empty? %>
               <% @attachments.each do |attachment| %>
                   <li class="span3" id="attachment-id-<%=attachment.id%>">
@@ -49,12 +49,12 @@
                   </li>
               <% end %>
             <% end %>
-          </ul>
+          </ul> -->
 
       <% end %>
     <%-end-%>
   </div>
- -->
+
 
   <script>
     var fileUploadErrors = {
@@ -75,8 +75,10 @@
 var queen_work_id = <%=@queen_work.id%>;
 $(function () {
     $('#attachment_file').fileupload({
-        url: '/api/queen_works/<%= @queen_work.id %>/attachments',
+        // url: '/api/queen_works/<%= @queen_work.id %>/attachments',
+        url: '/queen_works/<%= @queen_work.id %>',
         dataType: 'json',
+        method: 'PATCH',
         submit: function(e, data){
           $('.fileupload-buttonbar').toggleClass('active');
         },

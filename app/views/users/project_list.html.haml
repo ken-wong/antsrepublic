@@ -33,8 +33,9 @@
                         = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary' 
                         = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' 
                       - elsif product.state == '项目完成'
-                        = link_to '日程计划', need_tasks_path(product), class: 'btn btn-info' 
-                        = link_to '转成案例', convert_to_queen_work_need_path(product), class:'btn btn-primary '
+                        = link_to '日程计划', need_tasks_path(product), class: 'btn btn-info'
+
+                        = link_to '转成案例', convert_to_queen_work_need_path(product), class:'btn btn-primary ' if current_user.has_role? :queen
                       - else
                         = link_to '日程计划', need_tasks_path(product), class: 'btn btn-info' 
 
