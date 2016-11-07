@@ -33,10 +33,7 @@ Rails.application.routes.draw do
       get 'follow_it'
       get 'vote_it'
     end
-    collection do
-      get 'search'
-    end
-
+    
     resources :attachments
   end
 

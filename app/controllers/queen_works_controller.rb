@@ -3,29 +3,19 @@ class QueenWorksController < ApplicationController
   before_action :set_tags
 
   def index
-    @queen_work = QueenWork.new
-    
-    if params[:user_id].nil?
-      @products = Product.page params[:page]
-    else
-      @products = Product.where("user_id = #{params[:user_id]}")  
-    end
-    
-    if params[:category].nil?
-      @products = QueenWork.page params[:page]
-    else
-      @products = QueenWork.where("category = '#{params[:category]}'")
+    @q = QueenWork.ransack(params[:q])
+    @products = @q.result(distinct: true)
+
+    if params[:user_id]
+      @products = @products.where("user_id = #{params[:user_id]}")  
     end
 
-    render '/products/index'
-  end
+    if params[:category]
+      @products = @products.where("category = '#{params[:category]}'")
+    end
 
-  def search
-    @queen_work = QueenWork.new(queen_work_params)
+    @products.page params[:pge]
 
-    _sql = "category = '#{params[:queen_work][:category]}' and title like '%#{params[:queen_work][:title]}%'"
-    @products = QueenWork.where(_sql).page params[:page]
-    
     render '/products/index'
   end
 

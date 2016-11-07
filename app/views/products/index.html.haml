@@ -1,28 +1,28 @@
 %section.products_section
   .container
-    = form_tag "/queen_works/search", method: 'get' do  
-      .row
-        .col-lg-12
-          .form-group        
-            / = text_field_tag('queen_work[title]', @queen_work.title)
-            / = select_tag 'queen_work[category]', options_for_select([['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], @queen_work.category)
-            / = submit_tag('搜索案例')
-            .input-group
-              .input-group-btn
-                %button.btn.btn-default.dropdown-toggle{"data-toggle"=>'dropdown',:type=>'button'} 
-                  效果图
-                  %span.caret
-                %ul.dropdown-menu{:role=>"menu"}
-                  %li
-                    %a{:href=>"#", 'data-category'=>'效果图'} 效果图
-                    %a{:href=>"#", 'data-category'=>'影片'} 影片
-                    %a{:href=>"#", 'data-category'=>'多媒体'} 多媒体
-              =# hidden_field_tag('queen_work[category]', @queen_work.category)      
-              =# text_field_tag('queen_work[title]', @queen_work.title, class:'form-control')     
-              .input-group-btn
-                %button.btn.btn-default#submitSearch{:type => 'button'}
-                  %span.glyphicon.glyphicon-search  
-                  搜索案例
+    .row
+      .col-lg-12
+        = search_form_for @q do |f|  
+          .form-group
+            = f.search_field :title_cont
+            = f.select :category_eq, options_for_select([['全部',''],['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], @q.category_eq)
+            = submit_tag('搜索案例')
+            / .input-group
+            /   .input-group-btn
+            /     %button.btn.btn-default.dropdown-toggle{"data-toggle"=>'dropdown',:type=>'button'} 
+            /       效果图
+            /       %span.caret
+            /     %ul.dropdown-menu{:role=>"menu"}
+            /       %li
+            /         %a{:href=>"#", 'data-category'=>'效果图'} 效果图
+            /         %a{:href=>"#", 'data-category'=>'影片'} 影片
+            /         %a{:href=>"#", 'data-category'=>'多媒体'} 多媒体
+            /   =# hidden_field_tag('queen_work[category]', @queen_work.category)      
+            /   =# text_field_tag('queen_work[title]', @queen_work.title, class:'form-control')     
+            /   .input-group-btn
+            /     %button.btn.btn-default#submitSearch{:type => 'button'}
+            /       %span.glyphicon.glyphicon-search  
+            /       搜索案例
 
     .row
       .col-lg-12
