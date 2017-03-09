@@ -7,13 +7,18 @@
     </p>
   <% end %>
 <% end %> 
-<section style="background-color:#ECF4F7" class="userSignup">
+<section style="" class="userSignup">
 	<div class='container'>	
+		<div class="row">
+			<div class='col-sm-12 col-md-offset-3 col-md-6'>
+				<h3 class="text-center">注册</h3>
+			</div>
+		</div>
 		<div class='row'>
 			<div class='col-sm-12 col-md-offset-3 col-md-6'>
 				<div class='thumbnail info-thumbnail'>
 					<div class="caption" id="jackLogin">
-						<h3 class="col-sm-offset-3 col-sm-9">注册</h3>
+						
 					
 						<%= simple_form_for @user, defaults: { input_html: { class: 'default_class' } } do |f| %>
 							<div class="form-group">
@@ -35,7 +40,7 @@
 								</div>
 							</div>
 							<div class="col-sm-offset-3 col-sm-9">
-							  	<%= f.button :submit, value: '注册',class:'btn btn-block btn-info"',:style=>"background-color:#5EB4E7;color:#fff;letter-spacing: 2px;font-size: 25px;" %>
+							  	<%= f.button :submit, value: '注册',class:'btn btn-block btn-info"',:style=>"background-color:#f4613f;color:#fff;letter-spacing: 2px;font-size: 21px;" %>
 							</div>
 						<% end %>
 						

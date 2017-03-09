@@ -15,4 +15,5 @@ Rails.application.config.assets.precompile += %w( neat/neat-blue.css )
 Rails.application.config.assets.precompile += %w( welcome.js task_fuc.js edit_need_fuc.js queen_works.js queen_work_show.js)
 
 Rails.application.config.assets.precompile += %w( owlcarousel/owl.carousel.min.js owlcarousel/owl.carousel.min.css owlcarousel/owl.theme.default.min.css owlcarousel/owl.theme.green.min.css)
+Rails.application.config.assets.precompile += %w( sliderstyle.css jquery_slider.js)
 Rails.application.config.assets.precompile += %w( jquery.scrollUp.min.js)

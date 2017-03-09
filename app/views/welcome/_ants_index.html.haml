@@ -1,29 +1,4 @@
-%section.ants_index_section
-  .container
-    .row
-      .col-lg-4.col-md-4.col-sm-12
-        %h2
-          %span
-            %img{:src => image_path('homepage/ants_index_heading_icon.png'), :alt => ""}/
-          蚁巢指数
-        %p
-          %i
-            蚂蚁共和网站数据蚂蚁共和网站数据
-        %ul
-          - ants_txt_arr = @ant_point.ants_text ? @ant_point.ants_text.split(/\r\n/) : []
-          - ants_txt_arr.each do | text |
-            %li
-              %span.ants_index_list_icon
-              = text
 
-      .col-lg-8.col-md-8.col-sm-12
-        .ants_index_block
-          %p
-            %strong.text-center#total-amounts
-              = @ant_point.total_amounts
-            %strong.text-center#total-projects
-              = @ant_point.total_projects
-            %strong.text-center#total-ants
-              = @ant_point.total_ants
+  
               
 

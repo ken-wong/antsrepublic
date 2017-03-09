@@ -1,8 +1,16 @@
-<div class="owl-carousel owl-theme homepageCarousel" >
-    <% banners =  Banner.where(state: "active").order(created_at: :desc).first(4) %>
-    <% banners.each do |banner| %>
-	    <div class="item">
-	        <%= link_to image_tag(banner.image_url(:thumb), alt: banner.title), banner.linkage, title: banner.title, target:'_blank' %>
-	    </div>
-    <% end %>
+<div class="homepageCarousel">
+	<div class="container_image">
+		<a href="javascript:void(0)" tip="0" class="i_btn prev_L"></a>
+		<a href="javascript:void(0)" tip="1" class="i_btn next_R"></a>
+
+		<ul class="slide_img">
+			<% banners =  Banner.where(state: "active").order(created_at: :desc).first(4) %>
+		    <% banners.each do |banner| %>
+			    <li>
+					<%= link_to image_tag(banner.image_url(:thumb), alt: banner.title), banner.linkage, title: banner.title, target:'_blank' %>
+				</li>
+		    <% end %>
+			
+		</ul>
+	</div>
 </div>
