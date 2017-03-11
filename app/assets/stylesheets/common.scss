@@ -23,6 +23,18 @@ a{
 	@include inlineBlockEle($w,$h);
 	@include iconBg($img);
 }
+.btn-ants{
+	background-color:#f4613f;
+	color:#fff;
+	letter-spacing: 2px;
+	font-size: 21px;
+}
+.btn-black{
+	background-color:#000;
+	color:#fff;
+	letter-spacing: 2px;
+	font-size: 21px;
+}
 .row h2 span{border-bottom:0px;}
 .fixed-nav{
 	position:fixed;

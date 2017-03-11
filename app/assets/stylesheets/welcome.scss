@@ -323,35 +323,37 @@ section.product_list_section{
 			}
 		}
 	}
+	.product_list_normal{
+		margin-top:80px;
+	}
 	.product{
-		height:350px;
+		height:425px;
 		margin-bottom:10px;
 		.productBlock{
 			width:100%;
-			height:350px;
+			height:425px;
 			border-radius:15px;
 			background-color:#fff;
 			border:1px solid #fff;
-			padding:30px;
-		}
-		.thumbnail{
-			float:left;
-			width:68%;
-			max-height:284px;
-			overflow:hidden;
-			img{
-				width:343px;
+			.product-image{
+				width:412px;
+				height:278px;
+				overflow:hidden;
+				img{
+					height:100%;
+				}
 			}
 		}
 		.caption{
-			display:inline-block;
-			width:28%;
 			margin-left:15px;
 			h3{
 				font-size:18px;
+				border:none;
+				a{
+					color:$primaryColor;
+				}
 			}
 			.description{
-				height:180px;
 				div b{
 					font-size:14px;
 				}	

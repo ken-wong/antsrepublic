@@ -3,15 +3,18 @@
     <%= content_tag :div, flash[key], :id=> key, class: "text-center alert alert-#{key}" %> 
   <% end %>
 <% end %> 
-<section style="background-color:#ECF4F7" class='userLogin'>
+<section class='userLogin'>
 	<div class="container">
+		<div class="row">
+			<div class='col-sm-12 col-md-offset-3 col-md-6'>
+				<h3 class="text-center">登 陆</h3>
+			</div>
+		</div>
 	    <div class="row">
 			     
 			<div class="col-sm-12 col-md-offset-3 col-md-6">
 				<div class="thumbnail info-thumbnail">
 					<div class="caption" id="jackLogin">
-						<h3 class="col-md-offset-3 col-md-9">登录</h3>
-
 						<%= simple_form_for(:session, url: login_path, html:{class:'form-horizontal'}) do |f| %>
 							<%= f.error_notification %>
 							<div class="form-group">

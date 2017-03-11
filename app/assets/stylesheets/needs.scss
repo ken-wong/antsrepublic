@@ -6,11 +6,17 @@
 }
 
 .needs_form_section,.products_section{
-	background-color:$mainBgColor;
-	h1{
-		font-weight:900;
+	h3{
+		font-size:20px;
+		font-weight:600;
+		border-bottom:1px solid #ccc;
+		height:30px;
 	}
-	.container{
+	.new_need>.container,
+	.edit_need>.container{
+		&>.row{
+			margin-top:30px;
+		}
 		.desc_textarea{
 			height:120px;
 		}
@@ -18,10 +24,15 @@
 			font-size:16px;
 		}
 		.project_tags_block{
-			background-color:white;
-			border-radius:15px;
-			padding:10px 0px;
-			margin:10px 0px 20px 0px;
+			// background-color:white;
+			// border-radius:15px;
+			// padding:10px 0px;
+			// margin:10px 0px 20px 0px;
+			.tag_row{
+				width:100%;
+				height:38px;
+				border-bottom:2px dashed #ccc;
+			}
 			.col-sm-1,.col-sm-11{
 				height:40px;
 			}

@@ -34,39 +34,40 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row project_tags_block">
       <div class="col-lg-12">
         <h5 class="project_tags_header">
           项目关键字
         </h5>
       </div>
-    </div>
-    <div class="row project_tags_block">
       <%- @tags.each_with_index do |tag_list, i|-%>
-        <div class="col-sm-1 tags_title">
-          <h6>
-            <%= tag_list[0]%>
-          </h6>
-        </div>
-        <div class="col-sm-11 tags_list">
-          <% tag_list[1][1]['tags'].each do |tag| %>
-            <%- 
-              @flag = false
-              @need.tag_list.each do |t|
-                @flag = true if t == tag and !t.blank?
-              end
-            -%>
-            
-            <span>
-              <%- if @flag -%>
-                <%= check_box_tag 'tags[]', tag, :checked  %>
-              <% else %>
-                <%= check_box_tag 'tags[]', tag  %> 
-              <% end %>
- 
-              <label for=""><%= tag %></label>
-            </span>
-          <%- end -%>
+        <div class="col-lg-12 tag_row">
+          <div class="col-sm-1 tags_title">
+            <h6>
+              <%= tag_list[0]%>
+            </h6>
+          </div>
+          <div class="col-sm-11 tags_list">
+            <% tag_list[1][1]['tags'].each do |tag| %>
+              <%- 
+                @flag = false
+                @need.tag_list.each do |t|
+                  @flag = true if t == tag and !t.blank?
+                end
+              -%>
+              
+              <span>
+                <%- if @flag -%>
+                  <%= check_box_tag 'tags[]', tag, :checked  %>
+                <% else %>
+                  <%= check_box_tag 'tags[]', tag  %> 
+                <% end %>
+   
+                <label for=""><%= tag %></label>
+              </span>
+            <%- end -%>
+          </div>
+          
         </div>
       <%- end -%>
     </div>
@@ -175,8 +176,9 @@
     
      <div class="row form_submit_block">
        <div class="col-lg-12 text-center">
-          <%= f.button :submit, class:'btn btn-primary btn-lg', value: t('new_need') if params[:id].blank? %>
+          <%= f.button :submit, class:'btn btn-ants btn-lg', value: t('new_need') if params[:id].blank? %>
           <%= f.button :submit, value: t('edit_need') unless params[:id].blank? %>
+          <%= link_to t('back'), project_list_user_path(current_user) %>
        </div>
      </div>
   </div>

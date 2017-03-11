@@ -1,4 +1,53 @@
 // Place all the styles related to the queen_works controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.products_section{
+	margin-top:40px;
+	form.queen_work_search{
+		width:95%;
+		button.btn.btn-default.dropdown-toggle{
+			position:relative;
+			z-index:10;
+			width:79px;
+		    border-bottom-right-radius: 4px;
+		    border-top-right-radius: 4px;
+		    background-color:#dedede;
+		    border-width:2px;
+		    span.caret{
+		    	color:$primaryColor;
+		    }
+		}
+		#q_title_cont{
+		    border-radius: 5px;
+		    border: 2px solid #ccc;
+		    height: 36px;
+		    margin-left: -10px;
+		    background:url(image_path('queens_work/search.png')) scroll no-repeat center right;
+		}
+	}
 
+	h5.project_tags_header{
+		font-size:17px
+	}
+	.project_tags_block{
+		.tag_row{
+			height:38px;
+			border-bottom:2px dashed #ccc;
+			.tags_title>h6{
+				text-align: right;
+			    font-size: 16px;
+			    font-weight: bold;
+			    height: 38px;
+			    margin: 0;
+			    line-height: 38px;
+			}
+			.tags_list{
+				height:38px;
+				span{
+					line-height:38px;
+					label{font-weight:400}
+				}
+			}
+		}
+	}
+}

@@ -2,11 +2,6 @@
 	.container
 		.row
 			.col-lg-12
-				%h1.text-center= t('new_need')
+				%h3= t('new_need')
 		.row
-			.col-lg-12
-				= render 'form'
-		.row
-			.col-lg-12
-				%p
-					= link_to t('back'), project_list_user_path(current_user)
+			= render 'form'

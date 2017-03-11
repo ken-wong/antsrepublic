@@ -1,5 +1,5 @@
 %section.queens_work_slider
-  .container-fluid
+  .container
     .row
       - if @product.avatar
         - if @product.avatar.file and %w{jpg png gif bmp}.include?(@product.avatar.file.extension.downcase)
@@ -15,26 +15,27 @@
       .col-md-10
         %p
           %strong= @product.title
-      .col-md-2        
-        - if current_user and current_user.voted_for? @product
-          %span.like_icon.liked
-        - else
-          %a{:href => vote_it_queen_work_path(@product), :title => "点赞"}
-            %span.like_icon
+      .col-md-2
+        %p        
+          - if current_user and current_user.voted_for? @product
+            %span.like_icon.liked
+          - else
+            %a{:href => vote_it_queen_work_path(@product), :title => "点赞"}
+              %span.like_icon
 
-        %a.jiathis.jiathis_txt.jiathis_separator.share_icon{:href => "http://www.jiathis.com/share?uid=2116682",:target=>"_blank"}
-        :javascript
-          var jiathis_config={
-            data_track_clickback:true,
-            siteNum:4,
-            sm:"weixin,tsina,cqq,qzone",
-            summary:"",
-            boldNum:4,
-            shortUrl:false,
-            hideMore:false
-          }
+          %a.jiathis.jiathis_txt.jiathis_separator.share_icon{:href => "http://www.jiathis.com/share?uid=2116682",:target=>"_blank"}
+          :javascript
+            var jiathis_config={
+              data_track_clickback:true,
+              siteNum:4,
+              sm:"weixin,tsina,cqq,qzone",
+              summary:"",
+              boldNum:4,
+              shortUrl:false,
+              hideMore:false
+            }
 
-        %script{:src => "http://v3.jiathis.com/code/jia.js?uid=2116682",:type => "text/javascript"}
+          %script{:src => "http://v3.jiathis.com/code/jia.js?uid=2116682",:type => "text/javascript"}
 
 %section.queens_work_desc.background-white
   .container
@@ -52,10 +53,10 @@
       .col-md-2.queens_work_queen_info
         .avatar_wapper.text-center
           = image_tag(@product.queen.avatar.url+'?imageView2/2/w/200/h/200', class: 'img-circle') unless @product.queen.nil?
-        %p.text-center
+      .col-md-2.queens_work_queen_name
+        %p
           %strong= @product.queen.name unless @product.queen.nil?
-          
-      .col-md-10
+      .col-md-8
         %div
           .clientStarAndLike
             .width-15
@@ -102,7 +103,7 @@
 %section.queens_work_likes
   .container
     .row
-      .col-md-6
+      .col-md-4
         %h4 点赞历史
         .liked-histroy
           .avatar-warpper
@@ -113,7 +114,7 @@
             = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
           .avatar-warpper
             = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
-      .col-md-6
+      .col-md-4.col-md-offset-2
         %h4 相关案例
         .recommend-case
           .avatar-warpper

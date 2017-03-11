@@ -1,12 +1,12 @@
 (function(){
 	$(document).ready(function(){
-		$('.products_section .dropdown-menu a').click(function(e){
-			var category = $(e.currentTarget).attr('data-category')
-			$('#queen_work_category').val(category);
+		$('.products_section .category_dropdown_menu a').click(function(e){
+			var category = $(this).data('category');
+			$('#q_category_eq').val(category);
+			$('#queen_work_search .dropdown-toggle').html(category+'<span class="caret"></span>');
+			$(this).parents('.input-group-btn').removeClass('open');
+			return false;
 		});
-		$('.products_section #submitSearch').click(function(e){
-			$('.products_section form').submit();
-		})
 	})
 	
 }())

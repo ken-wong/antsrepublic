@@ -121,7 +121,8 @@ section.userSignup,
 section.userLogin {
 }
 
-section.userSignup .thumbnail{
+section.userSignup .thumbnail, 
+section.userLogin .thumbnail{
     border:1px solid #ccc;
     border-radius:5px;
 }

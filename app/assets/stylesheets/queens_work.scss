@@ -1,7 +1,9 @@
 section.queens_work_slider{
-	padding:0px;
-	#blueimp-gallery-carousel{
-		margin:0;
+	padding:0 0 90px 0;
+	min-height:400px;
+	background-color: #2a292e;
+	img{
+	    box-shadow: 0px 0px 5px #000;
 	}
 	#caseVideo{
 		width:100%;
@@ -29,21 +31,30 @@ section.queens_work_slider{
 }
 section.queens_work_title{
 	padding:0;
-	height:40px;
-	margin-top:-40px;
-	background-color:rgba(0,0,0,.5);
+	height:103px;
+	margin-top:-59px;
+
 	.container{
-		
+		border-radius:5px;
+		background-color:$primaryColor;
+		height:103px;
+	    width: 1060px;
+		padding:0 55px;
 	}
 	.col-md-10{
 		p{
-			line-height:40px;
+			height:103px;
+			line-height:103px;
 			color:white;
-			font-size:19px;
+			font-size:20px;
 			margin-bottom:0px;
 		}
 	}
 	.col-md-2{
+		p{
+			height:103px;
+			line-height:103px;
+		}
 		&>a{
 			margin-top:10px;
 		    display: inline-block;
@@ -77,11 +88,10 @@ section.queens_work_title{
 		}
 	}
 	span.bookmark_icon{
-		@include inlineBlockIcon(image_path("queens_work/bookmark_sprite.png"),21px,20px);
-		margin-right:10px;
-	    margin-top: 3px;
+		@include inlineBlockIcon(image_path("queens_work/bookmark_sprite.png"),16px,15px);
+	    margin-top: 7px;
 		&.unbookmark{
-			background-position:-22px 0px;
+			background-position:-16px 0px;
 		}
 	}
 	strong{
@@ -114,6 +124,8 @@ section.queens_work_desc{
 			text-indent:2em;
 			font-size:18px;
 			line-height:40px;
+		    width: 93%;
+		    margin: 0 auto;
 			&.ref_price>strong{
 				color:$primaryColor
 			}
@@ -126,6 +138,7 @@ section.queens_work_desc{
 
 section.queens_work_queen,section.queens_work_client{
 	.container{
+
 		.avatar_wapper{
 			margin-bottom:15px;
 			img{
@@ -148,43 +161,41 @@ section.queens_work_queen,section.queens_work_client{
 
 section.queens_work_queen{
 	padding:0px;
-	background-color:#ecf4f7;
+
 	.container{
-		padding:40px 0px 95px 0px;
+		border:1px solid #ccc;
+		border-radius:5px;
+		padding:50px;
+		width: 1060px;
 		.row{
 			.col-md-2.queens_work_queen_info{
 				p strong{
 					font-size:14px;
 				}
 			}
-			.col-md-10 .clientStarAndLike{
-				width:96%;
-				height:142px;
-				background-color:white;
-				border-radius:10px;
-				float:right;
-				&:before{
-					display:inline-block;
-					content:" ";
-					background-color:white;
-					width:20px;
-					height:20px;
-					transform: rotate(45deg);
-					position:relative;
-					top: 102px;
-					left: -10px;
-					vertical-align: top;
+			.queens_work_queen_name{
+				p{
+					height:120px;
+					line-height:120px;
 				}
+			}
+
+			.col-md-8 .clientStarAndLike{
+				width:96%;
+				height:110px;
+
+				float:right;
+				
 				div{
 					vertical-align:top;
 					height:142px;
 					&.width-15{
 						line-height:140px;
-						margin-top: 32px;
+						margin-top: 16px;
 					}
 					&.width-35{
 						line-height:75px;
-						margin-top: 32px;
+						margin-top: 16px;
 						p{
 							font-size:14px;
 							font-weight:bold;
@@ -199,8 +210,8 @@ section.queens_work_queen{
 							span>span{
 								// margin-right:1px;
 								vertical-align: middle;
-								@include inlineBlockIcon(image_path("queens_work/like_sprite1.png"),20px,15px);
-								background-position:-17px 0px;
+								@include inlineBlockIcon(image_path("queens_work/like_sprite1.png"),16px,13px);
+								background-position:-16px 0px;
 							}
 						}
 					}
@@ -222,7 +233,9 @@ section.queens_work_queen{
 }
 
 section.queens_work_likes{
-	background-color:#f2f5f7;
+	margin-top:110px;
+	height:336px;
+	background:$primaryColor url(image_path('queens_work/likes_bg.jpg')) scroll no-repeat;
 	.container{
 		padding:22px 0px 50px 0px;
 		h4{
@@ -231,6 +244,7 @@ section.queens_work_likes{
 			margin-bottom:36px;
 			text-indent:1em;
 			font-size:16px;
+			color:white;
 		}
 		.liked-histroy, .recommend-case{
 			width:100%;

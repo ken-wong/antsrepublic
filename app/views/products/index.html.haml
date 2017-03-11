@@ -4,45 +4,36 @@
       .col-lg-12
         = search_form_for @q do |f|  
           .form-group
-            = f.search_field :title_cont
-            = f.select :category_eq, options_for_select([['全部',''],['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]], @q.category_eq)
-            = submit_tag('搜索案例')
-            / .input-group
-            /   .input-group-btn
-            /     %button.btn.btn-default.dropdown-toggle{"data-toggle"=>'dropdown',:type=>'button'} 
-            /       效果图
-            /       %span.caret
-            /     %ul.dropdown-menu{:role=>"menu"}
-            /       %li
-            /         %a{:href=>"#", 'data-category'=>'效果图'} 效果图
-            /         %a{:href=>"#", 'data-category'=>'影片'} 影片
-            /         %a{:href=>"#", 'data-category'=>'多媒体'} 多媒体
-            /   =# hidden_field_tag('queen_work[category]', @queen_work.category)      
-            /   =# text_field_tag('queen_work[title]', @queen_work.title, class:'form-control')     
-            /   .input-group-btn
-            /     %button.btn.btn-default#submitSearch{:type => 'button'}
-            /       %span.glyphicon.glyphicon-search  
-            /       搜索案例
+            .input-group
+              .input-group-btn
+                %button.btn.btn-default.dropdown-toggle{"data-toggle"=>'dropdown',:type=>'button'} 
+                  效果图
+                  %span.caret
+                %ul.dropdown-menu.category_dropdown_menu{:role=>"menu"}
+                  %li
+                    %a{:href=>"#", 'data-category'=>'效果图'} 效果图
+                    %a{:href=>"#", 'data-category'=>'影片'} 影片
+                    %a{:href=>"#", 'data-category'=>'多媒体'} 多媒体
+              = hidden_field_tag('q[category_eq]', @q.category_eq)      
+              = text_field_tag('q[title_cont]', @q.title_cont, class:'form-control')     
 
     .row
       .col-lg-12
         %h5.project_tags_header 项目关键字
-    .row
-      .col-lg-12
-        .container-fliud.project_tags_block
-          - @tags.each_with_index do |tag_list, i|
-            .row
-              .col-sm-1.tags_title
-                %h6
-                  =tag_list[0]    
-              .col-sm-11.tags_list
-                - tag_list[1][1]['tags'].each do |tag|
-                  %span
-                    = check_box_tag 'tags[]', tag
-                    %label{:for => ""}=tag
+    .row.project_tags_block
+      - @tags.each_with_index do |tag_list, i|
+        .col-lg-12.tag_row
+          .col-sm-1.tags_title
+            %h6
+              =tag_list[0]    
+          .col-sm-11.tags_list
+            - tag_list[1][1]['tags'].each do |tag|
+              %span
+                = check_box_tag 'tags[]', tag
+                %label{:for => ""}=tag
 
 
-  .container
+  .container.product_list_normal
     = render "shared/product_list_normal"
 - content_for :page_js_block do
   = javascript_include_tag 'queen_works.js'

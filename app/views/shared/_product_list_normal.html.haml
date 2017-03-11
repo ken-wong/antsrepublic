@@ -2,7 +2,7 @@
   - @products.each do |product|
     .product.col-sm-6.col-md-6
       .productBlock
-        .thumbnail.info-thumbnail
+        .product-image
           - if product.avatar
             - if product.avatar.file and %w{jpg png gif bmp}.include?(product.avatar.file.extension.downcase)
               = link_to(image_tag(product.avatar.url + "?imageView2/0/h/480"), product.avatar.url, target: '_blank')
@@ -21,8 +21,4 @@
               = product.client_name
             %p
               %b 参考价格:
-              = product.ref_price
-
-          %p.buttons
-            = link_to '查看详情', product, class: 'btn btn-lead'
-    
+              = product.ref_price 
