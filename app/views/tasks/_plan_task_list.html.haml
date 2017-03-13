@@ -3,7 +3,7 @@
     .row.task-result{:id=>"plan_task_#{task.id}"}
       .col-sm-12
         .row.task-result-header
-          .col-md-3
+          .col-md-2
             / %h5.text-center= task.plan.title if task.plan
             %h5.text-center 任务名称
           .col-md-6
@@ -12,7 +12,7 @@
               / .col-md-5= task.updated_at.strftime('%Y-%m-%d').to_s  
               / .col-md-5= link_to task.title, edit_task_path(task) if task.plan
               / .col-md-2= task.state if task.state
-          .col-md-3.task-status
+          .col-md-4.task-status
             - if task.state == '甲方确认'
               %span.task_success
                 通过

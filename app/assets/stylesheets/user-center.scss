@@ -1,33 +1,83 @@
 .user-center-section{
 	padding-top:40px;
+	.container>.background-white,.container>.background-orange{
+		border:1px solid #999;
+		border-radius:5px;
+	}
+	.container>.background-orange{
+		background-color:$primaryColor;
+	}
+	.page_title{
+		border-bottom:1px solid #999;
+	}
 	.content{
 		padding: 0px 30px;
 		min-height:300px;
 	}
-	.back-to-projects{
+	.back-project-list{
 		margin-top:20px;
-		@include inlineBlockEle(120px,36px);
-		line-height:36px;
-		border:1px solid $primaryColor;
-		border-radius:5px;
-		color:$primaryColor;
+		.back-to-projects{
+			color:white;
+		}	
+	}
+	.create-plan h3{
+		margin-top:40px;
+		margin-bottom:35px;
 	}
 }
 .user-tabs-group{
+	width:500px;
+	margin-right: 30px;
 	a.tabs-group-item{
-		width:120px;
-		height:44px;
+	    margin-left: -47px;
+		width:131px;
+		height:38px;
 		line-height:44px;
 		display:inline-block;
-		color:#666;
+		color:#fff;
 		font-weight:900;
-		background:url(image_path('user/tab_normal.png')) scroll no-repeat;
+		background:url(image_path('user/tab_normal1.png')) scroll no-repeat;
 		&.active{
+			float:left;
 			color:#000;
 			background-image:url(image_path('user/tab_active.png'));
 		}
 		&:hover{
 
+		}
+	}
+}
+.project_list{
+	.page_title{
+		h3{
+			font-size:17px;
+			text-indent:40px;
+			i{
+				font-size:24px;
+				color:$primaryColor;
+				font-weight:900;
+			}
+		}
+	}
+}
+.project_table{
+	thead{
+		color:white;
+		background-color:$primaryColor;
+		tr>th{
+			border:none;
+		}
+	}
+	tbody{
+		tr>td{
+			border:none;
+			a{
+				color:#333;
+				&.btn-ants{
+					font-size: 16px;
+					color:white;
+				}
+			}
 		}
 	}
 }
@@ -69,33 +119,47 @@
 		display:none
 	}	
 }
-.project-plan-list{
-	width:90%;
-	height:378px;
-	list-style:none;
-	margin:0;
-	padding:0;
-	overflow-y:scroll;
-	li.plan-task{
-		height:60px;
-		line-height:60px;
-		margin-bottom:10px;
-		background-color:$mainBgColor;
-		border-radius:10px;
-		span{
-			display: inline-block;
+.project-plan{
+	.responsive-calendar{
+		padding:0;
+		border-radius:0px;
+		.controls{
+			background-color:#3f3f3f;
 		}
-		span.task-checkbox{
-			width:10%
+		.day-headers{
+			background-color:#e3e3e3;
+			margin-top:0;
 		}
-		span.task-time{
-			width:25%;
+		.day.active a{
+		    background-color: $primaryColor;
 		}
-		span.task-title{
-			width:40%;
-		}
-		span.task-action{
-			width:18%;
+	}
+	.project-plan-list{
+		width:90%;
+		height:378px;
+		list-style:none;
+		margin:0;
+		padding:0;
+		overflow-y:scroll;
+		li.plan-task{
+			height:60px;
+			line-height:60px;
+			margin-bottom:10px;
+			span{
+				display: inline-block;
+			}
+			span.task-checkbox{
+				width:10%
+			}
+			span.task-time{
+				width:25%;
+			}
+			span.task-title{
+				width:40%;
+			}
+			span.task-action{
+				width:18%;
+			}
 		}
 	}
 }
@@ -106,8 +170,14 @@
 	}
 	.task-result-header{
 		padding:0px 20px;
+		border-bottom:1px solid #333;
 		[class*='col-']{
 			margin-bottom:0px;
+		}
+		.col-md-2{
+			h5{
+				border-right:1px solid #333;
+			}
 		}
 		h5{
 			margin:0;
@@ -115,7 +185,6 @@
 			line-height:40px;
 			color:#666;
 			font-weight:bold;
-			background-color:$mainBgColor;
 			&.color-black{
 				color:#000;
 			}
@@ -137,18 +206,17 @@
 	.task-result-files{
 		// height:260px;
 		min-height:260px;
-		padding:10px 20px 0px 20px;
 		.col-md-1{
 			height:100%;
+			border-right:1px solid #333;
 			h6{
-				background-color:#eee;
 				color:#666;
 				width:50px;
 				font-size:18px;
 				letter-spacing:20px;
 				word-wrap:break-word;
 				display:block;
-				height:250px;
+				height:260px;
 				margin:0px;
 				padding:80px 0px 0px 15px;
 			}
@@ -251,12 +319,12 @@
 }
 
 .project-comment{
+	background-color:white;
 	.comments_list{
 		padding:0px 15px 40px 15px;
 		.a-comment{
 			height:210px;
 			padding: 30px 0px;
-		    background-color: #f5f9fb;
 			.avatar_wapper{
 				.img-circle{
 					width:120px;
@@ -303,9 +371,7 @@
 	.need-comment{
 		.project-comment-textarea{
 			height:260px;
-			background-color:#ecf4f7;
-			border:none;
-			box-shadow: inset 0 3px 8px rgba(8, 89, 93, 0.22);
+			background-color:#e0e0e0;
 		}
 		.submitComment{
 			margin:10px 0px;

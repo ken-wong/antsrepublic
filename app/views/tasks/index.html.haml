@@ -2,13 +2,14 @@
   .container
     .row
       = render "users/menu"
-    .row.background-white
+    .row.background-orange
       .col-md-12
         .content
           #notice= notice
           .row.back-project-list
             %p
-              %a.back-to-projects.text-center{:href => project_list_user_path(current_user)} 返回项目列表
+              %a.back-to-projects.text-center{:href => project_list_user_path(current_user)}
+                %b 返回项目列表
 
           - if current_user.id == @need.queen_id then # 我是蚁后
             - case @need.state
@@ -40,9 +41,9 @@
 
           .row
             %h3.text-center 
-              = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-primary' if @need.state == '乙方执行' and current_user.has_role? :owner
+              = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-default' if @need.state == '乙方执行' and current_user.has_role? :owner
 
-          = render partial: "comment", :locals => {comments:@comments}    
+      = render partial: "comment", :locals => {comments:@comments}    
         
 
 .modal#editPlanModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editPlanModalLabel"}

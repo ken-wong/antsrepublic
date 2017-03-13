@@ -1,4 +1,4 @@
-.user-tabs-group
+.user-tabs-group.text-right.pull-right
   %a.tabs-group-item.text-center{ href: dashboard_user_path(current_user), class: active_class(dashboard_user_path(current_user)) }
     消息提醒
   - if current_user.has_role? :queen or  current_user.has_role? :owner   

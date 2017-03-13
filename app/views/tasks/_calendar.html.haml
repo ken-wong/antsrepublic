@@ -1,10 +1,10 @@
 .row.project-plan
   .col-md-5
-    .responsive-calendar.background-lead.color-white
-      .controls
-        %a.btn.btn-lead.darken.pull-left{:'data-go' => "prev"}
+    .responsive-calendar.background-white
+      .controls.color-white
+        %a.btn.pull-left{:'data-go' => "prev"}
           %i.fa.fa-chevron-left
-        %a.btn.btn-lead.darken.pull-right{:'data-go' => "next"}
+        %a.btn.pull-right{:'data-go' => "next"}
           %i.fa.fa-chevron-right
         %h4
           %span{:'data-head-year'=>""}
@@ -17,12 +17,12 @@
         .day.header Fri
         .day.header Sat
         .day.header Sun
-      .days.color-white{:'data-group'=>"days"}
+      .days{:'data-group'=>"days"}
   .col-md-7
     %ul.project-plan-list
       - @lastFinishPlanFind = false
       - @plans.each_with_index do |plan, index| 
-        %li.plan-task
+        %li.plan-task.color-white
           %span.task-checkbox.text-center
             - check_flag = (plan.tasks.first.state == '甲方确认' ? true : false) if plan.tasks.first
             %input{:type => "checkbox", :value => "false", :disabled => "disabled", checked: check_flag}/

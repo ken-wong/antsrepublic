@@ -1,0 +1,67 @@
+    <section class="ants_list color-black">
+      <div class="container ants_list_block">
+        <div class="ants_recommand_title">
+            <h2>
+              <span class="queen_header_icon"></span>
+              推荐蚁后
+            </h2>
+            <p>
+              这些是我们的优质蚁后，有中意的可以戳他们哟
+            </p>
+        </div>
+        <div class="row">
+          <div class="ants_list_container">
+            <% @queens.each do |queen|%>
+            <div class="width143">
+              <%= image_tag( queen.avatar.small_url) %>
+              <div class="ants_queen_contact_card text-center">
+                <h6><%=queen.name%></h6>
+                <p class="contact_ants_link_p">
+                  <%=  link_to '联系 TA', queen_path(queen) %>
+                </p>
+                <!-- <p><%= queen.description %></p> -->
+              </div>
+            </div>
+            <%- end -%>
+          </div>
+        </div>
+
+        <!-- 一站式中保平台 -->
+        <div class="ants_feature_section">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2 class="text-center">蚂蚁共和 房地产数字营销<i>一站式众包平台</i></h2>
+            </div>
+          </div>              
+          <div class="row">
+            <div class="col-lg-4">
+              <h4 class="text-right">
+                <span class="featured_icon_1"></span>
+                服务响应快
+              </h4>
+            </div>
+            <div class="col-lg-4">
+              <h4 class="text-center">
+                <span class="featured_icon_2"></span>
+                众包价格省
+              </h4>
+            </div>
+            <div class="col-lg-4">
+              <h4>
+                <span class="featured_icon_3"></span>
+                入驻蚁后多
+              </h4>
+            </div>  
+          </div>
+        </div>
+
+
+        <div class="row contact_section">
+          <h5>您可以直接邮件或者其他方式联系我们</h5>
+          <div class="contact_popup"></div>
+        </div>  
+      
+    </section>
+
+            
+

@@ -1,19 +1,22 @@
 %section.queens_page_list
   .container
-    .row
-      .col-md-12
+    .row.queens_page_list_header
+      .col-md-8
         %h2
           %span.queens_page_list_header_icon
           认证蚁后
-    .row
-      .col-lg-12
+      .col-md-4
         = search_form_for @q do |f|  
           .form-group
-            = f.search_field :name_cont
-            = submit_tag('搜索蚁后')    
+            = f.search_field :name_cont  
     .row
-      - @queens.each do |queen|
-        .col-md-6.queen
+      - @queens.each_with_index do |queen, index|
+        -if (index%2 == 0)
+          - divcls = 'col-md-6 queen'
+        -else
+          - divcls = 'col-md-6 queen queen_odd'
+        
+        %div{:class => divcls}
           %a{:href => queen_path(queen)}
             .queen_avatar.text-right
               = image_tag(image_path(queen.avatar_url), class: 'img-circle')

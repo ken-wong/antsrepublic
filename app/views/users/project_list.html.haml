@@ -1,43 +1,51 @@
-%section.user-center-section
+%section.user-center-section.project_list
   .container
     .row
       = render "menu"
     .row.background-white
-      .col-md-12
-        .content
-          .caption
-            %h3
-              = t('user_product')
-              = link_to t('new_need'), new_need_path, class: "btn btn-primary" if current_user.has_role? :owner 
+      .page_title
+        %h3
+          当前您共有 
+          %i
+            = @products.length
+          个项目，其中
+          %i
+            3
+          个正在执行中。
+        
+      .content
 
-          - if @products.blank?
-            没有项目 
-          - else             
-            %table.table
-              %thead
+        - if @products.blank?
+          没有项目 
+        - else             
+          %table.table.project_table
+            %thead
+              %tr
+                %th 项目名称
+                %th 截止时间
+                %th 项目类型
+                %th 项目状态
+                %th 
+            %tbody
+              - @products.each do |product|
                 %tr
-                  %th 项目名称
-                  %th 截止时间
-                  %th 项目类型
-                  %th 项目状态
-                  %th 
-              %tbody
-                - @products.each do |product|
-                  %tr
-                    %td= link_to product.title, need_tasks_path(product)
-                    %td= product.final_date
-                    %td= product.category
-                    %td= product.state
-                    %td
-                      - if product.state == '等待审核' or product.state == '审核拒绝'
-                        = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary' 
-                        = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' 
-                      - elsif product.state == '项目完成'
-                        = link_to '日程计划', need_tasks_path(product), class: 'btn btn-info'
+                  %td= link_to product.title, need_tasks_path(product)
+                  %td= product.final_date
+                  %td= product.category
+                  %td= product.state
+                  %td
+                    - if product.state == '等待审核' or product.state == '审核拒绝'
+                      = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary' 
+                      = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' 
+                    - elsif product.state == '项目完成'
+                      = link_to '日程计划', need_tasks_path(product), class: 'btn btn-ants'
 
-                        = link_to '转成案例', convert_to_queen_work_need_path(product), class:'btn btn-primary ' if current_user.has_role? :queen
-                      - else
-                        = link_to '日程计划', need_tasks_path(product), class: 'btn btn-info' 
+                      = link_to '转成案例', convert_to_queen_work_need_path(product), class:'btn btn-primary ' if current_user.has_role? :queen
+                    - else
+                      = link_to '日程计划', need_tasks_path(product), class: 'btn btn-ants' 
+          
+          %p.text-center{:style=>"margin-bottom:40px;"}
+            = link_to t('new_need'), new_need_path, class: "btn btn-ants" if current_user.has_role? :owner 
 
 
 

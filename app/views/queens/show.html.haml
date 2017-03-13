@@ -4,7 +4,7 @@
       .col-md-2.text-center
         = image_tag(@queen.avatar.small_url , class: 'img-circle')
 
-      .col-md-10
+      .col-md-4
         %h4= @queen.send(:name)
         %p= @queen.description
 
@@ -16,7 +16,7 @@
           .width-15
             %h4 甲方评价
           .width-35
-            %p.margin-top-50 
+            %p.margin-top-20 
               交货速度
               %span
                 %span
@@ -41,16 +41,22 @@
           .width-35
             %h5 2000
 
-%section.queen_cases
+%section.queen_cases_title
   .container
     .row
       .col-md-12
         %h2
           %span.queen_cases_header_icon
           相关案例
-          =# render :paratail => 'shared/product_list'
+%section.queen_cases
+  .container
+    = render :partial => 'shared/product_list'
 
 
 = render :partial => 'shared/ant_list'
-= render :partial => 'welcome/ants_feature'
-= render :partial => 'welcome/contact_section'
+
+-content_for :page_js_block do 
+  - javascript_include_tag 'queen_show.js'
+
+
+  

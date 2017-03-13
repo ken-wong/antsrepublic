@@ -188,7 +188,8 @@ section#quick_navi_data_section{
 }
 
 
-section.product_list_section{
+section.product_list_section,
+section.queen_cases{
 	min-height:400px;
 	background-color:$primaryColor;
 	.product_list_header{
