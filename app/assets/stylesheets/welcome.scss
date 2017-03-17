@@ -106,7 +106,9 @@ section#quick_navi_data_section{
 			.col-lg-4.col-md-4.col-sm-12{
 				padding-left:40px;
 				h2{
+					font-size:19px;
 					font-weight:900;
+					line-height:29px;
 					&>span{
 						margin-right:20px;
 						border:none;
@@ -118,6 +120,7 @@ section#quick_navi_data_section{
 				p i{
 					font-size:11px;
 					color:#97a0af;
+					font-style:normal;
 				}
 				ul{
 					list-style:none;
@@ -199,6 +202,7 @@ section.queen_cases{
 		    font-weight: normal;
 		    color: white;
 		    margin: 0;
+		    margin-left:50px;
 		    height: 80px;
 		    line-height: 80px;
 			.product_list_header_icon{
@@ -228,6 +232,10 @@ section.queen_cases{
 		background-color:#ba4a30;
 		padding:100px;
 		padding:46px;
+		.row.case-carousel{
+			margin:0 auto;
+			width:1100px;
+		}
 	}
 	.case-carousel{
 		.product{			
@@ -392,6 +400,7 @@ section.ants_list{
 			font-weight:400;
 			margin-top:0px;
 			margin-bottom:15px;
+			margin-left:50px;
 			span.queen_header_icon{
 				border:none;
 				vertical-align: top;
@@ -404,7 +413,7 @@ section.ants_list{
 		p{
 			font-size:13px;
 			color:#6a6a6a;
-			margin:0;
+			margin:0px 0px 0px 50px;
 		}
 	}
 

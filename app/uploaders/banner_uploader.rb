@@ -16,6 +16,15 @@ class BannerUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def small_url 
+    if self.url 
+      if %w{.mp4 .avi}.include?(File.extname(self.url).downcase)
+        self.url + '?vframe/png/offset/3/w/200/h/200'
+      else
+        self.url  + '?imageView2/1/w/200/h/200' 
+      end
+    end
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
