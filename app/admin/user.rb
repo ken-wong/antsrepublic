@@ -41,7 +41,8 @@ ActiveAdmin.register User do
 	  
 	  actions defaults: false do |user|
 	  	link_to("拒绝 ", deny_verify_admin_user_path(user), method: :put) +
-	    link_to(" 通过", allow_verify_admin_user_path(user), method: :put)
+	    link_to(" 通过", allow_verify_admin_user_path(user), method: :put) + 
+	    link_to(" 删除", admin_user_path(user), method: :delete) 
 	  end
 	end
 
