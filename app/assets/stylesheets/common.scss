@@ -4,6 +4,9 @@ $navWordColor:#fff;
 $mainBgColor:#f3f3f3;
 //$primaryColor:#5eb4e7;
 $primaryColor:#f4613f;
+body{
+	font-family: "Microsoft YaHei","Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 a{
 	text-decoration: none !important;
@@ -45,20 +48,22 @@ a{
 	border-top:1px solid #000;
 	background:url(image_path('homepage/navtopbg.jpg'));
 	&.affix{
-		opacity:.9
+		opacity:0.9
 	}
+}
+.breadcrumb > li + li:before{
+	content:' > ' ;
 }
 #nav-wrapper{
 	background:url(image_path('homepage/navtopbg.jpg'));
 }
 .topNav{
-	background-color:rgba(42,41,46,0.88);
 	height:47px;
 	.global_logo{
 		padding:14px 0px 0px 9px;
 		float: left;
 	}
-	.nav{
+	.nav.navbar-nav{
 		float:right;
 		width:auto;
 		line-height:46px;
@@ -75,6 +80,8 @@ a{
 		li{
 			color:$navWordColor;
 			a{
+				padding-top:14px;
+				padding-bottom:12px;
 				font-size:11px;
 			}
 			a:hover,a:focus{
@@ -89,7 +96,6 @@ a{
 }
 nav.navbar{
 	height:199px;
-	background-color:rgba(70,69,78,0.6);
 	.nav_top_form{
 		width:444px;
 		height:120px;
