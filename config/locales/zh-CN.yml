@@ -1,6 +1,7 @@
 zh-CN:
   activerecord:
     models:
+      friend_link: 友情链接
       admin_user: 管理员
       user: 用户
       product: 项目
@@ -80,6 +81,10 @@ zh-CN:
         state: 状态
         created_at: 创建
         updated_at: 更新
+      friend_link:
+        title: 标题
+        linkage: 链接地址
+        banner: 题图
 
   new_admin: 新建管理员
   new_product: 新建案例
