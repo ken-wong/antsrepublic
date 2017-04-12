@@ -28,11 +28,11 @@
               = link_to t('logout'), logout_path, method: :delete 
           - else
             %li
-              %a{:href => signup_path}
+              %a{href: signup_path, class: 'no_login'}
                 %img{:src => image_path("icon_login.png")}
                 注册
             %li
-              %a{:href => login_path}
+              %a{href: login_path, class: 'no_login'}
                 %img{:src => image_path("icon_profile.png")}
                 登录
 
