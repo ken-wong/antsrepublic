@@ -77,17 +77,22 @@ a{
 		img+a{
 			padding-left:0;
 		}
+    img.icon_telephone{
+      height: 23px;
+    }
 		li{
 			color:$navWordColor;
 			a{
-				padding-top:14px;
-				padding-bottom:12px;
+        padding: 14px 8px 12px;
 				font-size:11px;
 			}
 			a:hover,a:focus{
 				background-color: #333;
 			}
 		}
+    li.phone_num{
+      padding-top: 2px;
+    }
 		.badge{
 			background-color:#f00
 		}
