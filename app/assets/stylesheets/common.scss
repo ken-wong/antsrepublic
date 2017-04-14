@@ -222,7 +222,10 @@ section.partner_list{
 	height:200px;
 	background-color:white;
 	padding-top: 25px;
-    margin-bottom: 70px;
+  margin-bottom: 70px;
+	.owl-item{
+		width:240px!important;
+	}
 	.parter_logo_container{
 		width:1000px;
 		margin:0 auto;
