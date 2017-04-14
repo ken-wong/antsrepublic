@@ -518,7 +518,7 @@ section.ants_list{
 	.row.contact_section{
 		min-height:133px;
 		padding:80px 0px 100px 32px;
-		position:relative;
+		// position:relative;
 		h5{
 			font-size:19px;
 			font-weight:900;
@@ -528,10 +528,11 @@ section.ants_list{
 		.contact_popup{
 			width:485px;
 			height:452px;
-			background:url(image_path('homepage/contact_now.png'));
-		    right: -150px;
+			background:url(image_path('homepage/contact_now.png')) no-repeat;
+		    right: 0;
 		    bottom:-100px;
 		    position: absolute;
+				background-size: 100% 100%;
 		}
 
 	}
