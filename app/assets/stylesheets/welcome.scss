@@ -38,7 +38,7 @@
 	// 		background-position:-28px 0px;
 	// 		float:right;
 	// 	}
-			
+
 	// }
 	// .owl-dots{
 	// 	position:absolute;
@@ -157,7 +157,7 @@ section#quick_navi_data_section{
 						}
 					}
 				}
-				
+
 			}
 			.ants_index_block{
 				width:664px;
@@ -238,7 +238,7 @@ section.queen_cases{
 		}
 	}
 	.case-carousel{
-		.product{			
+		.product{
 			.productBlock{
 				width:100%;
 			    margin-bottom:10px;
@@ -246,11 +246,12 @@ section.queen_cases{
 				    background:no-repeat scroll;
 				    background-size:cover;
 			    	width:100%;
-			    	padding-bottom: 62.5%;
+			    	padding-bottom: 56.25%;
 			    }
 			}
-			
+
 			.caption{
+					  position: relative;
 		        width: 95%;
 		        margin:0 auto;
 				h3{
@@ -267,7 +268,11 @@ section.queen_cases{
 						color:#fff;
 						line-height:18px;
 						margin:0;
-					}	
+					}
+					p:nth-last-of-type(1){
+						position:absolute;
+						right:0;top: 0;
+					}
 				}
 				.btn{
 					background-color:$primaryColor;
@@ -277,7 +282,7 @@ section.queen_cases{
 		}
 		.owl-nav{
 			width:100%;
-			
+
 			&>div{
 				position:absolute;
 				display: inline-block;
@@ -365,7 +370,7 @@ section.queen_cases{
 			.description{
 				div b{
 					font-size:14px;
-				}	
+				}
 			}
 			.btn{
 				background-color:$primaryColor;
@@ -381,7 +386,7 @@ section.quick_startup_section{
 	&>.container{
 		padding:70px 0px;
 	}
-	
+
 }
 section.ants_list{
 	min-height:390px;
@@ -465,7 +470,7 @@ section.ants_list{
 				}
 			}
 		}
-		
+
 	}
 
 	.ants_feature_section{
@@ -528,7 +533,6 @@ section.ants_list{
 		    bottom:-100px;
 		    position: absolute;
 		}
-		
+
 	}
 }
-
