@@ -8,7 +8,9 @@
           <%= link_to(product) do%>
             <div class="product-image" style="background-image:url(<%=product.avatar.small_url%>)">
               <% if product.category == '影片' %>
+              <div class="play-modal">
                 <%= image_tag 'homepage/play.png', class: 'play-icon' %>
+              </div>
               <% end %>
             </div>
             <% end %>
