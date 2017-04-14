@@ -7,6 +7,9 @@
           <div class="productBlock" >
           <%= link_to(product) do%>
             <div class="product-image" style="background-image:url(<%=product.avatar.small_url%>)">
+              <% if product.category == '影片' %>
+                <%= image_tag 'homepage/play.png', class: 'play-icon' %>
+              <% end %>
             </div>
             <% end %>
 
