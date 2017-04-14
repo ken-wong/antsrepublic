@@ -1,6 +1,6 @@
 $(function(){
     $.scrollUp({
-    	scrollDistance: 600, 
+    	scrollDistance: 600,
     	scrollText: '返回顶部'
     });
 
@@ -9,11 +9,11 @@ $(function(){
 
 		var newopt={
 			w2:"180",//小图宽度
-			h2:"180"//小图高度 
+			h2:"180"//小图高度
 		};
-		
+
 		i_slide($(".container_image"),newopt);
-	
+
 		$('.homepageCarousel.owl-carousel').owlCarousel({
 			stagePadding: 300,
 			loop:true,
@@ -111,5 +111,6 @@ $(function(){
 			}
 		});
 	});
+  
 
 });
