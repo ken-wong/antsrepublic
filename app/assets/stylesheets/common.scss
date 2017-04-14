@@ -235,7 +235,7 @@ section.partner_list{
 			.logo-img{
 				height: 100px;
 				img{
-					
+
 					width: auto;
 				}
 			}
@@ -321,7 +321,15 @@ footer.background-midnight-blue{
 			border:none;
       font-weight: lighter;
 		}
+		.right-line{
+	    height: 90px;
+	    border-left: 1px solid gray;
+	    position: absolute;
+	    right: 40px;
+	    top: 40px;
+		}
 		.nav-footer{
+			line-height: 2;
 			li,li a{
 				font-size:14px;
 				color:#888;
