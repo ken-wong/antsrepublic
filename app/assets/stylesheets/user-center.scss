@@ -11,14 +11,14 @@
 		border-bottom:1px solid #999;
 	}
 	.content{
-		padding: 0px 30px;
+		// padding: 0px 30px;
 		min-height:300px;
 	}
 	.back-project-list{
 		margin-top:20px;
 		.back-to-projects{
 			color:white;
-		}	
+		}
 	}
 	.create-plan h3{
 		margin-top:40px;
@@ -112,12 +112,12 @@
 			span.plan-action{
 				width:18%;
 			}
-			
+
 		}
 	}
 	.new-plan-form{
 		display:none
-	}	
+	}
 }
 .project-plan{
 	.responsive-calendar{
@@ -238,7 +238,7 @@
 						font-size:16px;
 						a{
 							color:#666;
-							
+
 						}
 					}
 					a.add_task_attachment{
@@ -279,7 +279,7 @@
 		a.btn{
 			width:120px;
 			height:35px;
-			
+
 		}
 	}
 }
@@ -381,3 +381,40 @@
 	}
 }
 
+li strong p{
+	float: left;
+}
+
+.info-time{
+	margin-top: 10px;
+}
+
+.clearfix:after{
+	content: "";
+	height: 0;
+	clear: both;
+}
+
+.info-li{
+	padding-left: 10px;
+	border-bottom: 1px solid black;
+	list-style: none;
+	.btn{
+		position: relative;
+		right: 15px;
+		top: -15px;
+		float: right;
+		background-color: #f4613f;
+		border-color: #f4613f;
+	}
+	.read{
+		position: relative;
+		right: 15px;
+		top: -25px;
+		float: right;
+	}
+}
+
+.info-ul{
+	padding-left: 0;
+}
