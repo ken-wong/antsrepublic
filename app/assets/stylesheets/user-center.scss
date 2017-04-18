@@ -23,6 +23,7 @@
 	.create-plan h3{
 		margin-top:40px;
 		margin-bottom:35px;
+		color: white;
 	}
 }
 .user-info{
@@ -449,5 +450,59 @@ li strong p{
 	overflow: hidden;
 }
 .page {
+	text-align: center;
+}
+
+.plan-mask {
+	width: 500px;
+	height: 50px;
+	line-height: 37px;
+	position: absolute;
+	top: -33px;
+  left: -195px;
+	background:url(image_path('user/mask-plan.png')) no-repeat;
+	background-size: 100% 100%;
+	color: white;
+	text-align: left;
+
+	span{
+		margin-left: 20px;
+	}
+
+	.task-input {
+		width: 80%;
+		input {
+			width: 330px;
+			height: 30px;
+			color: black;
+		}
+	}
+
+	.task-btn {
+		position: absolute;
+		top: 4px;
+		width: 30px;
+		height: 30px;
+		background:url(image_path('user/accept.png')) no-repeat;
+		background-size: 100% 100%;
+	}
+}
+.calendar-left{
+	z-index: 99999;
+}
+.btn-white{
+	background-color: white;
+	color: black;
+	border-color: white;
+}
+
+.form-text{
+	padding: 0 80px;
+	font-size: 13px;
+	p{
+		margin: 20px 0;	
+	}
+}
+.form-actions{
 	text-align: center;
 }

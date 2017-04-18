@@ -1,5 +1,5 @@
 .row.project-plan
-  .col-md-5
+  .col-md-5.calendar-left
     .responsive-calendar.background-white
       .controls.color-white
         %a.btn.pull-left{:'data-go' => "prev"}
@@ -21,7 +21,7 @@
   .col-md-7
     %ul.project-plan-list
       - @lastFinishPlanFind = false
-      - @plans.each_with_index do |plan, index| 
+      - @plans.each_with_index do |plan, index|
         %li.plan-task.color-white
           %span.task-checkbox.text-center
             - check_flag = (plan.tasks.first.state == '甲方确认' ? true : false) if plan.tasks.first
@@ -37,7 +37,7 @@
 
           %span.task-action
             - @planTasks = plan.tasks
-            
+
             - if @planTasks.size > 0
               - if @planTasks.first.state == '甲方确认'
                 %a.btn.btn-success{:href => "javascript:void(0);"} 已通过
@@ -49,7 +49,7 @@
                   %a.btn.btn-primary{:href => "javascript:void(0);"} 等待提交
                 - @lastFinishPlanFind = false
 
-            - elsif current_user.has_role? :queen 
+            - elsif current_user.has_role? :queen
               - if (index > 0 and @lastFinishPlanFind) or index < 1
                 = simple_form_for([@need, @task]) do |f|
                   = f.input :plan_id, as:'hidden', input_html:{value:plan.id}
