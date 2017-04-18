@@ -419,6 +419,22 @@ li strong p{
 	}
 }
 
+
+.right-container {
+	display: inline-block;
+	position: relative;
+	top: 16px;
+	left: 35px;
+}
+
+.user-info img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 1px solid;
+	overflow: hidden;
+}
+
 .info-ul{
 	padding-left: 20px;
 }
