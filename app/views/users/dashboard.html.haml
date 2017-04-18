@@ -3,8 +3,6 @@
     .row
       = render "menu"
     .row.background-white
-      .page_title
-        %h3 项目动态
       .content
         %ul.info-ul
           - if @messages.blank?
@@ -20,5 +18,5 @@
               - else
                 %span= simple_format(m.body)
                 %span.read= '已读'
-        %p
-          = link_to_next_page @messages, '下一页'
+        %p.page
+          %span=1
