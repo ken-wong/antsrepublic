@@ -383,6 +383,11 @@
 	}
 }
 
+.ul-content {
+	margin-left: 40px;
+	border-left: 1px solid #999;
+}
+
 li strong p{
 	float: left;
 }
@@ -400,7 +405,7 @@ li strong p{
 .info-li{
 	padding-left: 10px;
 	border-bottom: 1px solid #999;
-	border-left: 1px solid #999;
+
 	list-style: none;
 	.btn{
 		position: relative;
@@ -419,6 +424,10 @@ li strong p{
 	}
 }
 
+.info-li:nth-of-type(1){
+	margin-top: 35px;
+	border-top: 1px solid #999;
+}
 
 .right-container {
 	display: inline-block;
@@ -436,7 +445,8 @@ li strong p{
 }
 
 .info-ul{
-	padding-left: 20px;
+	padding-left: 0;
+	overflow: hidden;
 }
 .page {
 	text-align: center;
