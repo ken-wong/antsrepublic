@@ -500,9 +500,20 @@ li strong p{
 	padding: 0 80px;
 	font-size: 13px;
 	p{
-		margin: 20px 0;	
+		margin: 20px 0;
 	}
 }
 .form-actions{
 	text-align: center;
+}
+
+nav.pagination {
+	width: 100%;
+	text-align: center;
+	.current.page {
+		color: #f4613f;
+	}
+	.page {
+		color: black;
+	}
 }
