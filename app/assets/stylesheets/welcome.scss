@@ -448,14 +448,15 @@ section.ants_list{
 				width:158px;
 				float:left;
 				margin:0px;
+				position:relative;
 				&>img{
 				  width: 100%;
 				}
 				.ants_queen_contact_card{
 					display:none;
-					position: relative;
+					position: absolute;
 				    left: 0;
-				    top: -158px;
+				    top: 0px;
 				    z-index: 80;
 					width:100%;
 					height:158px;
