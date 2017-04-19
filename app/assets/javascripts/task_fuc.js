@@ -139,7 +139,6 @@
 						need_id:needId
 					},
 					success:function(res){
-						console.log(res);
 						window.location.reload();
 					}
 				});
@@ -148,19 +147,24 @@
 
 
 		//日历
-		$('.responsive-calendar').responsiveCalendar({
+
+
+	  $('.responsive-calendar').responsiveCalendar({
 	        time: firstTaskData,
 	        events: taskData,
-					onDayClick: function(events) {
-						var thisDayEvent, key;
-			      key = $(this).data('year')+'-'+ $(this).data('month') +'-'+ $(this).data('day') ;
-			      // thisDayEvent = events[key];
-			      // alert(thisDayEvent.number);
-						$('.plan-mask').remove();
-						addTask($(this).parent());
-						commitTask(key);
-					}
+	        onDayClick: function(events) {
+						if($('.calendar-queen').length!=0){
+							var thisDayEvent, key;
+		          key = $(this).data('year')+'-'+ $(this).data('month') +'-'+ $(this).data('day') ;
+		          // thisDayEvent = events[key];
+		          // alert(thisDayEvent.number);
+		          $('.plan-mask').remove();
+		          addTask($(this).parent());
+		          commitTask(key);
+						}
+	        }
 	    });
+
 
 		//设置计划弹窗中的修改任务（task）按钮
 	    $(".updatePlanBtn").click(function(evt){
