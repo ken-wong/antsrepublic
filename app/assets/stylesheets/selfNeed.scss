@@ -121,10 +121,14 @@ section.userSignup,
 section.userLogin {
 }
 
-section.userSignup .thumbnail, 
+section.userSignup .thumbnail,
 section.userLogin .thumbnail{
     border:1px solid #ccc;
     border-radius:5px;
+}
+
+.thumbnail.info-thumbnail {
+  background: rgba(255,255,255,0.8);
 }
 
 section.userSignup h3,
@@ -141,18 +145,18 @@ section.userLogin h3 {
 #jackLogin .form-group {
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: 30px;
+    // margin-bottom: 20px;
 }
 
 #jackLogin label {
     font-weight: bold;
     letter-spacing: 1px;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 40px;
 }
 
 #jackLogin .form-control {
-    height: 40px;
+    height: 35px;
 }
 
 #jackLogin input[type='submit'] {
@@ -178,30 +182,53 @@ section.userLogin h3 {
 
 .fastLogin .btn-group a {
     display: inline-block;
-    width: 44px;
-    height: 39px;
-    margin-right: 86px;
-    background: url(image_path('login/fastLogin.png')) no-repeat;
-    background-position: 0px 0px;
+    width: 46px;
+    height: 43px;
+    margin-left: 55px;
+    // background: url(image_path('login/fastLogin.png')) no-repeat;
+    // background-position: 0px 0px;
 }
 
-.fastLogin .btn-group a.xinlang:hover{
-    background-position: 0px -39px;
+.fastLogin .btn-group .xinlang {
+    margin-left: 0;
 }
 
-.fastLogin .btn-group a.weChat:hover {
-    background-position: -53px -39px;
+// .fastLogin .btn-group a.xinlang:hover{
+//     background-position: 0px -39px;
+// }
+
+// .fastLogin .btn-group a.weChat:hover {
+//     background-position: -53px -39px;
+// }
+
+.fastLogin .btn-group .weChat {
+    background:url(image_path('login/wechat.png')) no-repeat;
 }
 
-.fastLogin .btn-group a.weChat {
-    background-position: -53px 0px;
+.fastLogin .btn-group .QQ {
+    background:url(image_path('login/qq.png')) no-repeat;
 }
 
-.fastLogin .btn-group a.QQ {
-    margin-right:0px;
-    background-position: -100px 0;
+.fastLogin .btn-group .xinlang {
+    background:url(image_path('login/weibo.png')) no-repeat;
 }
 
-.fastLogin .btn-group a.QQ:hover {
-    background-position: -100px -39px;
+// .fastLogin .btn-group a.QQ:hover {
+//     background-position: -100px -39px;
+// }
+
+.userSignup,.userLogin{
+  position: relative;
+  padding-bottom: 70px;
+  background: url(image_path('user/register-bg.png')) no-repeat;
+  background-size: 100% 100%;
+}
+
+.my-offset-3{
+  margin-left:30%;
+}
+
+.mask-bg{
+  background: rgba(255,255,255,0.2);
+  width: 100%;
 }

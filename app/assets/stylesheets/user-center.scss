@@ -11,22 +11,25 @@
 		border-bottom:1px solid #999;
 	}
 	.content{
-		padding: 0px 30px;
+		// padding: 0px 30px;
 		min-height:300px;
 	}
 	.back-project-list{
 		margin-top:20px;
 		.back-to-projects{
 			color:white;
-		}	
+		}
 	}
 	.create-plan h3{
 		margin-top:40px;
 		margin-bottom:35px;
+		color: white;
 	}
 }
+.user-info{
+}
 .user-tabs-group{
-	width:500px;
+	width:580px;
 	margin-right: 30px;
 	a.tabs-group-item{
 	    margin-left: -47px;
@@ -112,12 +115,12 @@
 			span.plan-action{
 				width:18%;
 			}
-			
+
 		}
 	}
 	.new-plan-form{
 		display:none
-	}	
+	}
 }
 .project-plan{
 	.responsive-calendar{
@@ -238,7 +241,7 @@
 						font-size:16px;
 						a{
 							color:#666;
-							
+
 						}
 					}
 					a.add_task_attachment{
@@ -279,7 +282,7 @@
 		a.btn{
 			width:120px;
 			height:35px;
-			
+
 		}
 	}
 }
@@ -381,3 +384,125 @@
 	}
 }
 
+.ul-content {
+	margin-left: 40px;
+	border-left: 1px solid #999;
+}
+
+li strong p{
+	float: left;
+}
+
+.info-time{
+	margin-top: 10px;
+}
+
+.clearfix:after{
+	content: "";
+	height: 0;
+	clear: both;
+}
+
+.info-li{
+	padding-left: 10px;
+	border-bottom: 1px solid #999;
+
+	list-style: none;
+	.btn{
+		position: relative;
+		right: 15px;
+		top: -15px;
+		float: right;
+		background-color: #f4613f;
+		border-color: #f4613f;
+		color: #fff;
+	}
+	.read{
+		position: relative;
+		right: 15px;
+		top: -25px;
+		float: right;
+	}
+}
+
+.info-li:nth-of-type(1){
+	margin-top: 35px;
+	border-top: 1px solid #999;
+}
+
+.right-container {
+	display: inline-block;
+	position: relative;
+	top: 16px;
+	left: 35px;
+}
+
+.user-info img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 1px solid;
+	overflow: hidden;
+}
+
+.info-ul{
+	padding-left: 0;
+	overflow: hidden;
+}
+.page {
+	text-align: center;
+}
+
+.plan-mask {
+	width: 500px;
+	height: 50px;
+	line-height: 37px;
+	position: absolute;
+	top: -33px;
+  left: -195px;
+	background:url(image_path('user/mask-plan.png')) no-repeat;
+	background-size: 100% 100%;
+	color: white;
+	text-align: left;
+
+	span{
+		margin-left: 20px;
+	}
+
+	.task-input {
+		width: 80%;
+		input {
+			width: 330px;
+			height: 30px;
+			color: black;
+		}
+	}
+
+	.task-btn {
+		position: absolute;
+		top: 4px;
+		width: 30px;
+		height: 30px;
+		background:url(image_path('user/accept.png')) no-repeat;
+		background-size: 100% 100%;
+	}
+}
+.calendar-left{
+	z-index: 99999;
+}
+.btn-white{
+	background-color: white;
+	color: black;
+	border-color: white;
+}
+
+.form-text{
+	padding: 0 80px;
+	font-size: 13px;
+	p{
+		margin: 20px 0;	
+	}
+}
+.form-actions{
+	text-align: center;
+}

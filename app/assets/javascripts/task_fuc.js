@@ -34,7 +34,7 @@
 			var typeId = parent.attr('id');
 			switch(typeId){
 				case 'scoreSpeed':
-					scoreSpeed = index+1; 
+					scoreSpeed = index+1;
 					break;
 				case 'scoreQuality':
 					scoreQuality = index+1;
@@ -42,7 +42,7 @@
 				case 'scoreService':
 					scoreService = index+1;
 					break;
-					
+
 			}
 
 			makeStar(parent, index);
@@ -54,7 +54,7 @@
 			var index = -1
 			switch(typeId){
 				case 'scoreSpeed':
-					index = scoreSpeed; 
+					index = scoreSpeed;
 					break;
 				case 'scoreQuality':
 					index = scoreQuality;
@@ -118,12 +118,49 @@
 		    minView: 2,
 		    language: 'zh-CN'
 		});
-		
+
+
+		//点击日历事件方法
+		function addTask(el) {
+			var div = '<div class="plan-mask"><span>任务名称</span><span class="task-input"><input type="text"></span><span class="task-btn"></span></div>';
+			el.prepend(div);
+		}
+
+		//提交任务方法
+		function commitTask(date){
+			$('body').on('click','.task-btn',function(){
+				var needId = $('.need-id').attr('need_id');
+				var planTitle = $('.task-input input').val();
+				$.ajax({
+					method: "POST",
+					url:"/api/needs/"+needId+"/plans",
+					data:{
+						plan:{dead_line:date,title:planTitle},
+						need_id:needId
+					},
+					success:function(res){
+						console.log(res);
+						window.location.reload();
+					}
+				});
+			})
+		}
+
+
 		//日历
 		$('.responsive-calendar').responsiveCalendar({
 	        time: firstTaskData,
-	        events: taskData
-	    });	
+	        events: taskData,
+					onDayClick: function(events) {
+						var thisDayEvent, key;
+			      key = $(this).data('year')+'-'+ $(this).data('month') +'-'+ $(this).data('day') ;
+			      // thisDayEvent = events[key];
+			      // alert(thisDayEvent.number);
+						$('.plan-mask').remove();
+						addTask($(this).parent());
+						commitTask(key);
+					}
+	    });
 
 		//设置计划弹窗中的修改任务（task）按钮
 	    $(".updatePlanBtn").click(function(evt){
@@ -153,7 +190,7 @@
 
 	    	$.ajax({
 	    		method:"DELETE",
-	    		url:purl	
+	    		url:purl
 	    	}).done(function(msg){
 	    		$("#plan-unit-"+planId).remove();
 	    	});
@@ -171,7 +208,7 @@
 	    		data: formData
 	    	}).done(function(msg){
 	    		$(".collapse#new-plan-form").before(createPlanUnit(msg.plan_id,formData[0].value,formData[1].value));
-	    		$(".collapse#new-plan-form").collapse('toggle');	    		
+	    		$(".collapse#new-plan-form").collapse('toggle');
 	    	});
 	    })
 
@@ -230,15 +267,14 @@
 		}
 		return $(_html)
 	}
-	
+
 	var makeStar = function(_parentDom, _index){
 		_parentDom.find('span.score').removeClass('hover');
 		if(_index>=0){
 			_parentDom.find('.score:lt(' + (_index+1) + ')').addClass('hover');
-			
+
 		}
 	}
 
 
 }());
-

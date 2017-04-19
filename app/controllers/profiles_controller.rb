@@ -18,7 +18,7 @@ class ProfilesController < InheritedResources::Base
       if @profile.save
       	@user.remove_role @user.roles.last.name if @user.roles.last
       	@user.add_role session[:role]
-      	
+
       	@user.state = '等待审核'
       	@user.save(validate: false)
         format.html { redirect_to choose_user_path(@user), notice: 'Profile was successfully created.' }
@@ -31,7 +31,7 @@ class ProfilesController < InheritedResources::Base
 	end
 
   def update
-  	
+
   	@user = User.find(params[:user_id])
   	@profile = @user.profile
     respond_to do |format|
@@ -59,4 +59,3 @@ class ProfilesController < InheritedResources::Base
       params.require(:profile).permit(:phone, :company, :qq, :wechat, :verify_img1, :verify_img2, :verify_img3, :address, :other, :state)
     end
 end
-

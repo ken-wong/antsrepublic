@@ -2,61 +2,62 @@
   <% if flash[key] %>
     <p>
       <div class='text-center alert alert-danger'>
-        <%= content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}" %> 
+        <%= content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}" %>
        </div>
     </p>
   <% end %>
-<% end %> 
+<% end %>
 <section style="" class="userSignup">
-	<div class='container'>	
-		<div class="row">
-			<div class='col-sm-12 col-md-offset-3 col-md-6'>
-				<h3 class="text-center">注 册</h3>
-			</div>
-		</div>
-		<div class='row'>
-			<div class='col-sm-12 col-md-offset-3 col-md-6'>
-				<div class='thumbnail info-thumbnail'>
-					<div class="caption" id="jackLogin">
-						
-						<%= simple_form_for @user, html:{ class: 'form-horizontal' } do |f| %>
-							<div class="form-group">
-								<label class="control-label col-sm-3 text-right">*邮箱</label>
-								<div class="col-sm-9">
-								  <%= f.input_field :email, class:'form-control' %>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-3 text-right">*密码</label>
-								<div class="col-sm-9">
-								  <%= f.input_field :password, class:'form-control' %>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-3 text-right">*确认密码</label>
-								<div class="col-sm-9">
-								  <%= f.input_field :password_confirmation, class:'form-control' %>
-								</div>
-							</div>
-							<div class="col-sm-offset-3 col-sm-9">
-							  	<%= f.button :submit, value: '注册',class:'btn btn-block btn-ants' %>
-							</div>
-						<% end %>
-						
-					</div>
-					<!-- 快速登录 -->
-					<div style="clear: both"></div>
-					<div class="fastLogin">
-						<h3>快速登录</h3>
-						<div class="btn-group">
-							<a href="#" class="xinlang" title="新浪登录"></a>
-							<a href="#" class="weChat" title="微信登录"></a>
-							<a href="#" class="QQ" title="qq登录"></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+  <div class="mask-bg">
+  	<div class='container'>
+  		<div class="row">
+  			<div class='col-sm-12 col-md-offset-3 col-md-6'>
+  				<h3 class="text-center">注 册</h3>
+  			</div>
+  		</div>
+  		<div class='row'>
+  			<div class='col-sm-12 my-offset-3 col-md-5'>
+  				<div class='thumbnail info-thumbnail'>
+  					<div class="caption" id="jackLogin">
 
+  						<%= simple_form_for @user, html:{ class: 'form-horizontal' } do |f| %>
+  							<div class="form-group">
+  								<label class="control-label col-sm-3 text-right">*邮箱</label>
+  								<div class="col-sm-9">
+  								  <%= f.input_field :email, class:'form-control' %>
+  								</div>
+  							</div>
+  							<div class="form-group">
+  								<label class="control-label col-sm-3 text-right">*密码</label>
+  								<div class="col-sm-9">
+  								  <%= f.input_field :password, class:'form-control' %>
+  								</div>
+  							</div>
+  							<div class="form-group">
+  								<label class="control-label col-sm-3 text-right">*确认密码</label>
+  								<div class="col-sm-9">
+  								  <%= f.input_field :password_confirmation, class:'form-control' %>
+  								</div>
+  							</div>
+  							<div class="col-sm-offset-3 col-sm-9">
+  							  	<%= f.button :submit, value: '注册',class:'btn btn-block btn-ants' %>
+  							</div>
+  						<% end %>
+
+  					</div>
+  					<!-- 快速登录 -->
+  					<div style="clear: both"></div>
+  					<div class="fastLogin">
+  						<h3>快速登录</h3>
+  						<div class="btn-group">
+  							<a href="#" class="xinlang" title="新浪登录"></a>
+  							<a href="#" class="weChat" title="微信登录"></a>
+  							<a href="#" class="QQ" title="qq登录"></a>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</section>

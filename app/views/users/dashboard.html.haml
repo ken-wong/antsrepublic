@@ -1,25 +1,23 @@
 %section.user-center-section
   .container
     .row
+      = render "user_info"
       = render "menu"
     .row.background-white
-      .page_title
-        %h3 项目动态
-      .content
-        %ul
+      .content.ul-content
+        %ul.info-ul
           - if @messages.blank?
             %li 所有消息都读过了
           - @messages.each_with_index do |m,i|
-            %li
-              %span= m.created_at.strftime('%Y-%m-%d %H:%M:%S').to_s  
-              
-              - unless m.opened 
+            %li.info-li.clearfix
+              %p.info-time= m.created_at.strftime('%Y-%m-%d %H:%M:%S').to_s
+
+              - unless m.opened
                 %strong
-                  = simple_format(m.body)                  
+                  = simple_format(m.body)
                   = link_to '确认已读', mread_user_path(mid: m.id), class: 'btn btn-info'
               - else
                 %span= simple_format(m.body)
-                
-        %p
-          = link_to_next_page @messages, '下一页'
-
+                %span.read= '已读'
+        %p.page
+          %span=1
