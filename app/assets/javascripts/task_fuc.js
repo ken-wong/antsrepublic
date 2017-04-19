@@ -119,24 +119,33 @@
 		    language: 'zh-CN'
 		});
 
+
+		//点击日历事件方法
 		function addTask(el) {
 			var div = '<div class="plan-mask"><span>任务名称</span><span class="task-input"><input type="text"></span><span class="task-btn"></span></div>';
 			el.prepend(div);
 		}
 
-		$('body').on('click','.task-btn',function(){
-			var needId = $('.need-id').attr('need_id');
-			console.log(needId);
-			$.ajax({
-				method: "POST",
-				url:"/api/needs/"+needId+"/plans",
-				data:{
-					plan:{dead_line:'2017-04-21',title:123},
-					need_id:needId
-				}
-			});
-			$(this).parent().remove();
-		})
+		//提交任务方法
+		function commitTask(date){
+			$('body').on('click','.task-btn',function(){
+				var needId = $('.need-id').attr('need_id');
+				var planTitle = $('.task-input input').val();
+				$.ajax({
+					method: "POST",
+					url:"/api/needs/"+needId+"/plans",
+					data:{
+						plan:{dead_line:date,title:planTitle},
+						need_id:needId
+					},
+					success:function(res){
+						console.log(res);
+						window.location.reload();
+					}
+				});
+			})
+		}
+
 
 		//日历
 		$('.responsive-calendar').responsiveCalendar({
@@ -149,6 +158,7 @@
 			      // alert(thisDayEvent.number);
 						$('.plan-mask').remove();
 						addTask($(this).parent());
+						commitTask(key);
 					}
 	    });
 
