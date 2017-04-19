@@ -20,4 +20,4 @@
                 %span= simple_format(m.body)
                 %span.read= '已读'
         %p.page
-          %span=1
+          = paginate @messages

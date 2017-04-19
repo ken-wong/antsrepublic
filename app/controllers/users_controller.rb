@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-    @messages = User.find(current_user).messages.page params[:page]
+    @messages = User.find(current_user).messages.page(params[:page]).per(8)
   end
   
   def mread
