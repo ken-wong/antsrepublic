@@ -19,5 +19,4 @@
               - else
                 %span= simple_format(m.body)
                 %span.read= '已读'
-        %p.page
-          = paginate @messages
+        = paginate @messages, window: 3
