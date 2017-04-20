@@ -507,6 +507,30 @@ li strong p{
 	text-align: center;
 }
 
+.user-table {
+	margin: 0 auto;
+	border: 1px solid gray;
+	width: 1110px;
+	td,tr {
+		height: 30px;
+		padding: 5px 0 5px 20px;
+		border: 1px solid gray;
+		input[type = "text"],input[type = "password"],input[type = "email"]{
+			border: 0;
+			background: transparent;
+			box-shadow: none;
+		};
+		input[type = "submit"] {
+			background: #f00;
+			border: 1px solid #f00;
+			color: #fff;
+		}
+	}
+	tr {
+		width: 100%;
+	}
+}
+
 nav.pagination {
 	width: 100%;
 	text-align: center;

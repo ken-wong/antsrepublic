@@ -11,13 +11,14 @@
     <%#= f.input :other, label: Profile.human_attribute_name(:other) %>
     <%= f.input :qq, label: Profile.human_attribute_name(:qq) %>
     <%= f.input :wechat, label: Profile.human_attribute_name(:wechat) %>
+    <div class="form-text">
+      <p>*请务必输入真实手机号码，并保持手机信号通畅；我们的客服人员会主动通过手机联系您，从此来认证您的真实身份</p>
+      <p class="form-text">
+        <input type="checkbox"> 同意《委托方协议》
+      </p>
+    </div>
   </div>
-  <div class="form-text">
-    <p>*请务必输入真实手机号码，并保持手机信号通畅；我们的客服人员会主动通过手机联系您，从此来认证您的真实身份</p>
-    <p class="form-text"> 
-      <input type="checkbox"> 同意《委托方协议》
-    </p>
-  </div>
+
 
   <div class="form-actions">
     <%= f.button :submit, value: '确定', class:'btn-ants' %>
