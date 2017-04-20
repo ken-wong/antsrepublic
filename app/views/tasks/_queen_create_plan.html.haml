@@ -9,4 +9,4 @@
     = render 'calendar_queen'
     %p.text-center
       %button.btn.btn-white#newPlanModalBtn
-        提交计划
+        = link_to "提交计划", waitfor_need_path(@need)
