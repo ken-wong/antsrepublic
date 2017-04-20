@@ -6,11 +6,13 @@
       .col-md-12
         .content
           .caption
-            %h3 
+            %h3
               个人资料
               = link_to t('back'), :back, class: 'btn btn-info'
+          .caption-title
+            %p 亲爱的 #{current_user.name}，填写真实的资料，有助于好友找到你哦。
           = simple_form_for(@user) do |f|
-            = f.input :email,  disabled: true
+            = f.input :email,  disabled: true, label:false
             = f.input :name
             = f.input :cell
             = f.input :avatar, as: :file, hint: f.object.avatar.nil? ? '' :image_tag(f.object.avatar.small_url)
@@ -18,5 +20,3 @@
             = f.input :password
             = f.input :password_confirmation
             = f.button :submit
-
-				
