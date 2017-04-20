@@ -6,11 +6,11 @@
   </div>
   <div class="row background-white">
     <div class="col-md-12">
-      <div class="content">
+      <div class="content table-box">
         <%= simple_form_for(@user) do |f|%>
           <table class='user-table'>
               <tr>
-                <td colspan="2"> </td>
+                <td colspan="2" style="border-top:0;"> </td>
               </tr>
               <tr>
                 <td colspan="2">
@@ -42,7 +42,7 @@
                 <td><%= f.input :password_confirmation,label:false %></td>
               </tr>
               <tr>
-                <td colspan="2" style="text-align:center;height:100px">
+                <td colspan="2" style="text-align:center;height:100px;border-bottom:0;">
                   <%= f.button :submit ,value:'提交' %>
                 </td>
               </tr>

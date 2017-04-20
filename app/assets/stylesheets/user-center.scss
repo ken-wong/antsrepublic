@@ -4,6 +4,9 @@
 		border:1px solid #999;
 		border-radius:5px;
 	}
+	.row {
+		margin: 0;
+	}
 	.container>.background-orange{
 		background-color:$primaryColor;
 	}
@@ -507,11 +510,17 @@ li strong p{
 	text-align: center;
 }
 
-.user-table {
-	margin: 0 auto;
+.table-box {
+	width: 1160px;
+	margin:0 auto;
 	border: 1px solid gray;
+}
+
+.user-table {
+	margin: 0 48px;
+
 	width: 1110px;
-	td,tr {
+	td {
 		height: 30px;
 		padding: 5px 0 5px 20px;
 		border: 1px solid gray;
@@ -521,6 +530,7 @@ li strong p{
 			box-shadow: none;
 		};
 		input[type = "submit"] {
+			padding: 10px 20px;
 			background: #f00;
 			border: 1px solid #f00;
 			color: #fff;
