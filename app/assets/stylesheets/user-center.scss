@@ -524,6 +524,9 @@ li strong p{
 		height: 30px;
 		padding: 5px 0 5px 20px;
 		border: 1px solid gray;
+		.form-group {
+			margin: 15px 0;
+		}
 		input[type = "text"],input[type = "password"],input[type = "email"]{
 			border: 0;
 			background: transparent;
@@ -531,8 +534,8 @@ li strong p{
 		};
 		input[type = "submit"] {
 			padding: 10px 20px;
-			background: #f00;
-			border: 1px solid #f00;
+			background: #f4613f;
+			border: 1px solid #f4613f;
 			color: #fff;
 		}
 	}

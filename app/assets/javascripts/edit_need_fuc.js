@@ -1,5 +1,5 @@
 (function(){
-	
+
 	$(document).ready(function() {
 		_queenModel.init('#need_reference_queen_ids');
 		_caseModel.init('#need_reference_product_ids');
@@ -34,7 +34,7 @@
 				addProductToSelectedList(case_data);
 			}
 		});
-		
+
 		$('.queenSelector').on('select2:select', function (evt) {
 			var select_queen_id = evt.params.data.id;
 			if(_queenModel.add(select_queen_id)){
@@ -62,11 +62,12 @@
 
 	// 参考案例弹出层
 	$(function(){
-		$('.queenSelector+span').width("1170px");
+		$('.queenSelector+span').width("1108px");
+		$('.queenSelector+span').css("margin-left",15+'px');
 		var chooseCase=$("div#chooseCase");
 		var btnChoose=$("button#sureChoose");
 		var addCase=$("span.addCase");
-		chooseCase.hide();
+		// chooseCase.hide();
 		$("span.addCase,button#sureChoose").click(function(){
 			var add=addCase.html();
 			if(add=="+")
@@ -116,9 +117,14 @@
 				'           </span>';
 				'        </a>' ;
 
+
 		$('<div class="col-md-2 col-case-and-queen text-center"></div>').append($(str).click(function(evt){
 			$(evt.currentTarget).toggleClass('selected');
 		}).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.selected_case_list');
+
+		$('.edit-box').find('.txt-empty').css('display','none');
+		console.log($('.edit-box').find('.txt-empty').text())
+
 	}
 
 	function addQueenToSelectedList(_data){
@@ -211,5 +217,5 @@
 
     var _queenModel = new Model();
     var _caseModel = new Model();
-  
+
 }());

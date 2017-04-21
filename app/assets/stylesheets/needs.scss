@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .products_section{
-	
+
 }
 
 .needs_form_section,.products_section{
@@ -62,7 +62,7 @@
 .selected_queen_list, .selected_case_list{
 	background-color:white;
 	border-radius:10px;
-	min-height:160px;
+
 	.col-md-2{
 		a.queen{
 			@include inlineBlockEle(100px,130px);

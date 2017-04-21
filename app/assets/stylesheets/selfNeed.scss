@@ -11,13 +11,47 @@
 // 参考案例的样式
 div.box {
     position: relative;
+    margin-top: 30px;
     text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+
+    p.txt-empty {
+      margin: 0 15px;
+      padding-bottom: 15px;
+      color:#7f7f7f;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    p.empty-first {
+      border-bottom: 1px dashed;
+    }
+
+    .tab-content {
+      margin-bottom: 15px;
+    }
+}
+.queen-box {
+  margin-top: 30px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+
+  h5 {
+    font-size: 16px;
+    padding-left: 15px;
+  }
+
+  .row {
+    margin: 0;
+  }
 }
 
-div.box>h5 {
+div.box h5 {
     font-size: 16px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    padding-left: 15px;
+    // margin-top: 40px;
+    // margin-bottom: 40px;
 }
 
 div.box>h5,
@@ -74,7 +108,8 @@ div#chooseCase ul>li.active>a {
 
 // search
 div#case-seach {
-    margin: 20px 30px;
+    // margin: 20px 30px;
+    // padding-left: 15px;
 }
 
 .select2-container--default .select2-selection--single {
