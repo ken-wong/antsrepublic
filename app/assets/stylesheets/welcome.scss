@@ -281,7 +281,7 @@ section.queen_cases{
 					p{
 						font-size:14px;
 						color:#fff;
-						line-height:18px;
+						line-height:25px;
 						margin:0;
 					}
 					p:nth-last-of-type(1){
@@ -314,11 +314,11 @@ section.queen_cases{
 			}
 			.owl-prev{
 				left: -70px;
-			    top: 286px;
+			    top: 230px;
 			}
 			.owl-next{
 			    right: -70px;
-			    top: 286px;
+			    top: 230px;
 			}
 		}
 	}
@@ -420,7 +420,7 @@ section.ants_list{
 			font-weight:400;
 			margin-top:0px;
 			margin-bottom:15px;
-			margin-left:50px;
+			// margin-left:50px;
 			span.queen_header_icon{
 				border:none;
 				vertical-align: top;
@@ -433,7 +433,7 @@ section.ants_list{
 		p{
 			font-size:13px;
 			color:#6a6a6a;
-			margin:0px 0px 0px 50px;
+			// margin:0px 0px 0px 50px;
 		}
 	}
 

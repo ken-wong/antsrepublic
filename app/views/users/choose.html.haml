@@ -2,10 +2,10 @@
   .container
     .row.background-white
       .col-md-12
-        .content
-          %h4.text-center 请选择你想注册的身份
-            
+        .content.flex-box
+
           - if @user.state == '未认证' or @user.state == '认证拒绝' or @user.state == nil
+            %h4.text-center 请选择你想注册的身份
             .row
               .col-xs-5.col-sm-4.col-md-3.col-md-offset-2.col-sm-offset-1.col-xs-offset-1
                 %a.btn.btn-block.btn-info.btn-ants{:href => verify_user_path(current_user, role: :owner)}

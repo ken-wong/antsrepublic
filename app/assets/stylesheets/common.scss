@@ -12,6 +12,11 @@ a{
 	text-decoration: none !important;
 }
 
+abbr[title], abbr[data-original-title] {
+	border-bottom: none;
+	text-decoration: none;
+}
+
 
 
 @mixin iconBg($img){
