@@ -1,19 +1,18 @@
 %section.user-center-section
   .container
-    .row.background-white
+    .row
       .col-md-12
-        .content.flex-box
-
-          - if @user.state == '未认证' or @user.state == '认证拒绝' or @user.state == nil
+        - if @user.state == '未认证' or @user.state == '认证拒绝' or @user.state == nil
+          .content
             %h4.text-center 请选择你想注册的身份
-            .row
-              .col-xs-5.col-sm-4.col-md-3.col-md-offset-2.col-sm-offset-1.col-xs-offset-1
+            .row.flex-box
+              .col-xs-5.col-sm-4.col-md-3
                 %a.btn.btn-block.btn-info.btn-ants{:href => verify_user_path(current_user, role: :owner)}
                   注册为委托方
-              .col-xs-5.col-sm-4.col-md-3.col-md-offset-2.col-sm-offset-1
+              .col-xs-5.col-sm-4.col-md-3.col-sm-offset-1
                 %a.btn.btn-block.btn-black{:href => verify_user_path(current_user, role: :queen)}
                   注册为蚁后
-          - else
-
+        - else
+          .content.flex-box.border-box
             %p.text-center
               请等待平台审核

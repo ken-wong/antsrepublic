@@ -16,7 +16,7 @@
         %p
           %strong= @product.title
       .col-md-2
-        %p        
+        %p
           - if current_user and current_user.voted_for? @product
             %span.like_icon.liked
           - else
@@ -28,11 +28,11 @@
             var jiathis_config={
               data_track_clickback:true,
               siteNum:4,
-              sm:"weixin,tsina,cqq,qzone",
+              sm:"weixin,tsina,cqq",
               summary:"",
               boldNum:4,
               shortUrl:false,
-              hideMore:false
+              hideMore:true
             }
 
           %script{:src => "http://v3.jiathis.com/code/jia.js?uid=2116682",:type => "text/javascript"}
@@ -46,7 +46,7 @@
           项目说明
         %p
           = @product.description
-      
+
 %section.queens_work_queen
   .container
     .row
@@ -70,7 +70,7 @@
                   %span
                   %span
                   %span
-              %p 
+              %p
                 作品质量
                 %span
                   %span
@@ -125,6 +125,6 @@
             = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
           .avatar-warpper
             = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
- 
+
 - content_for :page_js_block do
   - javascript_include_tag 'queen_work_show.js'

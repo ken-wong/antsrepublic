@@ -5,19 +5,19 @@
     .row.background-white
       .page_title
         %h3
-          当前您共有 
+          当前您共有
           %i
             = @products.length
           个项目，其中
           %i
             3
           个正在执行中。
-        
+
       .content
 
         - if @products.blank?
-          没有项目 
-        - else             
+          没有项目
+        - else
           %table.table.project_table
             %thead
               %tr
@@ -25,7 +25,7 @@
                 %th 截止时间
                 %th 项目类型
                 %th 项目状态
-                %th 
+                %th
             %tbody
               - @products.each do |product|
                 %tr
@@ -35,18 +35,14 @@
                   %td= product.state
                   %td
                     - if product.state == '等待审核' or product.state == '审核拒绝'
-                      = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary' 
-                      = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' 
+                      = link_to t('edit'), edit_need_path(product), class: 'btn btn-primary'
+                      = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary'
                     - elsif product.state == '项目完成'
                       = link_to '日程计划', need_tasks_path(product), class: 'btn btn-ants'
 
                       = link_to '转成案例', convert_to_queen_work_need_path(product), class:'btn btn-primary ' if current_user.has_role? :queen
                     - else
-                      = link_to '日程计划', need_tasks_path(product), class: 'btn btn-ants' 
-          
+                      = link_to '日程计划', need_tasks_path(product), class: 'btn btn-ants'
+
           %p.text-center{:style=>"margin-bottom:40px;"}
-            = link_to t('new_need'), new_need_path, class: "btn btn-ants" if current_user.has_role? :owner 
-
-
-
-
+            = link_to t('new_need'), new_need_path, class: "btn btn-ants" if current_user.has_role? :owner

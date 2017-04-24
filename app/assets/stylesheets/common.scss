@@ -160,7 +160,7 @@ nav.navbar{
 
 section.ants_feature_section{
 	&>.container{
-		padding-top:175px;
+		padding-top:75px;
 	}
 	h2{
 		margin:0;
@@ -351,4 +351,17 @@ footer.background-midnight-blue{
 		line-height:60px;
 		color: #999;
 	}
+}
+.btn-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+
+	input {
+		padding: 0;
+	}
+}
+
+.border-box {
+	border: 1px solid black;
 }
