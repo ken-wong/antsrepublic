@@ -283,4 +283,20 @@ div.box .edit-box {
 			float: right;
 		}
 	}
+// .test-box{
+// 	position: relative;
+// }
+.congratulate-container{
+  width: 80%;
+  text-align: center;
+  margin: 40px auto;
+  a{
+    display: block;
+    width: 155px;
+    height: 45px;
+  }
+  p{
+    font-size: 21.5px;
+    font-weight: bold;
+  }
 }
