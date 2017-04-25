@@ -290,13 +290,16 @@ div.box .edit-box {
   width: 80%;
   text-align: center;
   margin: 40px auto;
+	padding: 80px 0;
   a{
     display: block;
+		margin: 40px auto 0;
     width: 155px;
     height: 45px;
+		font-size: 18px;
   }
   p{
-    font-size: 21.5px;
+    font-size: 18px;
     font-weight: bold;
   }
 }
