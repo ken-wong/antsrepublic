@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     resources :plans
 
     member do
+      get 'waitfor_upload'=> 'needs#wait_upload'
       get 'waitfor'
       get 'plan_confirm'
       get 'plan_refuse'

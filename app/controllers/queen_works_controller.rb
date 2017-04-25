@@ -14,7 +14,7 @@ class QueenWorksController < ApplicationController
       @products = @products.where("category = '#{params[:category]}'")
     end
 
-    @products.page params[:pge]
+    @products = Kaminari.paginate_array(@products).page(params[:page]).per(6)
 
     render '/products/index'
   end

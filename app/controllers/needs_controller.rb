@@ -22,6 +22,9 @@ class NeedsController < InheritedResources::Base
     @need = Need.find(params[:id])
   end
 
+  def wait_upload
+  end
+
   def waitfor
     @need = Need.find(params[:id])
     @need.waitfor!
@@ -132,7 +135,7 @@ class NeedsController < InheritedResources::Base
         end
         @need.save
         
-        format.html { redirect_to edit_need_path(@need), notice: 'Product was successfully updated.'  }
+        format.html { redirect_to waitfor_upload_need_path(@need), notice: 'Product was successfully updated.'  }
         format.json { render :show, status: :created, location: @need }
       else
         format.html { render :new }

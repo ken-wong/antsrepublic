@@ -35,6 +35,7 @@
 
   .container.product_list_normal
     = render "shared/product_list_normal"
+    = paginate @products
 - content_for :page_js_block do
   = javascript_include_tag 'queen_works.js'
         
