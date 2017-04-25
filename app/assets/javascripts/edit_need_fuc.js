@@ -145,6 +145,7 @@
 		$('<div class="col-md-2 col-case-and-queen text-center"></div>').append($(str).click(function(evt){
 			$(evt.currentTarget).toggleClass('selected');
 		}).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.selected_queen_list');
+		$('.btn-left,.btn-right').show();
 	}
 
 	function formatRepo (repo) {
@@ -181,6 +182,9 @@
 		$(evt.currentTarget).parents(".col-case-and-queen").remove();
 		if(isQueen){
 			_queenModel.del(_id);
+			if($('.selected_queen_list').find('.queen').length==0){
+				$('.btn-left,.btn-right').hide();
+			}
 			console.log("delete the queen "+_id);
 		}else{
 			_caseModel.del(_id)

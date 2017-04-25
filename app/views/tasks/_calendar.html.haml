@@ -25,7 +25,7 @@
         %li.plan-task.color-white
           %span.task-checkbox.text-center
             - check_flag = (plan.tasks.first.state == '甲方确认' ? true : false) if plan.tasks.first
-            %input{:type => "checkbox", :value => "false", :disabled => "disabled", checked: check_flag}/
+            //%input{:type => "checkbox", :value => "false", :disabled => "disabled", checked: check_flag}/
           - if check_flag
             %span.task-time
               %del= plan.dead_line

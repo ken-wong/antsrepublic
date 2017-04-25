@@ -153,6 +153,7 @@
 	        time: firstTaskData,
 	        events: taskData,
 	        onDayClick: function(events) {
+						$('body').off('click','.task-btn');
 						if($('.calendar-queen').length!=0){
 							var thisDayEvent, key;
 		          key = $(this).data('year')+'-'+ $(this).data('month') +'-'+ $(this).data('day') ;

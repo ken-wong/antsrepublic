@@ -7,7 +7,7 @@
         - if @product.avatar.file and %w{mp4 webm}.include?(@product.avatar.file.extension.downcase)
           %video#caseVideo{ src: @product.avatar.url, poster:@product.avatar.small_url,controls:"controls"}
           %a.queenWorkVideoPlay{:href => "javascript:void(0);"}
-            %span.glyphicon.glyphicon-play
+            %span.glyphicon.glyphicon-play.video-play
 
 %section.queens_work_title
   .container
