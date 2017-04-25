@@ -173,7 +173,9 @@
           <% end %>
         <% end %>
       </div>
-        <div class="selected_case_list clearfix" style="height: auto;"></div>
+
+
+
 
       <!-- 关闭弹出层 -->
       <!-- <button type="button" class="btn btn-info defaultHide" id="sureChoose">确定</button> -->
@@ -189,27 +191,27 @@
         </div>
       </div>
       <div class="row selected_queen_list">
-        <div class="btn-left"></div>
-        <div class="btn-right"></div>
+        <!-- <div class="btn-left"></div>
+        <div class="btn-right"></div> -->
 
-      <%  if !@need.new_record? %>
-        <% @selectedQueens.each do |user| %>
-        <div class="col-md-2 col-case-and-queen text-center">
-          <a class="queen" href="javascript:void(0)">
-            <p>
-              <%= image_tag(image_path(user.avatar.small_url), class:"img-circle")%>
-            </p>
-            <h6>
-              <%= user.name %>
-            </h6>
-            <span class="delete_btn btn" data-id="<%= user.id%>" data-type="queen">
-              删除
-            </span>
-          </a>
-        </div>
-        <% end %>
-      <% end %>
-
+          <%  if !@need.new_record? %>
+            <% @selectedQueens.each do |user| %>
+            <div class="col-md-2 col-case-and-queen text-center">
+              <a class="queen" href="javascript:void(0)">
+                <p>
+                  <%= image_tag(image_path(user.avatar.small_url), class:"img-circle")%>
+                </p>
+                <h6>
+                  <%= user.name %>
+                </h6>
+                <span class="delete_btn btn" data-id="<%= user.id%>" data-type="queen">
+                  删除
+                </span>
+              </a>
+            </div>
+            <% end %>
+          <% end %>
+      
       </div>
     </div>
 

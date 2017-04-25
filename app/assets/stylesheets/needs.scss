@@ -63,6 +63,15 @@
 	position: relative;
 	background-color:white;
 	border-radius:10px;
+	overflow: hidden;
+	
+	.queen_list_box {
+		display: inline-block;
+
+		.col-case-and-queen {
+			margin-left: 30px;
+		}
+	}
 
 	.btn-left,.btn-right {
 		display: none;
