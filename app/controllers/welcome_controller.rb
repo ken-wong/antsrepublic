@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
     if Queen.where('sort_no > 0').count > 0
     	@queens = Queen.where('sort_no > 0').order(:sort_no => :desc)
     else
-    	@queens = Queen.order(:sort_no => :desc).limit(8)
+    	@queens = Queen.order(:sort_no => :desc).limit(16)
     end
   
     @ant_point = AntPoint.first
