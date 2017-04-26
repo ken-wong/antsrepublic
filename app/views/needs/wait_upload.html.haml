@@ -1,0 +1,11 @@
+%section.user-center-section
+  .container
+    .row
+      = render "users/user_info"
+      = render "users/menu"
+    .row.background-white
+      .congratulate-container
+        %p
+          恭喜！您的需求已经发布完毕，请等待我们工作人员审核后为你挑选合适的蚁后。 可上传相关资料。
+
+        = link_to '上传资料', root_path, class:'btn btn-ants btn-lg'
