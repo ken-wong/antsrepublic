@@ -256,14 +256,12 @@ section.partner_list{
 			&>div{
 				position:absolute;
 				display: inline-block;
-				width:50px;
+				width:5px;
 				height:50px;
-				background-color:rgba(0,0,0,0.5);
+				// background-color:rgba(0,0,0,0.5);
 				border-radius:3px;
-				text-align:center;
-				line-height:50px;
-				color:#fff;
-				font-size:30px;
+				border: 1px solid #f4613f;
+				box-shadow: 0 0 1px #f4613f inset;
 				&:hover{
 				}
 			}

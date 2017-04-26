@@ -10,7 +10,7 @@
             = @products.length
           个项目，其中
           %i
-            3
+            = @products.where("state=? OR state=?","寻找蚁后","提交计划").length
           个正在执行中。
 
       .content
