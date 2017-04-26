@@ -51,6 +51,7 @@ Rails.application.routes.draw do
 
     member do
       get 'waitfor_upload'=> 'needs#wait_upload'
+      get 'upload_file'
       get 'waitfor'
       get 'plan_confirm'
       get 'plan_refuse'
