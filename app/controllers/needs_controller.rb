@@ -24,7 +24,7 @@ class NeedsController < InheritedResources::Base
 
   def upload_file
     @need = Need.find(params[:id])
-    @upload = need.uploader
+    @upload = @need.uploader
   end
 
   def wait_upload
