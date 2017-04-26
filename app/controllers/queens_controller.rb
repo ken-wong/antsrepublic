@@ -1,8 +1,8 @@
 class QueensController < ApplicationController
-  
+
   def dashboard
     @queen = Queen.find(params[:id])
-    
+
   end
 
   def index
@@ -42,7 +42,7 @@ class QueensController < ApplicationController
     @queen = Queen.find(params[:id])
     @products = @queen.queen_works
     @queens = Queen.with_role(:queen).limit(12)
-    
+
 
   end
 

@@ -2,6 +2,8 @@
 
 <%= render "welcome/contact_section" %>
 
-<%= render "welcome/partner_list" %>
+<%= if current_page?(root_path)
+  render "welcome/partner_list"
+end %>
 
 <%= render "welcome/homepage_footer" %>

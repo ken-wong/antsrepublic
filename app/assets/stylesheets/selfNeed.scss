@@ -11,13 +11,47 @@
 // 参考案例的样式
 div.box {
     position: relative;
+    margin-top: 30px;
     text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+
+    p.txt-empty {
+      margin: 0 15px;
+      padding-bottom: 15px;
+      color:#7f7f7f;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    p.empty-first {
+      border-bottom: 1px dashed;
+    }
+
+    .tab-content {
+      margin-bottom: 15px;
+    }
+}
+.queen-box {
+  margin-top: 30px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+
+  h5 {
+    font-size: 16px;
+    padding-left: 15px;
+  }
+
+  .row {
+    margin: 0;
+  }
 }
 
-div.box>h5 {
+div.box h5 {
     font-size: 16px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    padding-left: 15px;
+    // margin-top: 40px;
+    // margin-bottom: 40px;
 }
 
 div.box>h5,
@@ -74,7 +108,8 @@ div#chooseCase ul>li.active>a {
 
 // search
 div#case-seach {
-    margin: 20px 30px;
+    // margin: 20px 30px;
+    // padding-left: 15px;
 }
 
 .select2-container--default .select2-selection--single {
@@ -91,8 +126,8 @@ div#case-seach {
 
 // 收藏
 .img-circle {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 100px;
+    max-height: 100px;
 }
 
 // 删除
@@ -219,9 +254,16 @@ section.userLogin h3 {
 
 .userSignup,.userLogin{
   position: relative;
-  padding-bottom: 70px;
   background: url(image_path('user/register-bg.png')) no-repeat;
   background-size: 100% 100%;
+}
+
+.userLogin {
+  height: 800px;
+}
+
+.userSignup {
+  height: 700px;
 }
 
 .my-offset-3{
@@ -229,6 +271,7 @@ section.userLogin h3 {
 }
 
 .mask-bg{
-  background: rgba(255,255,255,0.2);
+  background-image: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
   width: 100%;
+  height: 100%;
 }

@@ -10,24 +10,23 @@
   <%= stylesheet_link_tag 'neat/neat-blue'%>
   <%= stylesheet_link_tag 'owlcarousel/owl.carousel.min.css'%>
   <%= csrf_meta_tags %>
-
 </head>
 <body class=''>
   <%= render 'layouts/header' %>
   <%= if !current_page?(root_path)
-        render 'layouts/breadcrumb' 
+        render 'layouts/breadcrumb'
       end
   %>
 
   <%= yield %>
 
   <%= if !current_page?(root_path)
-        render 'layouts/footer' 
+        render 'layouts/footer'
       else
         render 'welcome/homepage_footer'
       end
   %>
-  
+
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 

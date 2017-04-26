@@ -4,6 +4,9 @@
 		border:1px solid #999;
 		border-radius:5px;
 	}
+	.row {
+		margin: 0;
+	}
 	.container>.background-orange{
 		background-color:$primaryColor;
 	}
@@ -139,15 +142,18 @@
 	}
 	.project-plan-list{
 		width:90%;
-		height:378px;
+		height:370px;
 		list-style:none;
 		margin:0;
 		padding:0;
 		overflow-y:scroll;
+		margin-left: 55px;
 		li.plan-task{
 			height:60px;
 			line-height:60px;
 			margin-bottom:10px;
+			list-style-type: decimal;
+			list-style-position: inside;
 			span{
 				display: inline-block;
 			}
@@ -456,14 +462,27 @@ li strong p{
 .plan-mask {
 	width: 500px;
 	height: 50px;
-	line-height: 37px;
+	line-height: 50px;
 	position: absolute;
-	top: -33px;
+	top: -50px;
   left: -195px;
-	background:url(image_path('user/mask-plan.png')) no-repeat;
-	background-size: 100% 100%;
+	background:rgba(0,0,0,0.7);
 	color: white;
 	text-align: left;
+	border-radius: 15px;
+
+	&:after {
+		position: absolute;
+		top: 49px;left: 207px;
+		content: " ";
+		width: 0;
+		height: 0;
+		border-left: 18px solid transparent;
+		border-right: 18px solid transparent;
+		border-top: 18px solid black;
+		font-size: 0;
+		line-height: 0;
+	}
 
 	span{
 		margin-left: 20px;
@@ -480,7 +499,7 @@ li strong p{
 
 	.task-btn {
 		position: absolute;
-		top: 4px;
+		top: 10px;
 		width: 30px;
 		height: 30px;
 		background:url(image_path('user/accept.png')) no-repeat;
@@ -500,9 +519,66 @@ li strong p{
 	padding: 0 80px;
 	font-size: 13px;
 	p{
-		margin: 20px 0;	
+		margin: 20px 0;
 	}
 }
 .form-actions{
 	text-align: center;
+}
+
+.table-box {
+	width: 1160px;
+	margin:0 auto;
+	border: 1px solid gray;
+}
+
+.user-table {
+	margin: 0 48px;
+
+	width: 1110px;
+	td {
+		height: 30px;
+		padding: 5px 0 5px 20px;
+		border: 1px solid gray;
+		.form-group {
+			margin: 15px 0;
+		}
+		input[type = "text"],input[type = "password"],input[type = "email"]{
+			border: 0;
+			background: transparent;
+			box-shadow: none;
+		};
+		input[type = "submit"] {
+			padding: 10px 20px;
+			background: #f4613f;
+			border: 1px solid #f4613f;
+			color: #fff;
+		}
+	}
+	tr {
+		width: 100%;
+	}
+}
+
+nav.pagination {
+	width: 100%;
+	text-align: center;
+	.current.page {
+		color: #f4613f;
+	}
+	.page a {
+		color: grey;
+	}
+}
+
+
+.content h4 {
+	padding-top: 80px;
+	padding-bottom: 30px;
+}
+
+.flex-box {
+	display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -12,6 +12,11 @@ a{
 	text-decoration: none !important;
 }
 
+abbr[title], abbr[data-original-title] {
+	border-bottom: none;
+	text-decoration: none;
+}
+
 
 
 @mixin iconBg($img){
@@ -155,7 +160,7 @@ nav.navbar{
 
 section.ants_feature_section{
 	&>.container{
-		padding-top:175px;
+		padding-top:75px;
 	}
 	h2{
 		margin:0;
@@ -210,9 +215,10 @@ section.contact_section{
 			width:485px;
 			height:452px;
 			background:url(image_path('homepage/contact_now.png'));
-		    right: -150px;
+		    right: -75px;
 		    bottom:-100px;
 		    position: absolute;
+				background-size: 100% 100%;
 		}
 	}
 }
@@ -250,14 +256,12 @@ section.partner_list{
 			&>div{
 				position:absolute;
 				display: inline-block;
-				width:50px;
+				width:5px;
 				height:50px;
-				background-color:rgba(0,0,0,0.5);
+				// background-color:rgba(0,0,0,0.5);
 				border-radius:3px;
-				text-align:center;
-				line-height:50px;
-				color:#fff;
-				font-size:30px;
+				border: 1px solid #f4613f;
+				box-shadow: 0 0 1px #f4613f;
 				&:hover{
 				}
 			}
@@ -345,4 +349,24 @@ footer.background-midnight-blue{
 		line-height:60px;
 		color: #999;
 	}
+}
+.btn-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+
+	input {
+		padding: 0;
+	}
+}
+
+.border-box {
+	border: 1px solid black;
+}
+
+.glyphicon-heart,.glyphicon-share {
+	border: 2px solid white;
+  border-radius: 50%;
+  padding: 2px;
+	font-size: 12px;
 }

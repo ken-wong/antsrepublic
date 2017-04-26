@@ -40,6 +40,19 @@ $(function(){
 		        }
 		    }
 		});
+
+    $('.owl-carousel.partner-carousel').owlCarousel({
+			loop:false,
+			margin:10,
+			nav:true,
+			dots:false,
+			navText:[' ',' '],
+			responsive:{
+		        0:{
+		            items:3
+		        }
+		    }
+		});
     });
 
 
@@ -111,6 +124,6 @@ $(function(){
 			}
 		});
 	});
-  
+
 
 });

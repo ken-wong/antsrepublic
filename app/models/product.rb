@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
   acts_as_votable
   acts_as_paranoid
 
-  # :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '提交计划', '项目终止', '项目完成', '我的案例'] 
+  # :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '提交计划', '项目终止', '项目完成', '我的案例']
   # todo, 改变状态发送消息
   state_machine :state, :initial => :'等待审核' do
     event :confirm! do
@@ -43,16 +43,17 @@ class Product < ActiveRecord::Base
     event :plan_confirm! do
       transition [:'等待甲方'] => :'乙方执行'
     end
-    
+
     event :fail! do
       transition [nil, :'寻找蚁后', :'提交计划',:'等待审核',:'乙方执行', :'等待甲方' ] => :'项目终止'
     end
 
     event :redo! do
       transition [:'项目终止',:'审核拒绝'] => :'等待审核'
-    end    
+    end
 
     event :close! do
+      # newline
       transition [:'乙方执行'] => :'项目完成'
     end
 
