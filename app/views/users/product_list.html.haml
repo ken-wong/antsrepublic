@@ -7,28 +7,31 @@
         .content
           .caption
             %h3
-              我的案例
-              = link_to t('new_product'), new_queen_work_path, class: "btn btn-primary" 
+
           - if @products.blank?
             没有案例
-          - else            
-            %table.table
-              %thead
-                %tr
-                  %th 项目名称
-                  %th 委托客户
-                  %th 项目类型
-                  %th 项目状态
-                  %th 
-              %tbody
-                - @products.each do |product|
-                  %tr
-                    %td= link_to product.title, queen_work_path(product)
-                    %td= product.client_name
-                    %td= product.category
-                    %td= product.state
-                    %td
-                      =# link_to t('show'), product, class: 'btn btn-primary'
-                      
-                      = link_to t('edit'), edit_queen_work_path(product), class: 'btn btn-primary'
-                      = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' 
+          - else
+          - @products.each do |product|
+            .col-md-4.color-gray
+              .thumbnail
+                = image_tag(product.avatar.small_url)
+                .p-box
+                  %p= product.title
+                  %p
+                    %b 客户:
+                    = product.client_name
+                  %p
+                    %b 参考价格:
+                    = product.ref_price
+                  %p
+                    = image_tag('homepage/like_o.png')
+                    %span
+                      = product.votes_for.size
+                    = image_tag('homepage/share.png')
+                    %span
+                      = product.followers_count
+                  .div
+                    =# link_to t('show'), product, class: 'btn btn-primary'
+                    = link_to t('edit'), edit_queen_work_path(product), class: 'btn-main-color btn-small'
+                    = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn-main-color btn-small'
+      = link_to t('添加案例'), new_queen_work_path, class: "btn btn-main-color btn-big new-product-btn"      
