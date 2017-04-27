@@ -1,0 +1,71 @@
+<section class="user-center-section">
+  <div class="container">
+    <div class="row">
+      <%= render "menu"%>
+    </div>
+  </div>
+  <div class="row background-white">
+    <div class="col-md-12">
+      <div class="content table-box">
+          <table class='user-table'>
+              <tr>
+                <td colspan="2" style="border-top:0;border-right:0;">
+                  <%= link_to content_tag(:i,"编辑资料",:class=>"glyphicon glyphicon-pencil"), edit_user_path(@user), class: 'btn btn-edit' %>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+
+                </td>
+              </tr>
+              <tr>
+                <td>姓名:</td>
+                <td><%= @user.name %></td>
+              </tr>
+              <tr>
+                <td>头像:</td>
+                <td><%= image_tag @user.avatar.small_url ,class: 'user_avatar' %></td>
+              </tr>
+              <tr>
+                <td>邮箱:</td>
+                <td><%= @user.email %></td>
+              </tr>
+              <tr>
+                <td>手机:</td>
+                <td><%= @user.cell %></td>
+              </tr>
+              <tr>
+                <td>简介:</td>
+                <td><%= @user.description %></td>
+              </tr>
+              <tr>
+                <td>审核:</td>
+                <td>
+                  <span class="txt-gray"><%= @user.state %></span>
+                  <% if @user.has_role? :visitor %>
+                    <span class="btn-main-color btn-small">普通用户</span>
+                  <% end %>
+                  <% if @user.has_role? :admin %>
+                    <span class="btn-main-color btn-small">管理员</span>
+                  <% end %>
+                  <% if @user.has_role? :queen %>
+                    <span class="btn-main-color btn-small">蚁后</span>
+                  <% end %>
+                  <% if @user.has_role? :owner %>
+                    <span class="btn-main-color btn-small">甲方</span>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center;height:100px;border-bottom:0;">
+                  <p>
+                    <%= link_to t("身份认证"), choose_user_path(@user), class: 'btn btn-main-color btn-big' %>
+                  </p>
+                </td>
+              </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+</section>

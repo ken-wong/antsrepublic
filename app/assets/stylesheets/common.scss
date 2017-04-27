@@ -257,7 +257,7 @@ section.partner_list{
 				position:absolute;
 				display: inline-block;
 				width:5px;
-				height:50px;
+				height:35px;
 				// background-color:rgba(0,0,0,0.5);
 				border-radius:3px;
 				border: 1px solid #f4613f;
@@ -267,11 +267,11 @@ section.partner_list{
 			}
 			.owl-prev{
 				left: -70px;
-				top:55px;
+				top:70px;
 			}
 			.owl-next{
 			   right: -70px;
-				 top:55px;
+				 top:70px;
 			}
 
 		}
@@ -369,4 +369,33 @@ footer.background-midnight-blue{
   border-radius: 50%;
   padding: 2px;
 	font-size: 12px;
+}
+
+.btn-main-color {
+	background: #f4613f;
+	color: white;
+}
+
+.btn-big {
+	padding: 10px 20px;
+}
+
+.txt-gray{
+	margin-right: 10px;
+	color: gray;
+}
+
+.btn-small {
+	padding: 5px;
+	font-size: 12px;
+	border-radius: 4px;
+}
+
+.btn-edit {
+	float: right;
+	border: 1px solid gray;
+	border-radius: 4px;
+	box-shadow: 0 0 4px gray;
+	color: black;
+	margin-right: 37px;
 }

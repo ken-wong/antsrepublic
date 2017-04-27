@@ -14,20 +14,18 @@
           .caption.bordered.background-white
             %h3= link_to(product.title, product) unless product.title.nil?
             .description
+
               %p
-                %b 案例类型:
-                = product.category
-              %p
-                %b 委托客户:
+                %b 客户:
                 = product.client_name
               %p
                 %b 参考价格:
                 = product.ref_price
               %p
-                %span.glyphicon.glyphicon-heart
+                = image_tag('homepage/like_o.png')
                 %span
                   = product.votes_for.size
-                %span.glyphicon.glyphicon-share
+                = image_tag('homepage/share_o.png')
                 %span
                   = product.followers_count
 
@@ -45,19 +43,17 @@
           .caption.bordered.background-white
             %h3= link_to(product.title, product) unless product.title.nil?
             .description
+
               %p
-                %b 案例类型:
-                = product.category
-              %p
-                %b 委托客户:
+                %b 客户:
                 = product.client_name
               %p
                 %b 参考价格:
                 = product.ref_price
               %p
-                %span.glyphicon.glyphicon-heart
+                = image_tag('homepage/like_o.png')
                 %span
                   = product.votes_for.size
-                %span.glyphicon.glyphicon-share
+                = image_tag('homepage/share_o.png')
                 %span
                   = product.followers_count

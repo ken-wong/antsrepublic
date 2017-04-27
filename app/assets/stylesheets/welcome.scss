@@ -288,6 +288,15 @@ section.queen_cases{
 					p:nth-last-of-type(1){
 						position:absolute;
 						right:0;top: 0;
+
+						span:nth-last-of-type(2) {
+							margin-right: 5px;
+						}
+							
+						.like-icon,.share-icon {
+							display: inline;
+							width: 20px;
+						}
 					}
 				}
 				.btn{
@@ -398,6 +407,15 @@ section.queen_cases{
 					position: absolute;
 					right: 25px;top: 0;
 					color: #f4613f;
+
+					img {
+						width: 20px;
+						vertical-align: sub;
+					}
+
+					span:nth-last-of-type(2) {
+						margin-right: 5px;
+					}
 
 					.glyphicon-heart,.glyphicon-share {
 						border: 2px solid #f4613f;
