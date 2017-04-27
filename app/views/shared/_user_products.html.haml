@@ -3,10 +3,25 @@
     %p= simple_format("案例库是空的,去<a href='#{root_path}'>首页</a>看看")
 
 - @products.each do |product|
-  .col-md-4
+  .col-md-4.color-gray
     %a{href: product_path(product), class: :thumbnail}
       = image_tag(product.avatar.small_url)
-      %p= product.title
+      .p-box
+        %p= product.title
+        %p
+          %b 客户:
+          = product.client_name
+        %p
+          %b 参考价格:
+          = product.ref_price
+        %p
+          = image_tag('homepage/like_o.png')
+          %span
+            = product.votes_for.size
+          = image_tag('homepage/share.png')
+          %span
+            = product.followers_count
+
 - if action_name == 'product_list'
   .col-md-4
     %a{href: new_product_path, class: 'btn btn-primary'}

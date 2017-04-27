@@ -540,6 +540,21 @@ li strong p{
 		height: 30px;
 		padding: 5px 0 5px 20px;
 		border: 1px solid gray;
+
+
+		.user_avatar,.user_avatar img {
+			position: relative;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+
+			input {
+				position: absolute;
+				bottom: 0;
+				left: 120px;
+			}
+		}
+
 		.form-group {
 			margin: 15px 0;
 		}

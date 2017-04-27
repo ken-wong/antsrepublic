@@ -29,9 +29,9 @@
                     <%= product.ref_price%>
                 </p>
                 <p>
-                  <span class="glyphicon glyphicon-heart"></span>
+                  <%= image_tag 'homepage/like.png', class: 'like-icon' %>
                   <span><%= product.votes_for.size %></span>
-                  <span class="glyphicon glyphicon-share"></span>
+                  <%= image_tag 'homepage/share.png', class: 'share-icon' %>
                   <span><%= product.followers_count %></span>
                 </p>
               </div>
@@ -49,4 +49,3 @@
     <a href="/queen_works/search?utf8=✓&queen_work%5Btitle%5D=&queen_work%5Bcategory%5D=效果图">更多</a>
   </div>
 </div> -->
-    
