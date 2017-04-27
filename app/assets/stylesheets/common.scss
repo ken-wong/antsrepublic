@@ -78,6 +78,7 @@ abbr[title], abbr[data-original-title] {
 		}
 		img{
 			height:20px;
+			vertical-align: sub;
 		}
 		img+a{
 			padding-left:0;
@@ -101,6 +102,7 @@ abbr[title], abbr[data-original-title] {
 		}
     li.phone_num{
       padding-top: 2px;
+      line-height:51px;
     }
 		.badge{
 			background-color:#f00
