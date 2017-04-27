@@ -1,22 +1,29 @@
 %section.partner_list
   .parter_logo_container.row.owl-carousel.owl-theme.partner-carousel
-    .logo.text-center
-      .logo-img
-        = image_tag( "homepage/pl1.jpg" )
-      .logo-img
-        = image_tag( "homepage/pl2.jpg" )
-    .logo.text-center
-      .logo-img
-        = image_tag( "homepage/pl3.jpg" )
-      .logo-img
-        = image_tag( "homepage/pl4.jpg" )
-    .logo.text-center
-      .logo-img
-        = image_tag( "homepage/pl5.jpg" )
-      .logo-img
-        = image_tag( "homepage/pl6.jpg" )
-    .logo.text-center
-      .logo-img
-        = image_tag( "homepage/pl7.jpg" )
-      .logo-img
-        = image_tag( "homepage/pl8.jpg" )
+    - friend_links = FriendLink.all
+    - if friend_links.empty?
+      .logo.text-center
+        .logo-img
+          = image_tag( "homepage/pl1.jpg" )
+        .logo-img
+          = image_tag( "homepage/pl2.jpg" )
+      .logo.text-center
+        .logo-img
+          = image_tag( "homepage/pl3.jpg" )
+        .logo-img
+          = image_tag( "homepage/pl4.jpg" )
+      .logo.text-center
+        .logo-img
+          = image_tag( "homepage/pl5.jpg" )
+        .logo-img
+          = image_tag( "homepage/pl6.jpg" )
+      .logo.text-center
+        .logo-img
+          = image_tag( "homepage/pl7.jpg" )
+        .logo-img
+          = image_tag( "homepage/pl8.jpg" )
+    - else
+      .logo.text-center
+        - friend_links.each do |link|
+          .logo-img
+            = image_tag(link.banner.small_url)
