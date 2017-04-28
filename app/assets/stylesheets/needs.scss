@@ -64,7 +64,22 @@
 	background-color:white;
 	border-radius:10px;
 	overflow: hidden;
-	
+
+
+	.queen {
+		position: relative;
+
+		.delete_btn {
+			padding: 4px 10px;
+			position: absolute;
+			top: 0;right: 0;
+			border: 1px solid #f4613f;
+			border-radius: 50%;
+			background: #f4613f;
+			color: white;
+		}
+	}
+
 	.queen_list_box {
 		display: inline-block;
 
@@ -78,7 +93,7 @@
 		position: absolute;
 		top: 50px;
 		width: 7px;
-		height: 50px;
+		height: 35px;
 		border: 1px solid #f4613f;
 		box-shadow: 0 0 3px #f4613f;
 		border-radius: 25%;
@@ -92,13 +107,14 @@
 		left: 20px;
 	}
 
-	.col-md-2{
+	.col-md-1,.col-case-and-queen {
+		margin-left: 10px;
 		a.queen{
 			@include inlineBlockEle(100px,130px);
 			margin-top:20px;
 			padding-top:10px;
 			text-align:center;
-			border:1px solid white;
+			// border:1px solid white;
 			color:#333;
 			.delete_btn{
 				display:none;
@@ -108,10 +124,10 @@
 			}
 			&:hover{
 				text-decoration:none;
-				border-color:$primaryColor;
+				// border-color:$primaryColor;
 			}
 			&.selected{
-				border-color:$primaryColor;
+				// border-color:$primaryColor;
 				.delete_btn{display:block}
 			}
 		}
@@ -151,4 +167,31 @@
 	&:hover{
 		a.add-product{display:block}
 	}
+}
+
+div.box .edit-box {
+	position: relative;
+  padding: 0 30px;
+	.btn-left,.btn-right {
+		top: 93px;
+	}
+
+	h5 {
+		padding: 0;
+		margin-left: -15px;
+	}
+}
+
+#case-bookmark {
+	position: relative;
+	padding: 0 50px;
+	 .btn-right, .btn-left {
+		display: block;
+		top: 25px;
+	}
+
+}
+
+.selected_queen_list {
+	padding: 0 30px;
 }

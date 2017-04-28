@@ -107,45 +107,44 @@
 
 		var str = '      <a class="queen" href="javascript:void(0)" data-case="'+_data.id+'">' +
 				'          <p>' +
-				'          	<img src="'+_data.avatar_small_url+'" class="img-circle">' +
+				'          	<img src="'+_data.avatar_small_url+'">' +
 				'          </p>' +
 				'          <h6>' +
 							_data.title +
 				'          </h6>' +
 				'			<span class="delete_btn btn" data-id="'+_data.id+'" data-type="case">' +
-				'                删除' +
+				'               X' +
 				'           </span>';
 				'        </a>' ;
 
 
-		$('<div class="col-md-2 col-case-and-queen text-center"></div>').append($(str).click(function(evt){
+
+		$('<div class="col-md-1 col-case-and-queen text-center"></div>').append($(str).click(function(evt){
 			$(evt.currentTarget).toggleClass('selected');
-		}).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.selected_case_list');
+		}).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.edit-box');
 		$('.btn-left,.btn-right').show();
 		$('.edit-box').find('.txt-empty').css('display','none');
-		console.log($('.edit-box').find('.txt-empty').text())
-
 	}
 
 	function addQueenToSelectedList(_data){
 
 		var str = '      <a class="queen" href="javascript:void(0)">' +
 				'          <p>' +
-				'          	<img src="'+_data.avatar_small_url+'" class="img-circle">' +
+				'          	<img src="'+_data.avatar_small_url+'" >' +
 				'          </p>' +
 				'          <h6>' +
 							_data.name +
 				'          </h6>' +
 				'			<span class="delete_btn btn" data-id="'+_data.id+'" data-type="queen">' +
-				'                删除' +
+				'                X' +
 				'           </span>';
 				'        </a>';
 
 
-		$('<div class="col-md-2 col-case-and-queen text-center"></div>').append($(str).click(function(evt){
+		$('<div class="col-md-1 col-case-and-queen text-center"></div>').append($(str).click(function(evt){
 			$(evt.currentTarget).toggleClass('selected');
 		}).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.selected_queen_list');
-
+		$('.btn-left,.btn-right').show();
 	}
 
 	function formatRepo (repo) {
@@ -187,7 +186,9 @@
 		}else{
 			_caseModel.del(_id)
 			console.log("delete the case "+_id);
-			
+			if($('.col-case').find('img').length==0) {
+				$('.edit-box').find('.txt-empty').css('display','block');
+			}
 		}
 	}
 

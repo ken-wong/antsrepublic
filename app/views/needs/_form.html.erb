@@ -76,7 +76,7 @@
     <div class="box">
       <h5>参考案例</h5>
       <!-- <span class="addCase">+</span> -->
-      <!-- <div class="selected_case_list" style="height: auto;"> -->
+      <div class="selected_case_list" style="height: auto;">
         <div class="select_case" id="chooseCase">
           <div class="col-md-12">
             <%= f.input :reference_product_ids, as:'hidden' %>
@@ -128,12 +128,14 @@
         <% if @my_fav_products.empty? %>
           <p class="txt-empty empty-first">暂无收藏案例</p>
         <% end %>
+        <div class="btn-left"></div>
+        <div class="btn-right"></div>
           <div class="row">
             <% @my_fav_products.each do |product| %>
-            <div class="col-md-2" style="text-align: center;">
+            <div class="col-md-1" style="text-align: center;">
               <div class="fav-product">
                 <p>
-                  <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
+                  <%= image_tag(image_path(product.avatar.small_url))%>
                 </p>
                 <h6>
                   <%= product.title %>
@@ -149,24 +151,25 @@
           </div>
       </div>
 
-      <div class="edit-box">
+      <div class="edit-box clearfix">
         <h5>编辑案例</h5>
-
         <% if @need.new_record? %>
           <p class="txt-empty">暂无编辑案例</p>
         <% end %>
+        <div class="btn-left"></div>
+        <div class="btn-right"></div>
         <%  if !@need.new_record? %>
           <% Product.where(id: @reference_product_ids).each do |product| %>
-          <div class="col-md-2 col-case-and-queen text-center">
+          <div class="col-md-1 col-case-and-queen text-center col-case">
             <a class="queen" href="javascript:void(0)">
               <p>
-                <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
+                <%= image_tag(image_path(product.avatar.small_url))%>
               </p>
               <h6>
                 <%= product.title %>
               </h6>
               <span class="delete_btn btn" data-id="<%= product.id%>" data-type="case">
-                删除
+                X
               </span>
             </a>
           </div>
@@ -180,6 +183,7 @@
       <!-- 关闭弹出层 -->
       <!-- <button type="button" class="btn btn-info defaultHide" id="sureChoose">确定</button> -->
     </div>
+  </div>
 
     <div class="queen-box">
       <h5>指定蚁后</h5>
@@ -191,27 +195,27 @@
         </div>
       </div>
       <div class="row selected_queen_list">
-        <!-- <div class="btn-left"></div>
-        <div class="btn-right"></div> -->
+        <div class="btn-left"></div>
+        <div class="btn-right"></div>
 
           <%  if !@need.new_record? %>
             <% @selectedQueens.each do |user| %>
             <div class="col-md-2 col-case-and-queen text-center">
               <a class="queen" href="javascript:void(0)">
                 <p>
-                  <%= image_tag(image_path(user.avatar.small_url), class:"img-circle")%>
+                  <%= image_tag(image_path(user.avatar.small_url))%>
                 </p>
                 <h6>
                   <%= user.name %>
                 </h6>
                 <span class="delete_btn btn" data-id="<%= user.id%>" data-type="queen">
-                  删除
+                  x
                 </span>
               </a>
             </div>
             <% end %>
           <% end %>
-      
+
       </div>
     </div>
 
@@ -227,7 +231,7 @@
           <%= link_to t('back'), project_list_user_path(current_user) %>
        </div>
      </div>
-  </div>
+
 
 <% end %>
 <% content_for :page_js_block do %>
