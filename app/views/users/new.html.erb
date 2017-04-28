@@ -39,9 +39,13 @@
   								  <%= f.input_field :password_confirmation, class:'form-control' %>
   								</div>
   							</div>
-  							<div class="col-sm-8 btn-center">
-  							  	<%= f.button :submit, value: '注册',class:'btn btn-block btn-ants' %>
+                <div class="form-group" style="margin:25px 0">
+  								<label class="control-label col-sm-3 text-right"></label>
+  								<div class="col-sm-7 btn-register">
+  								  <%= f.button :submit, value: '注册',class:'btn btn-block btn-ants' %>
+  								</div>
   							</div>
+
   						<% end %>
 
   					</div>

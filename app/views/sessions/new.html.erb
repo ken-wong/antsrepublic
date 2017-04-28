@@ -31,9 +31,14 @@
   									<%= f.input_field :password, class:'form-control' %>
   								</div>
   							</div>
-  							<div class="col-sm-8 btn-center">
-  							 	<%= f.button :submit, t(:login), class:'btn btn-block btn-ants' %>
+
+                <div class="form-group" style="margin:40px 0">
+  								<label class="control-label col-sm-3 text-right"></label>
+  								<div class="col-sm-7 btn-register">
+  									<%= f.button :submit, t(:login), class:'btn btn-block btn-ants' %>
+  								</div>
   							</div>
+
   						<% end %>
   					</div>
   					<!-- 快速登录 -->
