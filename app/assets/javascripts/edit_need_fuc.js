@@ -119,7 +119,7 @@
 
 
 
-		$('<div class="col-md-1 col-case-and-queen text-center"></div>').append($(str).click(function(evt){
+		$('<div class="col-md-1 col-case-and-queen text-center col-case"></div>').append($(str).click(function(evt){
 			$(evt.currentTarget).toggleClass('selected');
 		}).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.edit-box');
 		$('.btn-left,.btn-right').show();

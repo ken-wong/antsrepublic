@@ -171,20 +171,24 @@
 
 div.box .edit-box {
 	position: relative;
-  padding: 0 25px;
+  // padding: 0 25px;
 	.btn-left,.btn-right {
 		top: 93px;
 	}
 
 	h5 {
-		padding: 0;
-		margin-left: -10px;
+		padding: 0 15px;
+		// margin-left: -10px;
+	}
+
+	.col-case:nth-child(1) {
+		margin-left: 30px;
 	}
 }
 
 #case-bookmark {
 	position: relative;
-	padding: 0 50px;
+	padding: 0 25px;
 	 .btn-right, .btn-left {
 		display: block;
 		top: 25px;
@@ -193,5 +197,5 @@ div.box .edit-box {
 }
 
 .selected_queen_list {
-	padding: 0 30px;
+	// padding: 0 30px;
 }

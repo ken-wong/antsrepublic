@@ -127,9 +127,10 @@
       <div role="tabpanel" class="tab-pane" id="case-bookmark">
         <% if @my_fav_products.empty? %>
           <p class="txt-empty empty-first">暂无收藏案例</p>
+        <% else %>
+          <div class="btn-left"></div>
+          <div class="btn-right"></div>
         <% end %>
-        <div class="btn-left"></div>
-        <div class="btn-right"></div>
           <div class="row">
             <% @my_fav_products.each do |product| %>
             <div class="col-md-1" style="text-align: center;">
@@ -160,7 +161,7 @@
         <div class="btn-right"></div>
         <%  if !@need.new_record? %>
           <% Product.where(id: @reference_product_ids).each do |product| %>
-          <div class="col-md-1 col-case-and-queen text-center col-case">
+          <div class="col-md-1 col-case-and-queen col-case text-center">
             <a class="queen" href="javascript:void(0)">
               <p>
                 <%= image_tag(image_path(product.avatar.small_url))%>
