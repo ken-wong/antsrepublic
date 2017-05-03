@@ -2,7 +2,7 @@ class Api::TasksController < Api::BaseController
   def create
     need = Need.find(params[:need_id])
     task = need.tasks.build(task_params)
-    if task.save
+    if task.save && (need.final_date > Time.now)
       render json: {task_id: task.id}, status: 201
     else
       return api_error(status: 422)
