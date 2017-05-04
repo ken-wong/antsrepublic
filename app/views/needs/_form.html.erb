@@ -124,31 +124,35 @@
       </div>
 
       <h5>我的收藏</h5>
-      <div role="tabpanel" class="tab-pane" id="case-bookmark">
+
         <% if @my_fav_products.empty? %>
+        <div role="tabpanel" class="tab-pane  has-pane" id="case-bookmark">
           <p class="txt-empty empty-first">暂无收藏案例</p>
         <% else %>
+        <div role="tabpanel" class="tab-pane" id="case-bookmark">
           <div class="btn-left"></div>
           <div class="btn-right"></div>
         <% end %>
           <div class="row">
-            <% @my_fav_products.each do |product| %>
-            <div class="col-md-1" style="text-align: center;">
-              <div class="fav-product">
-                <p>
-                  <%= image_tag(image_path(product.avatar.small_url))%>
-                </p>
-                <h6>
-                  <%= product.title %>
-                </h6>
-                <p>
-                  <a href="javascript:void(0);" data-img="<%= product.avatar.small_url %>" data-id="<%= product.id%>" data-title="<%= product.title %>" class="add-product">
-                    添加
-                  </a>
-                </p>
+            <div class="">
+              <% @my_fav_products.each do |product| %>
+              <div class="col-md-1" style="text-align: center;">
+                <div class="fav-product">
+                  <p>
+                    <%= image_tag(image_path(product.avatar.small_url))%>
+                  </p>
+                  <h6>
+                    <%= product.title %>
+                  </h6>
+                  <p>
+                    <a href="javascript:void(0);" data-img="<%= product.avatar.small_url %>" data-id="<%= product.id%>" data-title="<%= product.title %>" class="add-product">
+                      添加
+                    </a>
+                  </p>
+                </div>
               </div>
+              <% end %>
             </div>
-            <% end %>
           </div>
       </div>
 

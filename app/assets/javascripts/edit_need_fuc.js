@@ -4,6 +4,38 @@
 		_queenModel.init('#need_reference_queen_ids');
 		_caseModel.init('#need_reference_product_ids');
 
+		// var ImgLen = $('.test-box').find('img').length;
+		// $('.test-box').width(($('.test-box').find('.col-md-1').width()+50)*ImgLen);
+		//
+		// $('.btn-right').click(function(){
+		// 	var box = $('.test-box');
+		// 	var nowLeft = box.position().left;
+		// 	var width = box.width();
+		// 	console.log(nowLeft);
+		//
+		// 	if(nowLeft>-width){
+		// 		box.animate({'left':nowLeft-150+'px'});
+		// 	}else {
+		// 		box.css('left',10+'px');
+		// 	}
+		//
+		//
+		// })
+		//
+		// $('.btn-left').click(function(){
+		// 	var box = $('.test-box');
+		// 	var nowLeft = box.position().left;
+		// 	console.log(nowLeft);
+		// 	if(nowLeft<10){
+		// 		box.animate({'left':nowLeft+150+'px'});
+		//
+		// 	}else {
+		// 		box.css('left',10+'px');
+		// 	}
+		// })
+		//
+
+
 		var caseSelectorOption = {
 			selector:$('.caseSelector'),
 			placeholder:"请搜索你想作为参考的案例",
@@ -163,6 +195,8 @@
     function formatRepoSelection (repo) {
       return repo.name || repo.text;
     }
+
+
 
     function convertAarryToString(_arr){
     	var str = '[';

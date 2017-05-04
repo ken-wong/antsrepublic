@@ -188,14 +188,21 @@ div.box .edit-box {
 
 #case-bookmark {
 	position: relative;
-	padding: 0 25px;
+	padding: 0 50px 0 50px;
 	 .btn-right, .btn-left {
 		display: block;
 		top: 25px;
+		z-index: 999;
 	}
 
+	.row {
+		overflow: hidden;
+	}
 }
 
-.selected_queen_list {
-	// padding: 0 30px;
+#case-bookmark.has-pane {
+	padding: 0;
 }
+// .test-box{
+// 	position: relative;
+// }
