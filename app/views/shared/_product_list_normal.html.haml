@@ -1,5 +1,5 @@
 .row
-  - @products.each_with_index do |product,i|
+  - @products.order('id DESC').each_with_index do |product,i|
     - if i%2==0
       .product
         .productBlock
@@ -8,7 +8,8 @@
               - if product.avatar.file and %w{jpg png gif bmp}.include?(product.avatar.file.extension.downcase)
                 = link_to(image_tag(product.avatar.url + "?imageView2/0/h/480"), product, target: '_blank')
               - if product.avatar.file and %w{mp4 webm}.include?(product.avatar.file.extension.downcase)
-                %video{ src: product.avatar.url , controls: "controls"}
+                = link_to(video_tag(product.avatar.url, poster:product.avatar.small_url,controls: "controls"), product, target: '_blank')
+                
 
 
           .caption.bordered.background-white

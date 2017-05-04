@@ -1,6 +1,6 @@
 %section.queens_work_slider
   .container
-    .row
+    .row.caseVideoBox
       - if @product.avatar
         - if @product.avatar.file and %w{jpg png gif bmp}.include?(@product.avatar.file.extension.downcase)
           = image_tag(@product.avatar.url + "?imageView2/0/h/480", width:"100%")
