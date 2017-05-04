@@ -2,6 +2,13 @@
 (function(){
   $(document).ready(function() {
     var caseVideo = $('#caseVideo')[0];
+    caseVideo.onmouseover = function(){
+      $('.queenWorkVideoPlay span').show();
+    }
+    caseVideo.onmouseout = function(){
+      $('.queenWorkVideoPlay span').hide();
+    }
+
     caseVideo.onended = function(){
     	$('.queenWorkVideoPlay span').addClass('glyphicon-play');
     	$('.queenWorkVideoPlay span').removeClass('glyphicon-pause');
@@ -17,6 +24,6 @@
 			$('.queenWorkVideoPlay span').removeClass('glyphicon-pause');
     	}
     })
-  }); 
+  });
 
 }());

@@ -59,7 +59,9 @@
   z-index: 1051; }
 
 .select2-results {
-  display: block; }
+  display: block;
+  border: 1px solid #f4613f;
+}
 
 .select2-results__options {
   list-style: none;
@@ -463,7 +465,9 @@
 
 .select2-container--classic .select2-results > .select2-results__options {
   max-height: 200px;
-  overflow-y: auto; }
+  overflow-y: auto;
+
+}
 
 .select2-container--classic .select2-results__option[role=group] {
   padding: 0; }
