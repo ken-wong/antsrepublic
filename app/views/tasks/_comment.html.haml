@@ -1,5 +1,5 @@
 .col-md-12.project-comment
-  %h2 任务讨论
+  %h4 任务讨论
   .comments_list
     - @comments.each do |comment|
       .a-comment
@@ -7,19 +7,19 @@
           .avatar_wapper.text-center
             = image_tag(comment.user.avatar.small_url, class: 'img-circle')
           %p.comment-username.text-center
-            %strong= comment.user.name 
-          
+            %strong= comment.user.name
+
         .col-md-10
           .comment-content-block
             .comment-content
               %p= comment.title
             .comment-createtime
               %p= comment.created_at.strftime('%Y-%m-%d %H:%M')
-  
-            
+
+
   - if @need.state != '项目完成'
 
     .col-sm-12.need-comment
       = simple_form_for :comment, url: create_comment_need_path(@need) do |f|
         = f.text_area :title, label: false, class:'project-comment-textarea col-sm-12'
-        = f.button :submit, value: '提交评论', class:'btn btn-primary submitComment'
+        = f.button :submit, value: '提交评论', class:'btn btn-main-color submitComment'
