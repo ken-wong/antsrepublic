@@ -155,7 +155,7 @@ class NeedsController < InheritedResources::Base
     comment.user_id = current_user.id
     comment.save
     respond_to do |format|
-      format.html { redirect_to need_tasks_path(@need), notice: 'Comment was successfully added.' }
+      format.html { redirect_to :back, notice: 'Comment was successfully added.' }
     end
   end
 
