@@ -1,5 +1,7 @@
 ActiveAdmin.register Task do
-menu priority: 3
+  menu priority: 3
+
+  belongs_to :need
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
