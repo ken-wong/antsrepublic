@@ -78,7 +78,6 @@ abbr[title], abbr[data-original-title] {
 		}
 		img{
 			height:20px;
-			vertical-align: sub;
 		}
 		img+a{
 			padding-left:0;
@@ -101,9 +100,7 @@ abbr[title], abbr[data-original-title] {
 			}
 		}
     li.phone_num{
-		margin-left: 20px;
       padding-top: 2px;
-      line-height:51px;
     }
 		.badge{
 			background-color:#f00
@@ -452,7 +449,7 @@ footer.background-midnight-blue{
 		margin: 10px 0;
 		text-align: center;
 	}
-}
+} 
 
 .new-product-btn {
 	position: relative;
