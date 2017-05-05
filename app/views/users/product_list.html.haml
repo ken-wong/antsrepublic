@@ -3,7 +3,7 @@
     .row
       = render "menu"
     .row.background-white
-      .col-md-12
+      .col-md-12.padd-top
         .content
           .caption
             %h3
@@ -27,11 +27,11 @@
                     = image_tag('homepage/like_o.png')
                     %span
                       = product.votes_for.size
-                    = image_tag('homepage/share.png')
+                    = image_tag('homepage/share-black.png')
                     %span
                       = product.followers_count
                   .div
                     =# link_to t('show'), product, class: 'btn btn-primary'
                     = link_to t('edit'), edit_queen_work_path(product), class: 'btn-main-color btn-small'
                     = link_to t('destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn-main-color btn-small'
-      = link_to t('添加案例'), new_queen_work_path, class: "btn btn-main-color btn-big new-product-btn"      
+      = link_to t('添加案例'), new_queen_work_path, class: "btn btn-main-color btn-big new-product-btn"

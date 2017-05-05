@@ -7,7 +7,9 @@
     %a{href: product_path(product), class: :thumbnail}
       = image_tag(product.avatar.small_url)
       .p-box
-        %p= product.title
+        %p
+          %b
+            = product.title
         %p
           %b 客户:
           = product.client_name
@@ -18,7 +20,7 @@
           = image_tag('homepage/like_o.png')
           %span
             = product.votes_for.size
-          = image_tag('homepage/share.png')
+          = image_tag('homepage/share-black.png')
           %span
             = product.followers_count
 

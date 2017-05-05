@@ -10,7 +10,7 @@ section.queens_work_slider{
 		height:100%;
 	}
 	a.queenWorkVideoPlay{
-		display:none;
+		// display:none;
 		width:100px;
 		height:100px;
 		position: absolute;
@@ -266,7 +266,8 @@ section.queens_work_likes{
 	border: 3px solid white;
 	border-radius: 100px;
 	text-align: center;
-	line-height: 100px;
+	line-height: 90px;
+	color: white;
 }
 
 // 个人中心，新建、编辑页面 样式
@@ -280,4 +281,9 @@ section.queens_work_likes{
 			display:block
 		}
 	}
+}
+
+.caseVideoBox {
+	position: relative;
+	z-index: 99;
 }

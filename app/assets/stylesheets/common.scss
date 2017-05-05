@@ -403,13 +403,20 @@ footer.background-midnight-blue{
 	margin-right: 37px;
 }
 
+.color-gray.col-md-4 {
+	padding: 0 35px;
+}
+
 .color-gray .thumbnail {
+	margin-bottom: 50px;
+	padding: 15px;
 	background: #ddd;
+	box-shadow: 0 0 8px gray;
 }
 
 .color-gray .thumbnail>img{
 	width: 100%;
-	height: 200px;
+	height: 170px;
 }
 
 .color-gray .thumbnail p:nth-last-of-type(1) img {
@@ -423,13 +430,26 @@ footer.background-midnight-blue{
 	top: 5px;
 	color: black;
 
+	p {
+		margin-bottom: 5px;
+
+		&:nth-of-type(1) {
+			margin-top: 10px;
+			margin-bottom: 15px;
+		}
+	}
+
 	p:nth-last-of-type(1) {
 		position: absolute;
 		right: 5px;top: 0;
+
+		span:nth-of-type(1) {
+			margin-right: 10px;
+		}
 	}
 
 	.div {
-		margin-bottom: 10px;
+		margin: 10px 0;
 		text-align: center;
 	}
 }
@@ -441,6 +461,10 @@ footer.background-midnight-blue{
 }
 
 .btn-register input {
-	
 	padding: 0;
+}
+
+.padd-top {
+	padding-top: 20px;
+	padding-bottom: 30px;
 }

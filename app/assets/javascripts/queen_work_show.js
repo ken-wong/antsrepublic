@@ -2,11 +2,18 @@
 (function(){
   $(document).ready(function() {
     var caseVideo = $('#caseVideo')[0];
+    var caseVideoEl = $('.queenWorkVideoPlay');
+
     caseVideo.onmouseover = function(){
+      console.log(1)
       $('.queenWorkVideoPlay span').show();
     }
-    caseVideo.onmouseout = function(){
-      $('.queenWorkVideoPlay span').hide();
+
+    caseVideo.onmouseout = function(e){
+      
+      if(e.pageX<130||e.pageX>1000){
+        $('.queenWorkVideoPlay span').hide();
+      }
     }
 
     caseVideo.onended = function(){
