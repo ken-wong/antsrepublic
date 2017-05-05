@@ -30,7 +30,9 @@ ActiveAdmin.register Need do
 
 	index do
 		selectable_column
-	  column :title
+    column :title do |need|
+      link_to need.title, [:admin, need, :tasks]
+    end
 	  column :client_name
 	  column :category
 	  column :state
