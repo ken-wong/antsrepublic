@@ -2,7 +2,8 @@ class Api::PlansController < Api::BaseController
   def create
     need = Need.find(params[:need_id])
     @plan = need.plans.build(plan_params)
-    if @plan.save
+    date = plan_params[:dead_line].to_time
+    if (date > Time.now) && @plan.save
       #@plan.need.start!
       render json: {plan_id: @plan.id, plan: @plan}, status: 201
     else
