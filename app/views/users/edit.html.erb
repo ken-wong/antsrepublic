@@ -18,7 +18,7 @@
                 </td>
               </tr>
               <tr>
-                <td>当前头像:</td>
+                <td style="width:135px;">当前头像:</td>
                 <td><%= f.input :avatar, as: :file, hint: f.object.avatar.nil? ? '' :image_tag(f.object.avatar.small_url) ,label:false %></td>
               </tr>
               <tr>

@@ -19,7 +19,7 @@
                 </td>
               </tr>
               <tr>
-                <td>姓名:</td>
+                <td style="width:135px;">姓名:</td>
                 <td><%= @user.name %></td>
               </tr>
               <tr>
@@ -41,7 +41,7 @@
               <tr>
                 <td>审核:</td>
                 <td>
-                  <span class="txt-gray"><%= @user.state %></span>
+                  <span class="txt-gray" style="margin-right:20px"><%= @user.state %></span>
                   <% if @user.has_role? :visitor %>
                     <span class="btn-main-color btn-small">普通用户</span>
                   <% end %>
@@ -57,7 +57,7 @@
                 </td>
               </tr>
               <tr>
-                <td colspan="2" style="text-align:center;height:100px;border-bottom:0;">
+                <td colspan="2" style="text-align:center;height:150px;border-bottom:0;">
                   <p>
                     <%= link_to t("身份认证"), choose_user_path(@user), class: 'btn btn-main-color btn-big' %>
                   </p>
