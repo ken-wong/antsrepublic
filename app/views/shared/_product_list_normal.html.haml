@@ -1,5 +1,5 @@
 .row
-  - @products.order('id DESC').each_with_index do |product,i|
+  - @products.each_with_index do |product,i|
     - if i%2==0
       .product
         .productBlock

@@ -3,7 +3,7 @@ class QueenWorksController < ApplicationController
   before_action :set_tags
 
   def index
-    @q = QueenWork.ransack(params[:q])
+    @q = QueenWork.order('id DESC').ransack(params[:q])
     @products = @q.result(distinct: true)
 
     if params[:user_id]
