@@ -1,43 +1,45 @@
-
-
   <div class="container">
     <div class="row background-orange">
       <div class="col-md-12 text-white">
         <%= link_to '返回项目列表', project_list_user_path(current_user) %>
         <h4>上传资料</h4>
-        <div class="upload-img-form">
-          <div class="clearfix">
-            <label for="source-name" class="col-md-2">资料名称</label>
-            <input type="text" name="source-name" value="" class="col-md-10">
-          </div>
-
-          <div class="upload-img-box">
-            <div class="upload-img-item">
-              <span><input type="checkbox" name="upload-all-checkbox" value=""></span>
-              <span>类型</span>
-              <span>文件名称</span>
-              <span>删除</span>
-              <span class="btn-upload"><input type="file" name="" value=""> <i class="glyphicon glyphicon-arrow-up"></i>上传</span>
+        <%= simple_form_for(@need) do |f|  %>
+          <div class="upload-img-form">
+            <div class="clearfix">
+              <label for="source-name" class="col-md-2">资料名称</label>
+              <div class="col-md-10">
+                <%= f.input :material_name, label: false, wrapper: false %>
+              </div>
             </div>
-            <div class="upload-img-item">
-              <span><input type="checkbox" name="upload-img-checkbox" value=""></span>
-              <span><img src="" alt=""></span>
-              <span>湖畔天下.jpg</span>
+
+            <div class="upload-img-box">
+              <div class="upload-img-item">
+                <span><input type="checkbox" name="upload-all-checkbox" value=""></span>
+                <span>类型</span>
+                <span>文件名称</span>
+                <span>删除</span>
+                <span class="btn-upload"><input type="file" name="" value=""> <i class="glyphicon glyphicon-arrow-up"></i>上传</span>
+              </div>
+              <div class="upload-img-item">
+                <span><input type="checkbox" name="upload-img-checkbox" value=""></span>
+                <span><img src="" alt=""></span>
+                <span>湖畔天下.jpg</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="remarks">
-          <div>
-            备注
+          <div class="remarks">
+            <div>
+              备注
+            </div>
+            <div class="">
+              <%= f.input :remark, label: false, wrapper: false, input_html: { rows: 8, style: "width:100%", placeholder: "请输入项目说明，也可以上传图片来帮助我们更好的理解您的需求和想法" } %>
+            </div>
           </div>
-          <div class="">
-            <textarea name="name" rows="8" style="width:100%" placeholder="请输入项目说明，也可以上传图片来帮助我们更好的理解您的需求和想法"></textarea>
-          </div>
-        </div>
 
-          <%= link_to '提交资料', project_list_user_path(current_user), class: 'submit-btn' %>
-      </div>
+            <%= f.button :submit, '提交资料', class: 'submit-btn' %>
+        </div>
+        <% end %>
       <%= render "tasks/comment", :locals => {comments: @comments} %>
     </div>
   </div>

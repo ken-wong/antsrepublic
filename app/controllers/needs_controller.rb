@@ -27,12 +27,6 @@ class NeedsController < InheritedResources::Base
     @comments = @need.comments
   end
 
-  def wait_upload
-  end
-
-  def wait_upload
-  end
-
   def waitfor
     @need = Need.find(params[:id])
     @need.waitfor!
@@ -188,7 +182,7 @@ class NeedsController < InheritedResources::Base
       params.require(:need).permit(:title, :avatar, 
         :client_name, :ref_price, :category, :main_media, 
         :description, :user_id, :start_date, 
-        :ending_date, :final_date, :price_range)
+        :ending_date, :final_date, :price_range, :material_name, :remark)
   end
 
   def comment_params
