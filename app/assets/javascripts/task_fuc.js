@@ -140,6 +140,10 @@
 					},
 					success:function(res){
 						window.location.reload();
+					},
+					error:function(res){
+						alert('请提交当前日期以后的任务');
+						window.location.reload();
 					}
 				});
 			})
