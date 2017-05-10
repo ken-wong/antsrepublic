@@ -105,7 +105,7 @@
 	        	$('.task-result-files li.uploading').remove();
 				$('#plan_task_'+obj.attachmentable_id+" .task-result-files ul").prepend('<li class="text-center"><span>'+
 					'<a href="' + obj.file_url  + '">'+
-					'<img src="' + obj.file_url + '?imageView2/1/w/200/h/200">'+
+						obj.file_name+
 					'</a></span></li>')
 				console.log();
 	        }
@@ -119,6 +119,13 @@
 		    language: 'zh-CN'
 		});
 
+
+		$('.check-tasks').click(function(){
+			var targetId = $(this).attr('planid');
+			var top = $('#'+targetId).offset().top;
+			console.log(top);
+			$('body').animate({'scrollTop':top},'linear');
+		})
 
 		//点击日历事件方法
 		function addTask(el) {
@@ -150,9 +157,17 @@
 		}
 
 
+		//点击空白地方删除task-bg
+		$('.create-plan').click(function(event){
+			console.log($(event.target).attr('class'));
+			if($(event.target).attr('class')=='task-btn'||$(event.target).attr('class')==undefined){
+
+			}else{
+				 $('.plan-mask').remove();
+			}
+		})
+
 		//日历
-
-
 	  $('.responsive-calendar').responsiveCalendar({
 	        time: firstTaskData,
 	        events: taskData,

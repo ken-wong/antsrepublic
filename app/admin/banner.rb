@@ -8,7 +8,7 @@ ActiveAdmin.register Banner do
     f.input :linkage
     f.inputs I18n.t('activerecord.attributes.banner.image'), :multipart => true do
       f.input :image, as: :file, hint: (image_tag(f.object.image.url + qiniu_deal) if !f.object.new_record?)
-      f.input :image_cache, as: :hidden 
+      f.input :image_cache, as: :hidden
     end
     f.input :state, collection: ["active", "inactive"]
     f.actions

@@ -8,9 +8,9 @@ function i_slide(obj,opt){
 		w1:"800",//大图宽度
 		h1:"450",//大图高度
 		w2:"190",//小图宽度
-		h2:"500"//小图高度  
+		h2:"100"//小图高度
 	  }
-  
+
   var ul=obj.find("ul.slide_img");
   var btn=obj.find(".i_btn");
   var con=ul.find(".on");
@@ -19,10 +19,10 @@ function i_slide(obj,opt){
   var length=li.length;
   var half=parseInt(length/2);
   var number;
-  var T;	
+  var T;
   var start;
-	//参数初始化,看是否有新的参数传入，传入则更新初始化设置  
-	var opts = $.extend(option, opt || {}); 
+	//参数初始化,看是否有新的参数传入，传入则更新初始化设置
+	var opts = $.extend(option, opt || {});
 	var speed=opts.speed;
 	var a_speed=opts.a_speed;
 	var conuntW=opts.conuntW;//整体内容宽度
@@ -35,14 +35,14 @@ function i_slide(obj,opt){
 	var top1=(opts.countH-opts.h1)/2;
 	var left2=opts.conuntW-opts.w2;//小图left
 	//小图top
-	var top2=(opts.countH-opts.h2)/2; 
+	var top2=(opts.countH-80)/2;
 	var w2=opts.w2;//小图宽度
-	var h2=opts.h2;//小图高度
+	var h2=100;//小图高度
 
   if(length%2==0){
 	  half=half-1;
 	  }
-	
+
 //默认轮播
    clearInterval(T)
   number=parseInt(now_show(li))
@@ -52,15 +52,15 @@ function i_slide(obj,opt){
 	 pos_dex(number)
 	 },speed)
    //重新定位
-   
-   function pos_dex(N){ 
+
+   function pos_dex(N){
 		var next;
 		var z=li.length;
 	//	alert(z);
-		li.eq(N).attr("class","on"); 
+		li.eq(N).attr("class","on");
 		li.eq(N).find(".icon").show();
 	    li.eq(N).siblings("li").find(".bg").hide();
-	    li.eq(N).siblings("li").find(".info").hide(); 
+	    li.eq(N).siblings("li").find(".info").hide();
 		for(i=1;i<=half;i++){
 			 //right
 			  next=N+i;
@@ -72,16 +72,16 @@ function i_slide(obj,opt){
 			 li.eq(next).attr("class","right");
 			 li.eq(next).animate({"left":left2,"width":w2,"height":h2,"top":top2},a_speed);
 			 // li.eq(next).css("z-index",z);
-			  //left 
+			  //left
 			  var pre=N-i;
 			  if(pre==-1){
 				  pre=length-1;
 			    }
-			 li.eq(pre).attr("class","left"); 
+			 li.eq(pre).attr("class","left");
 			 li.eq(pre).css("z-index",z);
 			 // li.eq(pre).css("z-index",z);
 			  li.eq(pre).animate({"left":"0px","width":w2,"height":h2,"top":top2},a_speed);
-			} 
+			}
 			//mid
 	       if(length%2==0){
 			  li.eq(next+1).attr("class","mid");
@@ -98,8 +98,8 @@ function i_slide(obj,opt){
 		for(i=0;i<chi.length;i++){
 			var li=chi[i];
 			if($(li).hasClass("on")){
-				now=i;  
-				}  
+				now=i;
+				}
 			}
 		  return now;
 	}
@@ -115,15 +115,15 @@ function i_slide(obj,opt){
 			if(number==0){
 				number=length-1;
 				}else{
-				number=number-1;	
+				number=number-1;
 					}
 		 }else{
 			//向后
 			if(number==length-1){
 				number=0;
 				}else{
-				number=number+1;	
-					} 
+				number=number+1;
+					}
 			 }
 		 if(!lion.is(":animated")){
 			     pos_dex(number);
@@ -131,9 +131,9 @@ function i_slide(obj,opt){
 				 ss();
 				 pos_dex(number)
 				 },speed)
-			 }	 
-		 
-		 
+			 }
+
+
 	   })
   //鼠标点击
    ul.on("click","li.on .icon",function(){
@@ -142,8 +142,8 @@ function i_slide(obj,opt){
 	    $(this).siblings(".info").show();
 		$(this).siblings(".bg").show();
 	   })
-   li.on("click",".info i",function(){  
-         $(this).parent(".info").siblings(".icon").show(); 
+   li.on("click",".info i",function(){
+         $(this).parent(".info").siblings(".icon").show();
 	     $(this).parent(".info").hide();
 		 $(this).parent(".info").siblings(".bg").hide();
 		 number=parseInt(now_show(li))
@@ -158,8 +158,8 @@ function i_slide(obj,opt){
    function ss(){
 	     number=number+1;
 	     if(number==length){
-		 number=0;  
+		 number=0;
 		 }
 	   }
-	
+
 	}

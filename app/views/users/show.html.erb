@@ -59,7 +59,9 @@
               <tr>
                 <td colspan="2" style="text-align:center;height:150px;border-bottom:0;">
                   <p>
-                    <%= link_to t("身份认证"), choose_user_path(@user), class: 'btn btn-main-color btn-big' %>
+                    <% if @user.has_role? :visitor %>
+                      <%= link_to t("身份认证"), choose_user_path(@user), class: 'btn btn-main-color btn-big' %>
+                    <% end %>
                   </p>
                 </td>
               </tr>

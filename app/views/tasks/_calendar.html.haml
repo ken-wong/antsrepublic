@@ -44,7 +44,7 @@
                 - @lastFinishPlanFind = true
               - else
                 - if current_user.has_role? :queen
-                  %a.btn.btn-primary{:href => "javascript:void(0);"} 查看
+                  %a.btn.btn-primary.check-tasks{:href => "javascript:void(0);",:planId=>"plan_task_#{plan.tasks.first.id}"} 查看
                 - else
                   %a.btn.btn-primary{:href => "javascript:void(0);"} 等待提交
                 - @lastFinishPlanFind = false

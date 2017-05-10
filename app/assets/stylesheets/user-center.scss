@@ -271,8 +271,10 @@
 					}
 					&.uploading a{
 						@include inlineBlockEle(180px, 180px);
+						display: flex;
+						align-items: center;
+						justify-content: center;
 						text-align:center;
-						line-height:180px;
 						font-size: 20px;
 					    color: #777;
 						background-color: #eee;
