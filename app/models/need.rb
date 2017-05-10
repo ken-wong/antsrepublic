@@ -4,4 +4,6 @@ class Need < Product
 	acts_as_votable
   has_many :tasks
   has_many :plans
+  has_many :need_imgs
+
 end

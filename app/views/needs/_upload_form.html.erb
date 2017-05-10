@@ -11,21 +11,7 @@
                 <%= f.input :material_name, label: false, wrapper: false %>
               </div>
             </div>
-
-            <div class="upload-img-box">
-              <div class="upload-img-item">
-                <span><input type="checkbox" name="upload-all-checkbox" value=""></span>
-                <span>类型</span>
-                <span>文件名称</span>
-                <span>删除</span>
-                <span class="btn-upload"><input type="file" name="" value=""> <i class="glyphicon glyphicon-arrow-up"></i>上传</span>
-              </div>
-              <div class="upload-img-item">
-                <span><input type="checkbox" name="upload-img-checkbox" value=""></span>
-                <span><img src="" alt=""></span>
-                <span>湖畔天下.jpg</span>
-              </div>
-            </div>
+            <%= render 'img_form' %>
           </div>
 
           <div class="remarks">

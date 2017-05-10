@@ -1,0 +1,19 @@
+<div class="upload-img-box">
+  <div class="upload-img-item">
+    <span><input type="checkbox" name="upload-all-checkbox" value=""></span>
+    <span>类型</span>
+    <span>文件名称</span>
+    <span>删除</span>
+    <span class="btn-upload">
+      <% need_image = @need.need_imgs.build %>
+      <%= form_for need_image, url: need_img_need_path(@need), html: { multipart: true } do |i| %>
+        <a href="javascript:void(0);"><i class="glyphicon glyphicon-arrow-up"></i>上传<%= i.file_field :photo, class: "need_img_upload glyphicon glyphicon-arrow-up", data: { url: "/needs/#{@need.id}/need_img" } %></a>
+      <% end %>
+    </span>
+  </div>
+  <div class="upload-img-item">
+    <span><input type="checkbox" name="upload-img-checkbox" value=""></span>
+    <span><img src="" alt=""></span>
+    <span>湖畔天下.jpg</span>
+  </div>
+</div>

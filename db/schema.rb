@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317043746) do
+ActiveRecord::Schema.define(version: 20170508150522) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -135,6 +135,13 @@ ActiveRecord::Schema.define(version: 20170317043746) do
   add_index "messages", ["ancestry"], name: "index_messages_on_ancestry", using: :btree
   add_index "messages", ["sent_messageable_id", "received_messageable_id"], name: "acts_as_messageable_ids", using: :btree
 
+  create_table "need_imgs", force: :cascade do |t|
+    t.string   "photo",      limit: 255
+    t.integer  "need_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "needs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -170,6 +177,8 @@ ActiveRecord::Schema.define(version: 20170317043746) do
     t.string   "reference_product_ids", limit: 255
     t.string   "reference_queen_ids",   limit: 255
     t.datetime "deleted_at"
+    t.string   "material_name",         limit: 255
+    t.text     "remark",                limit: 65535
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
