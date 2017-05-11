@@ -34,3 +34,5 @@
           - else
             %span.task-time= plan.dead_line
             %span.task-title= plan.title
+          %span.plan-action
+            = link_to '删除', plan, method: :delete, class: "btn btn-primary"

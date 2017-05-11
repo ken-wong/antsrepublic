@@ -26,8 +26,9 @@ class PlansController < ApplicationController
   def destroy
 
     @plan.destroy
+    need_id = @plan.need.id
     respond_to do |format|
-      format.html { redirect_to need_tasks_path(need_id: params[:need_id]), notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to need_tasks_path(need_id: params[:need_id] || need_id), notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

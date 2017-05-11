@@ -83,7 +83,8 @@
 
           - if @product && current_page?(queen_work_path(@product))
             %li= link_to I18n.t('root_path'), root_path
-            %li 精彩案例
+            %li= link_to '搜案例', queen_works_path
+            %li= @product.title
       
       - if @product && current_page?(queen_work_path(@product))
         .col-sm-2.col-sm-offset-2.queen_words_bookmark
