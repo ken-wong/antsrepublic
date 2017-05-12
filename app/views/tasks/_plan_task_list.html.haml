@@ -28,9 +28,9 @@
                 %li.text-center
                   %span.task-result-file-attachment
                     - if %w{jpg png gif bmp}.include?(attachment.file.file.extension.downcase)
-                      = link_to attachment.file_name, image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"),  target: '_blank'
+                      = link_to attachment.file_name, image_path("#{attachment.file.url}?imageView2/1/w/200/h/200"), :target => "_blank"
                     - else
-                      =link_to attachment.file_name, image_path("#{attachment.file.url}?vframe/jpg/offset/1/w/200/h/200"), target: '_blank'
+                      =link_to attachment.file_name, image_path("#{attachment.file.url}?vframe/jpg/offset/1/w/200/h/200"), :target => "_blank"
                   %p
                     .label.label-warning= link_to '删除附件', [task,attachment], method: :delete, data: { confirm: '确认需要删除附件?' } unless task.state == '甲方确认'
 
