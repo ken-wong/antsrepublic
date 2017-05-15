@@ -5,4 +5,5 @@
     .row
       = render "upload_form"
 
-= javascript_include_tag "need_upload_fuc.js"
+- content_for :page_js_block do
+  = javascript_include_tag 'need_upload_fuc.js'

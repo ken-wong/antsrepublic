@@ -1,6 +1,9 @@
-(function () {
+$(function(){
   $('.need_img_upload').fileupload({
-    add: function(e, data) {
+    submit: function(e, data) {
     },
+    add: function(e, data) {
+      console.log(data);
+    }
   });
-});
+})
