@@ -1,14 +1,13 @@
 .row.task-vote
   .col-md-12
     %h3.text-center
-      项目已完成
+      您好！项目已完成，请评价蚁后并完成确认
     - # 获取项目评分情况
     - # 如果项目没有评分，且是甲方，需要给甲方打分
     - # 如果项目有评分，需要显示评分情况
   - if current_user.id != @need.queen_id
     .col-sm-12.vote_block
-      %h6
-        请为乙方本次服务做出评价
+
       %p
         %strong
           交货速度
@@ -40,11 +39,11 @@
           %span.score
 
       %p
-        %a.btn.btn-primary.submitVote{:href => "javascript:void(0)"}
-          确认评分
+        %a.btn.btn-main-color.submitVote{:href => "javascript:void(0)"}
+          确认
 
-          
-    
+
+
   .col-sm-12.vote_sum_block
     .col-sm-4
       %span.vote_title
@@ -58,4 +57,3 @@
       %span.vote_title
         服务态度
       %span.vote_service_num.vote_type_num
-
