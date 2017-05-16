@@ -1,0 +1,2 @@
+module NeedImgsHelper
+end

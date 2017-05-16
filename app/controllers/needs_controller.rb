@@ -27,11 +27,6 @@ class NeedsController < InheritedResources::Base
     @comments = @need.comments
   end
 
-  def need_img
-    need = Need.find(params[:id])
-    @image = need.need_imgs
-  end
-
   def waitfor
     @need = Need.find(params[:id])
     @need.waitfor!

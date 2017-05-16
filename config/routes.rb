@@ -48,11 +48,11 @@ Rails.application.routes.draw do
   resources :needs do
     resources :tasks
     resources :plans
+    resources :need_imgs
 
     member do
       get 'waitfor_upload'=> 'needs#wait_upload'
       get 'upload_file'
-      post 'need_img'
       get 'waitfor'
       get 'plan_confirm'
       get 'plan_refuse'

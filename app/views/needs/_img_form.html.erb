@@ -4,18 +4,21 @@
     <span>类型</span>
     <span>文件名称</span>
     <span>删除</span>
-      <% need_image = @need.need_imgs.build %>
-      <%= form_for need_image, url: need_img_need_path(@need), html: { multipart: true } do |i| %>
+      <% need_image = @need.need_imgs.new %>
+      <%= f.fields_for need_image, url: need_need_imgs_path(@need) do |i| %>
         <%= i.file_field :photo, class: 'need_img_upload' %>
       <% end %>
   </div>
- <% unless @need.need_imgs.blank? %>
+  <% unless @need.need_imgs.blank? %>
     <% @need.need_imgs.each do |img|%>
-      <div class="upload-img-item">
-        <span><input type="checkbox" name="upload-img-checkbox" value=""></span>
-        <span><%= image_tag img.photo.small_url %></span>
-        <span><%= "#{img.photo.filename}" %></span>
-      </div>
+      <% unless img.photo.small_url.blank? %>
+        <div class="upload-img-item">
+          <span><input type="checkbox" name="upload-img-checkbox" value=""></span>
+          <span><%= image_tag img.photo.small_url %></span>
+          <span><%= "#{img.photo.filename}" %></span>
+          <span><%= link_to '删除', need_need_img_path(@need, img), method: :delete %></span>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

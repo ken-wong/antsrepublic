@@ -2,8 +2,7 @@
 	var scoreSpeed,
 		scoreQuality,
 		scoreService = 0;
-	$(document).ready(function(){
-
+	$(document).ready(function(){ 
 		//获取项目的评分情况
 		$.ajax({
 			method:'GET',
