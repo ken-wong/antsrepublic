@@ -529,7 +529,7 @@ section.ants_list{
 	}
 
 	.ants_feature_section{
-		height:113px;
+		height:135px;
 		&>.container{
 			padding:46px 0px;
 		}
@@ -581,11 +581,11 @@ section.ants_list{
 			text-indent: 100px;
 		}
 		.contact_popup{
-			width:485px;
-			height:452px;
-			background:url(image_path('homepage/contact_now.png')) no-repeat;
-		    right: 0;
-		    bottom:-100px;
+			width:208px;
+			height:228px;
+			background:url(image_path('homepage/qq.png')) no-repeat;
+		    right: 50px;
+		    top: 0;
 		    position: absolute;
 				background-size: 100% 100%;
 		}
