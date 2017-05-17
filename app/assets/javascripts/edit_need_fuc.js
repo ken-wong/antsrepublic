@@ -4,6 +4,26 @@
 		_queenModel.init('#need_reference_queen_ids');
 		_caseModel.init('#need_reference_product_ids');
 
+
+		$('.add-case').click(function(){
+			$('.hide-box').show();
+			$('#case-seach .select2').css('width',"100%");
+		})
+
+		$('.tab-vote').click(function(){
+			$('#case-bookmark').show();
+			$('#chooseCase').hide();
+		})
+
+		$('.tab-search').click(function(){
+			$('#case-bookmark').hide();
+			$('#chooseCase').show();
+		})
+
+		$('.close-hide').click(function(){
+			$('.hide-box').hide();
+		})
+
 		// var ImgLen = $('.test-box').find('img').length;
 		// $('.test-box').width(($('.test-box').find('.col-md-1').width()+50)*ImgLen);
 		//
@@ -94,7 +114,7 @@
 
 	// 参考案例弹出层
 	$(function(){
-		$('.queenSelector+span').width("1108px");
+		$('.queenSelector+span').width("97%");
 		$('.queenSelector+span').css("margin-left",15+'px');
 		var chooseCase=$("div#chooseCase");
 		var btnChoose=$("button#sureChoose");
