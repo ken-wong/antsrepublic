@@ -157,11 +157,15 @@
 
 	function addProductToSelectedList(_data){
 
-		var str = '<li><span>'+_data.title +'</span> <span class="delete_btn btn" data-id='+_data.id+' data-type="case">x 删除</span></li>'
+		var str = '<li class="col-case-and-queen"><span>'+_data.title +'</span> <span class="delete_btn btn" data-id='+_data.id+' data-type="case">x 删除</span></li>'
 
 
 		console.log(str);
-		$('.case-list ul').prepend($(str));
+		$('.case-list ul').prepend($(str)).find('.delete_btn').click(removeSelectedUnit);
+		// $('body').on('click','.delete_btn',function(){
+		// 	removeSelectedUnit();
+		// })
+
 		// $('<div class="col-md-1 col-case-and-queen text-center col-case"></div>').append($(str).click(function(evt){
 		// 	$(evt.currentTarget).toggleClass('selected');
 		// }).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.edit-box');
@@ -222,6 +226,7 @@
 
     var removeSelectedUnit = function(evt){
 		var _id = $(evt.currentTarget).attr("data-id");
+		console.log(_id);
 		var isQueen = ($(evt.currentTarget).attr("data-type") == "queen");
 		$(evt.currentTarget).parents(".col-case-and-queen").remove();
 		if(isQueen){

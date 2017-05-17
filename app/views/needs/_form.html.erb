@@ -37,9 +37,9 @@
           <%  if !@need.new_record? %>
             <ul>
               <% Product.where(id: @reference_product_ids).each do |product| %>
-                <li><span><%= product.title %></span> <span class="delete_btn btn" data-id="<%= product.id%>" data-type="case">x 删除</span></li>
-                <li class="add-case">点击添加参考案例</li>
+                <li class="col-case-and-queen"><span><%= product.title %></span> <span class="delete_btn btn" data-id="<%= product.id%>" data-type="case">x 删除</span></li>
               <% end %>
+              <li class="add-case">点击添加参考案例</li>
             </ul>
           <% end %>
       </div>
