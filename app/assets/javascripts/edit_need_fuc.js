@@ -157,19 +157,10 @@
 
 	function addProductToSelectedList(_data){
 
-		var str = '<li><span>'+_data.title +'</span> <span class="delete_btn btn" data-id='+_data.id+' data-type="case">x 删除</span></li>'+
+		var str = '<li><span>'+_data.title +'</span> <span class="delete_btn btn" data-id='+_data.id+' data-type="case">x 删除</span></li>'
 
-		// var str = '      <a class="queen" href="javascript:void(0)" data-case="'+_data.id+'">' +
-		// 		'          <p>' +
-		// 		'          	<img src="'+_data.avatar_small_url+'">' +
-		// 		'          </p>' +
-		// 		'          <h6>' +
-		// 					_data.title +
-		// 		'          </h6>' +
-		// 		'			<span class="delete_btn btn" data-id="'+_data.id+'" data-type="case">' +
-		// 		'               X' +
-		// 		'           </span>';
-		// 		'        </a>' ;
+
+		console.log(str);
 		$('.case-list ul').prepend($(str));
 		// $('<div class="col-md-1 col-case-and-queen text-center col-case"></div>').append($(str).click(function(evt){
 		// 	$(evt.currentTarget).toggleClass('selected');
