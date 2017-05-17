@@ -2,7 +2,7 @@
   .container
     .row
       = render "users/menu"
-    - if @need.state == "项目完成"
+    - if @need.state == '项目完成'
       .row.background-gray
         .col-md-12
           .content
@@ -10,10 +10,45 @@
             .row.back-project-list
               %p
                 %a.back-to-projects.text-center{:href => project_list_user_path(current_user)}
-                  %b 返回项目列表
+                  返回项目列表
 
-            - if current_user.id != @need.queen_id then # 我是甲方
-              = render "task_success_over"
+            - if current_user.id == @need.queen_id then # 我是蚁后
+              - case @need.state
+              - when '等待甲方'
+                = render "queen_waitfor_plan"
+              - when '乙方执行'
+                = render "queen_begin_plan"
+              - when '项目完成'
+                = render "task_success_over"
+              - else
+                = render "queen_create_plan"
+
+              - if @need.state == '乙方执行' or @need.state == '项目完成'
+                = render :partial => "calendar", :locals => {plan:@plans, need:@need}
+                = render :partial => "plan_task_list", :locals => {tasks:@tasks}
+
+            - else # 我是甲方
+              - case @need.state
+              - when '等待甲方'
+                = render "partyA_check_plan"
+              - when "确认计划"
+                = render "partyA_waitfor_plan"
+              - when '项目完成'
+                = render "task_success_over"
+              
+              - else
+                = render :partial => "partyA_begin_plan", :locals => {need:@need}
+
+
+
+
+
+            .row
+              %h3.text-center
+                = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-default' if @need.state == '乙方执行' and current_user.has_role? :owner
+
+      = render partial: "comment", :locals => {comments:@comments}
+
     - else
       .row.background-orange
         .col-md-12
@@ -22,7 +57,7 @@
             .row.back-project-list
               %p
                 %a.back-to-projects.text-center{:href => project_list_user_path(current_user)}
-                  %b 返回项目列表
+                  返回项目列表
 
             - if current_user.id == @need.queen_id then # 我是蚁后
               - case @need.state
@@ -56,7 +91,7 @@
               %h3.text-center
                 = link_to '项目最终完成', complete_need_path(@need), class: 'btn btn-default' if @need.state == '乙方执行' and current_user.has_role? :owner
 
-        = render partial: "comment", :locals => {comments:@comments}
+      = render partial: "comment", :locals => {comments:@comments}
 
 
 .modal#editPlanModal{:tabindex=>"-1", :role => "dialog", :'aria-labelledby' =>"editPlanModalLabel"}

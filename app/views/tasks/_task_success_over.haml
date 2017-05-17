@@ -1,11 +1,9 @@
 .row.task-vote
   .col-md-12
-    %h3.text-center
-      您好！项目已完成，请评价蚁后并完成确认
     - # 获取项目评分情况
     - # 如果项目没有评分，且是甲方，需要给甲方打分
     - # 如果项目有评分，需要显示评分情况
-  - if current_user.id != @need.queen_id
+  - if current_user.id == @need.queen_id
     .col-sm-12.vote_block
 
       %p
@@ -44,16 +42,98 @@
 
 
 
-  .col-sm-12.vote_sum_block
-    .col-sm-4
-      %span.vote_title
-        交货速度
-      %span.vote_speed_num.vote_type_num
-    .col-sm-4
-      %span.vote_title
-        作品质量
-      %span.vote_quality_num.vote_type_num
-    .col-sm-4
-      %span.vote_title
-        服务态度
-      %span.vote_service_num.vote_type_num
+    .col-sm-12.vote_sum_block
+      .col-sm-2
+        %span
+          %b 甲方评价
+      .col-sm-3
+        %span.vote_title
+          交货速度
+        %span.vote_speed_num.vote_type_num
+      .col-sm-3
+        %span.vote_title
+          作品质量
+        %span.vote_quality_num.vote_type_num
+      .col-sm-3
+        %span.vote_title
+          服务态度
+        %span.vote_service_num.vote_type_num
+
+  - else
+
+    .col-sm-12.vote_block.vote-owner
+      %h3.text-center
+        您好！项目已完成，请评价蚁后并完成确认
+      .evaluate-container
+        .queen-info
+          = image_tag @need.queen.avatar.small_url ,class: 'queen_avatar'
+          .queen-desc
+            %p
+              %b
+                = @need.queen.name
+              = image_tag image_path('queens_work/queen-tag.png') , class: 'queen-name'
+
+              = image_tag (image_path('queens_work/vote-tag.png'))
+              收藏(38)
+            %p
+              = @need.queen.description
+
+        .evaluate-box
+          .evaluate-txt
+            %p
+              %b 甲方评价
+
+          .evaluate-sum
+            %p
+
+              交货速度
+              %span.vote_num_selector#scoreSpeed
+                %span.score
+                %span.score
+                %span.score
+                %span.score
+                %span.score
+
+            %p
+              作品质量
+              %span.vote_num_selector#scoreQuality
+                %span.score
+                %span.score
+                %span.score
+                %span.score
+                %span.score
+
+            %p
+              服务态度
+              %span.vote_num_selector#scoreService
+                %span.score
+                %span.score
+                %span.score
+                %span.score
+                %span.score
+
+
+      %a.btn.btn-main-color.submitVote{:href => "javascript:void(0)"}
+        确认
+
+
+
+    .col-sm-12.vote_sum_block
+      .col-sm-2
+        %span
+          %b 甲方评价
+      .col-sm-3
+        %span.vote_title
+          交货速度
+        %span.vote_speed_num.vote_type_num
+      .col-sm-3
+        %span.vote_title
+          作品质量
+        %span.vote_quality_num.vote_type_num
+      .col-sm-3
+        %span.vote_title
+          服务态度
+        %span.vote_service_num.vote_type_num
+      .success-calendar
+        = render :partial => "calendar", :locals => {plan:@plans, need:@need}
+        = render :partial => "plan_task_list", :locals => {tasks:@tasks}
