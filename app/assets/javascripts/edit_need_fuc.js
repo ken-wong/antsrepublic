@@ -4,6 +4,26 @@
 		_queenModel.init('#need_reference_queen_ids');
 		_caseModel.init('#need_reference_product_ids');
 
+
+		$('.add-case').click(function(){
+			$('.hide-box').show();
+			$('#case-seach .select2').css('width',"100%");
+		})
+
+		$('.tab-vote').click(function(){
+			$('#case-bookmark').show();
+			$('#chooseCase').hide();
+		})
+
+		$('.tab-search').click(function(){
+			$('#case-bookmark').hide();
+			$('#chooseCase').show();
+		})
+
+		$('.close-hide').click(function(){
+			$('.hide-box').hide();
+		})
+
 		// var ImgLen = $('.test-box').find('img').length;
 		// $('.test-box').width(($('.test-box').find('.col-md-1').width()+50)*ImgLen);
 		//
@@ -94,7 +114,7 @@
 
 	// 参考案例弹出层
 	$(function(){
-		$('.queenSelector+span').width("1108px");
+		$('.queenSelector+span').width("97%");
 		$('.queenSelector+span').css("margin-left",15+'px');
 		var chooseCase=$("div#chooseCase");
 		var btnChoose=$("button#sureChoose");
@@ -137,25 +157,20 @@
 
 	function addProductToSelectedList(_data){
 
-		var str = '      <a class="queen" href="javascript:void(0)" data-case="'+_data.id+'">' +
-				'          <p>' +
-				'          	<img src="'+_data.avatar_small_url+'">' +
-				'          </p>' +
-				'          <h6>' +
-							_data.title +
-				'          </h6>' +
-				'			<span class="delete_btn btn" data-id="'+_data.id+'" data-type="case">' +
-				'               X' +
-				'           </span>';
-				'        </a>' ;
+		var str = '<li class="col-case-and-queen"><span>'+_data.title +'</span> <span class="delete_btn btn" data-id='+_data.id+' data-type="case">x 删除</span></li>'
 
 
+		console.log(str);
+		$('.case-list ul').prepend($(str)).find('.delete_btn').click(removeSelectedUnit);
+		// $('body').on('click','.delete_btn',function(){
+		// 	removeSelectedUnit();
+		// })
 
-		$('<div class="col-md-1 col-case-and-queen text-center col-case"></div>').append($(str).click(function(evt){
-			$(evt.currentTarget).toggleClass('selected');
-		}).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.edit-box');
-		$('.btn-left,.btn-right').show();
-		$('.edit-box').find('.txt-empty').css('display','none');
+		// $('<div class="col-md-1 col-case-and-queen text-center col-case"></div>').append($(str).click(function(evt){
+		// 	$(evt.currentTarget).toggleClass('selected');
+		// }).find('span.delete_btn').click(removeSelectedUnit).parent()).appendTo('.edit-box');
+		// $('.btn-left,.btn-right').show();
+		// $('.edit-box').find('.txt-empty').css('display','none');
 	}
 
 	function addQueenToSelectedList(_data){
@@ -211,6 +226,7 @@
 
     var removeSelectedUnit = function(evt){
 		var _id = $(evt.currentTarget).attr("data-id");
+		console.log(_id);
 		var isQueen = ($(evt.currentTarget).attr("data-type") == "queen");
 		$(evt.currentTarget).parents(".col-case-and-queen").remove();
 		if(isQueen){

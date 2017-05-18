@@ -20,175 +20,125 @@
       </div>
       <div class="col-lg-4">
         <%= f.input :price_range, priority: [ "高端" ], collection: [ "高端", "中端", "低端"], required: true, prompt: "请选择价格范围" %>
-        <!--todo, 根据 radio_button 显示不同提示
-          效果图人视：高端大于5k／中端2～5k／低端1～2k
-          效果图鸟瞰：高端大于9k／中端3～9k／低端1～3k以下
-          影     片：高端大于30w／中端15～30w／低端8～15w以下
-        -->
+
       </div>
     </div>
 
-    <!-- <div class="row">
-      <div class="col-lg-12">
-        <%= f.input :description, input_html: { class: 'desc_textarea' } %>
-      </div>
-    </div> -->
-
-    <!-- <div class="row project_tags_block">
-      <div class="col-lg-12">
-        <h5 class="project_tags_header">
-          项目关键字
-        </h5>
-      </div>
-      <%- @tags.each_with_index do |tag_list, i|-%>
-        <div class="col-lg-12 tag_row">
-          <div class="col-sm-1 tags_title">
-            <h6>
-              <%= tag_list[0]%>
-            </h6>
-          </div>
-          <div class="col-sm-11 tags_list">
-            <% tag_list[1][1]['tags'].each do |tag| %>
-              <%-
-                @flag = false
-                @need.tag_list.each do |t|
-                  @flag = true if t == tag and !t.blank?
-                end
-              -%>
-
-              <span>
-                <%- if @flag -%>
-                  <%= check_box_tag 'tags[]', tag, :checked  %>
-                <% else %>
-                  <%= check_box_tag 'tags[]', tag  %>
-                <% end %>
-
-                <label for=""><%= tag %></label>
-              </span>
-            <%- end -%>
-          </div>
-
-        </div>
-      <%- end -%>
-    </div> -->
 
     <!-- 控制弹出层的内容 -->
     <div class="box">
       <h5>参考案例</h5>
-      <!-- <span class="addCase">+</span> -->
-      <div class="selected_case_list" style="height: auto;">
-        <div class="select_case" id="chooseCase">
-          <div class="col-md-12">
-            <%= f.input :reference_product_ids, as:'hidden' %>
-            <div role="tabpanel">
-              <!-- Nav tabs -->
-              <!-- <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active" style="margin-left:30px;">
-                  <a href="#case-seach" aria-controls="home" role="tab" data-toggle="tab">搜索</a>
-                </li>
-                <li role="presentation">
-                  <a href="#case-bookmark" aria-controls="tab" role="tab" data-toggle="tab">我的收藏</a>
-                </li>
-              </ul> -->
-
-              <!-- Tab panes -->
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="case-seach">
-                  <select name="case_search" class="caseSelector"></select>
-                </div>
-                <!-- <div role="tabpanel" class="tab-pane" id="case-bookmark">
-                    <div class="row">
-                      <% @my_fav_products.each do |product| %>
-                      <div class="col-md-2" style="text-align: center;">
-                        <div class="fav-product">
-                          <p>
-                            <%= image_tag(image_path(product.avatar.small_url), class:"img-circle")%>
-                          </p>
-                          <h6>
-                            <%= product.title %>
-                          </h6>
-                          <p>
-                            <a href="javascript:void(0);" data-img="<%= product.avatar.small_url %>" data-id="<%= product.id%>" data-title="<%= product.title %>" class="add-product">
-                              添加
-                            </a>
-                          </p>
-                        </div>
-                      </div>
-                      <% end %>
-                    </div>
-                </div> -->
-              </div>
-            </div>
-          </div>
-        <!-- </div> -->
+      <div class="case-list">
+        <% if @need.new_record? %>
+         <ul>
+           <li class="add-case">点击添加参考案例</li>
+         </ul>
+        <% end %>
+          <%  if !@need.new_record? %>
+            <ul>
+              <% Product.where(id: @reference_product_ids).each do |product| %>
+                <li class="col-case-and-queen"><span><%= product.title %></span> <span class="delete_btn btn" data-id="<%= product.id%>" data-type="case">x 删除</span></li>
+              <% end %>
+              <li class="add-case">点击添加参考案例</li>
+            </ul>
+          <% end %>
       </div>
 
-      <h5>我的收藏</h5>
 
-        <% if @my_fav_products.empty? %>
-        <div role="tabpanel" class="tab-pane  has-pane" id="case-bookmark">
-          <p class="txt-empty empty-first">暂无收藏案例</p>
-        <% else %>
-        <div role="tabpanel" class="tab-pane" id="case-bookmark">
+      <div class="hide-box">
+        <div class="select-tab">
+          <span class="tab-search">搜索</span>
+          <span class="tab-vote">我的收藏</span>
+        </div>
+        <div class="close-hide">
+          x
+        </div>
+
+        <div class="selected_case_list" style="height: auto;">
+          <div class="select_case clearfix" id="chooseCase">
+            <div class="col-md-12">
+              <%= f.input :reference_product_ids, as:'hidden' %>
+              <div role="tabpanel">
+
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="case-seach">
+                    <select name="case_search" class="caseSelector"></select>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+        </div>
+
+
+
+          <% if @my_fav_products.empty? %>
+          <div role="tabpanel" class="tab-pane  has-pane" id="case-bookmark">
+            <p class="txt-empty empty-first">暂无收藏案例</p>
+          <% else %>
+          <div role="tabpanel" class="tab-pane" id="case-bookmark">
+            <div class="btn-left"></div>
+            <div class="btn-right"></div>
+          <% end %>
+            <div class="row">
+              <div class="">
+                <% @my_fav_products.each do |product| %>
+                <div class="col-md-1" style="text-align: center;">
+                  <div class="fav-product">
+                    <p>
+                      <%= image_tag(image_path(product.avatar.small_url))%>
+                    </p>
+                    <h6>
+                      <%= product.title %>
+                    </h6>
+                    <p>
+                      <a href="javascript:void(0);" data-img="<%= product.avatar.small_url %>" data-id="<%= product.id%>" data-title="<%= product.title %>" class="add-product">
+                        添加
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+        </div>
+
+        <!-- <div class="edit-box clearfix">
+          <h5>编辑案例</h5>
+          <% if @need.new_record? %>
+            <p class="txt-empty">暂无编辑案例</p>
+          <% end %>
           <div class="btn-left"></div>
           <div class="btn-right"></div>
-        <% end %>
-          <div class="row">
-            <div class="">
-              <% @my_fav_products.each do |product| %>
-              <div class="col-md-1" style="text-align: center;">
-                <div class="fav-product">
-                  <p>
-                    <%= image_tag(image_path(product.avatar.small_url))%>
-                  </p>
-                  <h6>
-                    <%= product.title %>
-                  </h6>
-                  <p>
-                    <a href="javascript:void(0);" data-img="<%= product.avatar.small_url %>" data-id="<%= product.id%>" data-title="<%= product.title %>" class="add-product">
-                      添加
-                    </a>
-                  </p>
-                </div>
-              </div>
-              <% end %>
+          <%  if !@need.new_record? %>
+            <% Product.where(id: @reference_product_ids).each do |product| %>
+            <div class="col-md-1 col-case-and-queen col-case text-center">
+              <a class="queen" href="javascript:void(0)">
+                <p>
+                  <%= image_tag(image_path(product.avatar.small_url))%>
+                </p>
+                <h6>
+                  <%= product.title %>
+                </h6>
+                <span class="delete_btn btn" data-id="<%= product.id%>" data-type="case">
+                  X
+                </span>
+              </a>
             </div>
-          </div>
-      </div>
-
-      <div class="edit-box clearfix">
-        <h5>编辑案例</h5>
-        <% if @need.new_record? %>
-          <p class="txt-empty">暂无编辑案例</p>
-        <% end %>
-        <div class="btn-left"></div>
-        <div class="btn-right"></div>
-        <%  if !@need.new_record? %>
-          <% Product.where(id: @reference_product_ids).each do |product| %>
-          <div class="col-md-1 col-case-and-queen col-case text-center">
-            <a class="queen" href="javascript:void(0)">
-              <p>
-                <%= image_tag(image_path(product.avatar.small_url))%>
-              </p>
-              <h6>
-                <%= product.title %>
-              </h6>
-              <span class="delete_btn btn" data-id="<%= product.id%>" data-type="case">
-                X
-              </span>
-            </a>
-          </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div> -->
+
+
+
+
+        <!-- 关闭弹出层 -->
+        <!-- <button type="button" class="btn btn-info defaultHide" id="sureChoose">确定</button> -->
       </div>
-
-
-
-
-      <!-- 关闭弹出层 -->
-      <!-- <button type="button" class="btn btn-info defaultHide" id="sureChoose">确定</button> -->
     </div>
   </div>
+
 
     <div class="queen-box">
       <h5>指定蚁后</h5>

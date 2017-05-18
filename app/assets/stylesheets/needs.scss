@@ -59,9 +59,61 @@
 		}
 	}
 }
+
+.hide-box {
+	display: none;
+	padding-bottom: 65px;
+	position: absolute;
+	top: 75px;
+	width: 100%;
+	border-radius: 4px;
+	width: 105%;
+  left: 50%;
+  transform: translateX(-50%);
+	z-index: 999;
+	background-color: rgba(0,0,0,0.5);
+
+	.selected_case_list {
+		background-color: none;
+
+	}
+
+	.close-hide {
+		position: absolute;
+		top: 0;right: 20px;
+		font-size: 25px;
+		color: white;
+		cursor: pointer;
+		z-index: 999;
+	}
+
+	.select-tab {
+		position: absolute;
+		top: -40px;
+		left: 0;
+		background: rgba(0,0,0,0.7);
+		padding: 10px 20px;
+		border-radius: 4px;
+		cursor: pointer;
+
+		span {
+			color: white;
+			display: inline-block;
+			width: 70px;
+		}
+
+	}
+	#chooseCase {
+		margin-top: 40px;
+	}
+}
+
+.selected_queen_list {
+	background: white;
+}
 .selected_queen_list, .selected_case_list{
+
 	position: relative;
-	background-color:white;
 	border-radius:10px;
 	overflow: hidden;
 
@@ -186,9 +238,15 @@ div.box .edit-box {
 	}
 }
 
+.fav-product img {
+	border: 1px solid red;
+}
+
 #case-bookmark {
 	position: relative;
 	padding: 0 50px 0 50px;
+	margin-top: 50px;
+	display: none;
 	 .btn-right, .btn-left {
 		display: block;
 		top: 25px;
@@ -203,6 +261,26 @@ div.box .edit-box {
 #case-bookmark.has-pane {
 	padding: 0;
 }
-// .test-box{
-// 	position: relative;
-// }
+
+.case-list {
+	ul {
+		padding: 0 15px;
+		font-size: 14px;
+
+		.add-case {
+			color:#f4613f;
+			border-bottom: 1px dashed #ccc;
+			cursor: pointer;
+		}
+	}
+	li {
+		list-style: none;
+		color: #666;
+		border-bottom: 1px dashed #666;
+		line-height: 35px;
+
+		span:nth-last-of-type(1) {
+			float: right;
+		}
+	}
+}
