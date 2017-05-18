@@ -696,7 +696,7 @@ nav.pagination {
 	}
 
 	.remarks {
-		margin-top: 30px;
+		margin-top: 140px;
 
 		textarea {
 			color: black;
@@ -721,13 +721,19 @@ nav.pagination {
 		overflow: hidden;
 		color: black;
 		text-align: left;
+    position: relative;
+    top: 75px;
 
 		.upload-img-item {
 			padding: 5px 0;
 			border-bottom: 1px solid gray;
+      a {
+        display: inline;
+        color: black;
+      }
 		}
 
-		.upload-img-item:nth-child(1) {
+		.upload-img-item {
 			span {
 				padding: 0 10px;
 				border-right: 1px solid gray;
@@ -762,4 +768,10 @@ nav.pagination {
 			}
 		}
 	}
+}
+
+.upload-img-form {
+  position: absolute;
+  top: 90px;
+  width: 95%;
 }

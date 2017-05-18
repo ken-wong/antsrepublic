@@ -1,0 +1,12 @@
+<% unless need.need_imgs.blank? %>
+  <% need.need_imgs.each do |img|%>
+    <% unless img.photo.small_url.blank? %>
+      <div class="upload-img-item">
+        <span><input type="checkbox" name="upload-img-checkbox" value=""></span>
+        <span><%= image_tag img.photo.small_url %></span>
+        <span><%= "#{img.photo.filename}" %></span>
+        <span><%= link_to '删除', need_need_img_path(need, img), method: :delete, remote: true %></span>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

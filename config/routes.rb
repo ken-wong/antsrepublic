@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   resources :needs do
     resources :tasks
     resources :plans
-    resources :need_imgs
+    resources :need_imgs, only: [:create, :destroy]
 
     member do
       get 'waitfor_upload'=> 'needs#wait_upload'

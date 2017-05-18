@@ -1,9 +1,10 @@
 $(function(){
   $('.need_img_upload').fileupload({
+    dataType: 'script',
     submit: function(e, data) {
     },
     add: function(e, data) {
-      console.log(data);
-    }
+      data.submit(e, data);
+    },
   });
 })
