@@ -696,7 +696,7 @@ nav.pagination {
 	}
 
 	.remarks {
-		margin-top: 140px;
+		margin-top: 95px;
 
 		textarea {
 			color: black;
@@ -722,7 +722,6 @@ nav.pagination {
 		color: black;
 		text-align: left;
     position: relative;
-    top: 75px;
 
 		.upload-img-item {
 			padding: 5px 0;
@@ -730,6 +729,11 @@ nav.pagination {
       a {
         display: inline;
         color: black;
+      }
+      .file-type {
+        display: inline-block;
+        width: 46px;
+        text-align: center;
       }
 		}
 
@@ -755,18 +759,6 @@ nav.pagination {
 
 
 
-		.btn-upload {
-			position: relative;
-			background-color: #eadd4c;
-			float: right;
-			border-right: 0;
-
-			input[type="file"] {
-				position: absolute;
-				width: 0;
-				height: 0;
-			}
-		}
 	}
 }
 
@@ -774,4 +766,23 @@ nav.pagination {
   position: absolute;
   top: 90px;
   width: 95%;
+}
+
+.btn-upload {
+  width: 100%;
+  text-align: center;
+	input[type="file"] {
+    display: none;
+	}
+
+  .upload-button {
+    font-size: 18px;
+    width: 300px;
+    background-color: #eadd4c;
+    border: 0;
+    color: black;
+  }
+  .upload-button:active {
+    color: black;
+  }
 }

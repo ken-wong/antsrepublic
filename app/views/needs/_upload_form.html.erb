@@ -5,15 +5,6 @@
         <h4>上传资料</h4>
         <%= render 'img_form' %>
         <%= simple_form_for(@need) do |f|  %>
-          <div class="upload-img-form">
-            <div class="clearfix">
-              <label for="source-name">资料名称</label>
-              <div style="display: inline-block; width: 80%; float: right">
-                <%= f.input :material_name, label: false, wrapper: false %>
-              </div>
-            </div>
-          </div>
-
           <div class="remarks">
             <div>
               备注
@@ -26,6 +17,8 @@
             <%= f.button :submit, '提交资料', class: 'submit-btn' %>
         </div>
         <% end %>
-      <%= render "tasks/comment", :locals => {comments: @comments} %>
+        <div style="display: none">
+          <%= render "tasks/comment", :locals => {comments: @comments} %>
+        </div>
     </div>
   </div>
