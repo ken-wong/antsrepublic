@@ -13,6 +13,8 @@
               <%= f.input :remark, label: false, wrapper: false, input_html: { rows: 8, style: "width:100%", placeholder: "请输入项目说明，也可以上传图片来帮助我们更好的理解您的需求和想法" } %>
             </div>
           </div>
+          <%= f.input :reference_product_ids, label:false, as:'hidden' %>
+          <%= f.input :reference_queen_ids, label:false, as:"hidden" %>
 
             <%= f.button :submit, '提交资料', class: 'submit-btn' %>
         </div>
