@@ -3,6 +3,19 @@
 		scoreQuality,
 		scoreService = 0;
 	$(document).ready(function(){ 
+		//去除重复的“任务提交文本”
+		var projectPlan=$('.task-result');
+
+		var len = projectPlan.length;
+		console.log(len)
+		for(var proNum=0;proNum<len;proNum++){
+			if(proNum>0){
+				console.log(1)
+				projectPlan.eq(proNum).find('.task-sub-txt').text("");
+			}
+		}
+
+
 		//获取项目的评分情况
 		$.ajax({
 			method:'GET',
@@ -106,7 +119,7 @@
 					'<a href="' + obj.file_url  + '">'+
 						obj.file_name+
 					'</a></span></li>')
-				console.log();
+					 window.location.reload();
 	        }
 	    });
 
