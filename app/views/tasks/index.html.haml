@@ -6,7 +6,6 @@
       .row.background-gray
         .col-md-12
           .content
-            #notice= notice
             .row.back-project-list
               %p
                 %a.back-to-projects.text-center{:href => project_list_user_path(current_user)}
@@ -35,7 +34,7 @@
                 = render "partyA_waitfor_plan"
               - when '项目完成'
                 = render "task_success_over"
-              
+
               - else
                 = render :partial => "partyA_begin_plan", :locals => {need:@need}
 
@@ -53,7 +52,6 @@
       .row.background-orange
         .col-md-12
           .content
-            #notice= notice
             .row.back-project-list
               %p
                 %a.back-to-projects.text-center{:href => project_list_user_path(current_user)}
