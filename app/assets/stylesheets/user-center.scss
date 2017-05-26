@@ -783,6 +783,12 @@ nav.pagination {
 		text-align: left;
     position: relative;
 
+		.uploading {
+			padding: 5px 0;
+			border-bottom: 1px solid gray;
+			text-align: center;
+		}
+
 		.upload-img-item {
 			padding: 5px 0;
 			border-bottom: 1px solid gray;
