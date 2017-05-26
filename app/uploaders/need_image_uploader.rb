@@ -17,9 +17,16 @@ class NeedImageUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
+
+  def file_size
+    self.size / 1024 / 1024
+  end
+
   def small_url
-    if self.url
+    if file_size >= 0 && file_size < 5
       self.url  + '?imageView2/1/w/200/h/200'
+    else
+      self.url
     end
   end
   # def default_url
