@@ -1,0 +1,13 @@
+= search_form_for @q, url: queens_path, class: 'navbar-form' do |f|
+  .input-group
+    .input-group-btn
+      %button.btn.btn-default.dropdown-toggle{"data-toggle"=>'dropdown',:type=>'button'}
+        找蚁后
+    = text_field_tag('q[name_cont]', nil, class: 'form-control')
+    .input-group-btn
+      = f.button '', class: 'btn btn-default' do
+        %span.glyphicon.glyphicon-search
+  .nav_quick_btn
+    %a{:href=>new_need_path} 发项目
+    %a{:href=>queen_works_path} 搜案例
+    %a{:href=>queens_path} 找蚁后

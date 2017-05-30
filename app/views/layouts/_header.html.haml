@@ -44,29 +44,5 @@
   %nav#mainMenu.navbar{:role => "navigation"}
     .container
       .row
-        
-
-      
-        //.navbar-collapse
         .nav_top_form
-          %form.navbar-form
-            .input-group
-              .input-group-btn
-                %button.btn.btn-default.dropdown-toggle{"data-toggle"=>'dropdown',:type=>'button'} 
-                  找蚁后
-                  %span.caret
-                %ul.dropdown-menu{:role=>"menu"}
-                  %li
-                    %a{:href=>"#"} 找蚁后
-                    %a{:href=>"#"} 搜案例
-              %input.form-control{:type=>"text"}     
-              .input-group-btn
-                %button.btn.btn-default{:type => 'button'}
-                  %span.glyphicon.glyphicon-search    
-            .nav_quick_btn
-              %a{:href=>new_need_path} 发项目        
-              %a{:href=>queen_works_path} 搜案例        
-              %a{:href=>queens_path} 找蚁后        
-
-
-
+          = render 'layouts/search_queen_works'
