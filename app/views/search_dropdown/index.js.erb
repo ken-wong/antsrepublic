@@ -1,0 +1,7 @@
+<% case search
+   when 'queens'
+%>
+    $('.nav_top_form').html("<%= escape_javascript render 'layouts/search_queen_works' %>");
+<% when 'queen_works' %>
+    $('.nav_top_form').html("<%= escape_javascript render 'layouts/search_queens' %>");
+<% end %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :password_resets
 
   resources :attachments
+  resources :search_dropdown, only: [:index]
   resources :tasks do
     member do
       get 'confirm'
@@ -112,6 +113,7 @@ Rails.application.routes.draw do
       end
     end
     resources :plans
+
   end
   # get     'queen_login'   => 'queen_sessions#new'
   # post    'queen_login'   => 'queen_seconvert
