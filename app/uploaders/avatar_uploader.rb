@@ -42,8 +42,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
      %w(jpg jpeg gif png mp4 webm avi)
   end
 
-  def small_url 
-    if self.url 
+  def small_url
+    if self.url
       if %w{.mp4 .avi}.include?(File.extname(self.url).downcase)
         self.url + '?vframe/png/offset/5'
       else

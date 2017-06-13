@@ -23,10 +23,12 @@ class NeedImageUploader < CarrierWave::Uploader::Base
   end
 
   def small_url
-    if file_size >= 0 && file_size < 5
-      self.url  + '?imageView2/1/w/200/h/200'
-    else
-      self.url
+    if self.url
+      if file_size >= 0 && file_size < 5
+        self.url  + '?imageView2/1/w/200/h/200'
+      else
+        self.url
+      end
     end
   end
   # def default_url

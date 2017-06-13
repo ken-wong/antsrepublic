@@ -16,8 +16,8 @@ class BannerUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  def small_url 
-    if self.url 
+  def small_url
+    if self.url
       if %w{.mp4 .avi}.include?(File.extname(self.url).downcase)
         self.url + '?vframe/png/offset/5'
       else
