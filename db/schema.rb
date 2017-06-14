@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508150522) do
+ActiveRecord::Schema.define(version: 20170614072736) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -93,6 +93,14 @@ ActiveRecord::Schema.define(version: 20170508150522) do
   add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "complains", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "content",    limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",   limit: 4,                   null: false

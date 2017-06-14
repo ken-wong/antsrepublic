@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :products
   mount_uploader :avatar, AvatarUploader
+  has_many :complains
 
 
   acts_as_follower
