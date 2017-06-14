@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'new_comer'=> 'new_comer#index'
+
   resources :password_resets
 
   resources :attachments
