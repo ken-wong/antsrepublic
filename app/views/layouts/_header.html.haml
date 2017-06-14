@@ -1,4 +1,4 @@
-- if current_page?(root_path) 
+- if current_page?(root_path)
   - fixedNav = 'fixed-nav'
   - isaffix = "affix"
   - affixOffset = "1"
@@ -9,15 +9,20 @@
       .row
         .global_logo
           %a{:href => root_path}
-            %img{:src => image_path("homepage/global_logo.png")}
+            %img{:src => image_path("homepage/logo_all.png")}
+            .nav_quick_btn
+              %a.a_border{:href=>new_need_path} 发项目
+              %a.a_border{:href=>queen_works_path} 搜案例
+              %a{:href=>queens_path} 找蚁后
+
         %ul.nav.navbar-nav.center-block
-               
+
           - if logged_in?
             %li
               = "你好, #{current_user.name}"
-            %li 
+            %li
               = link_to '个人中心', dashboard_user_path(session[:user_id])
-            %li  
+            %li
               = link_to t('我的项目'), project_list_user_path(current_user)
             %li
               = link_to dashboard_user_path(current_user) do
@@ -25,7 +30,7 @@
                 %span.badge.badge-danger
                   = message_count
             %li
-              = link_to t('logout'), logout_path, method: :delete 
+              = link_to t('logout'), logout_path, method: :delete
           - else
             %li
               %a{href: signup_path, class: 'no_login'}
@@ -35,14 +40,10 @@
               %a{href: login_path, class: 'no_login'}
                 %img{:src => image_path("icon_profile.png")}
                 登录
-
-          %li.phone_num
-            |&nbsp
-            %img{src: image_path("icon_telephone.png"), class: 'icon_telephone'}
-            4000 - 5566 - 36
-
-  %nav#mainMenu.navbar{:role => "navigation"}
-    .container
-      .row
-        .nav_top_form
-          = render 'layouts/search_queen_works'
+        .search_queen-box
+          = search_form_for @q, url: queens_path, class: 'navbar-form' do |f|
+            .input-group
+              = text_field_tag('q[name_cont]', nil, class: 'form-control')
+              .input-group-btn
+                = f.button '', class: 'btn btn-default' do
+                  %span.glyphicon.glyphicon-search
