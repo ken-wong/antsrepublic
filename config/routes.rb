@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   get 'new_comer'=> 'new_comer#index'
+  get 'complain'=> 'complains#index'
+  post 'complain'=> 'complains#create'
 
   resources :password_resets
 

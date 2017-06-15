@@ -1,0 +1,21 @@
+<% @complains.each do |c| %>
+  <div>
+    <div>
+      <%= c.title %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= c.content %>
+    </div>
+  </div>
+<% end %>
+<%= form_for(@complain, url: { controller: 'complains', action: 'create' }) do |f| %>
+  <%= f.label :title, "Post title" %>
+  <%= f.text_field :title%>
+
+  <%= f.label :content, "Content" %>
+  <%= f.text_field :content %>
+
+  <%= f.submit "Add"%>
+<% end %>
