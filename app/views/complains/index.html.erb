@@ -1,21 +1,41 @@
-<% @complains.each do |c| %>
-  <div>
+<div class="complain-container">
+  <div class="complain-list">
+    <div class="complain-title">
+      <h3>投诉信息</h3>
+    </div>
     <div>
-      <%= c.title %>
+      <% @complains.each do |c| %>
+        <div class="complain-cell">
+          <div class="list-title">
+            <%= c.title %>
+          </div>
+          <div class="list-content">
+            <%= c.content %>
+            <span><%= c.created_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %></span>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-  <div>
-    <div>
-      <%= c.content %>
+  <div class="complain-form">
+    <div class="complain-title">
+      <h3>我要留言</h3>
+    </div>
+    <div class="form-container">
+      <%= form_for(@complain, url: { controller: 'complains', action: 'create' }) do |f| %>
+        <div class="field">
+          <span>&nbsp&nbsp<%= f.label :title, "标 题" %></span>
+          <%= f.text_field :title, style: 'width: 92%; float: right' %>
+        </div>
+        <div class="field">
+          <%= f.text_area :content, style: 'width: 100%; height: 120px; resize: none;' %>
+        </div>
+        <div class="submit">
+          <span>* 请补齐联系信息以便我们能及时与您沟通解决</span>
+          &nbsp&nbsp
+          <span><%= f.submit "提交留言"%></span>
+        </div>
+      <% end %>
     </div>
   </div>
-<% end %>
-<%= form_for(@complain, url: { controller: 'complains', action: 'create' }) do |f| %>
-  <%= f.label :title, "Post title" %>
-  <%= f.text_field :title%>
-
-  <%= f.label :content, "Content" %>
-  <%= f.text_field :content %>
-
-  <%= f.submit "Add"%>
-<% end %>
+</div>

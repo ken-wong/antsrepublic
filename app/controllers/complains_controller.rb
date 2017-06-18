@@ -15,6 +15,11 @@ class ComplainsController < ApplicationController
     @complain = current_user.complains.new(complain_params)
     if @complain.save
       redirect_to complain_path
+    else
+      respond_to do |format|
+        format.html { redirect_to complain_path, notice: 'error' }
+        format.json { render json: @complain.errors, status: :unprocessable_entity }
+      end
     end
   end
 
