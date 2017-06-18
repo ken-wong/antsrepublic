@@ -1,13 +1,10 @@
 class ComplainsController < ApplicationController
   def index
     if current_user
-      if current_user.state == "认证通过"
-        @complains = current_user.complains.all
-        @complain = current_user.complains.new
-      else
-      end
+      @complains = current_user.complains.all
+      @complain = current_user.complains.new
     else
-      render html: 'please login'
+      redirect_to login_path
     end
   end
 

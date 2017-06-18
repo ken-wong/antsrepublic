@@ -4,16 +4,22 @@
       <h3>投诉信息</h3>
     </div>
     <div>
-      <% @complains.each do |c| %>
+      <% if @complains.blank? %>
         <div class="complain-cell">
-          <div class="list-title">
-            <%= c.title %>
-          </div>
-          <div class="list-content">
-            <%= c.content %>
-            <span><%= c.created_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %></span>
-          </div>
+          暂无投诉
         </div>
+      <% else %>
+        <% @complains.each do |c| %>
+          <div class="complain-cell">
+            <div class="list-title">
+              <%= c.title %>
+            </div>
+            <div class="list-content">
+              <%= c.content %>
+              <span><%= c.created_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %></span>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
