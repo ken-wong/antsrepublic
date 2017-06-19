@@ -15,17 +15,17 @@ $(function(){
 		i_slide($(".container_image"),newopt);
 
 		$('.homepageCarousel.owl-carousel').owlCarousel({
-			stagePadding: 300,
-			loop:true,
-			margin:50,
-			nav:true,
-			dots:false,
-			navText:['',''],
-			responsive:{
-		        0:{
-		            items:3
-		        }
-		    }
+			// stagePadding: 300,
+			// loop:true,
+			// margin:50,
+			// nav:true,
+			// dots:false,
+			// navText:['',''],
+			// responsive:{
+		  //       0:{
+		  //           items:3
+		  //       }
+		  //   }
 		});
 
 		$('.case-carousel.owl-carousel').owlCarousel({
@@ -94,7 +94,7 @@ $(function(){
 				if(data.queen_works.length){
 					$("div.owl-stage").html("");
 					for (var i = 0; i< data.queen_works.length; i++) {
-						 var str='<div class="owl-item active" style=""><div class="item">'
+						 var str='<div class="owl-item active" style="width: 458.333px; margin-right: 10px;"><div class="item">'
 	            				+'<div class="product">'
 	              					+'<div class="productBlock">'
 	              						+'<a href="/queen_works/1">'
