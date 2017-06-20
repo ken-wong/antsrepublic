@@ -51,6 +51,7 @@ abbr[title], abbr[data-original-title] {
 	top:0;
 	z-index:100;
 	border-top:1px solid #000;
+	opacity:0.9;
 	//background:url(image_path('homepage/navtopbg.jpg'));
 	&.affix{
 		opacity:0.9
@@ -488,6 +489,13 @@ footer.background-midnight-blue{
 	position: relative;
 	left: 45%;
 	margin: 30px auto;
+}
+section{
+	padding: 40px 0 10px;
+}
+
+#quick_navi_data_section{
+	margin-top: 80px;
 }
 
 .btn-register input {
