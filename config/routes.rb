@@ -2,6 +2,15 @@ Rails.application.routes.draw do
 
   get 'new_comer'=> 'new_comer#index'
   get 'complain'=> 'complains#index'
+
+  get 'teach/queen'=>'teach#queen'
+  get 'teach/owner'=>'teach#owner'
+  get 'teach/introduce'=>'teach#introduce'
+  get 'teach/custom_list'=>'teach#custom_list'
+  get 'teach/rule_center'=>'teach#rule_center'
+  get 'teach/trading_process'=>'teach#trading_process'
+
+
   post 'complain'=> 'complains#create'
 
   resources :password_resets
@@ -38,7 +47,7 @@ Rails.application.routes.draw do
       get 'follow_it'
       get 'vote_it'
     end
-    
+
     resources :attachments
   end
 
@@ -47,7 +56,7 @@ Rails.application.routes.draw do
       get 'dashboard'
     end
   end
-  
+
   resources :products
 
   resources :needs do
@@ -68,15 +77,15 @@ Rails.application.routes.draw do
       get 'convert_to_queen_work'
     end
   end
-  resources :uploads  
+  resources :uploads
 
   get 'needs/need_params'
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  
+
   ActiveAdmin.routes(self)
-  
+
   root 'welcome#index'
   get     'login'   => 'sessions#new'
   post    'login'   => 'sessions#create'
@@ -101,7 +110,7 @@ Rails.application.routes.draw do
     resources :queen_works do
       get :search, on: :collection
       resources :attachments
-    end    
+    end
 
     resources :needs do
       resources :tasks
@@ -111,7 +120,7 @@ Rails.application.routes.draw do
     resources :tasks do
       resources :attachments
       member do
-        get :confirm 
+        get :confirm
         get :confuse
 
       end

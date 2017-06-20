@@ -1,0 +1,20 @@
+<div class="teach-nav">
+  <ul>
+    <li><h3>新手上路</h3></li>
+    <ul class="sec-nav">
+      <%= link_to '我是蚁后',teach_queen_url %>
+      <%= link_to '我是甲方',teach_owner_url ,class: "last-li" %>
+    </ul>
+    <li><h3>交易保障</h3></li>
+    <ul class="sec-nav">
+      <%= link_to '交易流程',teach_trading_process_url %>
+      <%= link_to '联系客服',teach_custom_list_url %>
+      <%= link_to '规则中心',teach_rule_center_url %>
+      <%= link_to '投诉中心',complain_path ,class: "last-li" %>
+    </ul>
+    <li><h3>平台简介</h3></li>
+    <ul class="sec-nav">
+      <%= link_to '平台简介',teach_introduce_url ,class: "lasted-li" %>
+    </ul>
+  </ul>
+</div>

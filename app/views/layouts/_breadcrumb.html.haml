@@ -4,7 +4,7 @@
 /   - if flash[key]
 /     .p
 /       .text-center.alert.alert-danger
-/         = content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}" 
+/         = content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}"
 
 .breadcrumbs-container
   .container
@@ -20,7 +20,7 @@
             - if current_page?(dashboard_user_path(current_user))
               %li= link_to I18n.t('root_path'), root_path
               %li= '个人中心'
-            
+
             - if current_page?((current_user))
               %li= link_to I18n.t('root_path'), root_path
               %li= link_to '个人中心', dashboard_user_path(current_user)
@@ -29,19 +29,19 @@
             - if current_page?(voteable_list_user_path(current_user))
               %li= link_to I18n.t('root_path'), root_path
               %li= link_to '个人中心', dashboard_user_path(current_user)
-              %li= I18n.t('user_voteable')        
+              %li= I18n.t('user_voteable')
 
             - if current_page?(following_list_user_path(current_user))
               %li= link_to I18n.t('root_path'), root_path
               %li= link_to '个人中心', dashboard_user_path(current_user)
-              %li= I18n.t('user_following')        
+              %li= I18n.t('user_following')
 
 
             - if current_page?(choose_user_path(current_user))
               %li= link_to I18n.t('root_path'), root_path
               %li= link_to '个人中心', dashboard_user_path(current_user)
               %li= link_to '用户资料', user_path(current_user)
-              %li 认证审核             
+              %li 认证审核
 
             - if current_page?(project_list_user_path(current_user))
               %li= link_to I18n.t('root_path'), root_path
@@ -52,7 +52,7 @@
               %li= link_to I18n.t('root_path'), root_path
               %li= link_to '个人中心', dashboard_user_path(current_user)
               %li 我的案例
-              
+
           - if current_page?(signup_path)
             %li= link_to I18n.t('root_path'), root_path
             %li= '注册'
@@ -72,10 +72,45 @@
             %li= link_to '项目管理', project_list_user_path(current_user)
             %li 发布需求
 
+          - if current_page?(teach_queen_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li 新手上路
+            %li 我是蚁后
+
+          - if current_page?(teach_owner_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li 新手上路
+            %li 我是甲方
+
+          - if current_page?(teach_introduce_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li 新手上路
+            %li 平台简介
+
+          - if current_page?(teach_custom_list_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li 新手上路
+            %li 联系客服
+
+          - if current_page?(teach_rule_center_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li 新手上路
+            %li 规则中心
+
+          - if current_page?(teach_trading_process_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li 新手上路
+            %li 交易流程
+
+          - if current_page?(complain_path)
+            %li= link_to I18n.t('root_path'), root_path
+            %li 新手上路
+            %li 投诉中心 
+
           - if current_page?(queen_works_path)
             %li= link_to I18n.t('root_path'), root_path
             %li 搜案例
-          
+
           - if current_page?(queens_path)
             %li= link_to I18n.t('root_path'), root_path
             %li 找蚁后
@@ -85,7 +120,7 @@
             %li= link_to I18n.t('root_path'), root_path
             %li= link_to '搜案例', queen_works_path
             %li= @product.title
-      
+
       - if @product && current_page?(queen_work_path(@product))
         .col-sm-2.col-sm-offset-2.queen_words_bookmark
           - if current_user and current_user.following? @product
@@ -96,4 +131,3 @@
             %a{:href => follow_it_queen_work_path(@product), :title => "收藏" }
               %span.bookmark_icon
               收藏
-
