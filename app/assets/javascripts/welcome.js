@@ -15,12 +15,8 @@ $(function(){
 		i_slide($(".container_image"),newopt);
 
 		$('.homepageCarousel.owl-carousel').owlCarousel({
-			stagePadding: 300,
-			loop:true,
-			margin:50,
-			nav:true,
+      autoplay: 3,
 			dots:true,
-			navText:['',''],
 			responsive:{
 		        0:{
 		            items:1
@@ -46,6 +42,7 @@ $(function(){
 			margin:10,
 			nav:true,
 			dots:false,
+      autoPlay: true,
 			navText:[' ',' '],
 			responsive:{
 		        0:{
@@ -53,6 +50,21 @@ $(function(){
 		        }
 		    }
 		});
+
+
+    $('.owl-carousel.ants-carousel').owlCarousel({
+			loop:false,
+			margin:10,
+			nav:true,
+			dots:false,
+			navText:[' ',' '],
+			responsive:{
+		        0:{
+		            items:3
+		        }
+		    }
+		});
+
     });
 
 

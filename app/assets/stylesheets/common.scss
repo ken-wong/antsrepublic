@@ -47,11 +47,12 @@ abbr[title], abbr[data-original-title] {
 .fixed-nav{
 	position:fixed;
 	width:100%;
-	height:246px;
+	// height:246px;
 	top:0;
 	z-index:100;
 	border-top:1px solid #000;
-	background:url(image_path('homepage/navtopbg.jpg'));
+	opacity:0.9;
+	//background:url(image_path('homepage/navtopbg.jpg'));
 	&.affix{
 		opacity:0.9
 	}
@@ -60,21 +61,54 @@ abbr[title], abbr[data-original-title] {
 	content:' > ' ;
 }
 #nav-wrapper{
-	background:url(image_path('homepage/navtopbg.jpg'));
+	//background:url(image_path('homepage/navtopbg.jpg'));
 }
 .topNav{
-	height:47px;
+	height:90px;
+	background: rgba(255,255,255,0.9);
+	.search_queen-box{
+		display: inline-block;
+		float: right;
+		position: relative;
+		top: 20px;
+	}
 	.global_logo{
 		padding:14px 0px 0px 9px;
 		float: left;
+		.nav_quick_btn{
+			display: inline-block;
+			position: relative;
+			top: 8px;
+			a{
+				display: inline-block;
+				position: relative;
+				width: 80px;
+				color: $navBgColor;
+				font-size: 14px;
+				letter-spacing: 5px;
+			}
+			a:nth-of-type(1){
+				width: 20px;
+			}
+			.a_border:after{
+				position: absolute;
+				top: 2px;left: 68px;
+				content: "";
+				height: 15px;
+				width: 1px;
+				border: 1px solid black;
+			}
+
+		}
+
 	}
 	.nav.navbar-nav{
 		float:right;
 		width:auto;
-		line-height:46px;
+		line-height:87px;
 		a{
 			display: inline-block;
-			color:$navWordColor;
+			color:$navBgColor;
 		}
 		img{
 			height:20px;
@@ -208,17 +242,20 @@ section.contact_section{
 		h5{
 			font-size:19px;
 			font-weight:900;
-			color:$primaryColor;
 			text-indent: 100px;
+			span{
+				color:$primaryColor;
+			}
 		}
 		.contact_popup{
-			width:208px;
-			height:228px;
-			background:url(image_path('homepage/qq.png'));
+			width:321px;
+			height:175px;
+			background:url(image_path('homepage/QQ.png'));
 		    right: 50px;
 		    bottom:0;
 		    position: absolute;
 				background-size: 100% 100%;
+				margin-bottom: 20px;
 		}
 	}
 }
@@ -455,6 +492,13 @@ footer.background-midnight-blue{
 	position: relative;
 	left: 45%;
 	margin: 30px auto;
+}
+section{
+	padding: 40px 0 10px;
+}
+
+#quick_navi_data_section{
+	margin-top: 80px;
 }
 
 .btn-register input {

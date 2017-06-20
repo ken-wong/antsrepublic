@@ -1,10 +1,16 @@
 
 .homepageCarousel{
-	margin-top:246px;
+	// margin-top:246px;
 	position:relative;
 	width:100%;
-	height:680px;
-	background-color:#2a292e;
+	height:570px;
+
+	img{
+		height: 570px;
+	}
+
+
+	//background-color:#2a292e;
 	// .owl-stage-outer{
 	// 	width:100%;
 	// 	height:600px;
@@ -78,7 +84,7 @@ section#quick_navi_data_section{
 					width: 109px;
 					height:109px;
 					border:1px solid #000;
-					background-color:$primaryColor;
+					background-color:#ebebeb;
 					margin:20px auto 6px auto;
 					border-radius:4px;
 					overflow:hidden;
@@ -194,7 +200,7 @@ section#quick_navi_data_section{
 section.product_list_section,
 section.queen_cases{
 	min-height:400px;
-	background-color:$primaryColor;
+	background-color:#8e8e8f;
 	.product_list_header{
 		height:80px;
 		h2{
@@ -206,7 +212,7 @@ section.queen_cases{
 		    height: 80px;
 		    line-height: 80px;
 			.product_list_header_icon{
-				@include inlineBlockIcon(image_path('homepage/show_cases_icon.png'),38px,38px);
+				@include inlineBlockIcon(image_path('homepage/new_show_case_icon.png'),38px,38px);
 				vertical-align: middle;
 			}
 		}
@@ -229,7 +235,7 @@ section.queen_cases{
 		}
 	}
 	.ants_products_list_container{
-		background-color:#ba4a30;
+		background-color:#8e8e8f;
 		padding:100px;
 		padding:46px;
 		.row.case-carousel{
@@ -435,7 +441,7 @@ section.queen_cases{
 
 section.quick_startup_section{
 	min-height:390px;
-	background-color:$primaryColor;
+	// background-color:$primaryColor;
 	&>.container{
 		padding:70px 0px;
 	}
@@ -482,10 +488,43 @@ section.ants_list{
 			width:1106px;
 			height:316px;
 			margin:0 auto;
+
+			.item {
+				float: left;
+			}
+
+			.owl-item,.owl-item.active{
+				width:150px!important;
+			}
+			.owl-nav{
+				width:100%;
+
+				&>div{
+					position:absolute;
+					display: inline-block;
+					width:5px;
+					height:35px;
+					// background-color:rgba(0,0,0,0.5);
+					border-radius:3px;
+					border: 1px solid #f4613f;
+					box-shadow: 0 0 1px #f4613f;
+					&:hover{
+					}
+				}
+				.owl-prev{
+					left: -18px;
+					top:145px;
+				}
+				.owl-next{
+					 right: -18px;
+					 top:145px;
+				}
+			}
+
 			.width143{
 				position: relative;
 				width:158px;
-				float:left;
+				//float:left;
 				margin:0px;
 				position:relative;
 				&>img{
