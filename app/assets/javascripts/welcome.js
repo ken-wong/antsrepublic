@@ -15,7 +15,7 @@ $(function(){
 		i_slide($(".container_image"),newopt);
 
 		$('.homepageCarousel.owl-carousel').owlCarousel({
-      autoPlay: true,
+      autoplay: 3,
 			dots:true,
 			responsive:{
 		        0:{
