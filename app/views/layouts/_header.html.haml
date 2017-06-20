@@ -34,11 +34,11 @@
           - else
             %li
               %a{href: signup_path, class: 'no_login'}
-                %img{:src => image_path("icon_login.png")}
+                %img{:src => image_path("new_icon_login.png")}
                 注册
             %li
               %a{href: login_path, class: 'no_login'}
-                %img{:src => image_path("icon_profile.png")}
+                %img{:src => image_path("new_icon_profile.png")}
                 登录
         .search_queen-box
           = search_form_for @q, url: queens_path, class: 'navbar-form' do |f|

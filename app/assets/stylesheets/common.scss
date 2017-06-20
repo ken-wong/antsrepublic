@@ -242,17 +242,20 @@ section.contact_section{
 		h5{
 			font-size:19px;
 			font-weight:900;
-			color:$primaryColor;
 			text-indent: 100px;
+			span{
+				color:$primaryColor;
+			}
 		}
 		.contact_popup{
-			width:208px;
-			height:228px;
-			background:url(image_path('homepage/qq.png'));
+			width:321px;
+			height:175px;
+			background:url(image_path('homepage/QQ.png'));
 		    right: 50px;
 		    bottom:0;
 		    position: absolute;
 				background-size: 100% 100%;
+				margin-bottom: 20px;
 		}
 	}
 }
