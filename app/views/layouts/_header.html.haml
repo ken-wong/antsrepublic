@@ -2,48 +2,103 @@
   - fixedNav = 'fixed-nav'
   - isaffix = "affix"
   - affixOffset = "1"
+- else
+  - fixedNav = 'sticky-nav'
+  - isaffix = "affix"
+  - affixOffset = "1"
 
-#nav-wrapper.background-white.color-black{:class => fixedNav, 'data-spy'=> isaffix, 'data-offset-top'=> affixOffset}
-  %div.topNav
-    .container
-      .row
-        .global_logo
-          %a{:href => root_path}
-            %img{:src => image_path("homepage/logo_all.png")}
-            .nav_quick_btn
-              %a.a_border{:href=>new_need_path} 发项目
-              %a.a_border{:href=>queen_works_path} 搜案例
-              %a{:href=>queens_path} 找蚁后
 
-        %ul.nav.navbar-nav.center-block
+- if current_page?(root_path)
+  #nav-wrapper.color-black{:class => fixedNav, 'data-spy'=> isaffix, 'data-offset-top'=> affixOffset}
+    %div.topNav
+      .container
+        .row
+          .global_logo
+            %a{:href => root_path}
+              %img{:src => image_path("homepage/logo_all.png")}
+              .nav_quick_btn
+                %a.a_border{:href=>new_need_path} 发项目
+                %a.a_border{:href=>queen_works_path} 搜案例
+                %a.a_noborder{:href=>queens_path} 找蚁后
 
-          - if logged_in?
-            %li
-              = "你好, #{current_user.name}"
-            %li
-              = link_to '个人中心', dashboard_user_path(session[:user_id])
-            %li
-              = link_to t('我的项目'), project_list_user_path(current_user)
-            %li
-              = link_to dashboard_user_path(current_user) do
-                消息中心
-                %span.badge.badge-danger
-                  = message_count
-            %li
-              = link_to t('logout'), logout_path, method: :delete
-          - else
-            %li
-              %a{href: signup_path, class: 'no_login'}
-                %img{:src => image_path("new_icon_login.png")}
-                注册
-            %li
-              %a{href: login_path, class: 'no_login'}
-                %img{:src => image_path("new_icon_profile.png")}
-                登录
-        .search_queen-box
-          = search_form_for @q, url: queens_path, class: 'navbar-form' do |f|
-            .input-group
-              = text_field_tag('q[name_cont]', nil, class: 'form-control')
-              .input-group-btn
-                = f.button '', class: 'btn btn-default' do
-                  %span.glyphicon.glyphicon-search
+          %ul.nav.navbar-nav.center-block
+
+            - if logged_in?
+              %li
+                = "你好, #{current_user.name}"
+              %li
+                = link_to '个人中心', dashboard_user_path(session[:user_id])
+              %li
+                = link_to t('我的项目'), project_list_user_path(current_user)
+              %li
+                = link_to dashboard_user_path(current_user) do
+                  消息中心
+                  %span.badge.badge-danger
+                    = message_count
+              %li
+                = link_to t('logout'), logout_path, method: :delete
+            - else
+              %li
+                %a{href: signup_path, class: 'no_login'}
+                  %img.new{:src => image_path("new_icon_login.png")}
+                  %img.old{:src => image_path("w_icon_login.png")}
+                  注册
+              %li
+                %a{href: login_path, class: 'no_login'}
+                  %img.new{:src => image_path("new_icon_profile.png")}
+                  %img.old{:src => image_path("w_icon_profile.png")}
+                  登录
+          .search_queen-box
+            = search_form_for @q, url: queens_path, class: 'navbar-form' do |f|
+              .input-group
+                = text_field_tag('q[name_cont]', nil, class: 'form-control')
+                .input-group-btn
+                  = f.button '', class: 'btn btn-default' do
+                    %span.glyphicon.glyphicon-search
+-else
+  #nav-wrapper.color-black{:class => fixedNav, 'data-spy'=> isaffix, 'data-offset-top'=> affixOffset}
+    %div.topNav.topNav_1
+      .container
+        .row
+          .global_logo
+            %a{:href => root_path}
+              %img{:src => image_path("homepage/logo_all.png")}
+              .nav_quick_btn
+                %a.border_black{:href=>new_need_path} 发项目
+                %a.border_black{:href=>queen_works_path} 搜案例
+                %a{:href=>queens_path} 找蚁后
+
+          %ul.nav.navbar-nav.center-block
+
+            - if logged_in?
+              %li
+                = "你好, #{current_user.name}"
+              %li
+                = link_to '个人中心', dashboard_user_path(session[:user_id])
+              %li
+                = link_to t('我的项目'), project_list_user_path(current_user)
+              %li
+                = link_to dashboard_user_path(current_user) do
+                  消息中心
+                  %span.badge.badge-danger
+                    = message_count
+              %li
+                = link_to t('logout'), logout_path, method: :delete
+            - else
+              %li
+                %a{href: signup_path, class: 'no_login'}
+                  %img{:src => image_path("new_icon_login.png")}
+
+                  注册
+              %li
+                %a{href: login_path, class: 'no_login'}
+                  %img{:src => image_path("new_icon_profile.png")}
+
+                  登录
+          .search_queen-box
+            = search_form_for @q, url: queens_path, class: 'navbar-form' do |f|
+              .input-group
+                = text_field_tag('q[name_cont]', nil, class: 'form-control')
+                .input-group-btn
+                  = f.button '', class: 'btn btn-default' do
+                    %span.glyphicon.glyphicon-search

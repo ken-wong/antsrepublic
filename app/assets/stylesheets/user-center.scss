@@ -52,8 +52,8 @@
 		background:url(image_path('user/tab_normal1.png')) scroll no-repeat;
 		&.active{
 			float:left;
-			color:#000;
-			background-image:url(image_path('user/tab_active.png'));
+			color:#fff;
+			//background-image:url(image_path('user/tab_active.png'));
 		}
 		&:hover{
 
