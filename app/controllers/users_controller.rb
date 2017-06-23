@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def mread
     m = User.find(current_user).messages.where("messages.id = #{params[:mid]}").first
     m.mark_as_read
-    redirect_to dashboard_user_path  
+    redirect_to dashboard_user_path(page: params[:page])
   end
 
   def new

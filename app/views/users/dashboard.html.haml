@@ -14,7 +14,7 @@
               - unless m.opened
                 %strong
                   = simple_format(m.body)
-                  = link_to '确认已读', mread_user_path(mid: m.id), class: 'btn btn-info'
+                  = link_to '确认已读', mread_user_path(mid: m.id, page: params[:page]), class: 'btn btn-info'
               - else
                 %span= simple_format(m.body)
                 %span.read= '已读'
