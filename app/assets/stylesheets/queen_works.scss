@@ -5,6 +5,12 @@
 	margin-top:40px;
 	form.queen_work_search{
 		width:95%;
+		.search-btn{
+			position: absolute;
+			right: 20px;
+			z-index: 999;
+			top: 5px;
+		}
 		button.btn.btn-default.dropdown-toggle{
 			position:relative;
 			z-index:10;
@@ -22,7 +28,7 @@
 		    border: 2px solid #ccc;
 		    height: 36px;
 		    margin-left: -10px;
-		    background:url(image_path('queens_work/search.png')) scroll no-repeat center right;
+		    //background:url(image_path('queens_work/search.png')) scroll no-repeat center right;
 		}
 	}
 

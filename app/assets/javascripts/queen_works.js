@@ -7,6 +7,11 @@
 			$(this).parents('.input-group-btn').removeClass('open');
 			return false;
 		});
+
+		$('.search-btn').click(function(){
+			console.log(1)
+			$('.queen_work_search').submit();
+		})
 	})
-	
+
 }())
