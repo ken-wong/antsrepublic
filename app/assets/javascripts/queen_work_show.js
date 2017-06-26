@@ -4,6 +4,8 @@
     var caseVideo = $('#caseVideo')[0];
     var caseVideoEl = $('.queenWorkVideoPlay');
 
+
+
     caseVideo.onmouseover = function(){
       console.log(1)
       $('.queenWorkVideoPlay span').show();
