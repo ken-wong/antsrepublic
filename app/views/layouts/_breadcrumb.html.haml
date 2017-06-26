@@ -12,6 +12,7 @@
       .col-sm-8
         %ol.breadcrumb
           - unless current_user.blank?
+
             - if @queen && current_page?(queen_path(@queen))
               %li= link_to I18n.t('root_path'), root_path
               %li= link_to '蚁后', queens_url
@@ -48,6 +49,12 @@
               %li= link_to '个人中心', dashboard_user_path(current_user)
               %li 项目管理
 
+            
+
+
+
+
+
             - if current_page?(product_list_user_path(current_user))
               %li= link_to I18n.t('root_path'), root_path
               %li= link_to '个人中心', dashboard_user_path(current_user)
@@ -71,6 +78,8 @@
             %li= link_to '个人中心', dashboard_user_path(current_user)
             %li= link_to '项目管理', project_list_user_path(current_user)
             %li 发布需求
+
+
 
           - if current_page?(teach_queen_path)
             %li= link_to I18n.t('root_path'), root_path
@@ -105,7 +114,10 @@
           - if current_page?(complain_path)
             %li= link_to I18n.t('root_path'), root_path
             %li 新手上路
-            %li 投诉中心 
+            %li 投诉中心
+
+
+
 
           - if current_page?(queen_works_path)
             %li= link_to I18n.t('root_path'), root_path

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'new_comer'=> 'new_comer#index'
   get 'complain'=> 'complains#index'
 
-  
+
 
   get 'teach/queen'=>'teach#queen'
   get 'teach/owner'=>'teach#owner'
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'teach/custom_list'=>'teach#custom_list'
   get 'teach/rule_center'=>'teach#rule_center'
   get 'teach/trading_process'=>'teach#trading_process'
+  
 
 
   post 'complain'=> 'complains#create'
@@ -82,6 +83,7 @@ Rails.application.routes.draw do
   resources :uploads
 
   get 'needs/need_params'
+
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

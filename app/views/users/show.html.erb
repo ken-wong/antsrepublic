@@ -4,9 +4,9 @@
       <%= render "menu"%>
     </div>
   </div>
-  <div class="row background-white">
+  <div class="row">
     <div class="col-md-12">
-      <div class="content table-box">
+      <div class="content table-box background-white">
           <table class='user-table'>
               <tr>
                 <td colspan="2" style="border-top:0;border-right:0;">
@@ -15,7 +15,7 @@
               </tr>
               <tr>
                 <td colspan="2">
-
+                  <%= "亲爱的#{current_user.name}，填写真实的资料，有助于好友找到你哦。"%>
                 </td>
               </tr>
               <tr>

@@ -1,6 +1,6 @@
 ActiveAdmin.register Need do
 	menu priority: 2
-	permit_params :title, :client_name, :ref_price, :category, :description, :avatar, 
+	permit_params :title, :client_name, :ref_price, :category, :description, :avatar,
 	:main_media, :avatar_cache, :main_media_cache, :tag_list, :state, :user_id, :queen_id,
 	:reference_product_ids, :reference_queen_ids
 
@@ -8,10 +8,10 @@ ActiveAdmin.register Need do
 
 	form do |f|
 		f.semantic_errors
-		
+
 		f.inputs I18n.t('activerecord.attributes.product.avatar'), :multipart => true do
 			f.input :avatar, as: :file, hint: (image_tag(f.object.avatar.url + qiniu_deal) if !f.object.new_record? and !f.object.avatar.url.nil?)
-			f.input :avatar_cache, as: :hidden 
+			f.input :avatar_cache, as: :hidden
 		end
 		f.inputs 'more' do
 			f.input :title
@@ -23,7 +23,7 @@ ActiveAdmin.register Need do
 			f.input :reference_queen_ids
 			f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
 			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| ["#{u.name}|#{u.email}", u.id]}
-			f.input :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '提交计划', '等待甲方', '乙方执行','项目终止', '项目完成', '我的案例'] 
+			f.input :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '提交计划', '等待甲方', '乙方执行','项目终止', '项目完成', '我的案例']
 		end
 		f.actions
 	end
@@ -54,7 +54,7 @@ ActiveAdmin.register Need do
 			row :tag_list
 			row :reference_product_ids
 
-			row '蚁后' do 
+			row '蚁后' do
 				link_to need.queen.name, admin_user_path(need.queen) if need.queen
 			end
 			row :state
@@ -63,7 +63,7 @@ ActiveAdmin.register Need do
 				div do
 					need.reference_product_ids.split(',').each do |pid|
 						if QueenWork.find_by_id(pid)
-							queen_work = QueenWork.find(pid) 
+							queen_work = QueenWork.find(pid)
 							span do
 								div do
 									link_to (image_tag queen_work.avatar.url+ qiniu_deal ), admin_queen_work_path(pid)
@@ -80,7 +80,7 @@ ActiveAdmin.register Need do
 				div do
 					need.reference_queen_ids.split(',').each do |pid|
 						if User.find_by_id(pid)
-							user = User.find(pid) 
+							user = User.find(pid)
 							span do
 								div do
 									link_to (image_tag user.avatar.url, size: '128x128' ), admin_user_path(pid)
@@ -100,14 +100,14 @@ ActiveAdmin.register Need do
 	  if resource.confirm!
 		  resource.send_message(current_admin_user, "等待审核", "寻找蚁后")
 		end
-	  redirect_to resource_path, notice: "Confirm!"
+	  redirect_to resource_path
 	end
 
 	member_action :unconfirm, method: :get do
 	  if resource.unconfirm!
 		  resource.send_message(current_admin_user, "等待审核", "审核拒绝")
 		end
-	  redirect_to resource_path, notice: "Not allow!"
+	  redirect_to resource_path
 	end
 
 	action_item only: :show do
@@ -119,13 +119,13 @@ ActiveAdmin.register Need do
 	end
 
 	after_update do |need|
-		
+
 		if need.queen
 			message_str = "项目<a href='#{need_path(need)}'>#{need.title}</a>, 已经指派给蚁后:<a href='#{queen_path(need.queen_id)}'>#{need.queen.name}</a>"
-			current_admin_user.send_message(need.queen, message_str) 
+			current_admin_user.send_message(need.queen, message_str)
 			current_admin_user.send_message(need.user, message_str)
 		else
-			message_str = "管理员更改了项目:<a href='#{need_path(need)}'>#{need.title}</a> 的状态: #{need.state}" 
+			message_str = "管理员更改了项目:<a href='#{need_path(need)}'>#{need.title}</a> 的状态: #{need.state}"
 			current_admin_user.send_message(need.user, message_str)
 		end
 

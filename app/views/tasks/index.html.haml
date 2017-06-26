@@ -6,10 +6,11 @@
       .row.background-gray
         .col-md-12
           .content
-            #notice= notice
+
             .row.back-project-list
               %p
                 %a.back-to-projects.text-center{:href => project_list_user_path(current_user)}
+
                   返回项目列表
 
             - if current_user.id == @need.queen_id then # 我是蚁后
@@ -35,7 +36,7 @@
                 = render "partyA_waitfor_plan"
               - when '项目完成'
                 = render "task_success_over"
-              
+
               - else
                 = render :partial => "partyA_begin_plan", :locals => {need:@need}
 
@@ -53,7 +54,7 @@
       .row.background-orange
         .col-md-12
           .content
-            #notice= notice
+
             .row.back-project-list
               %p
                 %a.back-to-projects.text-center{:href => project_list_user_path(current_user)}
