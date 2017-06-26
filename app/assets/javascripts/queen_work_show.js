@@ -10,7 +10,7 @@
     }
 
     caseVideo.onmouseout = function(e){
-      
+
       if(e.pageX<130||e.pageX>1000){
         $('.queenWorkVideoPlay span').hide();
       }
@@ -32,5 +32,11 @@
     	}
     })
   });
+
+  $('.jiathis').click(function(e){
+    e.preventDefault();
+    jiathis_sendto('weixin');
+    return false
+  })
 
 }());
