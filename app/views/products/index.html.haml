@@ -2,11 +2,11 @@
   .container
     .row
       .col-lg-12
-        = search_form_for @q do |f|  
+        = search_form_for @q do |f|
           .form-group
             .input-group
               .input-group-btn
-                %button.btn.btn-default.dropdown-toggle{"data-toggle"=>'dropdown',:type=>'button'} 
+                %button.btn.btn-default.dropdown-toggle{"data-toggle"=>'dropdown',:type=>'button'}
                   效果图
                   %span.caret
                 %ul.dropdown-menu.category_dropdown_menu{:role=>"menu"}
@@ -14,23 +14,10 @@
                     %a{:href=>"#", 'data-category'=>'效果图'} 效果图
                     %a{:href=>"#", 'data-category'=>'影片'} 影片
                     %a{:href=>"#", 'data-category'=>'多媒体'} 多媒体
-              = hidden_field_tag('q[category_eq]', @q.category_eq)      
-              = text_field_tag('q[title_cont]', @q.title_cont, class:'form-control')     
+              = hidden_field_tag('q[category_eq]', @q.category_eq)
+              = text_field_tag('q[title_cont]', @q.title_cont, class:'form-control')
 
-    .row
-      .col-lg-12
-        %h5.project_tags_header 项目关键字
-    .row.project_tags_block
-      - @tags.each_with_index do |tag_list, i|
-        .col-lg-12.tag_row
-          .col-sm-1.tags_title
-            %h6
-              =tag_list[0]    
-          .col-sm-11.tags_list
-            - tag_list[1][1]['tags'].each do |tag|
-              %span
-                = check_box_tag 'tags[]', tag
-                %label{:for => ""}=tag
+  
 
 
   .container.product_list_normal
@@ -38,4 +25,3 @@
     = paginate @products
 - content_for :page_js_block do
   = javascript_include_tag 'queen_works.js'
-        

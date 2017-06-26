@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'new_comer'=> 'new_comer#index'
   get 'complain'=> 'complains#index'
 
+  
+
   get 'teach/queen'=>'teach#queen'
   get 'teach/owner'=>'teach#owner'
   get 'teach/introduce'=>'teach#introduce'

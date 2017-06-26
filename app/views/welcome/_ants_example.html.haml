@@ -1,20 +1,21 @@
 %section.product_list_section.color-black
-  .container
-    .row.product_list_header
-      .col-lg-6.col-sm-12
-        %h2
-          %span.product_list_header_icon
-          精选范例
-      .col-lg-6.col-sm-12
-        %ul.nav.nav-pills.pull-right
-          %li.nav-item
-            =link_to "效果图", queen_works_path("q[category_eq]"=>"效果图"), class: "nav-link"
-          %li.nav-item
-            =link_to "影片", queen_works_path("q[category_eq]"=>"影片"), class: "nav-link"
-          %li.nav-item
-            =link_to "多媒体", queen_works_path("q[category_eq]"=>"多媒体"), class: "nav-link"
-          %li.nav-item
-            =link_to "更多案例", queen_works_path, class: "nav-link"
+
   .ants_products_list_container
     .container
-      = render "shared/product_list"
+      .row.product_list_header
+        .col-lg-6.col-sm-12
+          %h2
+            %span.product_list_header_icon
+            精选范例
+        .col-lg-6.col-sm-12
+          %ul.nav.nav-pills.pull-right
+            %li.nav-item
+              =link_to "效果图", queen_works_path("q[category_eq]"=>"效果图"), class: "nav-link"
+            %li.nav-item
+              =link_to "影片", queen_works_path("q[category_eq]"=>"影片"), class: "nav-link"
+            %li.nav-item
+              =link_to "多媒体", queen_works_path("q[category_eq]"=>"多媒体"), class: "nav-link"
+            %li.nav-item
+              =link_to "更多案例", queen_works_path, class: "nav-link"
+      %div
+        = render "shared/product_list"
