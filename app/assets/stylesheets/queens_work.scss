@@ -36,6 +36,9 @@ section.queens_work_title{
 	height:103px;
 	margin-top:-59px;
 
+	.hidden_txt{
+		display: none;
+	}
 	.container{
 		border-radius:5px;
 		background-color:#ffcc00;

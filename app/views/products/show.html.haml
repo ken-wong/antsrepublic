@@ -9,6 +9,7 @@
           %a.queenWorkVideoPlay{:href => "javascript:void(0);"}
             %span.glyphicon.glyphicon-play.video-play
 
+
 %section.queens_work_title
   .container
     .row
@@ -24,7 +25,15 @@
               %span.like_icon
 
           %a.jiathis.jiathis_txt.jiathis_separator.share_icon{:href => "#"}
+          .hidden_txt
+            %p#title
+              = @product.title
+            %p#url
+              = @product.avatar.url
+
           :javascript
+            var title = document.getElementById('title').innerText;
+            var url = document.getElementById('url').innerText;
             var jiathis_config={
               data_track_clickback:true,
               siteNum:1,
@@ -32,7 +41,9 @@
               summary:"",
               boldNum:4,
               shortUrl:false,
-              hideMore:true
+              hideMore:true,
+              title: title,
+              url: url
             }
 
           %script{:src => "http://v3.jiathis.com/code/jia.js?uid=2116682",:type => "text/javascript"}
