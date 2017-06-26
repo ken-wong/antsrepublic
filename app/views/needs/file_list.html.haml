@@ -1,0 +1,31 @@
+%section.user-center-section
+  .container
+    .row
+      = render "users/menu"
+    .row
+      .container
+        .row.background-orange
+          .col-md-12.text-white
+            = link_to '返回项目列表', project_list_user_path(current_user)
+            %h4 资料列表
+            .upload-img-box
+              .img_list
+                - unless @need.need_imgs.blank?
+                  - @need.need_imgs.each do |img|
+                    .upload-img-item
+                      - if img.photo.img_type?
+                        %span
+                          = image_tag img.photo.small_url
+                      - else
+                        %span
+                          .file-type
+                            = "#{img.photo.file.extension}"
+                      %span
+                        = "#{img.photo.filename}"
+                      %span
+                        = link_to '下载', image_path("#{img.photo.url}"), :target => "_blank"
+            .remarks
+              %div
+                备注
+              %div
+                = text_area_tag :remark, @remark, rows: 8, style: 'width: 100%; resize: none', readonly: 'readonly'

@@ -27,6 +27,11 @@ class NeedsController < InheritedResources::Base
     @comments = @need.comments
   end
 
+  def file_list
+    @need = Need.find(params[:id])
+    @remark = @need.remark
+  end
+
   def waitfor
     @need = Need.find(params[:id])
     @need.waitfor!

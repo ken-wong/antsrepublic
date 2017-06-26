@@ -43,8 +43,10 @@
                       = link_to '日程计划', need_tasks_path(product), class: 'btn btn-ants'
 
                       = link_to '转成案例', convert_to_queen_work_need_path(product), class:'btn btn-primary ' if current_user.has_role? :queen
+                      = link_to '资料列表', file_list_need_path(product), class:'btn btn-ants'
                     - else
                       = link_to '日程计划', need_tasks_path(product), class: 'btn btn-ants'
+                      = link_to '资料列表', file_list_need_path(product), class:'btn btn-ants'
 
           %p.text-center{:style=>"margin-bottom:40px;"}
             = link_to t('new_need'), new_need_path, class: "btn btn-ants" if current_user.has_role? :owner
