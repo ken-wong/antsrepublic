@@ -35,7 +35,7 @@
     })
   });
 
-  $('.jiathis').click(function(e){
+  $('.share_icon').click(function(e){
     e.preventDefault();
     jiathis_sendto('weixin');
     return false
