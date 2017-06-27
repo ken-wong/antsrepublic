@@ -777,6 +777,17 @@ nav.pagination {
 		text-align: center;
 	}
 
+	.upload-limit{
+		padding: 0 5px;
+		color: #000;
+		background: rgba(255,255,255,0.7);
+		display: inline-block;
+		border-radius: 4px;
+		margin-top: 10px;
+		line-height: 30px;
+	}
+
+
 	.upload-img-box {
 		margin-top: 10px;
 		background-color: white;
@@ -790,6 +801,7 @@ nav.pagination {
 			border-bottom: 1px solid gray;
 			text-align: center;
 		}
+
 
 		.upload-img-item {
 			padding: 5px 0;

@@ -71,7 +71,7 @@
           %ul.nav.navbar-nav.center-block
 
             - if logged_in?
-              %li
+              %li.text-black
                 = "你好, #{current_user.name}"
               %li
                 = link_to '个人中心', dashboard_user_path(session[:user_id])
