@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   def dashboard
     @messages = User.find(current_user).messages.page(params[:page]).per(8)
+    @@page = request.url.split('?')[1].split('=')[1]
   end
-  
+
   def mread
+
     m = User.find(current_user).messages.where("messages.id = #{params[:mid]}").first
     m.mark_as_read
-    redirect_to dashboard_user_path  
+    redirect_to dashboard_user_path(page:@@page)  
   end
 
   def new
@@ -17,8 +19,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
      if User.count > 0 then
-       @user.add_role 'visitor' 
-      else 
+       @user.add_role 'visitor'
+      else
         @user.add_role 'admin'
       end
       @user.send_message(User.first, "欢迎注册蚂蚁共和,请在<a href='#{edit_user_path(@user)}'>个人资料</a> 申请认证甲方或蚁后")
@@ -59,12 +61,12 @@ class UsersController < ApplicationController
 
   def project_list
     if current_user.has_role?(:owner)
-      @products = Need.where("user_id = ? and state <> '我的案例'", current_user.id).order(created_at: :desc) 
-    elsif current_user.has_role?(:queen)  
-      @products = Need.where("queen_id = ? and state <> '我的案例'", current_user.id).order(created_at: :desc) 
+      @products = Need.where("user_id = ? and state <> '我的案例'", current_user.id).order(created_at: :desc)
+    elsif current_user.has_role?(:queen)
+      @products = Need.where("queen_id = ? and state <> '我的案例'", current_user.id).order(created_at: :desc)
     else
       @products = []
-    end    
+    end
   end
 
   def product_list
