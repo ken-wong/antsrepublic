@@ -97,9 +97,9 @@
 
                   登录
           .search_queen-box
-            = search_form_for @q, url: queens_path, class: 'navbar-form' do |f|
+            = search_form_for @q, url: queen_works_path, class: 'navbar-form' do |f|
               .input-group
-                = text_field_tag('q[name_cont]', nil, class: 'form-control')
+                = text_field_tag('q[title_cont]', nil, class: 'form-control')
                 .input-group-btn
                   = f.button '', class: 'btn btn-default' do
                     %span.glyphicon.glyphicon-search
