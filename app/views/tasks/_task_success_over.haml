@@ -74,7 +74,11 @@
               = image_tag image_path('queens_work/queen-tag.png') , class: 'queen-name'
 
               = image_tag (image_path('queens_work/vote-tag.png'))
-              收藏(38)
+              收藏
+              %span
+                = @need.queen.follows.count
+
+
             %p
               = @need.queen.description
 
