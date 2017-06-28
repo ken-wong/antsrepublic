@@ -1,14 +1,18 @@
 class UsersController < ApplicationController
   def dashboard
     @messages = User.find(current_user).messages.page(params[:page]).per(8)
-    @@page = request.url.split('?')[1].split('=')[1]
+    if(request.url.split('?')[1]!=nil)
+      @@page = request.url.split('?')[1].split('=')[1]
+    else
+      @@page = 1  
+    end
   end
 
   def mread
 
     m = User.find(current_user).messages.where("messages.id = #{params[:mid]}").first
     m.mark_as_read
-    redirect_to dashboard_user_path(page:@@page)  
+    redirect_to dashboard_user_path(page:@@page)
   end
 
   def new
