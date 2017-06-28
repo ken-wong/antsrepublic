@@ -130,6 +130,9 @@ abbr[title], abbr[data-original-title] {
 		}
 
 	}
+	.text-black{
+		color: #000!important;
+	}
 	.nav.navbar-nav{
 		float:right;
 		width:auto;
@@ -161,7 +164,7 @@ abbr[title], abbr[data-original-title] {
 				}
       }
 			a:hover,a:focus{
-				background-color: #333;
+				//background-color: #333;
 			}
 		}
     li.phone_num{

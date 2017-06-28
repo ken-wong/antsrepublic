@@ -14,7 +14,7 @@
           - @products.each do |product|
             .col-md-4.color-gray
               .thumbnail
-                = image_tag(product.avatar.small_url)
+                = image_tag(product.avatar)
                 .p-box
                   %p= product.title
                   %p

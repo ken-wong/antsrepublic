@@ -49,9 +49,10 @@
                   %img.old{:src => image_path("w_icon_profile.png")}
                   登录
           .search_queen-box
-            = search_form_for @q, url: queens_path, class: 'navbar-form' do |f|
+            = search_form_for @q, class: 'navbar-form' do |f|
               .input-group
-                = text_field_tag('q[name_cont]', nil, class: 'form-control')
+                = hidden_field_tag('q[category_eq]', @q.category_eq)
+                = text_field_tag('q[title_cont]', @q.title_cont, class:'form-control')
                 .input-group-btn
                   = f.button '', class: 'btn btn-default' do
                     %span.glyphicon.glyphicon-search
@@ -71,7 +72,7 @@
           %ul.nav.navbar-nav.center-block
 
             - if logged_in?
-              %li
+              %li.text-black
                 = "你好, #{current_user.name}"
               %li
                 = link_to '个人中心', dashboard_user_path(session[:user_id])
@@ -96,9 +97,9 @@
 
                   登录
           .search_queen-box
-            = search_form_for @q, url: queens_path, class: 'navbar-form' do |f|
+            = search_form_for @q, url: queen_works_path, class: 'navbar-form' do |f|
               .input-group
-                = text_field_tag('q[name_cont]', nil, class: 'form-control')
+                = text_field_tag('q[title_cont]', nil, class: 'form-control')
                 .input-group-btn
                   = f.button '', class: 'btn btn-default' do
                     %span.glyphicon.glyphicon-search

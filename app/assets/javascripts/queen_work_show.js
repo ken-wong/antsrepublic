@@ -4,13 +4,15 @@
     var caseVideo = $('#caseVideo')[0];
     var caseVideoEl = $('.queenWorkVideoPlay');
 
+
+
     caseVideo.onmouseover = function(){
       console.log(1)
       $('.queenWorkVideoPlay span').show();
     }
 
     caseVideo.onmouseout = function(e){
-      
+
       if(e.pageX<130||e.pageX>1000){
         $('.queenWorkVideoPlay span').hide();
       }
@@ -32,5 +34,11 @@
     	}
     })
   });
+
+  $('.share_icon').click(function(e){
+    e.preventDefault();
+    jiathis_sendto('weixin');
+    return false
+  })
 
 }());
