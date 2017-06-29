@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     category = @product.category
-    @voter = @product.votes_for.map do |v|
+    @voter = @product.votes_for.limit(4).map do |v|
       v.voter
     end
     @similar = Product.where(category: category).limit(4)
