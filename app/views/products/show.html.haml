@@ -118,25 +118,18 @@
       .col-md-4
         %h4 点赞历史
         .liked-histroy
-          .avatar-warpper
-            = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
-          .avatar-warpper
-            = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
-          .avatar-warpper
-            = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
-          .avatar-warpper
-            = image_tag(image_path("queens/avatar.jpg"), class: 'img-circle')
+          - if @voter.present?
+            - @voter.each do |v|
+              .avatar-warpper
+                = image_tag(image_path(v.avatar.url || "queens/case-example.jpg"), class: 'img-circle', style: "height: 65px")
       .col-md-4.col-md-offset-2
         %h4 相关案例
         .recommend-case
-          .avatar-warpper
-            = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
-          .avatar-warpper
-            = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
-          .avatar-warpper
-            = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
-          .avatar-warpper
-            = image_tag(image_path("queens/case-example.jpg"), class: 'img-circle')
+          - if @similar.present?
+            - @similar.each do |s|
+              .avatar-warpper
+                = link_to product_path(s) do
+                  = image_tag(image_path(s.avatar_url || "queens/case-example.jpg"), class: 'img-circle', style: "height: 65px")
 
 - content_for :page_js_block do
   - javascript_include_tag 'queen_work_show.js'
