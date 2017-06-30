@@ -5,7 +5,7 @@
         - if @product.avatar.file and %w{jpg png gif bmp}.include?(@product.avatar.file.extension.downcase)
           = image_tag(@product.avatar.url + "?imageView2/0/h/480", width:"100%")
         - if @product.avatar.file and %w{mp4 webm}.include?(@product.avatar.file.extension.downcase)
-          %video#caseVideo{ src: @product.avatar.url, poster:@product.avatar.small_url, controls: 'auto' }
+          %video#caseVideo{ src: @product.avatar.url, poster:@product.avatar.small_url, controls: 'auto', preload :"auto" }
           %a.queenWorkVideoPlay{:href => "javascript:void(0);"}
             %span.glyphicon.glyphicon-play.video-play
 
@@ -140,3 +140,4 @@
 
 - content_for :page_js_block do
   - javascript_include_tag 'queen_work_show.js'
+  - javascript_include_tag 'video.min.js'
