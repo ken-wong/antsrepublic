@@ -25,7 +25,11 @@
         .logo-img
           = image_tag( "homepage/pl8.jpg" )
     - else
-      .logo.text-center
-        - friend_links.each do |link|
+      - friend_links.each_slice(2) do |l1, l2|
+        .logo.text-center
           .logo-img
-            = image_tag(link.banner.small_url)
+            - if l1.present?
+              = image_tag(l1.banner.small_url)
+          .logo-img
+            - if l2.present?
+              = image_tag(l2.banner.small_url)
