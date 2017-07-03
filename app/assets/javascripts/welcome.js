@@ -43,11 +43,11 @@ $(function(){
 			margin:10,
 			nav:true,
 			dots:false,
-      autoPlay: true,
+      		autoPlay: true,
 			navText:[' ',' '],
 			responsive:{
 		        0:{
-		            items:3
+		            items:5
 		        }
 		    }
 		});
