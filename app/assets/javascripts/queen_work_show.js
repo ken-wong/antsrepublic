@@ -2,49 +2,44 @@
 (function(){
   $(document).ready(function() {
     var caseVideo = $('#caseVideo')[0];
-    var caseVideoEl = $('.queenWorkVideoPlay');
+    // var caseVideoEl = $('.queenWorkVideoPlay');
 
+    var casePlayer = videojs('caseVideo');
+    casePlayer.ready(function(){
+      // myPlayer.play();
+    });
 
+    // caseVideo.onmouseover = function(){
+    //   $('.queenWorkVideoPlay span').show();
+    // }
 
-    caseVideo.onmouseover = function(){
-      console.log(1)
-      $('.queenWorkVideoPlay span').show();
-    }
+    // caseVideo.onmouseout = function(e){
 
-    caseVideo.onmouseout = function(e){
+    //   if(e.pageX<130||e.pageX>1000){
+    //     $('.queenWorkVideoPlay span').hide();
+    //   }
+    // }
 
-      if(e.pageX<130||e.pageX>1000){
-        $('.queenWorkVideoPlay span').hide();
-      }
-    }
+    // caseVideo.onended = function(){
+    // 	$('.queenWorkVideoPlay span').addClass('glyphicon-play');
+    // 	$('.queenWorkVideoPlay span').removeClass('glyphicon-pause');
+    // }
 
-    caseVideo.onended = function(){
-    	$('.queenWorkVideoPlay span').addClass('glyphicon-play');
-    	$('.queenWorkVideoPlay span').removeClass('glyphicon-pause');
-    }
-    $('.queenWorkVideoPlay').click(function(e){
-    	if(caseVideo.paused){
-			caseVideo.play();
-			$('.queenWorkVideoPlay span').removeClass('glyphicon-play');
-			$('.queenWorkVideoPlay span').addClass('glyphicon-pause');
-    	}else{
-			caseVideo.pause();
-			$('.queenWorkVideoPlay span').addClass('glyphicon-play');
-			$('.queenWorkVideoPlay span').removeClass('glyphicon-pause');
-    	}
-    })
+    // $('.queenWorkVideoPlay').click(function(e){
+    // 	if(myPlayer.paused()){
+			 //   myPlayer.play();
+			 //   $('.queenWorkVideoPlay span').removeClass('glyphicon-play');
+			 //   $('.queenWorkVideoPlay span').addClass('glyphicon-pause');
+    // 	}else{
+			 //   myPlayer.pause();
+			 //   $('.queenWorkVideoPlay span').addClass('glyphicon-play');
+			 //   $('.queenWorkVideoPlay span').removeClass('glyphicon-pause');
+    // 	}
+    // })
   });
 
-  $('.share_icon').click(function(e){
-    e.preventDefault();
-    jiathis_sendto('weixin');
-    return false
-  })
+  
 
-  var myPlayer = videojs('caseVideo');
-			videojs("caseVideo").ready(function(){
-				var myPlayer = this;
-				myPlayer.play();
-			});
+  
 
 }());

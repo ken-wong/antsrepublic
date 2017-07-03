@@ -19,6 +19,7 @@
 //= require select2.min
 //= require jquery.scrollUp.min
 //= require locales/bootstrap-datetimepicker.zh-CN
+//= require video.min
 
 
 //= require neat/responsive-calendar-min.js
