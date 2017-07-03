@@ -25,7 +25,8 @@
             %a{:href => vote_it_queen_work_path(@product), :title => "点赞"}
               %span.like_icon
 
-          %a.share_icon{:href => "#"}
+          / %a.share_icon{:href => "#"}
+          %a.jiathis_button_weixin.share_icon{:href => "#"}
           .hidden_txt
             %p#title
               = @product.title
@@ -33,19 +34,10 @@
               = @product.avatar.url
 
           :javascript
-            var title = document.getElementById('title').innerText;
-            var url = document.getElementById('url').innerText;
             var jiathis_config={
-              data_track_clickback:true,
-              siteNum:1,
-              sm:"weixin",
               summary:"",
-              boldNum:4,
               shortUrl:false,
               hideMore:true,
-
-              title: title,
-              url: url
             }
 
           %script{:src => "http://v3.jiathis.com/code/jia.js?uid=2116682",:type => "text/javascript"}
