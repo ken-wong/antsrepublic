@@ -342,10 +342,10 @@ section.partner_list{
 		border: 1px solid #919191;
 	}
 	.owl-item{
-		width:240px!important;
+		width:200px!important;
 	}
 	.parter_logo_container{
-		//width:1170px;
+		width:1050px;
 		margin:0 auto;
 		//background: #fff;
 		padding-top: 25px;
@@ -354,7 +354,7 @@ section.partner_list{
 			// height:70px;
 			display:inline-block;
 			//float:left;
-			margin-left: 28%;
+			margin-left: 20px;
 			.logo-img{
 				height: 100px;
 				width: 170px;
@@ -385,7 +385,7 @@ section.partner_list{
 				top:70px;
 			}
 			.owl-next{
-			   right: 10px;
+			   right: 0px;
 				 top:70px;
 			}
 
