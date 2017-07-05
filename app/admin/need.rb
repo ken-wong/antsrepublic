@@ -36,6 +36,9 @@ ActiveAdmin.register Need do
 	  column :client_name
 	  column :category
 	  column :state
+	  column '资料列表' do |need|
+      link_to '资料列表', [:admin, need, :need_imgs]
+    end
 	  actions
 	end
 

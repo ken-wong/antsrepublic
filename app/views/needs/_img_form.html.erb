@@ -1,16 +1,15 @@
-    <div class="btn-upload">
-      <% need_image = @need.need_imgs.build %>
-      <%= form_for :need_image, url: need_need_imgs_path(@need) do |f| %>
-        <%= f.file_field :photo, class: "need_img_upload", data: { controller: "need_imgs", action: "create" } %>
-        <%= f.label :photo, '上  传', class: 'btn btn-primary upload-button' %>
-      <% end %>
-    </div>
+<div class="btn-upload">
+  <% need_image = @need.need_imgs.build %>
+  <%= form_for :need_image, url: need_need_imgs_path(@need) do |f| %>
+    <%= f.file_field :photo, class: "need_img_upload", data: { controller: "need_imgs", action: "create" } %>
+    <%= f.label :photo, '上  传', class: 'btn btn-primary upload-button' %>
+  <% end %>
+</div>
 <div class="upload-img-box">
   <div class="upload-img-item">
     <span><input type="checkbox" name="upload-all-checkbox" value=""></span>
     <span>类型</span>
     <span>文件名称</span>
-    <span>(上传文件格式只支持zip和rar压缩文件)</span>
   </div>
   <div class='img_list'>
     <%= render 'img_list', need: @need %>
