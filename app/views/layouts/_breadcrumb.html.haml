@@ -37,6 +37,11 @@
               %li= link_to '个人中心', dashboard_user_path(current_user)
               %li= I18n.t('user_following')
 
+            - if params[:id].present? && current_page?(file_list_need_path(params[:id]))
+              %li= link_to I18n.t('root_path'), root_path
+              %li= link_to '个人中心', dashboard_user_path(current_user)
+              %li= link_to '项目管理', project_list_user_path(current_user)
+              %li 资料列表
 
             - if current_page?(choose_user_path(current_user))
               %li= link_to I18n.t('root_path'), root_path
@@ -79,7 +84,20 @@
             %li= link_to '项目管理', project_list_user_path(current_user)
             %li 发布需求
 
+          - if params[:id].present? && current_page?(waitfor_upload_need_path(params[:id]))
+            %li= link_to I18n.t('root_path'), root_path
+            %li= link_to '个人中心', dashboard_user_path(current_user)
+            %li= link_to '项目管理', project_list_user_path(current_user)
+            %li= link_to '发布需求', new_need_path
+            %li 等待上传
 
+          - if params[:id].present? && current_page?(upload_file_need_path(params[:id]))
+            %li= link_to I18n.t('root_path'), root_path
+            %li= link_to '个人中心', dashboard_user_path(current_user)
+            %li= link_to '项目管理', project_list_user_path(current_user)
+            %li= link_to '发布需求', new_need_path
+            %li= link_to '等待上传', waitfor_upload_need_path
+            %li 上传资料
 
           - if current_page?(teach_queen_path)
             %li= link_to I18n.t('root_path'), root_path
