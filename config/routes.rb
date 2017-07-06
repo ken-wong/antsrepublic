@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   post 'complain'=> 'complains#create'
 
-  resources :password_resets
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   resources :attachments
   resources :search_dropdown, only: [:index]
