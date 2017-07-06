@@ -7,17 +7,9 @@ section.queens_work_slider{
 	img{
 	    box-shadow: 0px 0px 5px #000;
 	}
-	#caseVideo.video-js{
-		.vjs-big-play-button{
-			width:3em;
-			height:3em;
-			line-height:3em;
-			border-radius:1.5em;
-			top:50%;
-			left:50%;
-			margin-top:-1.5em;
-			margin-left:-1.5em;
-		}
+	#caseVideo
+		width:100%;
+		height:100%;
 	}
 	a.queenWorkVideoPlay{
 		// display:none;
