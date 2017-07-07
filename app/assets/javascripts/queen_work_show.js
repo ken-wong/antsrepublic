@@ -41,10 +41,4 @@
     return false
   })
 
-  // var myPlayer = videojs('caseVideo');
-  //    videojs("caseVideo").ready(function(){
-  //      var myPlayer = this;
-  //      myPlayer.play();
-  //    });
-
 }());
