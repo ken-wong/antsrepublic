@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if(request.url.split('?')[1]!=nil)
       @@page = request.url.split('?')[1].split('=')[1]
     else
-      @@page = 1  
+      @@page = 1
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
      if User.count > 0 then
-       @user.add_role 'visitor'
+        @user.add_role 'visitor'
       else
         @user.add_role 'admin'
       end
@@ -57,8 +57,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
-
   def following_list
     @products = current_user.all_following
   end
@@ -85,8 +83,6 @@ class UsersController < ApplicationController
   def choose
     @user = User.find(params[:id])
   end
-
-
 
   def verify
     @user = User.find(params[:id])
