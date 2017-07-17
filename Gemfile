@@ -78,6 +78,11 @@ gem 'thin'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'devise-i18n'
+# https://github.com/skinnyworm/omniauth-wechat-oauth2
+gem 'omniauth'
+gem "omniauth-wechat-oauth2", git: 'git@github.com:yangsr/omniauth-wechat-oauth2.git'
+# https://github.com/lanrion/weixin_authorize/wiki/Getting-Started
+gem 'weixin_authorize'
 
 gem 'acts-as-taggable-on', '~> 3.4' # tag 插件
 gem "acts_as_follower" # follow/like 插件

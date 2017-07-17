@@ -96,6 +96,9 @@ Rails.application.routes.draw do
   post    'login'   => 'sessions#create'
   delete  'logout'  => 'sessions#destroy'
   get     'signup'  => 'users#new'
+  get     'bind_wx'  => 'users#bind_wx'
+  get     '/auth/wechat'  => 'sessions#wechat'
+  get '/auth/wechat/callback'=> 'sessions#auth_callback'
 
   namespace :api, defaults: {format: :json} do
     resources :banners

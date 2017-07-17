@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614072736) do
+ActiveRecord::Schema.define(version: 20170714060222) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -291,6 +291,7 @@ ActiveRecord::Schema.define(version: 20170614072736) do
     t.string   "password_reset_token",   limit: 255
     t.datetime "password_reset_sent_at"
     t.datetime "deleted_at"
+    t.string   "wx_openid",              limit: 255
   end
 
   add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree

@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def bind_wx
+    @user = User.new
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -98,6 +102,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(
       :email, :name, :cell, :password,
-      :password_confirmation, :company, :avatar, :state, :description)
+      :password_confirmation, :company, :avatar, :state, :description, :wx_openid)
     end
 end
