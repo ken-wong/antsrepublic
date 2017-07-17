@@ -1,0 +1,58 @@
+<% [:error, :warning, :notice, :message].each do |key| %>
+  <% if flash[key] %>
+    <p>
+      <div class='text-center alert alert-danger'>
+        <%= content_tag :div, flash[key], :id=> key, class: "alert alert-#{key}" %>
+       </div>
+    </p>
+  <% end %>
+<% end %>
+<section style="" class="userSignup">
+  <div class="mask-bg">
+  	<div class='container'>
+  		<div class="row">
+  			<div class='col-sm-12 col-md-offset-3 col-md-6'>
+  				<h3 class="text-center">绑定微信</h3>
+  			</div>
+  		</div>
+  		<div class='row'>
+  			<div class='col-sm-12 my-offset-3 col-md-5'>
+  				<div class='thumbnail info-thumbnail'>
+  					<div class="caption" id="jackLogin">
+
+  						<%= simple_form_for @user, html:{ class: 'form-horizontal' } do |f| %>
+  							<div class="form-group">
+  								<label class="control-label col-sm-3 text-right">*邮箱</label>
+  								<div class="col-sm-9">
+  								  <%= f.input_field :email, class:'form-control' %>
+  								</div>
+  							</div>
+  							<div class="form-group">
+  								<label class="control-label col-sm-3 text-right">*密码</label>
+  								<div class="col-sm-9">
+  								  <%= f.input_field :password, class:'form-control' %>
+  								</div>
+  							</div>
+  							<div class="form-group">
+  								<label class="control-label col-sm-3 text-right">*确认密码</label>
+  								<div class="col-sm-9">
+  								  <%= f.input_field :password_confirmation, class:'form-control' %>
+                    <%= f.hidden_field :wx_openid, value: params[:openid] %>
+  								</div>
+  							</div>
+                <div class="form-group" style="margin:25px 0">
+  								<label class="control-label col-sm-3 text-right"></label>
+  								<div class="col-sm-7 btn-register">
+  								  <%= f.button :submit, value: '绑定',class:'btn btn-block btn-ants' %>
+  								</div>
+  							</div>
+
+  						<% end %>
+
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</section>
