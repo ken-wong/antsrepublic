@@ -38,6 +38,8 @@
   								<div class="col-sm-9">
   								  <%= f.input_field :password_confirmation, class:'form-control' %>
                     <%= f.hidden_field :wx_openid, value: params[:openid] %>
+                    <%= f.hidden_field :name, value: params[:nickname] %>
+                    <%= f.hidden_field :avatar, value: params[:headimgurl] %>
   								</div>
   							</div>
                 <div class="form-group" style="margin:25px 0">
