@@ -63,11 +63,11 @@
 
           - if current_page?(login_path)
             %li= link_to I18n.t('root_path'), root_path
-            %li= '登陆'
+            %li= '登录'
 
           - if current_page?(new_password_reset_path)
             %li= link_to I18n.t('root_path'), root_path
-            %li= link_to '登陆', login_path
+            %li= link_to '登录', login_path
             %li= '忘记密码'
 
           - if !@product.nil? and current_page?(new_product_path)
