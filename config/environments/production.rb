@@ -77,4 +77,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.default_url_options = { :host => "www.antsrepublic.com" }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.exmail.qq.com',
+    domain: 'qq.com',
+    port: 465,
+    user_name: 'customer@antsrepublic.com',
+    password: 'realmark36',
+    authentication: 'plain',
+    ssl: true
+  }
 end
