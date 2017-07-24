@@ -83,7 +83,7 @@ Rails.application.configure do
     port: 25,
     user_name: 'customer@antsrepublic.com',
     password: 'realmark36',
-    authentication: 'plain',
-    ssl: true
+    authentication: :login,
+    enable_starttls_auto: true
   }
 end
