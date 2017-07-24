@@ -82,7 +82,7 @@ Rails.application.configure do
     port: 25,
     user_name: 'customer@antsrepublic.com',
     password: 'realmark36',
-    domain: 'exmail.qq.com',
+    domain: 'qq.com',
     authentication: :plain,
     enable_starttls_auto: true
   }
