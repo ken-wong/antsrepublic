@@ -80,7 +80,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.exmail.qq.com',
     domain: 'exmail.qq.com',
-    port: 465,
+    port: 25,
     user_name: 'customer@antsrepublic.com',
     password: 'realmark36',
     authentication: 'plain',
