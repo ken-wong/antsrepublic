@@ -79,7 +79,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => "www.antsrepublic.com" }
   config.action_mailer.smtp_settings = {
     address: 'smtp.exmail.qq.com',
-    domain: 'qq.com',
+    domain: 'exmail.qq.com',
     port: 465,
     user_name: 'customer@antsrepublic.com',
     password: 'realmark36',
