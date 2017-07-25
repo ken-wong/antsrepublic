@@ -81,8 +81,9 @@ Rails.application.configure do
     address: 'smtp.exmail.qq.com',
     port: 25,
     user_name: 'customer@antsrepublic.com',
-    password: 'realmark36',
+    password: 'Realmark36',
     domain: 'smtp.qq.com',
     authentication: :plain,
+    enable_starttls_auto: true
   }
 end
