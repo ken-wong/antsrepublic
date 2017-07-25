@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def wechat
-    redirect_to("https://open.weixin.qq.com/connect/qrconnect?appid=#{ENV['WECHAT_APP_ID']}&redirect_uri=http://www.antsrepublic.com/auth/wechat/callback&response_type=code&scope=snsapi_login&state=web#wechat_redirect")
+    redirect_to("https://open.weixin.qq.com/connect/qrconnect?appid=wxb58cdd0b15dc84fb&redirect_uri=http://www.antsrepublic.com/auth/wechat/callback&response_type=code&scope=snsapi_login&state=web#wechat_redirect")
   end
 
   def auth_callback
