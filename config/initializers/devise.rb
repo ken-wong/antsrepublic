@@ -16,7 +16,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
-  config.omniauth :wechat, ENV["WECHAT_APP_ID"], ENV["WECHAT_APP_SECRET"],
+  config.omniauth :wechat, 'wxb58cdd0b15dc84fb', '94d3336c2b7154b1d0e43bf4bed2d499',
         :authorize_params => {:scope => "snsapi_userinfo"}
 
   # Configure the class responsible to send e-mails.
