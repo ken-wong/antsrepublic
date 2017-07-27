@@ -15,14 +15,14 @@
         <p>*请务必输入真实手机号码，并保持手机信号通畅；我们的客服人员会主动通过手机联系您，从此来认证您的真实身份</p>
         <p class="form-text">
           <% if session[:role] == 'owner' %>
-            <input type="checkbox"> 同意《委托方协议》
+            <input type="checkbox"> 同意<a href="#" data-toggle="modal" data-target="#exampleModalLong">《委托方协议》</a>
           <% end %>
           <% if session[:role] == 'queen' %>
-            <input type="checkbox"> 同意《乙方协议》
+            <input type="checkbox"> 同意<a href="#" data-toggle="modal" data-target="#exampleModalLong">《乙方协议》</a>
           <% end %>
         </p>
       </div>
-
+      <%= render 'service_agreement' %>
   </div>
 
 
