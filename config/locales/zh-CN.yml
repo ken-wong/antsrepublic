@@ -19,7 +19,7 @@ zh-CN:
     attributes:
       product:
         title: 项目名称
-        avatar: 缩略图
+        avatar: 案例
         client_name: 委托客户
         category: 项目分类
         description: 项目说明
