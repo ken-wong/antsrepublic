@@ -9,7 +9,6 @@ class Product < ActiveRecord::Base
 
 	validates :title, presence: true
 	validates :category, presence: true
-
 	has_many :uploads
 
   acts_as_taggable
