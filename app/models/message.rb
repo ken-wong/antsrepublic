@@ -1,7 +1,6 @@
 class Message < ActiveRecord::Base
-  after_save :sent_notification
-
-  def sent_notification
-    Rails.logger.info '==================================mail======================='
+  def receiver
+    id = self.received_messageable_id
+    User.find(id) if id.present?
   end
 end
