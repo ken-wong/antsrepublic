@@ -51,5 +51,6 @@ module Antsrepublic
         resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
+    config.active_job.queue_adapter = :delayed_job
   end
 end

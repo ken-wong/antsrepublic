@@ -67,6 +67,9 @@ gem 'rails-i18n'
 gem 'simple_form' 
 gem 'bcrypt'
 
+# https://github.com/collectiveidea/delayed_job
+gem 'delayed_job_active_record'
+
 gem 'rack-cors'
 # carrierwave for image upload and save in qiniu
 gem 'carrierwave' #文件上传

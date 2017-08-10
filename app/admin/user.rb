@@ -68,6 +68,7 @@ ActiveAdmin.register User do
     user.update_attribute(:state, '认证通过')
   	message_str = "管理员已经设置用户: <a href='#{user_path(resource)}'>#{resource.name}</a> 状态为 #{resource.state}  "
 		current_admin_user.send_message(resource, message_str)
+    Notifier.send_notification(User.last)
     redirect_to admin_users_path
   end
 
