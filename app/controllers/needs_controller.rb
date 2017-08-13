@@ -38,6 +38,7 @@ class NeedsController < InheritedResources::Base
 
     message_str = "蚁后提交了<a href='#{need_path(@need)}'>#{@need.title}</a> 的项目计划: #{@need.state}"
     current_user.send_message(@need.user, message_str)
+    Notifier.send_notification(@need.user).deliver
 
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
@@ -58,7 +59,9 @@ class NeedsController < InheritedResources::Base
 
     message_str = "甲方确认项目<a href=#{need_path(@need)}>#{@need.title}</a>已经完成了"
     current_user.send_message(@need.user, message_str)
+    Notifier.send_notification(@need.user).deliver
     current_user.send_message(@need.queen, message_str)
+    Notifier.send_notification(@need.queen).deliver
 
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
@@ -83,6 +86,7 @@ class NeedsController < InheritedResources::Base
     @need.plan_confirm!
     message_str = "甲方确认了<a href='#{need_path(@need)}'>#{@need.title}</a> 的项目计划: #{@need.state}"
     current_user.send_message(@need.queen, message_str)
+    Notifier.send_notification(@need.queen).deliver
 
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
@@ -94,6 +98,7 @@ class NeedsController < InheritedResources::Base
     @need.plan_refuse!
     message_str = "甲方拒绝并质疑<a href='#{need_path(@need)}'>#{@need.title}</a> 的项目计划: #{@need.state}"
     current_user.send_message(@need.queen, message_str)
+    Notifier.send_notification(@need.queen).deliver
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: 'Need was successfully updated.' }
     end

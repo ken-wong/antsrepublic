@@ -4,6 +4,5 @@ class Notifier < ApplicationMailer
     # http://localhost:3000/rails/mailers/notifier/send_notification
     @user = user
     mail :to => user.email, :subject => "蚂蚁共和消息通知"
-    Rails.logger.info '***************************************************8'
   end
 end

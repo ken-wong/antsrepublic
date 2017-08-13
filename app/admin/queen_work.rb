@@ -83,10 +83,13 @@ ActiveAdmin.register QueenWork do
 		if queen_work.queen
 			message_str = "项目<a href='#{queen_work_path(queen_work)}'>#{queen_work.title}</a>, 已经指派给蚁后:<a href='#{queen_path(queen_work.queen_id)}'>#{queen_work.queen.name}</a>"
 			current_admin_user.send_message(queen_work.queen, message_str)
+      Notifier.send_notification(queen_work.queen).deliver
 			current_admin_user.send_message(queen_work.user, message_str)
+      Notifier.send_notification(queen_work.user).deliver
 		else
 			message_str = "管理员更改了项目:<a href='#{queen_work_path(queen_work)}'>#{queen_work.title}</a> 的状态: #{queen_work.state}"
 			current_admin_user.send_message(queen_work.user, message_str)
+      Notifier.send_notification(queen_work.user).deliver
 		end
 
 	end
