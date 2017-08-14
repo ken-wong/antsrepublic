@@ -12,7 +12,7 @@
         .col-md-10
           .comment-content-block
             .comment-content
-              %p= comment.title
+              %p= comment.comment
             .comment-createtime
               %p= comment.created_at.strftime('%Y-%m-%d %H:%M')
 
@@ -21,5 +21,5 @@
 
     .col-sm-12.need-comment
       = simple_form_for :comment, url: create_comment_need_path(@need) do |f|
-        = f.text_area :title, label: false, class:'project-comment-textarea col-sm-12'
+        = f.text_area :comment, label: false, class:'project-comment-textarea col-sm-12'
         = f.button :submit, value: '提交评论', class:'btn btn-main-color submitComment'
