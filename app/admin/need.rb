@@ -19,8 +19,8 @@ ActiveAdmin.register Need do
 			f.input :ref_price
 			f.input :category, as: :select, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]]
 			f.input	:description
-      f.input :reference_product_ids
-      f.input :reference_queen_ids
+      f.input :reference_product_ids, as: :select, collection: f.object.reference_product_ids.split(',').map{|q| [Product.find_by_id(q.to_i).nil? ? q : Product.find_by_id(q.to_i).title, q.to_i]}
+      f.input :reference_queen_ids, as: :select, collection: f.object.reference_queen_ids.split(',').map{|q| [User.find_by_id(q.to_i).nil? ? q : User.find_by_id(q.to_i).name, q.to_i]}
 			f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
 			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| ["#{u.name}|#{u.email}", u.id]}
 			f.input :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '提交计划', '等待甲方', '乙方执行','项目终止', '项目完成', '我的案例']
