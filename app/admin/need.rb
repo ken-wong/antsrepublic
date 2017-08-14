@@ -19,7 +19,7 @@ ActiveAdmin.register Need do
 			f.input :ref_price
 			f.input :category, as: :select, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]]
 			f.input	:description
-      f.input :reference_product_ids, input_html: {value: f.object.reference_product_ids.split(',').map{|q| Product.find(q.to_i).name}}
+      f.input :reference_product_ids, input_html: {value: f.object.reference_product_ids.split(',').map{|q| Product.find(q.to_i).title}}
       f.input :reference_queen_ids, input_html: {value: f.object.reference_queen_ids.split(',').map{|q| User.find(q.to_i).name}}
 			f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
 			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| ["#{u.name}|#{u.email}", u.id]}
