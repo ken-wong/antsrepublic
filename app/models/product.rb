@@ -62,13 +62,12 @@ class Product < ActiveRecord::Base
   end
 
   def send_message(admin, from, to)
+    return
     if user
       admin.send_message(user, "<a href=\"/products/#{id}\" >#{title}</a>从#{from}到#{to}")
-      Notifier.send_notification(user).deliver
     end
     if queen
       admin.send_message(queen, "<a href=\"/products/#{id}\" >#{title}</a>从#{from}到#{to}")
-      Notifier.send_notification(queen).deliver
     end
   end
 

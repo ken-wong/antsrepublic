@@ -30,7 +30,6 @@ class TasksController < InheritedResources::Base
 
     message_str = "甲方确认工作成果:#{@task.title}</a>"
     current_user.send_message(@need.queen, message_str)
-    Notifier.send_notification(@need.queen).deliver
 
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: '甲方确认工作成果' }
@@ -44,7 +43,6 @@ class TasksController < InheritedResources::Base
 
     message_str = "甲方质疑了工作成果:#{@task.title}</a>"
     current_user.send_message(@need.queen, message_str)
-    Notifier.send_notification(@need.queen).deliver
 
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: '甲方质疑了工作成果' }
@@ -57,7 +55,6 @@ class TasksController < InheritedResources::Base
     @task.wait_for!
     message_str = "乙方提交了工作计划:#{@task.title}全部附件,请甲方检查</a>"
     current_user.send_message(@need.queen, message_str)
-    Notifier.send_notification(@need.queen).deliver
 
     respond_to do |format|
       format.html { redirect_to need_tasks_path(@need), notice: '已经通知甲方!' }
@@ -81,7 +78,6 @@ class TasksController < InheritedResources::Base
       if @task.save
       	message_str = "蚁后提交了<a href='#{need_path(@need)}'>#{@need.title}</a> 的工作成果: #{@task.title}"
     		current_user.send_message(@need.user, message_str)
-        Notifier.send_notification(@need.user).deliver
 
         format.html { redirect_to need_tasks_path(need_id: @task.plan.need_id), notice: "请添加附件到日历下方的<#{@task.plan.title}>" }
         format.json { render :show, status: :created, location: @task }

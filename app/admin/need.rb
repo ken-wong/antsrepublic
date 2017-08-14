@@ -126,13 +126,10 @@ ActiveAdmin.register Need do
 		if need.queen
 			message_str = "项目<a href='#{need_path(need)}'>#{need.title}</a>, 已经指派给蚁后:<a href='#{queen_path(need.queen_id)}'>#{need.queen.name}</a>"
 			current_admin_user.send_message(need.queen, message_str)
-      Notifier.send_notification(need.queen).deliver
 			current_admin_user.send_message(need.user, message_str)
-      Notifier.send_notification(need.user).deliver
 		else
 			message_str = "管理员更改了项目:<a href='#{need_path(need)}'>#{need.title}</a> 的状态: #{need.state}"
 			current_admin_user.send_message(need.user, message_str)
-      Notifier.send_notification(need.user).deliver
 		end
 
 	end
