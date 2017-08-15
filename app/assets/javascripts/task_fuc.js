@@ -182,8 +182,7 @@
 		//日历
 	  $('.responsive-calendar').responsiveCalendar({
 	        time: firstTaskData,
-	        events: taskData,
-	        onDayClick: function(events) {
+	        onDayClick: function() {
 						$('body').off('click','.task-btn');
 						if($('.calendar-queen').length!=0){
 							var thisDayEvent, key;

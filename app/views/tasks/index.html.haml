@@ -147,8 +147,5 @@
 
 :javascript
   var firstTaskData="#{getFirstTaskData(@plans)}"
-  var taskData={
-    #{create_canlendar_data_obj_string(@plans)}
-  }
   var need_id = #{@need.id}
   var user_id = #{current_user.id}
