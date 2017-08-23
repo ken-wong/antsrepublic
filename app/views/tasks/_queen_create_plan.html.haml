@@ -2,7 +2,7 @@
   .col-md-12.need-id(need_id="#{@need.id}")
     %h3.text-center
       - unless @need.state == '甲方拒绝'
-        ='你好！项目已经开始！请尽快制定任务计划，并提交给甲方确认'
+        ="你好！#{@need.title} 项目已经开始！请尽快制定任务计划，并提交给甲方确认"
       - else
         ='甲方拒绝了你计划,请重新修改计划'
 
