@@ -27,7 +27,7 @@
               %li
                 = "你好, #{current_user.name}"
               %li
-                = link_to '个人中心', dashboard_user_path(session[:user_id])
+                = link_to '个人中心', user_path(session[:user_id])
               %li
                 = link_to t('我的项目'), project_list_user_path(current_user)
               %li
@@ -75,7 +75,7 @@
               %li.text-black
                 = "你好, #{current_user.name}"
               %li
-                = link_to '个人中心', dashboard_user_path(session[:user_id])
+                = link_to '个人中心', user_path(session[:user_id])
               %li
                 = link_to t('我的项目'), project_list_user_path(current_user)
               %li
