@@ -54,6 +54,6 @@ module ApplicationHelper
   end
 
   def message_count
-    message_count = User.find(current_user).messages.unreaded.size if current_user
+    message_count = User.find(current_user).messages.where(created_at: ((Time.now - 1.month)..(Time.now))).unreaded.size if current_user
   end
 end
