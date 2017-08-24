@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-    @messages = User.find(current_user).messages.page(params[:page]).per(8)
+    @messages = User.find(current_user).messages.where(created_at: ((Time.now - 1.month)..(Time.now))).page(params[:page]).per(8)
     if(request.url.split('?')[1]!=nil)
       @@page = request.url.split('?')[1].split('=')[1]
     else
