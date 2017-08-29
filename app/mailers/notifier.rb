@@ -3,6 +3,6 @@ class Notifier < ApplicationMailer
   def send_notification(user)
     # http://localhost:3000/rails/mailers/notifier/send_notification
     @user = user
-    mail :to => user.email, :subject => "蚂蚁共和消息通知", cc: "1826258204@qq.com"
+    mail :to => user.email, :subject => "蚂蚁共和消息通知", cc: "wincent@realmarkcg.com"
   end
 end
