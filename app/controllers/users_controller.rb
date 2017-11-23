@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       else
         @user.add_role 'admin'
       end
-      @user.send_message(User.first, "欢迎注册蚂蚁共和,请在<a href='#{edit_user_path(@user)}'>个人资料</a> 申请认证甲方或蚁后")
+      @user.send_message(User.first, "欢迎注册蚂蚁共和,请在<a href='#{user_path(@user)}'>个人资料</a> 申请认证甲方或蚁后")
       log_in(@user)
       redirect_to dashboard_user_path(@user)
     else
