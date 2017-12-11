@@ -8,7 +8,7 @@ class Message < ActsAsMessageable::Message
 
   def send_mail
     begin
-      Notifier.send_notification(self.receiver).deliver_now
+      Notifier.send_notification(self.receiver, self.body).deliver_now
     rescue Exception
     end
   end
