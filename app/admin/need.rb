@@ -124,11 +124,11 @@ ActiveAdmin.register Need do
 	after_update do |need|
 
 		if need.queen
-			message_str = "项目<a href='#{need_url(need)}'>#{need.title}</a>, 已经指派给蚁后:<a href='#{queen_url(need.queen_id)}'>#{need.queen.name || "未知姓名"}</a>"
+			message_str = "项目<a href='#{need_url(need)}'>#{need.title}</a>, 已经指派给蚁后:<a href='#{queen_url(need.queen_id)}'>#{need.queen.name || need.queen.email}</a>"
 			current_admin_user.send_message(need.queen, message_str)
 			current_admin_user.send_message(need.user, message_str)
 		else
-			message_str = "管理员更改了项目:<a href='#{need_path(need)}'>#{need.title}</a> 的状态: #{need.state}"
+			message_str = "管理员更改了项目:<a href='#{need_url(need)}'>#{need.title}</a> 的状态: #{need.state}"
 			current_admin_user.send_message(need.user, message_str)
 		end
 
