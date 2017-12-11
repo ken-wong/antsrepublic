@@ -81,7 +81,7 @@ ActiveAdmin.register QueenWork do
 	after_update do |queen_work|
 
 		if queen_work.queen
-			message_str = "项目<a href='#{queen_work_url(queen_work)}'>#{queen_work.title}</a>, 已经指派给蚁后:<a href='#{queen_url(queen_work.queen_id)}'>#{queen_work.queen.name}</a>"
+			message_str = "项目<a href='#{queen_work_url(queen_work)}'>#{queen_work.title}</a>, 已经指派给蚁后:<a href='#{queen_url(queen_work.queen_id)}'>#{queen_work.queen.name || "未知姓名"}</a>"
 			current_admin_user.send_message(queen_work.queen, message_str)
 			current_admin_user.send_message(queen_work.user, message_str)
 		else
