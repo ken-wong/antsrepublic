@@ -9,19 +9,20 @@ ActiveAdmin.register Need do
 	form do |f|
 		f.semantic_errors
 
-		f.inputs I18n.t('activerecord.attributes.product.avatar'), :multipart => true do
-			f.input :avatar, as: :file, hint: (image_tag(f.object.avatar.url + qiniu_deal) if !f.object.new_record? and !f.object.avatar.url.nil?)
-			f.input :avatar_cache, as: :hidden
-		end
+		# f.inputs I18n.t('activerecord.attributes.product.avatar'), :multipart => true do
+		# 	f.input :avatar, as: :file, hint: (image_tag(f.object.avatar.url + qiniu_deal) if !f.object.new_record? and !f.object.avatar.url.nil?)
+		# 	f.input :avatar_cache, as: :hidden
+		# end
 		f.inputs 'more' do
 			f.input :title
-			f.input :client_name
-			f.input :ref_price
+			# f.input :client_name
+			# f.input :ref_price
+			f.input :price_range, collection: ["高端", "中端", "低端"]
 			f.input :category, as: :select, collection: [['效果图','效果图'],["影片","影片"],["多媒体","多媒体"]]
-			f.input	:description
+			f.input	:remark
       f.input :reference_product_ids, as: :select, collection: f.object.reference_product_ids.split(',').map{|q| [Product.find_by_id(q.to_i).nil? ? q : Product.find_by_id(q.to_i).title, q.to_i]}
       f.input :reference_queen_ids, as: :select, collection: f.object.reference_queen_ids.split(',').map{|q| [User.find_by_id(q.to_i).nil? ? q : User.find_by_id(q.to_i).name, q.to_i]}
-			f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
+			# f.input :tag_list, hint: '请使用小写的逗号分割不同标签', input_html:  {value: f.object.tag_list.to_s}
 			f.input :queen_id, as: :select, collection: User.with_role(:queen).map{|u| ["#{u.name}|#{u.email}", u.id]}
 			f.input :state, collection: ['等待审核', '审核拒绝', '寻找蚁后', '提交计划', '等待甲方', '乙方执行','项目终止', '项目完成', '我的案例']
 		end
@@ -33,7 +34,7 @@ ActiveAdmin.register Need do
     column :title do |need|
       link_to need.title, [:admin, need, :tasks]
     end
-	  column :client_name
+	  # column :client_name
 	  column :category
 	  column :state
 	  column '资料列表' do |need|
@@ -45,17 +46,17 @@ ActiveAdmin.register Need do
 	show do
 		attributes_table do
 			row :title
-			row I18n.t('activerecord.attributes.product.avatar') do
-				image_tag need.avatar.url + qiniu_deal if need.avatar.url
-			end
+			# row I18n.t('activerecord.attributes.product.avatar') do
+			# 	image_tag need.avatar.url + qiniu_deal if need.avatar.url
+			# end
 
-			row :main_media
-			row :client_name
-			row :ref_price
+			# row :main_media
+			# row :client_name
+			# row :ref_price
 			row :category
-			row	:description
-			row :tag_list
-			row :reference_product_ids
+			row	:remark
+			row :price_range
+			# row :reference_product_ids
 
 			row '蚁后' do
 				link_to need.queen.name, admin_user_path(need.queen) if need.queen
