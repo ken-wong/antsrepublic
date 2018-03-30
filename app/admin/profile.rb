@@ -12,6 +12,9 @@ ActiveAdmin.register Profile do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+  permit_params do
+    permitted = [:user, :id, :phone, :qq, :wechat, :company, :address, :user_id, :verify_img1, :verify_img2, :verify_img3, :other]
+  end
 
 	show do
 		attributes_table do
