@@ -1,5 +1,5 @@
 .user-info
-  = image_tag(current_user.avatar && current_user.avatar.small_url,  class: 'user-avatar')
+  = image_tag(current_user && current_user.avatar.small_url,  class: 'user-avatar')
   .right-container
     %p.name
       = current_user.name
