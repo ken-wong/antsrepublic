@@ -1,5 +1,7 @@
 class TasksController < InheritedResources::Base
 
+  before_action :authenticate_user!, only: [:index]
+
   def index
     @need = Need.find(params[:need_id])
     @task = @need.tasks.build
