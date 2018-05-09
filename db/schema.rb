@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810053633) do
+ActiveRecord::Schema.define(version: 20180509063904) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -188,8 +188,8 @@ ActiveRecord::Schema.define(version: 20170810053633) do
     t.string   "category",              limit: 255
     t.string   "main_media",            limit: 255
     t.text     "description",           limit: 65535
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.integer  "queen_id",              limit: 4
     t.integer  "category_id",           limit: 4
     t.integer  "user_id",               limit: 4
@@ -203,6 +203,7 @@ ActiveRecord::Schema.define(version: 20170810053633) do
     t.datetime "deleted_at"
     t.string   "material_name",         limit: 255
     t.text     "remark",                limit: 65535
+    t.boolean  "is_case",                             default: false
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree

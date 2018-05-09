@@ -43,7 +43,11 @@
                     - elsif product.state == '项目完成'
                       = link_to '日程计划', need_tasks_path(product), class: 'btn btn-ants'
                       = link_to '资料列表', file_list_need_path(product), class:'btn btn-ants'
-                      = link_to '转成案例', convert_to_queen_work_need_path(product), class:'btn btn-primary ' if current_user.has_role? :queen
+                      - if current_user.has_role?(:queen)
+                        - if product.is_case
+                          = link_to '已入蚁巢', 'javascript:;', class:'btn btn-primary'
+                        - else
+                          = link_to '转成案例', convert_to_queen_work_need_path(product), class:'btn btn-primary'
                     - else
                       = link_to '日程计划', need_tasks_path(product), class: 'btn btn-ants'
                       = link_to '资料列表', file_list_need_path(product), class:'btn btn-ants'

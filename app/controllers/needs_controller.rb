@@ -68,6 +68,7 @@ class NeedsController < InheritedResources::Base
   def convert_to_queen_work
     @need = Need.find(params[:id])
     pic = @need.tasks.empty? ? '' : @need.tasks.last.attachments.last
+    @need.update(is_case: true)
     @queen_work = @need.dup
     @queen_work.avatar = pic
     @queen_work.final!
