@@ -55,7 +55,7 @@
     .row
       .col-md-2.queens_work_queen_info
         .avatar_wapper.text-center
-          = image_tag(@product.queen.avatar.url+'?imageView2/2/w/200/h/200', class: 'img-circle') unless @product.queen.nil?
+          = @product.queen && @product.queen.avatar && @product.queen.avatar.url && image_tag(@product.queen.avatar.url+'?imageView2/2/w/200/h/200', class: 'img-circle')
       .col-md-2.queens_work_queen_name
         %p
           %strong= @product.queen.name unless @product.queen.nil?
