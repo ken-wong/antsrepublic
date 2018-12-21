@@ -24,7 +24,7 @@ GIT
       omniauth-oauth2 (~> 1.0)
 
 GEM
-  remote: https://ruby.taobao.org/
+  remote: https://gems.ruby-china.com/
   specs:
     actionmailer (4.2.6)
       actionpack (= 4.2.6)
@@ -457,4 +457,4 @@ DEPENDENCIES
   weixin_authorize
 
 BUNDLED WITH
-   1.14.6
+   1.17.2

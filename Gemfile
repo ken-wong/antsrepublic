@@ -1,6 +1,5 @@
 #source 'https://rubygems.org'
-source 'https://ruby.taobao.org'
-
+source 'https://gems.ruby-china.com'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
@@ -27,7 +26,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml'
-
+#gem 'json', github: 'flori/json', branch: 'v1.8'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem 'acts_as_commentable' # 评论插件
